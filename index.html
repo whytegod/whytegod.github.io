@@ -2,18 +2,18 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>WHYTEGOD Protocol — Phase 10</title>
+<title>WHYTEGOD Protocol — Phase 11</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 body{font-family:Arial,sans-serif;background:#0b0f19;color:#fff;margin:0}
-.container{max-width:1000px;margin:auto;padding:20px}
+.container{max-width:1100px;margin:auto;padding:20px}
 h1,h2,h3{color:#4da3ff}
 .box{background:#121829;padding:20px;margin-bottom:20px;border-radius:8px}
 textarea,input{width:100%;padding:10px;border-radius:5px;border:none;margin-top:10px}
 button{background:#4da3ff;color:#000;padding:12px 20px;border:none;border-radius:5px;font-size:16px;cursor:pointer;margin-top:10px}
 button:hover{background:#78b8ff}
-.output{background:#0b0f19;padding:15px;border-radius:5px;word-break:break-all;font-size:14px;margin-top:10px}
+.output{background:#0b0f19;padding:15px;border-radius:5px;word-break:break-all;font-size:13px;margin-top:10px}
 footer{text-align:center;opacity:.6;margin-top:40px}
 hr{border:1px solid #1f2a44;margin:30px 0}
 </style>
@@ -23,130 +23,142 @@ hr{border:1px solid #1f2a44;margin:30px 0}
 <div class="container">
 
 <h1>WHYTEGOD Protocol</h1>
-<p>Decentralized, AI-assisted, cryptographically enforced peer finance.</p>
+<p>Cryptographically enforced peer coordination for ordinary people.</p>
 
 <hr>
 
 <div class="box">
-<h2>Phase 8–10 Unified MVP</h2>
+<h2>Phase 11 — Hardened Protocol MVP</h2>
 <p>
-This protocol converts human intent into cryptographic truth,
-anchors it on Avalanche, and allows peers to verify and govern
-without tokens or trust.
+This system transforms human intent into immutable cryptographic truth,
+verified by peers and anchored on Avalanche without tokens or smart contracts.
 </p>
 </div>
 
 <div class="box">
-<h3>1️⃣ Human Intent Input</h3>
-<textarea id="userInput" placeholder="Enter an agreement, rule, or proposal..."></textarea>
-<button onclick="runProtocol()">Run Protocol</button>
+<h3>1️⃣ Proposal Creation</h3>
+<textarea id="userInput" placeholder="Enter a proposal, agreement, or financial rule..."></textarea>
+<button onclick="runProtocol()">Generate Proposal</button>
+<div id="proposalOutput" class="output">No proposal yet.</div>
 </div>
 
 <div class="box">
-<h3>2️⃣ AI-Assisted Structuring</h3>
-<div id="aiOutput" class="output">Waiting for input...</div>
-</div>
-
-<div class="box">
-<h3>3️⃣ Cryptographic Proof (SHA-256)</h3>
+<h3>2️⃣ Cryptographic Hash</h3>
 <div id="hashOutput" class="output">No hash yet.</div>
 </div>
 
 <div class="box">
-<h3>4️⃣ Peer Verification (Independent Recompute)</h3>
-<input id="peerInput" placeholder="Paste the same statement here to verify..." />
-<button onclick="verifyPeer()">Verify as Peer</button>
-<div id="peerOutput" class="output">Not verified.</div>
+<h3>3️⃣ Peer Verification (Minimum 3)</h3>
+<input id="peerInput" placeholder="Paste the SAME proposal text to verify..." />
+<button onclick="verifyPeer()">Submit Peer Verification</button>
+<div id="peerOutput" class="output">0 / 3 peers verified.</div>
 </div>
 
 <div class="box">
-<h3>5️⃣ Token-less Governance Logic</h3>
-<p>
-Governance is determined by deterministic math, not voting power.
-If hashes match, agreement is valid. If not, it is rejected.
-</p>
-<div id="governanceOutput" class="output">Awaiting verification.</div>
+<h3>4️⃣ Governance State</h3>
+<div id="governanceOutput" class="output">Awaiting peer consensus.</div>
 </div>
 
 <div class="box">
-<h3>6️⃣ Wallet Connection</h3>
+<h3>5️⃣ Wallet Connection</h3>
 <button onclick="connectWallet()">Connect MetaMask</button>
 <div id="walletOutput" class="output">Not connected.</div>
 </div>
 
 <div class="box">
-<h3>7️⃣ Avalanche Truth Anchor</h3>
-<button onclick="sendToAvalanche()">Anchor Proof On-Chain</button>
-<div id="chainOutput" class="output">No transaction sent.</div>
+<h3>6️⃣ Avalanche Final Anchor</h3>
+<button onclick="sendToAvalanche()">Finalize On Avalanche</button>
+<div id="chainOutput" class="output">Not finalized.</div>
 </div>
 
 <div class="box">
-<h3>Protocol Mathematics (Readable)</h3>
+<h3>Protocol Rules (Readable)</h3>
 <p>
-Let H = SHA-256(structured_intent).  
-If ∀ peers recompute H and results match, consensus exists.  
-Avalanche is used only to timestamp H, not to execute logic.  
-AI assists structuring but never signs or controls outcomes.
+• Proposal ID = SHA256(text + timestamp + wallet)<br>
+• Minimum peers required: 3<br>
+• All peers must reproduce the same hash<br>
+• Once finalized, proposal is locked forever<br>
+• Avalanche is used only as a timestamp anchor
 </p>
 </div>
 
 <footer>
-<p>WHYTEGOD Protocol — Phase 10 Complete</p>
-<p>Trust is replaced by verification.</p>
+<p>WHYTEGOD Protocol — Phase 11</p>
+<p>Verification replaces trust.</p>
 </footer>
 
 </div>
 
 <script>
-let currentHash="";
+let proposal=null;
+let proposalHash="";
+let peerCount=0;
+let peerThreshold=3;
 let userAccount=null;
+let finalized=false;
 
 async function runProtocol(){
-const input=document.getElementById("userInput").value.trim();
-if(!input){alert("Enter a statement");return;}
+if(finalized){alert("Proposal already finalized");return;}
 
-const structured={
-intent:input,
-constraints:"No intermediaries, peer verification required",
-ai_role:"Assist only, no authority",
-outcome:"Deterministic cryptographic truth"
+const text=document.getElementById("userInput").value.trim();
+if(!text){alert("Enter proposal text");return;}
+
+const timestamp=new Date().toISOString();
+
+proposal={
+text:text,
+timestamp:timestamp,
+proposer:userAccount||"unconnected",
+ai_role:"Assist only",
+rule:"Deterministic peer verification"
 };
 
-document.getElementById("aiOutput").textContent=
-JSON.stringify(structured,null,2);
+document.getElementById("proposalOutput").textContent=
+JSON.stringify(proposal,null,2);
 
 const encoder=new TextEncoder();
-const data=encoder.encode(JSON.stringify(structured));
+const data=encoder.encode(JSON.stringify(proposal));
 const hashBuffer=await crypto.subtle.digest("SHA-256",data);
 const hashArray=Array.from(new Uint8Array(hashBuffer));
-currentHash=hashArray.map(b=>b.toString(16).padStart(2,"0")).join("");
+proposalHash=hashArray.map(b=>b.toString(16).padStart(2,"0")).join("");
 
-document.getElementById("hashOutput").textContent=currentHash;
-document.getElementById("governanceOutput").textContent="Hash generated. Awaiting peer verification.";
+peerCount=0;
+document.getElementById("peerOutput").textContent="0 / "+peerThreshold+" peers verified.";
+document.getElementById("hashOutput").textContent=proposalHash;
+document.getElementById("governanceOutput").textContent="Proposal generated. Awaiting peers.";
 }
 
 async function verifyPeer(){
+if(!proposal||finalized){return;}
+
 const peerText=document.getElementById("peerInput").value.trim();
-if(!peerText||!currentHash){alert("Missing data");return;}
+if(!peerText){alert("Paste proposal text");return;}
 
 const encoder=new TextEncoder();
 const data=encoder.encode(JSON.stringify({
-intent:peerText,
-constraints:"No intermediaries, peer verification required",
-ai_role:"Assist only, no authority",
-outcome:"Deterministic cryptographic truth"
+text:peerText,
+timestamp:proposal.timestamp,
+proposer:proposal.proposer,
+ai_role:"Assist only",
+rule:"Deterministic peer verification"
 }));
 
 const hashBuffer=await crypto.subtle.digest("SHA-256",data);
 const hashArray=Array.from(new Uint8Array(hashBuffer));
 const peerHash=hashArray.map(b=>b.toString(16).padStart(2,"0")).join("");
 
-if(peerHash===currentHash){
-document.getElementById("peerOutput").textContent="Peer verification SUCCESS.";
-document.getElementById("governanceOutput").textContent="Consensus achieved. Agreement valid.";
+if(peerHash===proposalHash){
+peerCount++;
+document.getElementById("peerOutput").textContent=
+peerCount+" / "+peerThreshold+" peers verified.";
+
+if(peerCount>=peerThreshold){
+document.getElementById("governanceOutput").textContent=
+"Consensus reached. Ready for finalization.";
+}
 }else{
-document.getElementById("peerOutput").textContent="Verification FAILED.";
-document.getElementById("governanceOutput").textContent="Consensus rejected.";
+document.getElementById("governanceOutput").textContent=
+"Peer verification failed. Hash mismatch.";
 }
 }
 
@@ -158,13 +170,15 @@ document.getElementById("walletOutput").textContent="Connected: "+userAccount;
 }
 
 async function sendToAvalanche(){
-if(!userAccount||!currentHash){alert("Missing steps");return;}
+if(finalized){alert("Already finalized");return;}
+if(peerCount<peerThreshold){alert("Not enough peer verifications");return;}
+if(!userAccount){alert("Connect wallet first");return;}
 
 const tx={
 from:userAccount,
 to:userAccount,
 value:"0x0",
-data:"0x"+currentHash
+data:"0x"+proposalHash
 };
 
 const txHash=await ethereum.request({
@@ -172,8 +186,11 @@ method:"eth_sendTransaction",
 params:[tx]
 });
 
+finalized=true;
 document.getElementById("chainOutput").textContent=
-"Avalanche Fuji TX Hash: "+txHash;
+"FINALIZED — Avalanche TX: "+txHash;
+document.getElementById("governanceOutput").textContent=
+"Protocol locked. Immutable proof established.";
 }
 </script>
 
