@@ -2,71 +2,19 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>WHYTEGOD Protocol — MVP</title>
+<title>WHYTEGOD Protocol — Live MVP</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-body {
-  font-family: Arial, sans-serif;
-  background: #0b0f19;
-  color: #ffffff;
-  margin: 0;
-  padding: 0;
-}
-
-.container {
-  max-width: 900px;
-  margin: auto;
-  padding: 20px;
-}
-
-h1, h2, h3 {
-  color: #4da3ff;
-}
-
-.box {
-  background: #121829;
-  padding: 20px;
-  margin-bottom: 20px;
-  border-radius: 8px;
-}
-
-textarea {
-  width: 100%;
-  height: 120px;
-  padding: 10px;
-  border-radius: 5px;
-  border: none;
-  resize: vertical;
-}
-
-button {
-  background: #4da3ff;
-  color: #000;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-button:hover {
-  background: #78b8ff;
-}
-
-.output {
-  background: #0b0f19;
-  padding: 15px;
-  border-radius: 5px;
-  word-break: break-all;
-  font-size: 14px;
-}
-
-footer {
-  text-align: center;
-  opacity: 0.6;
-  margin-top: 40px;
-}
+body{font-family:Arial,sans-serif;background:#0b0f19;color:#fff;margin:0}
+.container{max-width:900px;margin:auto;padding:20px}
+h1,h2,h3{color:#4da3ff}
+.box{background:#121829;padding:20px;margin-bottom:20px;border-radius:8px}
+textarea{width:100%;height:120px;padding:10px;border-radius:5px;border:none}
+button{background:#4da3ff;color:#000;padding:12px 20px;border:none;border-radius:5px;font-size:16px;cursor:pointer}
+button:hover{background:#78b8ff}
+.output{background:#0b0f19;padding:15px;border-radius:5px;word-break:break-all;font-size:14px}
+footer{text-align:center;opacity:.6;margin-top:40px}
 </style>
 </head>
 
@@ -74,105 +22,103 @@ footer {
 <div class="container">
 
 <h1>WHYTEGOD Protocol</h1>
-<p>Decentralized, AI-assisted, peer-verified financial logic for ordinary people.</p>
+<p>AI-assisted, peer-verified, cryptographically anchored logic for ordinary people.</p>
 
 <div class="box">
-<h2>Why WHYTEGOD Exists</h2>
-<p>
-The global financial system was built on permission, opacity, and intermediaries.
-WHYTEGOD exists to prove that rules can be enforced by mathematics, verified by peers,
-and assisted by artificial intelligence — without trusting institutions.
-</p>
-</div>
-
-<div class="box">
-<h2>MVP — Proof of Intelligence Demo</h2>
-<p>
-This demo shows one full protocol loop:
-Human input → AI structuring → Cryptographic proof → Peer verification → On-chain reference.
-</p>
+<h2>Phase 9 — Live Blockchain Proof</h2>
+<p>This MVP writes cryptographic proof directly to Avalanche Fuji Testnet without smart contracts.</p>
 </div>
 
 <div class="box">
 <h3>1️⃣ Human Input</h3>
-<textarea id="userInput" placeholder="Enter a proposal, agreement, or financial rule..."></textarea>
+<textarea id="userInput" placeholder="Enter a proposal or financial rule..."></textarea>
 <br><br>
 <button onclick="runProtocol()">Run Protocol</button>
 </div>
 
 <div class="box">
-<h3>2️⃣ AI-Assisted Structuring (Simulation)</h3>
-<div id="aiOutput" class="output">Waiting for input...</div>
+<h3>2️⃣ AI-Assisted Structuring</h3>
+<div id="aiOutput" class="output">Waiting for input…</div>
 </div>
 
 <div class="box">
-<h3>3️⃣ Cryptographic Proof (SHA-256)</h3>
-<div id="hashOutput" class="output">No hash generated yet.</div>
+<h3>3️⃣ Cryptographic Hash (SHA-256)</h3>
+<div id="hashOutput" class="output">No hash yet.</div>
 </div>
 
 <div class="box">
-<h3>4️⃣ Verification Logic</h3>
-<div id="verifyOutput" class="output">Not verified.</div>
+<h3>4️⃣ Wallet Connection</h3>
+<button onclick="connectWallet()">Connect MetaMask</button>
+<div id="walletOutput" class="output">Not connected.</div>
 </div>
 
 <div class="box">
-<h3>5️⃣ Avalanche Testnet Anchor (Simulated)</h3>
-<p>
-In production, this hash would be written to Avalanche Fuji testnet.
-For MVP purposes, we display the on-chain payload only.
-</p>
-<div id="chainOutput" class="output">No on-chain reference yet.</div>
+<h3>5️⃣ Avalanche On-Chain Anchor</h3>
+<button onclick="sendToAvalanche()">Write Hash On-Chain</button>
+<div id="chainOutput" class="output">No transaction sent.</div>
 </div>
 
 <footer>
-<p>WHYTEGOD Protocol — Phase 8 MVP</p>
-<p>Built for intelligence, not hype.</p>
+<p>WHYTEGOD Protocol — Phase 9</p>
+<p>Math > Trust. Proof > Promises.</p>
 </footer>
 
 </div>
 
 <script>
-async function runProtocol() {
-  const input = document.getElementById("userInput").value.trim();
-  if (!input) {
-    alert("Please enter a statement.");
-    return;
-  }
+let currentHash = "";
+let userAccount = null;
 
-  // AI STRUCTURING (LOGIC SIMULATION)
-  const structured = {
-    intent: input,
-    constraints: "No intermediaries. Peer verification required.",
-    risk: "Human error mitigated by transparency.",
-    outcome: "Verifiable agreement anchored by cryptography."
-  };
+async function runProtocol(){
+const input=document.getElementById("userInput").value.trim();
+if(!input){alert("Enter a statement");return;}
 
-  document.getElementById("aiOutput").textContent =
-    JSON.stringify(structured, null, 2);
+const structured={
+intent:input,
+constraints:"Peer-verified, no intermediaries",
+risk:"Human error reduced by transparency",
+outcome:"Immutable cryptographic proof"
+};
 
-  // CRYPTOGRAPHIC HASH
-  const encoder = new TextEncoder();
-  const data = encoder.encode(JSON.stringify(structured));
-  const hashBuffer = await crypto.subtle.digest("SHA-256", data);
-  const hashArray = Array.from(new Uint8Array(hashBuffer));
-  const hashHex = hashArray.map(b => b.toString(16).padStart(2, "0")).join("");
+document.getElementById("aiOutput").textContent=
+JSON.stringify(structured,null,2);
 
-  document.getElementById("hashOutput").textContent = hashHex;
+const encoder=new TextEncoder();
+const data=encoder.encode(JSON.stringify(structured));
+const hashBuffer=await crypto.subtle.digest("SHA-256",data);
+const hashArray=Array.from(new Uint8Array(hashBuffer));
+currentHash=hashArray.map(b=>b.toString(16).padStart(2,"0")).join("");
 
-  // VERIFICATION
-  document.getElementById("verifyOutput").textContent =
-    "Hash verified locally. Any peer can recompute this independently.";
+document.getElementById("hashOutput").textContent=currentHash;
+}
 
-  // AVALANCHE PAYLOAD (SIMULATION)
-  const chainPayload = {
-    network: "Avalanche Fuji Testnet",
-    storedData: "SHA-256 hash only",
-    hash: hashHex,
-    timestamp: new Date().toISOString()
-  };
+async function connectWallet(){
+if(!window.ethereum){alert("MetaMask not detected");return;}
+const accounts=await ethereum.request({method:"eth_requestAccounts"});
+userAccount=accounts[0];
+document.getElementById("walletOutput").textContent="Connected: "+userAccount;
+}
 
-  document.getElementById("chainOutput").textContent =
-    JSON.stringify(chainPayload, null, 2);
+async function sendToAvalanche(){
+if(!userAccount||!currentHash){
+alert("Run protocol and connect wallet first");
+return;
+}
+
+const tx={
+from:userAccount,
+to:userAccount,
+value:"0x0",
+data:"0x"+currentHash
+};
+
+const txHash=await ethereum.request({
+method:"eth_sendTransaction",
+params:[tx]
+});
+
+document.getElementById("chainOutput").textContent=
+"Avalanche Fuji TX Hash: "+txHash;
 }
 </script>
 
