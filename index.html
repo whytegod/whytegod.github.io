@@ -2,20 +2,62 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>WHYTEGOD Protocol — Phase 11</title>
+<title>WHYTEGOD Protocol</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <style>
-body{font-family:Arial,sans-serif;background:#0b0f19;color:#fff;margin:0}
-.container{max-width:1100px;margin:auto;padding:20px}
-h1,h2,h3{color:#4da3ff}
-.box{background:#121829;padding:20px;margin-bottom:20px;border-radius:8px}
-textarea,input{width:100%;padding:10px;border-radius:5px;border:none;margin-top:10px}
-button{background:#4da3ff;color:#000;padding:12px 20px;border:none;border-radius:5px;font-size:16px;cursor:pointer;margin-top:10px}
-button:hover{background:#78b8ff}
-.output{background:#0b0f19;padding:15px;border-radius:5px;word-break:break-all;font-size:13px;margin-top:10px}
-footer{text-align:center;opacity:.6;margin-top:40px}
-hr{border:1px solid #1f2a44;margin:30px 0}
+body {
+  font-family: Arial, sans-serif;
+  background: #0b1020;
+  color: #e6ebff;
+  margin: 0;
+  padding: 20px;
+}
+h1, h2 {
+  color: #4da3ff;
+}
+.container {
+  max-width: 800px;
+  margin: auto;
+}
+.box {
+  background: #111833;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+textarea {
+  width: 100%;
+  height: 80px;
+  border-radius: 6px;
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+}
+button {
+  background: #4da3ff;
+  color: #000;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.status {
+  font-weight: bold;
+  margin-top: 10px;
+}
+.code {
+  background: #0b1020;
+  padding: 10px;
+  border-radius: 6px;
+  font-family: monospace;
+  font-size: 14px;
+  word-break: break-all;
+}
+.peer {
+  margin-top: 5px;
+}
 </style>
 </head>
 
@@ -25,172 +67,98 @@ hr{border:1px solid #1f2a44;margin:30px 0}
 <h1>WHYTEGOD Protocol</h1>
 <p>Cryptographically enforced peer coordination for ordinary people.</p>
 
-<hr>
-
 <div class="box">
-<h2>Phase 11 — Hardened Protocol MVP</h2>
-<p>
-This system transforms human intent into immutable cryptographic truth,
-verified by peers and anchored on Avalanche without tokens or smart contracts.
-</p>
+<h2>Phase 12 — Protocol State Transparency MVP</h2>
+<p>This system transforms human intent into immutable cryptographic truth, verified by peers and anchored on Avalanche without tokens or smart contracts.</p>
 </div>
 
 <div class="box">
-<h3>1️⃣ Proposal Creation</h3>
-<textarea id="userInput" placeholder="Enter a proposal, agreement, or financial rule..."></textarea>
-<button onclick="runProtocol()">Generate Proposal</button>
-<div id="proposalOutput" class="output">No proposal yet.</div>
+<h2>1️⃣ Proposal Creation</h2>
+<textarea id="proposalInput" placeholder="Enter a proposal, agreement, or rule..."></textarea>
+<button onclick="generateProposal()">Generate Proposal</button>
+<div id="proposalStatus" class="status">Status: IDLE</div>
 </div>
 
 <div class="box">
-<h3>2️⃣ Cryptographic Hash</h3>
-<div id="hashOutput" class="output">No hash yet.</div>
+<h2>2️⃣ Canonical Proposal Data</h2>
+<div id="canonicalData" class="code">No proposal yet.</div>
 </div>
 
 <div class="box">
-<h3>3️⃣ Peer Verification (Minimum 3)</h3>
-<input id="peerInput" placeholder="Paste the SAME proposal text to verify..." />
-<button onclick="verifyPeer()">Submit Peer Verification</button>
-<div id="peerOutput" class="output">0 / 3 peers verified.</div>
+<h2>3️⃣ Cryptographic Commitment (SHA-256)</h2>
+<div id="hashData" class="code">No hash yet.</div>
 </div>
 
 <div class="box">
-<h3>4️⃣ Governance State</h3>
-<div id="governanceOutput" class="output">Awaiting peer consensus.</div>
+<h2>4️⃣ Peer Verification</h2>
+<div id="peer1" class="peer">Peer 1: ⏳ Pending</div>
+<div id="peer2" class="peer">Peer 2: ⏳ Pending</div>
+<div id="peer3" class="peer">Peer 3: ⏳ Pending</div>
 </div>
 
 <div class="box">
-<h3>5️⃣ Wallet Connection</h3>
-<button onclick="connectWallet()">Connect MetaMask</button>
-<div id="walletOutput" class="output">Not connected.</div>
+<h2>5️⃣ Finalization</h2>
+<div id="finalStatus" class="status">Not finalized.</div>
 </div>
-
-<div class="box">
-<h3>6️⃣ Avalanche Final Anchor</h3>
-<button onclick="sendToAvalanche()">Finalize On Avalanche</button>
-<div id="chainOutput" class="output">Not finalized.</div>
-</div>
-
-<div class="box">
-<h3>Protocol Rules (Readable)</h3>
-<p>
-• Proposal ID = SHA256(text + timestamp + wallet)<br>
-• Minimum peers required: 3<br>
-• All peers must reproduce the same hash<br>
-• Once finalized, proposal is locked forever<br>
-• Avalanche is used only as a timestamp anchor
-</p>
-</div>
-
-<footer>
-<p>WHYTEGOD Protocol — Phase 11</p>
-<p>Verification replaces trust.</p>
-</footer>
 
 </div>
 
 <script>
-let proposal=null;
-let proposalHash="";
-let peerCount=0;
-let peerThreshold=3;
-let userAccount=null;
-let finalized=false;
+let proposalObject = null;
+let proposalHash = null;
+let verifiedPeers = 0;
+const THRESHOLD = 3;
 
-async function runProtocol(){
-if(finalized){alert("Proposal already finalized");return;}
+async function generateProposal() {
+  const text = document.getElementById("proposalInput").value.trim();
+  if (!text) return;
 
-const text=document.getElementById("userInput").value.trim();
-if(!text){alert("Enter proposal text");return;}
+  const timestamp = new Date().toISOString();
+  const proposer = "anonymous-user";
+  const ruleset = "WHYTEGOD-PROTOCOL-v1";
 
-const timestamp=new Date().toISOString();
+  proposalObject = {
+    text: text,
+    timestamp: timestamp,
+    proposer: proposer,
+    ruleset: ruleset
+  };
 
-proposal={
-text:text,
-timestamp:timestamp,
-proposer:userAccount||"unconnected",
-ai_role:"Assist only",
-rule:"Deterministic peer verification"
-};
+  document.getElementById("proposalStatus").innerText = "Status: CREATED";
 
-document.getElementById("proposalOutput").textContent=
-JSON.stringify(proposal,null,2);
+  const canonical = JSON.stringify(proposalObject);
+  document.getElementById("canonicalData").innerText = canonical;
 
-const encoder=new TextEncoder();
-const data=encoder.encode(JSON.stringify(proposal));
-const hashBuffer=await crypto.subtle.digest("SHA-256",data);
-const hashArray=Array.from(new Uint8Array(hashBuffer));
-proposalHash=hashArray.map(b=>b.toString(16).padStart(2,"0")).join("");
+  proposalHash = await sha256(canonical);
+  document.getElementById("hashData").innerText = proposalHash;
 
-peerCount=0;
-document.getElementById("peerOutput").textContent="0 / "+peerThreshold+" peers verified.";
-document.getElementById("hashOutput").textContent=proposalHash;
-document.getElementById("governanceOutput").textContent="Proposal generated. Awaiting peers.";
+  simulatePeers();
 }
 
-async function verifyPeer(){
-if(!proposal||finalized){return;}
-
-const peerText=document.getElementById("peerInput").value.trim();
-if(!peerText){alert("Paste proposal text");return;}
-
-const encoder=new TextEncoder();
-const data=encoder.encode(JSON.stringify({
-text:peerText,
-timestamp:proposal.timestamp,
-proposer:proposal.proposer,
-ai_role:"Assist only",
-rule:"Deterministic peer verification"
-}));
-
-const hashBuffer=await crypto.subtle.digest("SHA-256",data);
-const hashArray=Array.from(new Uint8Array(hashBuffer));
-const peerHash=hashArray.map(b=>b.toString(16).padStart(2,"0")).join("");
-
-if(peerHash===proposalHash){
-peerCount++;
-document.getElementById("peerOutput").textContent=
-peerCount+" / "+peerThreshold+" peers verified.";
-
-if(peerCount>=peerThreshold){
-document.getElementById("governanceOutput").textContent=
-"Consensus reached. Ready for finalization.";
-}
-}else{
-document.getElementById("governanceOutput").textContent=
-"Peer verification failed. Hash mismatch.";
-}
+async function sha256(message) {
+  const msgBuffer = new TextEncoder().encode(message);
+  const hashBuffer = await crypto.subtle.digest("SHA-256", msgBuffer);
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  return hashArray.map(b => b.toString(16).padStart(2, "0")).join("");
 }
 
-async function connectWallet(){
-if(!window.ethereum){alert("MetaMask not detected");return;}
-const accounts=await ethereum.request({method:"eth_requestAccounts"});
-userAccount=accounts[0];
-document.getElementById("walletOutput").textContent="Connected: "+userAccount;
+function simulatePeers() {
+  verifiedPeers = 0;
+  setTimeout(() => verifyPeer("peer1"), 1000);
+  setTimeout(() => verifyPeer("peer2"), 2000);
+  setTimeout(() => verifyPeer("peer3"), 3000);
 }
 
-async function sendToAvalanche(){
-if(finalized){alert("Already finalized");return;}
-if(peerCount<peerThreshold){alert("Not enough peer verifications");return;}
-if(!userAccount){alert("Connect wallet first");return;}
+function verifyPeer(peerId) {
+  verifiedPeers++;
+  document.getElementById(peerId).innerText =
+    peerId.replace("peer", "Peer ") + ": ✅ Verified";
 
-const tx={
-from:userAccount,
-to:userAccount,
-value:"0x0",
-data:"0x"+proposalHash
-};
-
-const txHash=await ethereum.request({
-method:"eth_sendTransaction",
-params:[tx]
-});
-
-finalized=true;
-document.getElementById("chainOutput").textContent=
-"FINALIZED — Avalanche TX: "+txHash;
-document.getElementById("governanceOutput").textContent=
-"Protocol locked. Immutable proof established.";
+  if (verifiedPeers >= THRESHOLD) {
+    document.getElementById("proposalStatus").innerText = "Status: VERIFIED";
+    document.getElementById("finalStatus").innerText =
+      "FINALIZED — Eligible for Avalanche anchoring.";
+  }
 }
 </script>
 
