@@ -2,19 +2,20 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>WHYTEGOD Protocol — Live MVP</title>
+<title>WHYTEGOD Protocol — Phase 10</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 body{font-family:Arial,sans-serif;background:#0b0f19;color:#fff;margin:0}
-.container{max-width:900px;margin:auto;padding:20px}
+.container{max-width:1000px;margin:auto;padding:20px}
 h1,h2,h3{color:#4da3ff}
 .box{background:#121829;padding:20px;margin-bottom:20px;border-radius:8px}
-textarea{width:100%;height:120px;padding:10px;border-radius:5px;border:none}
-button{background:#4da3ff;color:#000;padding:12px 20px;border:none;border-radius:5px;font-size:16px;cursor:pointer}
+textarea,input{width:100%;padding:10px;border-radius:5px;border:none;margin-top:10px}
+button{background:#4da3ff;color:#000;padding:12px 20px;border:none;border-radius:5px;font-size:16px;cursor:pointer;margin-top:10px}
 button:hover{background:#78b8ff}
-.output{background:#0b0f19;padding:15px;border-radius:5px;word-break:break-all;font-size:14px}
+.output{background:#0b0f19;padding:15px;border-radius:5px;word-break:break-all;font-size:14px;margin-top:10px}
 footer{text-align:center;opacity:.6;margin-top:40px}
+hr{border:1px solid #1f2a44;margin:30px 0}
 </style>
 </head>
 
@@ -22,52 +23,83 @@ footer{text-align:center;opacity:.6;margin-top:40px}
 <div class="container">
 
 <h1>WHYTEGOD Protocol</h1>
-<p>AI-assisted, peer-verified, cryptographically anchored logic for ordinary people.</p>
+<p>Decentralized, AI-assisted, cryptographically enforced peer finance.</p>
+
+<hr>
 
 <div class="box">
-<h2>Phase 9 — Live Blockchain Proof</h2>
-<p>This MVP writes cryptographic proof directly to Avalanche Fuji Testnet without smart contracts.</p>
+<h2>Phase 8–10 Unified MVP</h2>
+<p>
+This protocol converts human intent into cryptographic truth,
+anchors it on Avalanche, and allows peers to verify and govern
+without tokens or trust.
+</p>
 </div>
 
 <div class="box">
-<h3>1️⃣ Human Input</h3>
-<textarea id="userInput" placeholder="Enter a proposal or financial rule..."></textarea>
-<br><br>
+<h3>1️⃣ Human Intent Input</h3>
+<textarea id="userInput" placeholder="Enter an agreement, rule, or proposal..."></textarea>
 <button onclick="runProtocol()">Run Protocol</button>
 </div>
 
 <div class="box">
 <h3>2️⃣ AI-Assisted Structuring</h3>
-<div id="aiOutput" class="output">Waiting for input…</div>
+<div id="aiOutput" class="output">Waiting for input...</div>
 </div>
 
 <div class="box">
-<h3>3️⃣ Cryptographic Hash (SHA-256)</h3>
+<h3>3️⃣ Cryptographic Proof (SHA-256)</h3>
 <div id="hashOutput" class="output">No hash yet.</div>
 </div>
 
 <div class="box">
-<h3>4️⃣ Wallet Connection</h3>
+<h3>4️⃣ Peer Verification (Independent Recompute)</h3>
+<input id="peerInput" placeholder="Paste the same statement here to verify..." />
+<button onclick="verifyPeer()">Verify as Peer</button>
+<div id="peerOutput" class="output">Not verified.</div>
+</div>
+
+<div class="box">
+<h3>5️⃣ Token-less Governance Logic</h3>
+<p>
+Governance is determined by deterministic math, not voting power.
+If hashes match, agreement is valid. If not, it is rejected.
+</p>
+<div id="governanceOutput" class="output">Awaiting verification.</div>
+</div>
+
+<div class="box">
+<h3>6️⃣ Wallet Connection</h3>
 <button onclick="connectWallet()">Connect MetaMask</button>
 <div id="walletOutput" class="output">Not connected.</div>
 </div>
 
 <div class="box">
-<h3>5️⃣ Avalanche On-Chain Anchor</h3>
-<button onclick="sendToAvalanche()">Write Hash On-Chain</button>
+<h3>7️⃣ Avalanche Truth Anchor</h3>
+<button onclick="sendToAvalanche()">Anchor Proof On-Chain</button>
 <div id="chainOutput" class="output">No transaction sent.</div>
 </div>
 
+<div class="box">
+<h3>Protocol Mathematics (Readable)</h3>
+<p>
+Let H = SHA-256(structured_intent).  
+If ∀ peers recompute H and results match, consensus exists.  
+Avalanche is used only to timestamp H, not to execute logic.  
+AI assists structuring but never signs or controls outcomes.
+</p>
+</div>
+
 <footer>
-<p>WHYTEGOD Protocol — Phase 9</p>
-<p>Math > Trust. Proof > Promises.</p>
+<p>WHYTEGOD Protocol — Phase 10 Complete</p>
+<p>Trust is replaced by verification.</p>
 </footer>
 
 </div>
 
 <script>
-let currentHash = "";
-let userAccount = null;
+let currentHash="";
+let userAccount=null;
 
 async function runProtocol(){
 const input=document.getElementById("userInput").value.trim();
@@ -75,9 +107,9 @@ if(!input){alert("Enter a statement");return;}
 
 const structured={
 intent:input,
-constraints:"Peer-verified, no intermediaries",
-risk:"Human error reduced by transparency",
-outcome:"Immutable cryptographic proof"
+constraints:"No intermediaries, peer verification required",
+ai_role:"Assist only, no authority",
+outcome:"Deterministic cryptographic truth"
 };
 
 document.getElementById("aiOutput").textContent=
@@ -90,6 +122,32 @@ const hashArray=Array.from(new Uint8Array(hashBuffer));
 currentHash=hashArray.map(b=>b.toString(16).padStart(2,"0")).join("");
 
 document.getElementById("hashOutput").textContent=currentHash;
+document.getElementById("governanceOutput").textContent="Hash generated. Awaiting peer verification.";
+}
+
+async function verifyPeer(){
+const peerText=document.getElementById("peerInput").value.trim();
+if(!peerText||!currentHash){alert("Missing data");return;}
+
+const encoder=new TextEncoder();
+const data=encoder.encode(JSON.stringify({
+intent:peerText,
+constraints:"No intermediaries, peer verification required",
+ai_role:"Assist only, no authority",
+outcome:"Deterministic cryptographic truth"
+}));
+
+const hashBuffer=await crypto.subtle.digest("SHA-256",data);
+const hashArray=Array.from(new Uint8Array(hashBuffer));
+const peerHash=hashArray.map(b=>b.toString(16).padStart(2,"0")).join("");
+
+if(peerHash===currentHash){
+document.getElementById("peerOutput").textContent="Peer verification SUCCESS.";
+document.getElementById("governanceOutput").textContent="Consensus achieved. Agreement valid.";
+}else{
+document.getElementById("peerOutput").textContent="Verification FAILED.";
+document.getElementById("governanceOutput").textContent="Consensus rejected.";
+}
 }
 
 async function connectWallet(){
@@ -100,10 +158,7 @@ document.getElementById("walletOutput").textContent="Connected: "+userAccount;
 }
 
 async function sendToAvalanche(){
-if(!userAccount||!currentHash){
-alert("Run protocol and connect wallet first");
-return;
-}
+if(!userAccount||!currentHash){alert("Missing steps");return;}
 
 const tx={
 from:userAccount,
