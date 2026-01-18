@@ -16,7 +16,7 @@ h1, h2 {
   color: #4da3ff;
 }
 .container {
-  max-width: 800px;
+  max-width: 820px;
   margin: auto;
 }
 .box {
@@ -43,6 +43,10 @@ button {
   cursor: pointer;
   margin-top: 10px;
 }
+button.secondary {
+  background: #1f2a55;
+  color: #e6ebff;
+}
 .status {
   font-weight: bold;
   margin-top: 10px;
@@ -58,6 +62,10 @@ button {
 .peer {
   margin-top: 5px;
 }
+.notice {
+  font-size: 14px;
+  opacity: 0.9;
+}
 </style>
 </head>
 
@@ -68,7 +76,7 @@ button {
 <p>Cryptographically enforced peer coordination for ordinary people.</p>
 
 <div class="box">
-<h2>Phase 12 — Protocol State Transparency MVP</h2>
+<h2>Phase 13 — Anchor-Ready Protocol MVP</h2>
 <p>This system transforms human intent into immutable cryptographic truth, verified by peers and anchored on Avalanche without tokens or smart contracts.</p>
 </div>
 
@@ -99,6 +107,26 @@ button {
 <div class="box">
 <h2>5️⃣ Finalization</h2>
 <div id="finalStatus" class="status">Not finalized.</div>
+</div>
+
+<div class="box">
+<h2>6️⃣ Avalanche Anchoring</h2>
+<p class="notice">
+Anchoring stores <b>only the hash</b> on Avalanche as a timestamp proof.
+No proposal text, no execution, no smart contracts.
+</p>
+
+<div id="anchorHash" class="code">No finalized hash yet.</div>
+
+<button class="secondary" onclick="copyHash()">Copy Hash</button>
+
+<p class="notice">
+After copying, send the hash as a transaction memo or data field on Avalanche C-Chain using your wallet (Core / MetaMask).
+</p>
+
+<p class="notice">
+This creates a public, immutable timestamp proof.
+</p>
 </div>
 
 </div>
@@ -144,9 +172,18 @@ async function sha256(message) {
 
 function simulatePeers() {
   verifiedPeers = 0;
+  resetPeers();
   setTimeout(() => verifyPeer("peer1"), 1000);
   setTimeout(() => verifyPeer("peer2"), 2000);
   setTimeout(() => verifyPeer("peer3"), 3000);
+}
+
+function resetPeers() {
+  document.getElementById("peer1").innerText = "Peer 1: ⏳ Pending";
+  document.getElementById("peer2").innerText = "Peer 2: ⏳ Pending";
+  document.getElementById("peer3").innerText = "Peer 3: ⏳ Pending";
+  document.getElementById("finalStatus").innerText = "Not finalized.";
+  document.getElementById("anchorHash").innerText = "No finalized hash yet.";
 }
 
 function verifyPeer(peerId) {
@@ -155,10 +192,17 @@ function verifyPeer(peerId) {
     peerId.replace("peer", "Peer ") + ": ✅ Verified";
 
   if (verifiedPeers >= THRESHOLD) {
-    document.getElementById("proposalStatus").innerText = "Status: VERIFIED";
+    document.getElementById("proposalStatus").innerText = "Status: FINALIZED";
     document.getElementById("finalStatus").innerText =
-      "FINALIZED — Eligible for Avalanche anchoring.";
+      "FINALIZED — Ready for Avalanche anchoring.";
+    document.getElementById("anchorHash").innerText = proposalHash;
   }
+}
+
+function copyHash() {
+  if (!proposalHash) return;
+  navigator.clipboard.writeText(proposalHash);
+  alert("Hash copied. Anchor it on Avalanche as a transaction memo or data field.");
 }
 </script>
 
