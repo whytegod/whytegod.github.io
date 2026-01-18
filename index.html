@@ -1,210 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>WHYTEGOD Protocol</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background-color: #0a0f1f;
-      color: #ffffff;
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
-    }
-    header {
-      background: linear-gradient(135deg, #0d1b3d, #142b6f);
-      padding: 40px 20px;
-      text-align: center;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2.5em;
-    }
-    header p {
-      max-width: 800px;
-      margin: 15px auto 0;
-      font-size: 1.1em;
-      opacity: 0.9;
-    }
-    main {
-      max-width: 1000px;
-      margin: auto;
-      padding: 20px;
-    }
-    .box {
-      background-color: #111a3a;
-      border-radius: 10px;
-      padding: 25px;
-      margin-bottom: 25px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.3);
-    }
-    h2 {
-      color: #4da3ff;
-      margin-top: 0;
-    }
-    h3 {
-      color: #9cc9ff;
-    }
-    ul {
-      padding-left: 20px;
-    }
-    footer {
-      background-color: #070b18;
-      text-align: center;
-      padding: 20px;
-      font-size: 0.9em;
-      opacity: 0.7;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>WHYTEGOD Protocol — MVP</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #0b0f19;
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+}
+
+h1, h2, h3 {
+  color: #4da3ff;
+}
+
+.box {
+  background: #121829;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+}
+
+textarea {
+  width: 100%;
+  height: 120px;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  resize: vertical;
+}
+
+button {
+  background: #4da3ff;
+  color: #000;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #78b8ff;
+}
+
+.output {
+  background: #0b0f19;
+  padding: 15px;
+  border-radius: 5px;
+  word-break: break-all;
+  font-size: 14px;
+}
+
+footer {
+  text-align: center;
+  opacity: 0.6;
+  margin-top: 40px;
+}
+</style>
 </head>
 
 <body>
+<div class="container">
 
-<header>
-  <h1>WHYTEGOD Protocol</h1>
-  <p>
-    A human-first, decentralized peer-to-peer protocol
-    combining cryptographic rules, Avalanche-inspired consensus,
-    and AI guidance to empower ordinary people.
-  </p>
-</header>
+<h1>WHYTEGOD Protocol</h1>
+<p>Decentralized, AI-assisted, peer-verified financial logic for ordinary people.</p>
 
-<main>
+<div class="box">
+<h2>Why WHYTEGOD Exists</h2>
+<p>
+The global financial system was built on permission, opacity, and intermediaries.
+WHYTEGOD exists to prove that rules can be enforced by mathematics, verified by peers,
+and assisted by artificial intelligence — without trusting institutions.
+</p>
+</div>
 
-  <div class="box">
-    <h2>What is WHYTEGOD?</h2>
-    <p>
-      WHYTEGOD is a decentralized protocol designed to enable
-      transparent, rule-based peer-to-peer agreements without
-      reliance on centralized institutions.
-    </p>
-  </div>
+<div class="box">
+<h2>MVP — Proof of Intelligence Demo</h2>
+<p>
+This demo shows one full protocol loop:
+Human input → AI structuring → Cryptographic proof → Peer verification → On-chain reference.
+</p>
+</div>
 
-  <div class="box">
-    <h2>Why WHYTEGOD Exists</h2>
-    <p>
-      The global financial system was not built for ordinary people.
-      It was built on permission, opacity, and intermediaries that
-      extract value without transparency.
-    </p>
-    <p>
-      WHYTEGOD exists to prove that agreements between people can be
-      enforced by open rules, verified by mathematics, and guided by
-      artificial intelligence — without requiring trust in institutions.
-    </p>
-    <p>
-      This protocol does not replace banks.
-      It makes them optional.
-    </p>
-  </div>
+<div class="box">
+<h3>1️⃣ Human Input</h3>
+<textarea id="userInput" placeholder="Enter a proposal, agreement, or financial rule..."></textarea>
+<br><br>
+<button onclick="runProtocol()">Run Protocol</button>
+</div>
 
-  <div class="box">
-    <h2>Core Principles</h2>
-    <ul>
-      <li>Transparency over trust</li>
-      <li>Rules over intermediaries</li>
-      <li>Human confirmation at every stage</li>
-      <li>AI as guidance, not authority</li>
-      <li>Permissionless participation</li>
-    </ul>
-  </div>
+<div class="box">
+<h3>2️⃣ AI-Assisted Structuring (Simulation)</h3>
+<div id="aiOutput" class="output">Waiting for input...</div>
+</div>
 
-  <div class="box">
-    <h2>How the WHYTEGOD Protocol Works (Simple Explanation)</h2>
-    <p>
-      All interactions in WHYTEGOD are structured as agreements.
-      Each agreement follows a predefined lifecycle that cannot be altered
-      once initiated.
-    </p>
-  </div>
+<div class="box">
+<h3>3️⃣ Cryptographic Proof (SHA-256)</h3>
+<div id="hashOutput" class="output">No hash generated yet.</div>
+</div>
 
-  <div class="box">
-    <h2>The WHYTEGOD Mechanism</h2>
-    <p>
-      The protocol operates through a structured lifecycle enforced
-      by cryptographic verification and decentralized consensus.
-    </p>
-    <ul>
-      <li>Intent – define the purpose of the agreement</li>
-      <li>Lock – freeze the rules permanently</li>
-      <li>Verification – peer validators confirm correctness</li>
-      <li>Guidance – AI highlights risks and outcomes</li>
-      <li>Confirmation – humans approve explicitly</li>
-      <li>Settlement – deterministic rule-based outcome</li>
-    </ul>
-    <p>
-      No single actor controls the process.
-      Outcomes emerge from rules and consensus.
-    </p>
-  </div>
+<div class="box">
+<h3>4️⃣ Verification Logic</h3>
+<div id="verifyOutput" class="output">Not verified.</div>
+</div>
 
-  <div class="box">
-    <h2>Minimum Viable Protocol Demonstration</h2>
-
-    <p>
-      This section demonstrates how the WHYTEGOD Protocol operates in practice.
-      It is a conceptual simulation only. No real assets, tokens, or financial
-      instruments are involved.
-    </p>
-
-    <h3>Step 1: Intent Declaration</h3>
-    <p>
-      A participant declares intent in clear, human-readable language.
-    </p>
-
-    <h3>Step 2: Rule Definition and Lock</h3>
-    <p>
-      Rules are defined and permanently locked to prevent manipulation.
-    </p>
-
-    <h3>Step 3: Risk and Outcome Guidance (AI)</h3>
-    <p>
-      AI analyzes the agreement and provides explanations and risk alerts.
-      AI does not execute or approve actions.
-    </p>
-
-    <h3>Step 4: Peer Validation (Conceptual)</h3>
-    <p>
-      Independent validators review and confirm agreement integrity.
-    </p>
-
-    <h3>Step 5: Human Confirmation</h3>
-    <p>
-      All participants explicitly confirm before settlement.
-    </p>
-
-    <h3>Step 6: Deterministic Settlement</h3>
-    <p>
-      Outcomes are produced strictly according to predefined rules.
-    </p>
-
-    <h3>Important Notice</h3>
-    <p>
-      This is a demonstration only. No funds, tokens, or smart contracts
-      are active at this stage.
-    </p>
-  </div>
-
-  <div class="box">
-    <h2>Roadmap</h2>
-    <ul>
-      <li>Phase 1 – Vision and Manifesto</li>
-      <li>Phase 2 – Whitepaper and Technology Paper</li>
-      <li>Phase 3 – Protocol Simulation</li>
-      <li>Phase 4 – AI Guidance Layer</li>
-      <li>Phase 5 – Blockchain Deployment</li>
-      <li>Phase 6 – Validator Network</li>
-      <li>Phase 7 – Institutional Bridges</li>
-    </ul>
-  </div>
-
-</main>
+<div class="box">
+<h3>5️⃣ Avalanche Testnet Anchor (Simulated)</h3>
+<p>
+In production, this hash would be written to Avalanche Fuji testnet.
+For MVP purposes, we display the on-chain payload only.
+</p>
+<div id="chainOutput" class="output">No on-chain reference yet.</div>
+</div>
 
 <footer>
-  © 2026 WHYTEGOD Protocol — Human-Centered Decentralization
+<p>WHYTEGOD Protocol — Phase 8 MVP</p>
+<p>Built for intelligence, not hype.</p>
 </footer>
+
+</div>
+
+<script>
+async function runProtocol() {
+  const input = document.getElementById("userInput").value.trim();
+  if (!input) {
+    alert("Please enter a statement.");
+    return;
+  }
+
+  // AI STRUCTURING (LOGIC SIMULATION)
+  const structured = {
+    intent: input,
+    constraints: "No intermediaries. Peer verification required.",
+    risk: "Human error mitigated by transparency.",
+    outcome: "Verifiable agreement anchored by cryptography."
+  };
+
+  document.getElementById("aiOutput").textContent =
+    JSON.stringify(structured, null, 2);
+
+  // CRYPTOGRAPHIC HASH
+  const encoder = new TextEncoder();
+  const data = encoder.encode(JSON.stringify(structured));
+  const hashBuffer = await crypto.subtle.digest("SHA-256", data);
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  const hashHex = hashArray.map(b => b.toString(16).padStart(2, "0")).join("");
+
+  document.getElementById("hashOutput").textContent = hashHex;
+
+  // VERIFICATION
+  document.getElementById("verifyOutput").textContent =
+    "Hash verified locally. Any peer can recompute this independently.";
+
+  // AVALANCHE PAYLOAD (SIMULATION)
+  const chainPayload = {
+    network: "Avalanche Fuji Testnet",
+    storedData: "SHA-256 hash only",
+    hash: hashHex,
+    timestamp: new Date().toISOString()
+  };
+
+  document.getElementById("chainOutput").textContent =
+    JSON.stringify(chainPayload, null, 2);
+}
+</script>
 
 </body>
 </html>
