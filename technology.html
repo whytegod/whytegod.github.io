@@ -1,78 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WHYTEGOD — Technology</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WHYTEGOD — Technology Overview</title>
+  <meta name="description" content="Technical overview of WHYTEGOD, an AI-first, non-custodial P2P finance interface aligned with open financial protocols."/>
   <style>
     body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #0b0b0b;
+      color: #eaeaea;
+      line-height: 1.65;
       margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #020b14;
-      color: #e6edf3;
-      padding: 40px 20px;
+      padding: 0;
     }
-    .container {
+    main {
       max-width: 900px;
       margin: auto;
+      padding: 3rem 1.5rem;
     }
-    h1, h2 {
+    h1, h2, h3 {
       color: #ffffff;
-      margin-top: 50px;
+      font-weight: 600;
     }
     p {
-      color: #c9d1d9;
-      line-height: 1.8;
-      font-size: 17px;
+      opacity: 0.92;
     }
-    a {
-      color: #58a6ff;
-      text-decoration: none;
+    ul {
+      margin-left: 1.2rem;
     }
-    .nav {
-      margin-bottom: 40px;
+    section {
+      margin-bottom: 3rem;
+    }
+    .muted {
+      opacity: 0.7;
+    }
+    footer {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid #222;
+      font-size: 0.9rem;
+      opacity: 0.7;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="nav">
-      <a href="index.html">← Home</a>
-    </div>
 
-    <h1>WHYTEGOD Technology Paper</h1>
+<main>
 
-    <h2>Overview</h2>
+  <section>
+    <h1>Technology Overview</h1>
     <p>
-      WHYTEGOD operates as a coordination layer rather than a centralized
-      system. It does not custody assets, host funds, or enforce trades.
+      WHYTEGOD is a <strong>product-facing, AI-assisted coordination layer</strong>
+      designed to interface with open financial protocols without introducing custody,
+      settlement authority, or protocol control.
     </p>
+  </section>
 
-    <h2>Architecture Philosophy</h2>
+  <section>
+    <h2>Design Philosophy</h2>
     <p>
-      The system is designed to minimize trust by relying on decentralized
-      primitives, peer verification, and protocol-enforced logic instead
-      of human discretion.
+      The technology stack prioritizes restraint, modularity, and clarity.
+      WHYTEGOD does not attempt to replace protocols — it exposes them safely.
     </p>
+    <ul>
+      <li>Protocol-agnostic by default</li>
+      <li>Non-custodial at every layer</li>
+      <li>Composable rather than monolithic</li>
+      <li>Designed for forkability and exit</li>
+    </ul>
+  </section>
 
-    <h2>AI Assistance Layer</h2>
+  <section>
+    <h2>System Boundaries</h2>
     <p>
-      Artificial intelligence is used as a guidance and coordination tool,
-      helping users discover peers, reduce mistakes, and understand options
-      without removing final decision-making authority.
+      WHYTEGOD intentionally limits its technical authority.
     </p>
+    <ul>
+      <li>No asset custody</li>
+      <li>No transaction execution on behalf of users</li>
+      <li>No private key management</li>
+      <li>No settlement finality control</li>
+    </ul>
+    <p class="muted">
+      All cryptographic signing and asset movement occur at the user or protocol layer.
+    </p>
+  </section>
 
-    <h2>Security Model</h2>
+  <section>
+    <h2>AI Role and Constraints</h2>
     <p>
-      Security emerges from non-custodial design, absence of centralized
-      attack vectors, and gradual evolution rather than rapid, fragile deployment.
+      Artificial intelligence within WHYTEGOD functions strictly as an
+      <strong>advisory and interpretive layer</strong>.
     </p>
+    <ul>
+      <li>Pattern interpretation and clarity assistance</li>
+      <li>Risk explanation and trade-off visualization</li>
+      <li>No autonomous execution</li>
+      <li>No authority to override user intent</li>
+    </ul>
+    <p class="muted">
+      AI is assistive, not authoritative.
+    </p>
+  </section>
 
-    <h2>Scalability</h2>
+  <section>
+    <h2>Architecture Overview</h2>
     <p>
-      WHYTEGOD is asset-agnostic and chain-agnostic by design, allowing it
-      to adapt to multiple settlement layers without protocol dependency.
+      The architecture is layered to preserve separation of concerns:
     </p>
-  </div>
+    <ul>
+      <li><strong>Interface Layer</strong> — user interaction and explanation</li>
+      <li><strong>Coordination Layer</strong> — logic, routing, interpretation</li>
+      <li><strong>Protocol Layer</strong> — external networks and standards</li>
+    </ul>
+    <p class="muted">
+      WHYTEGOD occupies the interface and coordination layers only.
+    </p>
+  </section>
+
+  <section>
+    <h2>Security Posture</h2>
+    <p>
+      Security is achieved through <strong>limitation</strong>, not escalation.
+    </p>
+    <ul>
+      <li>Minimal attack surface</li>
+      <li>No centralized secrets</li>
+      <li>Clear failure boundaries</li>
+      <li>Explicit threat modeling</li>
+    </ul>
+    <p class="muted">
+      Detailed analysis is documented in the Threat Model and Security documents.
+    </p>
+  </section>
+
+  <section>
+    <h2>Evolution Strategy</h2>
+    <p>
+      WHYTEGOD evolves through specification, review, and conservative iteration.
+    </p>
+    <ul>
+      <li>RFC-driven changes</li>
+      <li>Backward compatibility prioritized</li>
+      <li>No forced migrations</li>
+      <li>Governance before expansion</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Status</h2>
+    <p>
+      Current technical status: <strong>Conceptual / Pre-implementation</strong>
+    </p>
+    <p class="muted">
+      This document describes intent and architecture, not a deployed system.
+    </p>
+  </section>
+
+  <footer>
+    <p>
+      WHYTEGOD technology is defined by what it refuses to control.<br/>
+      Power is constrained. Users remain sovereign.
+    </p>
+  </footer>
+
+</main>
+
 </body>
 </html>
