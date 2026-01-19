@@ -1,80 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>WHYTEGOD — Whitepaper</title>
+  <meta name="description" content="WHYTEGOD is an AI-first, non-custodial coordination layer for open financial infrastructure."/>
   <style>
     body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #0b0b0b;
+      color: #eaeaea;
+      line-height: 1.7;
       margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #020b14;
-      color: #e6edf3;
-      padding: 40px 20px;
+      padding: 0;
     }
-    .container {
+    main {
       max-width: 900px;
       margin: auto;
+      padding: 3rem 1.5rem;
     }
-    h1, h2 {
+    h1, h2, h3 {
       color: #ffffff;
-      margin-top: 50px;
+      font-weight: 600;
     }
     p {
-      color: #c9d1d9;
-      line-height: 1.8;
-      font-size: 17px;
+      opacity: 0.93;
     }
-    a {
-      color: #58a6ff;
-      text-decoration: none;
+    ul {
+      margin-left: 1.2rem;
     }
-    .nav {
-      margin-bottom: 40px;
+    section {
+      margin-bottom: 3.5rem;
+    }
+    .muted {
+      opacity: 0.7;
+    }
+    footer {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid #222;
+      font-size: 0.9rem;
+      opacity: 0.7;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="nav">
-      <a href="index.html">← Home</a>
-    </div>
 
+<main>
+
+  <section>
     <h1>WHYTEGOD Whitepaper</h1>
-
-    <h2>Abstract</h2>
     <p>
-      WHYTEGOD is a decentralized, AI-assisted peer-to-peer coordination
-      infrastructure designed to make blockchain participation accessible
-      to ordinary people without reliance on centralized platforms.
+      WHYTEGOD is an AI-first coordination interface designed to operate on top of
+      open financial standards without custody, control, or protocol ownership.
     </p>
+  </section>
 
-    <h2>Problem</h2>
+  <section>
+    <h2>Problem Statement</h2>
     <p>
-      Most blockchain systems are complex, intimidating, and dominated by
-      centralized exchanges that require custody, identity exposure, and trust.
-      This excludes billions of people globally.
+      Modern financial systems are fragmented, opaque, and increasingly centralized
+      behind proprietary interfaces.
     </p>
+    <p>
+      Users are forced to trust intermediaries that combine execution, custody,
+      governance, and incentives into single points of failure.
+    </p>
+  </section>
 
-    <h2>Vision</h2>
-    <p>
-      WHYTEGOD envisions a world where individuals can coordinate value
-      exchange directly, intelligently, and without permission — regardless
-      of geography, technical skill, or financial status.
-    </p>
+  <section>
+    <h2>Design Principles</h2>
+    <ul>
+      <li>Non-custodial by default</li>
+      <li>Explicit limitation of authority</li>
+      <li>Separation of concerns</li>
+      <li>Protocol neutrality</li>
+      <li>Auditability over opacity</li>
+    </ul>
+  </section>
 
-    <h2>Principles</h2>
-    <p>
-      The protocol is built on non-custodial design, permissionless access,
-      decentralization, and AI assistance that enhances clarity without
-      removing human sovereignty.
-    </p>
+  <section>
+    <h2>What WHYTEGOD Is</h2>
+    <ul>
+      <li>An AI-assisted coordination layer</li>
+      <li>A user-facing interface for open financial infrastructure</li>
+      <li>A neutral routing and orchestration surface</li>
+      <li>A steward of documented processes and constraints</li>
+    </ul>
+  </section>
 
-    <h2>Conclusion</h2>
+  <section>
+    <h2>What WHYTEGOD Is Not</h2>
+    <ul>
+      <li>Not a bank</li>
+      <li>Not a custodian</li>
+      <li>Not a protocol owner</li>
+      <li>Not a settlement layer</li>
+      <li>Not a financial intermediary</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Architecture Overview</h2>
     <p>
-      WHYTEGOD is not a product or company. It is infrastructure designed
-      to evolve organically and resist capture by centralized interests.
+      WHYTEGOD operates strictly at the coordination layer.
     </p>
-  </div>
+    <ul>
+      <li><strong>Standards Layer</strong> — Open Financial Network (OFN)</li>
+      <li><strong>Execution Layer</strong> — Independent gateways and providers</li>
+      <li><strong>Coordination Layer</strong> — WHYTEGOD</li>
+    </ul>
+    <p class="muted">
+      WHYTEGOD cannot override protocol rules or execution outcomes.
+    </p>
+  </section>
+
+  <section>
+    <h2>AI Role and Constraints</h2>
+    <p>
+      AI within WHYTEGOD is advisory and assistive only.
+    </p>
+    <ul>
+      <li>No autonomous fund movement</li>
+      <li>No hidden decision-making</li>
+      <li>No opaque optimization logic</li>
+      <li>Human-verifiable outputs</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Governance Alignment</h2>
+    <p>
+      Governance is defined by limitation, not expansion of power.
+    </p>
+    <ul>
+      <li>Stewardship over ownership</li>
+      <li>Documented decision processes</li>
+      <li>Neutrality guarantees</li>
+      <li>Fork and exit viability</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Security and Risk</h2>
+    <p>
+      Security is addressed through architectural restraint.
+    </p>
+    <ul>
+      <li>Minimal attack surface</li>
+      <li>No centralized secrets</li>
+      <li>Public threat modeling</li>
+      <li>Fail-safe defaults</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Economic Model</h2>
+    <p>
+      WHYTEGOD does not extract value through custody or forced fees.
+    </p>
+    <p>
+      Any future incentives or fee structures must preserve neutrality
+      and be publicly documented before adoption.
+    </p>
+  </section>
+
+  <section>
+    <h2>Status</h2>
+    <p>
+      Project status: <strong>Active / Pre-implementation</strong>
+    </p>
+    <p class="muted">
+      This whitepaper defines intent, scope, and boundaries prior to deployment.
+    </p>
+  </section>
+
+  <footer>
+    <p>
+      WHYTEGOD is designed so trust is minimized, not assumed.<br/>
+      Power is constrained by architecture, not promises.
+    </p>
+  </footer>
+
+</main>
+
 </body>
 </html>
