@@ -1,234 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>WHYTEGOD Protocol</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-body {
-  font-family: Arial, sans-serif;
-  background: #0b1020;
-  color: #e6ebff;
-  margin: 0;
-  padding: 20px;
-}
-h1, h2 {
-  color: #4da3ff;
-}
-.container {
-  max-width: 860px;
-  margin: auto;
-}
-.box {
-  background: #111833;
-  border-radius: 10px;
-  padding: 20px;
-  margin-bottom: 20px;
-}
-textarea {
-  width: 100%;
-  height: 90px;
-  border-radius: 6px;
-  border: none;
-  padding: 10px;
-  font-size: 15px;
-}
-button {
-  background: #4da3ff;
-  color: #000;
-  border: none;
-  padding: 12px 20px;
-  border-radius: 6px;
-  font-size: 15px;
-  cursor: pointer;
-  margin-top: 10px;
-}
-button.secondary {
-  background: #1f2a55;
-  color: #e6ebff;
-}
-.status {
-  font-weight: bold;
-  margin-top: 10px;
-}
-.code {
-  background: #0b1020;
-  padding: 10px;
-  border-radius: 6px;
-  font-family: monospace;
-  font-size: 13px;
-  word-break: break-all;
-}
-.peer {
-  margin-top: 5px;
-}
-.notice {
-  font-size: 14px;
-  opacity: 0.9;
-}
-.match {
-  color: #6cff9f;
-}
-.mismatch {
-  color: #ff6c6c;
-}
-</style>
-</head>
-
-<body>
-<div class="container">
-
-<h1>WHYTEGOD Protocol</h1>
-<p>Cryptographically enforced peer coordination for ordinary people.</p>
-
-<div class="box">
-<h2>Phase 14 — Peer-to-Peer Network MVP</h2>
-<p>This system enables independent humans to verify identical cryptographic truth without trust, tokens, or central infrastructure.</p>
-</div>
-
-<!-- CREATOR -->
-<div class="box">
-<h2>1️⃣ Proposal Creation</h2>
-<textarea id="proposalInput" placeholder="Enter a proposal, agreement, or rule..."></textarea>
-<button onclick="generateProposal()">Generate Proposal</button>
-<div id="proposalStatus" class="status">Status: IDLE</div>
-</div>
-
-<div class="box">
-<h2>2️⃣ Canonical Proposal Data</h2>
-<div id="canonicalData" class="code">No proposal yet.</div>
-</div>
-
-<div class="box">
-<h2>3️⃣ Cryptographic Commitment (SHA-256)</h2>
-<div id="hashData" class="code">No hash yet.</div>
-</div>
-
-<div class="box">
-<h2>4️⃣ Peer Verification (Local)</h2>
-<div id="peer1" class="peer">Peer 1: ⏳ Pending</div>
-<div id="peer2" class="peer">Peer 2: ⏳ Pending</div>
-<div id="peer3" class="peer">Peer 3: ⏳ Pending</div>
-</div>
-
-<div class="box">
-<h2>5️⃣ Finalization</h2>
-<div id="finalStatus" class="status">Not finalized.</div>
-</div>
-
-<div class="box">
-<h2>6️⃣ Avalanche Anchoring</h2>
-<p class="notice">
-Only the hash is anchored. No text. No logic. No smart contracts.
-</p>
-<div id="anchorHash" class="code">No finalized hash yet.</div>
-<button class="secondary" onclick="copyHash()">Copy Hash</button>
-</div>
-
-<!-- PEER TOOL -->
-<div class="box">
-<h2>7️⃣ Peer Verification Tool</h2>
-<p class="notice">
-Paste the canonical proposal JSON exactly as received.
-</p>
-<textarea id="peerInput" placeholder='Paste canonical JSON here...'></textarea>
-<button onclick="verifyPeerInput()">Verify Hash</button>
-<div id="peerResult" class="status"></div>
-</div>
-
-</div>
-
-<script>
-let proposalObject = null;
-let proposalHash = null;
-let verifiedPeers = 0;
-const THRESHOLD = 3;
-
-async function generateProposal() {
-  const text = document.getElementById("proposalInput").value.trim();
-  if (!text) return;
-
-  const proposal = {
-    text: text,
-    timestamp: new Date().toISOString(),
-    proposer: "anonymous-user",
-    ruleset: "WHYTEGOD-PROTOCOL-v1"
-  };
-
-  proposalObject = proposal;
-  const canonical = JSON.stringify(proposal);
-
-  document.getElementById("canonicalData").innerText = canonical;
-  proposalHash = await sha256(canonical);
-  document.getElementById("hashData").innerText = proposalHash;
-  document.getElementById("proposalStatus").innerText = "Status: CREATED";
-
-  simulatePeers();
-}
-
-async function sha256(message) {
-  const buffer = new TextEncoder().encode(message);
-  const hash = await crypto.subtle.digest("SHA-256", buffer);
-  return Array.from(new Uint8Array(hash))
-    .map(b => b.toString(16).padStart(2, "0"))
-    .join("");
-}
-
-function simulatePeers() {
-  verifiedPeers = 0;
-  resetPeers();
-  setTimeout(() => markPeer("peer1"), 1000);
-  setTimeout(() => markPeer("peer2"), 2000);
-  setTimeout(() => markPeer("peer3"), 3000);
-}
-
-function resetPeers() {
-  ["peer1","peer2","peer3"].forEach(p=>{
-    document.getElementById(p).innerText = p.replace("peer","Peer ") + ": ⏳ Pending";
-  });
-  document.getElementById("finalStatus").innerText = "Not finalized.";
-  document.getElementById("anchorHash").innerText = "No finalized hash yet.";
-}
-
-function markPeer(peerId) {
-  verifiedPeers++;
-  document.getElementById(peerId).innerText =
-    peerId.replace("peer","Peer ") + ": ✅ Verified";
-
-  if (verifiedPeers >= THRESHOLD) {
-    document.getElementById("finalStatus").innerText =
-      "FINALIZED — Ready for anchoring.";
-    document.getElementById("anchorHash").innerText = proposalHash;
-  }
-}
-
-function copyHash() {
-  if (!proposalHash) return;
-  navigator.clipboard.writeText(proposalHash);
-  alert("Hash copied. Anchor on Avalanche as transaction data.");
-}
-
-async function verifyPeerInput() {
-  const input = document.getElementById("peerInput").value.trim();
-  if (!input) return;
-
-  try {
-    const hash = await sha256(input);
-    const result = document.getElementById("peerResult");
-
-    if (hash === proposalHash) {
-      result.innerHTML = "✔ HASH MATCH — Proposal verified.";
-      result.className = "status match";
-    } else {
-      result.innerHTML = "✖ HASH MISMATCH — Proposal altered.";
-      result.className = "status mismatch";
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WHYTEGOD — AI-first P2P Finance Infrastructure</title>
+  <meta name="description" content="WHYTEGOD is an AI-first, non-custodial peer-to-peer finance interface built on open protocol principles."/>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #0b0b0b;
+      color: #eaeaea;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
     }
-  } catch {
-    document.getElementById("peerResult").innerText =
-      "Invalid JSON or verification error.";
-  }
-}
-</script>
+    main {
+      max-width: 900px;
+      margin: auto;
+      padding: 3rem 1.5rem;
+    }
+    h1, h2, h3 {
+      color: #ffffff;
+      font-weight: 600;
+    }
+    p {
+      opacity: 0.92;
+    }
+    section {
+      margin-bottom: 3rem;
+    }
+    .muted {
+      opacity: 0.7;
+    }
+    footer {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid #222;
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+<body>
+
+<main>
+
+  <section>
+    <h1>WHYTEGOD</h1>
+    <p><strong>AI-first, non-custodial peer-to-peer finance infrastructure.</strong></p>
+    <p class="muted">
+      WHYTEGOD is a product vision and interface layer for decentralized finance —
+      focused on clarity, access, and trust minimization.
+    </p>
+  </section>
+
+  <section>
+    <h2>What WHYTEGOD Is</h2>
+    <p>
+      WHYTEGOD is an AI-assisted, non-custodial coordination layer designed to help
+      users navigate peer-to-peer finance without surrendering control.
+    </p>
+    <ul>
+      <li>AI-assisted P2P finance interface</li>
+      <li>Non-custodial by design</li>
+      <li>User-first gateway to open financial protocols</li>
+      <li>Product expression of open financial principles</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>What WHYTEGOD Is Not</h2>
+    <p>WHYTEGOD is not:</p>
+    <ul>
+      <li>A bank</li>
+      <li>An exchange</li>
+      <li>A broker or dealer</li>
+      <li>An investment product</li>
+      <li>A fund or yield platform</li>
+      <li>A custodian of user assets</li>
+    </ul>
+    <p class="muted">
+      WHYTEGOD does not provide financial guarantees or promises of profit.
+    </p>
+  </section>
+
+  <section>
+    <h2>Relationship to Open Financial Network (OFN)</h2>
+    <p>
+      WHYTEGOD is aligned with, but independent from, the Open Financial Network (OFN).
+    </p>
+    <p>
+      OFN defines protocol-level standards. WHYTEGOD represents a product-facing
+      implementation and philosophy.
+    </p>
+    <p class="muted">
+      This separation ensures neutrality, forkability, and long-term integrity.
+    </p>
+  </section>
+
+  <section>
+    <h2>Core Principles</h2>
+    <ul>
+      <li><strong>Non-custodial by design</strong> — users retain full asset control</li>
+      <li><strong>AI as assistant</strong> — clarity without opaque authority</li>
+      <li><strong>Trust minimization</strong> — reduce reliance on intermediaries</li>
+      <li><strong>Privacy by default</strong> — reputation without exposure</li>
+      <li><strong>Forkability</strong> — exit over control</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Status</h2>
+    <p>
+      Current status: <strong>Concept / Phase 0</strong>
+    </p>
+    <p class="muted">
+      This project represents intent and direction — not a deployed financial product.
+    </p>
+  </section>
+
+  <section>
+    <h2>Transparency</h2>
+    <p>
+      Governance, security philosophy, and technical direction are documented openly.
+    </p>
+    <ul>
+      <li>Whitepaper</li>
+      <li>Technology overview</li>
+      <li>Governance philosophy</li>
+      <li>Threat modeling and security posture</li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>
+      WHYTEGOD is a signal, not a launch.<br/>
+      Infrastructure before hype. Clarity before capital.
+    </p>
+  </footer>
+
+</main>
 
 </body>
 </html>
