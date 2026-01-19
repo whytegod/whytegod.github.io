@@ -168,3 +168,14 @@ This project is released under the Apache 2.0 License unless otherwise stated.
 **WHYTEGOD is a signal, not a launch.**  
 **Infrastructure before hype.**  
 **Clarity before capital.**
+
+
+## Non-Goals
+
+Whytegod does not:
+- Custody user funds
+- Issue tokens
+- Replace financial institutions
+- Define financial standards (this is OFN’s role)
+
+Whytegod is an execution and orchestration layer.
