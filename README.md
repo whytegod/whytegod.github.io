@@ -1,181 +1,145 @@
 # WHYTEGOD
 
-**WHYTEGOD** is an AI-first, non-custodial, peer-to-peer finance interface built on open protocol principles.
+**Neutral research infrastructure for decentralized systems**
 
-It represents the **human-facing product vision** of decentralized finance — designed for clarity, access, and trust minimization.
+WHYTEGOD is an independent, AI-first, non-custodial research initiative focused on documenting verifiable on-chain state changes across decentralized protocols.
 
-This repository defines **WHAT WHYTEGOD IS**, not hype, not promises, and not speculative guarantees.
+It does not custody funds, execute transactions, issue incentives, or provide financial advice.
+
+---
+
+## Why WHYTEGOD Exists
+
+Most participants react to narratives.
+
+Narratives come **after** decisions.
+
+In decentralized systems:
+- Capital moves first
+- Control changes first
+- Governance executes first
+
+Stories follow.
+
+WHYTEGOD exists to preserve **state reality** — not sentiment, not marketing, not interpretation.
 
 ---
 
 ## What WHYTEGOD Is
 
-WHYTEGOD is:
+- A **protocol observatory**
+- A **public research interface**
+- A **historical record of on-chain state**
 
-- An **AI-assisted P2P finance interface**
-- A **non-custodial coordination layer**
-- A **user-first gateway** into decentralized financial protocols
-- A **manifesto turned product direction**
+WHYTEGOD documents:
+- Governance executions
+- Parameter changes
+- Permission updates
+- Structural protocol shifts
 
-WHYTEGOD does **not** custody funds, issue financial guarantees, or act as an intermediary.
+All anchored to verifiable on-chain sources.
 
 ---
 
 ## What WHYTEGOD Is Not
 
-WHYTEGOD is **not**:
+- ❌ Not a wallet  
+- ❌ Not a trading platform  
+- ❌ Not an investment product  
+- ❌ Not a DAO  
+- ❌ Not an influencer outlet  
 
-- A bank
-- An exchange
-- A broker
-- A fund
-- An investment product
-- A yield platform
-- A promise of profit
-
-WHYTEGOD is **infrastructure + interface**, not an institution.
-
----
-
-## Relationship to Open Financial Network (OFN)
-
-WHYTEGOD is **aligned with**, but **separate from**, the **Open Financial Network (OFN)**.
-
-- **OFN** is a **protocol-level specification**  
-- **WHYTEGOD** is a **product implementation and philosophy**
-
-WHYTEGOD may implement OFN standards, but OFN does not depend on WHYTEGOD.
-
-This separation ensures:
-- Forkability
-- Neutral governance
-- No protocol capture
-- Long-term credibility
+WHYTEGOD does not recommend, rank, predict, score, or influence outcomes.
 
 ---
 
 ## Core Principles
 
-WHYTEGOD is built on non-negotiable principles:
+- **Neutrality**  
+  Observation without opinion.
 
-### 1. Non-Custodial by Design
-Users retain full control of assets at all times.
+- **Non-custodial design**  
+  No funds, no keys, no execution.
 
-### 2. AI as an Assistant, Not an Authority
-AI surfaces risk, patterns, and clarity — never opaque decisions.
+- **Transparency**  
+  Every claim must map to verifiable state.
 
-### 3. Trust Minimization
-Systems reduce reliance on trust rather than demanding it.
-
-### 4. Identity Without Exposure
-Reputation and behavior matter more than personal data.
-
-### 5. Forkability Over Control
-If WHYTEGOD fails its principles, it should be forked — not defended.
+- **User sovereignty**  
+  Interpretation belongs to the reader.
 
 ---
 
-## Product Direction (High-Level)
+## Structure
 
-WHYTEGOD aims to evolve through clear stages:
+This repository contains the public-facing research interface:
 
-**Stage 0 — Manifesto & Public Signal**  
-The idea exists openly before funding, tokens, or institutions.
+- `index.html` — Overview
+- `manifesto.html` — Philosophy & constraints
+- `protocols.html` — Observed protocols
+- `use-cases.html` — Practical applications
+- `roadmap.html` — Direction, not promises
+- `technology.html` — System design
+- `governance.html` — Governance philosophy
+- `tokenomics.html` — Explicit non-token stance
+- `whitepaper.html` — Formal research framing
+- `style.css` — Visual identity
+- `robots.txt` / `sitemap.xml` — Search integrity
 
-**Stage 1 — AI-Assisted P2P Coordination**  
-AI helps users understand counterparties, risk, and trade context.
-
-**Stage 2 — Reputation Without Surveillance**  
-Decentralized reputation systems without identity leakage.
-
-**Stage 3 — Cross-Border, Cross-Chain Access**  
-P2P finance without geographic or platform lock-in.
-
-**Stage 4 — Open Governance Compatibility**  
-Governance emerges only if necessary — and remains replaceable.
-
----
-
-## Governance Position
-
-WHYTEGOD does **not** impose governance at this stage.
-
-There are:
-- No tokens
-- No allocations
-- No insiders
-- No private roadmaps
-
-Any governance that emerges must be:
-- Transparent
-- Minimal
-- Auditable
-- Optional
-
-See `governance.html` for philosophy details.
+Hosted via GitHub Pages.
 
 ---
 
-## Security Philosophy
+## Design Philosophy
 
-Security is treated as a **system property**, not a feature.
+WHYTEGOD follows a **reality-first systems approach**:
 
-Principles:
-- Minimize attack surface
-- Prefer simplicity over complexity
-- Assume adversarial environments
-- Favor transparency over obscurity
+- Minimize interpretation
+- Separate observation from opinion
+- Reduce incentives that distort truth
+- Prefer verifiable state over narrative consensus
 
-See `SECURITY.md` and `THREAT-MODEL.md` where applicable.
+If something cannot be verified, it is not recorded.
+
+---
+
+## Compliance & Risk Boundary
+
+WHYTEGOD:
+- Does not custody assets
+- Does not execute transactions
+- Does not provide financial advice
+- Does not solicit funds
+- Does not issue tokens
+
+This project is educational and research-oriented only.
 
 ---
 
 ## Status
 
-**Current Status: Concept / Phase 0**
+This project is **early-stage**, public, and iterative.
 
-This repository represents:
-- Direction
-- Intent
-- Philosophy
+Expect:
+- Gradual expansion
+- Conservative scope
+- Slow, deliberate updates
 
-Not:
-- A live financial product
-- A deployment
-- A solicitation
-
----
-
-## Contributions
-
-Code contributions are **not accepted yet**.
-
-This is intentional.
-
-Ideas harden before architectures.
-Clarity precedes implementation.
-
-Discussion may emerge later through structured RFCs.
+No hype cycles.
+No roadmap promises.
+No growth theater.
 
 ---
 
 ## License
 
-This project is released under the Apache 2.0 License unless otherwise stated.
+MIT License  
+See `LICENSE` for details.
 
 ---
 
-**WHYTEGOD is a signal, not a launch.**  
-**Infrastructure before hype.**  
-**Clarity before capital.**
+## Final Note
 
+State does not lie.  
+Stories do.
 
-## Non-Goals
-
-Whytegod does not:
-- Custody user funds
-- Issue tokens
-- Replace financial institutions
-- Define financial standards (this is OFN’s role)
-
-Whytegod is an execution and orchestration layer.
+WHYTEGOD records the state.
