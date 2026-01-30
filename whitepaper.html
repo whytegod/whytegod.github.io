@@ -6,24 +6,16 @@
   <title>Whitepaper — WHYTEGOD</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="WHYTEGOD Whitepaper — A neutral protocol observatory for verifiable on-chain state changes.">
+  <meta name="description" content="WHYTEGOD Whitepaper — A neutral specification for observing and recording verifiable on-chain protocol state changes.">
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png">
-
-  <!-- Styles -->
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-  <!-- NAVIGATION -->
+  <!-- Navigation -->
   <nav class="nav">
-    <a href="index.html" class="logo">
-      <img src="logo.png" alt="WHYTEGOD logo">
-    </a>
-
-    <div class="nav-links">
+    <a href="index.html" class="logo">WHYTEGOD</a>
+    <div>
       <a href="manifesto.html">Manifesto</a>
       <a href="protocols.html">Protocols</a>
       <a href="use-cases.html">Use Cases</a>
@@ -31,137 +23,158 @@
     </div>
   </nav>
 
-  <!-- HERO -->
-  <header class="hero">
-    <h1>Whitepaper</h1>
-    <p class="hero-sub">
-      A technical and philosophical overview of WHYTEGOD
-      as neutral research infrastructure.
+  <!-- Header -->
+  <header class="container">
+    <h1>WHYTEGOD Whitepaper</h1>
+    <p class="subtitle">
+      A neutral specification for protocol state observability.
     </p>
   </header>
 
-  <!-- MAIN CONTENT -->
-  <main class="container">
+  <!-- Abstract -->
+  <section class="container">
+    <h2>Abstract</h2>
 
-    <!-- SECTION: ABSTRACT -->
-    <section>
-      <h2>Abstract</h2>
+    <p>
+      WHYTEGOD is a protocol observatory designed to record verifiable on-chain
+      state changes across decentralized systems.
+    </p>
 
-      <p>
-        WHYTEGOD is a protocol observatory designed to record
-        verifiable on-chain state changes across decentralized systems.
-        It does not interpret, predict, or influence outcomes.
-      </p>
+    <p>
+      The system focuses exclusively on objective events — contract upgrades,
+      governance executions, parameter modifications, and capital control changes —
+      without interpretation, prediction, or influence.
+    </p>
+  </section>
 
-      <p>
-        This document outlines the motivation, scope,
-        and design principles underlying WHYTEGOD.
-      </p>
-    </section>
+  <!-- Problem -->
+  <section class="container">
+    <h2>Problem Statement</h2>
 
-    <!-- SECTION: MOTIVATION -->
-    <section>
-      <h2>Motivation</h2>
+    <p>
+      Decentralized protocols evolve continuously through governance actions,
+      contract deployments, and configuration changes.
+    </p>
 
-      <p>
-        Decentralized protocols evolve continuously through
-        governance execution, contract upgrades, and authority changes.
-      </p>
+    <p>
+      These changes are often fragmented across forums, proposals, commits,
+      and block explorers, resulting in loss of historical clarity and
+      accountability.
+    </p>
 
-      <p>
-        These changes are often fragmented across interfaces,
-        documentation, and narratives, making long-term accountability
-        difficult to establish.
-      </p>
+    <p>
+      Without a unified, neutral record of state changes, protocol history
+      becomes vulnerable to narrative rewriting.
+    </p>
+  </section>
 
-      <p>
-        WHYTEGOD exists to preserve an objective record of
-        what has changed, when it changed, and where it occurred on-chain.
-      </p>
-    </section>
+  <!-- Design Principles -->
+  <section class="container">
+    <h2>Design Principles</h2>
 
-    <!-- SECTION: DESIGN PRINCIPLES -->
-    <section>
-      <h2>Design Principles</h2>
+    <ul>
+      <li><strong>Neutrality:</strong> No scoring, ranking, or recommendation</li>
+      <li><strong>Verifiability:</strong> All records link to on-chain sources</li>
+      <li><strong>Non-custodial:</strong> No asset control or execution</li>
+      <li><strong>Minimalism:</strong> Only record what materially changes state</li>
+      <li><strong>Immutability:</strong> Records reflect irreversible events</li>
+    </ul>
+  </section>
 
-      <ul>
-        <li>Neutrality by default</li>
-        <li>Primary-source verification</li>
-        <li>No interpretation or scoring</li>
-        <li>Passive observation only</li>
-        <li>Minimal surface for trust assumptions</li>
-      </ul>
-    </section>
+  <!-- System Overview -->
+  <section class="container">
+    <h2>System Overview</h2>
 
-    <!-- SECTION: SCOPE -->
-    <section>
-      <h2>Scope</h2>
+    <p>
+      WHYTEGOD operates as a read-only observatory.
+    </p>
 
-      <p>
-        WHYTEGOD focuses exclusively on observable,
-        on-chain state transitions that alter the effective
-        behavior or authority of a protocol.
-      </p>
+    <p>
+      Each protocol entry consists of structured records documenting
+      state-altering events, including timestamps, transaction hashes,
+      executor context, and affected contracts.
+    </p>
 
-      <p>
-        Market activity, off-chain coordination,
-        and subjective analysis are explicitly excluded.
-      </p>
-    </section>
+    <p>
+      No off-chain interpretation layer is applied.
+    </p>
+  </section>
 
-    <!-- SECTION: VERIFICATION MODEL -->
-    <section>
-      <h2>Verification Model</h2>
+  <!-- Record Structure -->
+  <section class="container">
+    <h2>State Change Record Structure</h2>
 
-      <p>
-        Each record references a canonical on-chain transaction
-        and is timestamped at execution.
-      </p>
+    <ul>
+      <li>Protocol Identifier</li>
+      <li>Chain</li>
+      <li>State Change Category</li>
+      <li>Description (factual)</li>
+      <li>Timestamp (UTC)</li>
+      <li>Transaction Hash</li>
+      <li>Source Contract Address</li>
+      <li>Execution Context</li>
+    </ul>
+  </section>
 
-      <p>
-        No secondary sources are used.
-        All records are reproducible using public blockchain data.
-      </p>
-    </section>
+  <!-- Scope -->
+  <section class="container">
+    <h2>Scope (Phase 1)</h2>
 
-    <!-- SECTION: LIMITATIONS -->
-    <section>
-      <h2>Limitations</h2>
+    <p>
+      Phase 1 focuses on manual curation of high-significance protocol events
+      across major decentralized finance systems.
+    </p>
 
-      <p>
-        WHYTEGOD does not guarantee completeness across
-        all protocols or networks.
-      </p>
+    <p>
+      Automation, indexing layers, and API access are explicitly out of scope
+      for this phase.
+    </p>
+  </section>
 
-      <p>
-        Inclusion is constrained by verifiability,
-        data availability, and clearly defined authority boundaries.
-      </p>
-    </section>
+  <!-- Non-Goals -->
+  <section class="container">
+    <h2>Non-Goals</h2>
 
-    <!-- SECTION: CONCLUSION -->
-    <section>
-      <h2>Conclusion</h2>
+    <ul>
+      <li>Price prediction</li>
+      <li>Risk scoring</li>
+      <li>Investment guidance</li>
+      <li>Governance participation</li>
+      <li>Token issuance</li>
+    </ul>
+  </section>
 
-      <p>
-        WHYTEGOD is not a decision-making tool.
-        It is an archival layer for decentralized systems.
-      </p>
+  <!-- Future Work -->
+  <section class="container">
+    <h2>Future Work</h2>
 
-      <p>
-        By preserving state history without interpretation,
-        WHYTEGOD enables accountability without influence.
-      </p>
-    </section>
+    <p>
+      Subsequent phases may introduce structured indexing, query interfaces,
+      and machine-readable exports while preserving system neutrality.
+    </p>
+  </section>
 
-    <!-- FINAL LINE -->
-    <section>
-      <p class="footer-line">
-        State precedes narrative.
-      </p>
-    </section>
+  <!-- Conclusion -->
+  <section class="container">
+    <h2>Conclusion</h2>
 
-  </main>
+    <p>
+      WHYTEGOD exists to preserve protocol truth.
+    </p>
+
+    <p>
+      By recording what changes — and nothing more — the system enables
+      accountability, research, and institutional understanding of
+      decentralized infrastructure.
+    </p>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer container">
+    <p>
+      WHYTEGOD — State does not lie. Stories do.
+    </p>
+  </footer>
 
 </body>
 </html>
