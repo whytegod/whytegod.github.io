@@ -1,160 +1,186 @@
-/* =========================
-   WHYTEGOD — Protocol Observatory
-   Style Layer (Branded / Institutional)
-   ========================= */
+/* ===============================
+   WHYTEGOD — Global Reset
+   =============================== */
 
-/* RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* BASE */
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Arial, sans-serif;
-  background-color: #0e0f12;
-  color: #e6e6e6;
-  line-height: 1.6;
+html {
+  font-size: 16px;
 }
 
-/* LINKS */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Arial, sans-serif;
+  background-color: #0e0e0e;
+  color: #eaeaea;
+  line-height: 1.7;
+}
+
+/* ===============================
+   Links
+   =============================== */
+
 a {
-  color: #cfcfcf;
+  color: #eaeaea;
   text-decoration: none;
 }
 
 a:hover {
-  color: #ffffff;
+  opacity: 0.85;
 }
 
-/* NAVIGATION */
+/* ===============================
+   Layout Containers
+   =============================== */
+
+.container {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+/* ===============================
+   Navigation
+   =============================== */
+
 .nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 28px;
-  border-bottom: 1px solid #1e1f24;
-  background-color: #0e0f12;
+  padding: 1.2rem 1.5rem;
+  border-bottom: 1px solid #1f1f1f;
+  background-color: #0e0e0e;
 }
 
 .nav a {
-  margin-left: 18px;
-  font-size: 14px;
-  letter-spacing: 0.5px;
+  margin-left: 1.5rem;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .logo {
   font-weight: 700;
-  letter-spacing: 1.2px;
-  font-size: 15px;
-  color: #ffffff;
+  letter-spacing: 0.08em;
+  font-size: 1rem;
 }
 
-/* CONTAINER */
-.container {
-  max-width: 920px;
-  margin: 0 auto;
-  padding: 40px 24px 80px;
-}
+/* ===============================
+   Headings
+   =============================== */
 
-/* HEADINGS */
 h1 {
-  font-size: 32px;
-  margin-bottom: 24px;
-  font-weight: 600;
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
 }
 
 h2 {
-  font-size: 22px;
-  margin: 40px 0 16px;
-  font-weight: 600;
+  font-size: 1.6rem;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  letter-spacing: -0.01em;
 }
 
 h3 {
-  font-size: 18px;
-  margin-bottom: 12px;
-  font-weight: 600;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
 }
 
 h4 {
-  font-size: 15px;
-  margin-bottom: 10px;
-  font-weight: 600;
-  color: #bdbdbd;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
 }
 
-/* TEXT */
+/* ===============================
+   Text
+   =============================== */
+
 p {
-  font-size: 14.5px;
-  margin-bottom: 14px;
-  color: #d6d6d6;
+  margin-bottom: 1.2rem;
+  max-width: 720px;
 }
 
-strong {
-  color: #ffffff;
-  font-weight: 600;
+.subtitle {
+  color: #b5b5b5;
+  font-size: 1.05rem;
 }
 
-/* LISTS */
+/* ===============================
+   Lists
+   =============================== */
+
 ul {
-  margin: 12px 0 20px 20px;
+  margin-left: 1.2rem;
+  margin-bottom: 1.5rem;
 }
 
 li {
-  font-size: 14px;
-  margin-bottom: 6px;
+  margin-bottom: 0.6rem;
 }
 
-/* HORIZONTAL RULE */
+/* ===============================
+   Horizontal Rule
+   =============================== */
+
 hr {
   border: none;
-  border-top: 1px solid #1f2026;
-  margin: 18px 0;
+  border-top: 1px solid #262626;
+  margin: 1.5rem 0;
 }
 
-/* PROTOCOL RECORD SECTION */
+/* ===============================
+   Protocol Records
+   =============================== */
+
 .protocol-record {
-  display: flex;
-  flex-direction: column;
-  gap: 28px;
+  border: 1px solid #1f1f1f;
+  padding: 2rem;
+  margin-bottom: 2.5rem;
+  background-color: #121212;
 }
 
-/* INDIVIDUAL RECORD */
 .record {
-  padding: 22px 22px 26px;
-  border: 1px solid #1f2026;
-  background-color: #111217;
-  border-radius: 6px;
+  border: 1px solid #262626;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  background-color: #141414;
 }
 
-/* RECORD TITLE */
-.record h3 {
-  color: #ffffff;
+.record p {
+  margin-bottom: 0.6rem;
 }
 
-/* FOOTER (OPTIONAL LATER) */
-footer {
-  border-top: 1px solid #1e1f24;
-  padding: 24px;
-  font-size: 12px;
-  text-align: center;
+/* ===============================
+   Footer
+   =============================== */
+
+.footer {
+  border-top: 1px solid #1f1f1f;
+  margin-top: 4rem;
+  padding-top: 2rem;
   color: #9a9a9a;
+  font-size: 0.9rem;
 }
 
-/* RESPONSIVE */
-@media (max-width: 640px) {
+/* ===============================
+   Mobile
+   =============================== */
+
+@media (max-width: 720px) {
+  h1 {
+    font-size: 2rem;
+  }
+
   .nav {
     flex-direction: column;
     align-items: flex-start;
-    gap: 12px;
   }
 
-  .container {
-    padding: 32px 18px 60px;
-  }
-
-  h1 {
-    font-size: 26px;
+  .nav a {
+    margin: 0.4rem 0 0 0;
   }
 }
