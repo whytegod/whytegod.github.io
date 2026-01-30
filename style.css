@@ -2,99 +2,91 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  background: linear-gradient(135deg, #020b1a, #04152e);
-  color: #e8f1ff;
+  background: #0b0b0b;
+  color: #ffffff;
   line-height: 1.6;
 }
 
 /* NAV */
-header {
-  background: rgba(0,0,0,0.6);
-  padding: 14px 20px;
-}
-
 .nav {
+  background: #000000;
+  border-bottom: 1px solid #222;
+}
+
+.nav-container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 15px;
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  align-items: center;
 }
 
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.brand img {
-  width: 34px;
-  height: 34px;
-}
-
-.brand span {
-  font-weight: bold;
-  letter-spacing: 1px;
+.logo {
+  height: 40px;
 }
 
 nav a {
-  margin-left: 14px;
-  color: #cce0ff;
+  color: #ffffff;
+  margin-left: 15px;
   text-decoration: none;
   font-size: 14px;
 }
 
 nav a:hover {
-  color: #ffffff;
+  opacity: 0.7;
 }
 
 /* HERO */
 .hero {
+  padding: 80px 20px;
   text-align: center;
-  padding: 90px 20px;
+  background: linear-gradient(180deg, #000000, #111111);
 }
 
 .hero h1 {
-  font-size: 30px;
-  margin-bottom: 16px;
+  font-size: 32px;
+  margin-bottom: 15px;
 }
 
 .hero p {
-  max-width: 720px;
+  max-width: 700px;
   margin: auto;
-  opacity: 0.9;
+  font-size: 16px;
+  color: #cccccc;
 }
 
-/* BLOCKS */
-.block {
+/* CONTENT */
+.content {
   max-width: 900px;
   margin: auto;
   padding: 60px 20px;
 }
 
-.block h2 {
-  margin-bottom: 16px;
+.content h2 {
+  margin-top: 30px;
+  margin-bottom: 10px;
 }
 
-.block ul {
-  padding-left: 20px;
+.content p,
+.content li {
+  color: #dddddd;
+  font-size: 15px;
 }
 
-.block li {
-  margin-bottom: 8px;
-}
-
-.block.dark {
-  background: rgba(255,255,255,0.04);
-  border-radius: 12px;
+.content ul {
+  margin-left: 20px;
 }
 
 /* FOOTER */
 footer {
   text-align: center;
-  padding: 30px 10px;
+  padding: 20px;
+  border-top: 1px solid #222;
   font-size: 13px;
-  opacity: 0.6;
+  color: #777;
 }
