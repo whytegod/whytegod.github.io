@@ -4,142 +4,83 @@
   <meta charset="UTF-8">
   <title>Protocols — WHYTEGOD</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="WHYTEGOD Protocols — How on-chain state changes are observed, verified, and recorded.">
+  <meta name="description" content="Protocols observed by WHYTEGOD — verifiable on-chain state changes without interpretation.">
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
+  <!-- NAVIGATION -->
   <nav class="nav">
-    <a href="index.html" class="logo">WHYTEGOD</a>
-    <a href="manifesto.html">Manifesto</a>
-    <a href="protocols.html">Protocols</a>
+    <a href="index.html" class="logo">
+      <img src="logo.png" alt="WHYTEGOD logo">
+    </a>
+
+    <div class="nav-links">
+      <a href="manifesto.html">Manifesto</a>
+      <a href="protocols.html" class="active">Protocols</a>
+      <a href="use-cases.html">Use Cases</a>
+      <a href="whitepaper.html">Whitepaper</a>
+    </div>
   </nav>
 
+  <!-- MAIN CONTENT -->
   <main class="container">
 
     <h1>Protocols</h1>
 
-    <p>
-      WHYTEGOD does not operate a blockchain, token, or execution layer.
-      It operates an observation protocol.
-    </p>
-
-    <p>
-      Our protocols define <strong>what is recorded</strong>,
-      <strong>how it is verified</strong>,
-      and <strong>what is explicitly excluded</strong>.
+    <p class="lead">
+      WHYTEGOD records protocol-level state changes as factual events.
+      No opinions. No predictions. No incentives.
     </p>
 
     <hr>
 
-    <h2>1. Observation Layer</h2>
+    <h2>What Is Recorded</h2>
+
+    <ul>
+      <li>Contract upgrades and implementation changes</li>
+      <li>Permission and role modifications</li>
+      <li>Governance proposal execution</li>
+      <li>Treasury and capital reallocation</li>
+      <li>Critical parameter updates</li>
+    </ul>
+
+    <h2>What Is Not Recorded</h2>
+
+    <ul>
+      <li>Price movements</li>
+      <li>Market sentiment</li>
+      <li>Social narratives</li>
+      <li>Predictions or forecasts</li>
+      <li>Investment advice</li>
+    </ul>
+
+    <h2>How Records Are Structured</h2>
 
     <p>
-      The observation layer tracks verifiable on-chain state changes across
-      decentralized systems.
-    </p>
-
-    <p>
-      Examples include:
+      Each protocol record includes:
     </p>
 
     <ul>
-      <li>Protocol parameter changes</li>
-      <li>Governance executions</li>
-      <li>Permission updates</li>
-      <li>Capital reallocations</li>
-      <li>Contract upgrades</li>
+      <li>Protocol name</li>
+      <li>Chain and contract address</li>
+      <li>Exact block number and timestamp</li>
+      <li>Description of the state change</li>
+      <li>Transaction hash for verification</li>
     </ul>
 
-    <p>
-      No interpretation is applied.
-      Only what can be cryptographically verified is recorded.
-    </p>
-
-    <hr>
-
-    <h2>2. Verification Standard</h2>
+    <h2>Neutral by Design</h2>
 
     <p>
-      Every recorded event must satisfy all of the following:
-    </p>
-
-    <ul>
-      <li>Publicly verifiable on-chain</li>
-      <li>Timestamped at source</li>
-      <li>Linked to immutable transaction data</li>
-      <li>Reproducible by independent observers</li>
-    </ul>
-
-    <p>
-      Events that fail verification are ignored.
-    </p>
-
-    <hr>
-
-    <h2>3. Neutrality Constraint</h2>
-
-    <p>
-      WHYTEGOD does not assign meaning, value, or intent to recorded events.
-    </p>
-
-    <p>
-      We do not:
-    </p>
-
-    <ul>
-      <li>Score protocols</li>
-      <li>Rank outcomes</li>
-      <li>Predict impact</li>
-      <li>Recommend actions</li>
-    </ul>
-
-    <p>
+      WHYTEGOD does not rank, score, or compare protocols.
       Interpretation is left to the observer.
     </p>
 
     <hr>
 
-    <h2>4. Non-Participation Rule</h2>
-
-    <p>
-      WHYTEGOD never interacts with protocol state.
-    </p>
-
-    <ul>
-      <li>No custody of assets</li>
-      <li>No execution of transactions</li>
-      <li>No governance voting</li>
-      <li>No economic incentives</li>
-    </ul>
-
-    <p>
-      Observation without influence is a core constraint.
-    </p>
-
-    <hr>
-
-    <h2>5. Historical Integrity</h2>
-
-    <p>
-      Once recorded, events are never rewritten.
-    </p>
-
-    <p>
-      Corrections, if required, are appended — not replaced.
-      This preserves full historical traceability.
-    </p>
-
-    <hr>
-
-    <h2>Final Note</h2>
-
-    <p>
-      Protocols change reality before narratives appear.
-    </p>
-
-    <p>
-      WHYTEGOD exists to make those changes visible — nothing more.
+    <p class="footer-line">
+      State changes first. Narratives follow.
     </p>
 
   </main>
