@@ -3,8 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <title>Technology | WHYTEGOD</title>
-  <meta name="description" content="Protocol research and technical foundations studied by WHYTEGOD." />
+
+  <meta name="description" content="Independent protocol research by WHYTEGOD covering decentralized exchanges, lending, and stablecoin systems." />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -13,114 +15,162 @@
 <header>
   <h1>Technology & Protocol Research</h1>
   <p>
-    This page documents decentralized protocols studied by WHYTEGOD.
-    The goal is understanding — not promotion.
+    This page documents decentralized financial protocols studied by WHYTEGOD.
+    The objective is understanding infrastructure — not promotion.
   </p>
 </header>
 
 <main>
 
   <!-- ===================== -->
-  <!-- UNISWAP SECTION -->
+  <!-- UNISWAP -->
   <!-- ===================== -->
   <section class="protocol">
     <h2>Protocol Research: Uniswap</h2>
 
     <p>
-      Uniswap is a decentralized exchange (DEX) protocol that enables
-      peer-to-peer trading of digital assets without order books or intermediaries.
+      Uniswap is a decentralized exchange protocol that enables peer-to-peer
+      token trading without order books or centralized intermediaries.
     </p>
 
     <h3>Automated Market Maker (AMM)</h3>
     <p>
-      Instead of matching buyers and sellers, Uniswap uses liquidity pools.
-      Prices are determined by a mathematical formula based on asset ratios.
+      Uniswap replaces traditional order books with liquidity pools.
+      Prices are determined algorithmically based on token ratios.
     </p>
 
     <h3>Liquidity Provision</h3>
     <p>
-      Users supply token pairs into pools and earn fees generated from trades.
-      Liquidity providers assume risk in exchange for yield.
+      Users supply token pairs to pools and earn trading fees proportional
+      to their share of liquidity.
     </p>
 
     <h3>Constant Product Formula</h3>
     <p>
-      Uniswap maintains the invariant x * y = k, ensuring liquidity is
-      always available at algorithmically adjusted prices.
+      The protocol maintains the invariant <strong>x × y = k</strong>,
+      ensuring continuous liquidity.
     </p>
 
     <h3>Risks</h3>
     <ul>
       <li>Impermanent loss</li>
       <li>Smart contract risk</li>
-      <li>Oracle-free price exposure</li>
+      <li>Price volatility</li>
     </ul>
 
     <p>
       WHYTEGOD studies Uniswap as a foundational example of permissionless
-      market infrastructure.
+      market coordination.
     </p>
   </section>
 
   <!-- ===================== -->
-  <!-- AAVE SECTION -->
+  <!-- AAVE -->
   <!-- ===================== -->
   <section class="protocol">
     <h2>Protocol Research: Aave</h2>
 
     <p>
-      Aave is a decentralized liquidity protocol that enables users to lend
+      Aave is a decentralized liquidity protocol enabling users to lend
       and borrow digital assets without intermediaries.
     </p>
 
-    <h3>Core Function</h3>
+    <h3>Lending Pools</h3>
     <p>
-      Users deposit assets into liquidity pools. These assets become available
-      for borrowing by other users who provide collateral.
+      Users deposit assets into pools which become available for borrowing.
+      Borrowers provide collateral to secure loans.
     </p>
 
     <h3>Interest Rate Model</h3>
     <p>
-      Interest rates adjust algorithmically based on utilization.
-      Higher demand increases borrowing costs and balances liquidity.
+      Interest rates adjust automatically based on supply and demand,
+      balancing liquidity across the system.
     </p>
 
     <h3>Overcollateralization</h3>
     <p>
-      Borrowers must lock collateral worth more than the loan value,
-      reducing default risk.
+      Loans require collateral worth more than the borrowed amount,
+      protecting the protocol against default.
     </p>
 
-    <h3>Liquidation System</h3>
+    <h3>Liquidation Mechanism</h3>
     <p>
-      Positions are automatically liquidated if collateral value
-      falls below safety thresholds.
+      If collateral value falls below safety thresholds, positions
+      are liquidated automatically.
     </p>
 
     <h3>Flash Loans</h3>
     <p>
-      Aave pioneered flash loans — loans that must be borrowed and repaid
-      within a single transaction block.
+      Aave introduced flash loans — uncollateralized loans that must
+      be repaid within a single transaction.
     </p>
 
     <h3>Risks</h3>
     <ul>
-      <li>Smart contract vulnerabilities</li>
       <li>Oracle dependency</li>
       <li>Liquidation risk</li>
-      <li>Governance risk</li>
+      <li>Smart contract vulnerabilities</li>
     </ul>
 
     <p>
-      WHYTEGOD studies Aave to understand decentralized credit,
-      risk management, and liquidity coordination.
+      WHYTEGOD studies Aave to understand decentralized credit and
+      algorithmic risk management.
+    </p>
+  </section>
+
+  <!-- ===================== -->
+  <!-- MAKERDAO -->
+  <!-- ===================== -->
+  <section class="protocol">
+    <h2>Protocol Research: MakerDAO</h2>
+
+    <p>
+      MakerDAO is a decentralized protocol that issues DAI,
+      a crypto-collateralized stablecoin.
+    </p>
+
+    <h3>DAI Stablecoin</h3>
+    <p>
+      DAI is generated when users lock collateral into smart contracts
+      and mint debt against it.
+    </p>
+
+    <h3>Vaults (CDPs)</h3>
+    <p>
+      Collateralized vaults allow users to create DAI while enforcing
+      minimum collateral ratios.
+    </p>
+
+    <h3>Stability Mechanisms</h3>
+    <p>
+      Stability fees, liquidation penalties, and governance controls
+      help maintain DAI’s price stability.
+    </p>
+
+    <h3>Governance</h3>
+    <p>
+      MKR token holders vote on risk parameters, collateral types,
+      and protocol upgrades.
+    </p>
+
+    <h3>Risks</h3>
+    <ul>
+      <li>De-pegging risk</li>
+      <li>Governance capture</li>
+      <li>Oracle failures</li>
+      <li>Liquidation cascades</li>
+    </ul>
+
+    <p>
+      WHYTEGOD studies MakerDAO as an experiment in decentralized money
+      and on-chain monetary policy.
     </p>
   </section>
 
 </main>
 
 <footer>
-  <p>© WHYTEGOD — Protocol research & open financial systems</p>
+  <p>© WHYTEGOD — Open financial protocol research</p>
 </footer>
 
 </body>
