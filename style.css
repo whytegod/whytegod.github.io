@@ -11,7 +11,7 @@ body {
   line-height: 1.6;
 }
 
-/* HEADER */
+/* NAV */
 header {
   background: rgba(0,0,0,0.6);
   padding: 14px 20px;
@@ -30,8 +30,8 @@ header {
 }
 
 .brand img {
-  width: 32px;
-  height: 32px;
+  width: 34px;
+  height: 34px;
 }
 
 .brand span {
@@ -40,7 +40,7 @@ header {
 }
 
 nav a {
-  margin-left: 16px;
+  margin-left: 14px;
   color: #cce0ff;
   text-decoration: none;
   font-size: 14px;
@@ -57,8 +57,8 @@ nav a:hover {
 }
 
 .hero h1 {
-  font-size: 28px;
-  margin-bottom: 14px;
+  font-size: 30px;
+  margin-bottom: 16px;
 }
 
 .hero p {
@@ -67,7 +67,7 @@ nav a:hover {
   opacity: 0.9;
 }
 
-/* CONTENT BLOCKS */
+/* BLOCKS */
 .block {
   max-width: 900px;
   margin: auto;
@@ -75,7 +75,7 @@ nav a:hover {
 }
 
 .block h2 {
-  margin-bottom: 14px;
+  margin-bottom: 16px;
 }
 
 .block ul {
