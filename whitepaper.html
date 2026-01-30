@@ -6,184 +6,162 @@
   <title>Whitepaper — WHYTEGOD</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="WHYTEGOD Whitepaper — A neutral protocol observatory for verifiable on-chain state changes.">
 
-  <meta name="description" content="The WHYTEGOD Whitepaper. A formal framework for neutral observation of decentralized protocol state changes.">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png">
 
-  <meta name="robots" content="index, follow">
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Whitepaper — WHYTEGOD">
-  <meta property="og:description" content="A formal research framework for protocol state observation without custody, incentives, or interpretation.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://whytegod.github.io/whitepaper.html">
-
+  <!-- Styles -->
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="favicon.png" type="image/png">
 </head>
 
 <body>
 
-  <!-- Navigation -->
+  <!-- NAVIGATION -->
   <nav class="nav">
-    <a href="index.html" class="logo">WHYTEGOD</a>
-    <a href="use-cases.html">Use Cases</a>
-    <a href="roadmap.html">Roadmap</a>
-    <a href="protocols.html">Protocols</a>
-    <a href="manifesto.html">Manifesto</a>
-    <a href="whitepaper.html" class="active">Whitepaper</a>
-    <a href="contact.html">Contact</a>
+    <a href="index.html" class="logo">
+      <img src="logo.png" alt="WHYTEGOD logo">
+    </a>
+
+    <div class="nav-links">
+      <a href="manifesto.html">Manifesto</a>
+      <a href="protocols.html">Protocols</a>
+      <a href="use-cases.html">Use Cases</a>
+      <a href="whitepaper.html">Whitepaper</a>
+    </div>
   </nav>
 
-  <!-- Main Content -->
+  <!-- HERO -->
+  <header class="hero">
+    <h1>Whitepaper</h1>
+    <p class="hero-sub">
+      A technical and philosophical overview of WHYTEGOD
+      as neutral research infrastructure.
+    </p>
+  </header>
+
+  <!-- MAIN CONTENT -->
   <main class="container">
 
-    <header class="page-header">
-      <h1>Whitepaper</h1>
-      <p class="subtitle">
-        A framework for neutral protocol observation.
-      </p>
-    </header>
-
+    <!-- SECTION: ABSTRACT -->
     <section>
       <h2>Abstract</h2>
 
       <p>
-        Decentralized systems evolve continuously through governance,
-        parameter updates, and structural changes.
+        WHYTEGOD is a protocol observatory designed to record
+        verifiable on-chain state changes across decentralized systems.
+        It does not interpret, predict, or influence outcomes.
       </p>
 
       <p>
-        While these systems are transparent at the data layer,
-        their historical state transitions are often fragmented,
-        selectively reported, or lost to narrative reconstruction.
-      </p>
-
-      <p>
-        WHYTEGOD proposes a neutral observation layer that documents
-        verifiable on-chain state changes without interpretation,
-        incentives, or execution.
+        This document outlines the motivation, scope,
+        and design principles underlying WHYTEGOD.
       </p>
     </section>
 
+    <!-- SECTION: MOTIVATION -->
     <section>
-      <h2>Problem Statement</h2>
+      <h2>Motivation</h2>
 
       <p>
-        Transparency alone does not guarantee understanding.
+        Decentralized protocols evolve continuously through
+        governance execution, contract upgrades, and authority changes.
       </p>
 
       <p>
-        Protocol state changes occur across multiple contracts,
-        governance frameworks, and execution environments.
-        Over time, institutional memory degrades.
+        These changes are often fragmented across interfaces,
+        documentation, and narratives, making long-term accountability
+        difficult to establish.
       </p>
 
       <p>
-        Without a consistent, neutral record of state transitions,
-        accountability weakens and analysis becomes narrative-driven.
+        WHYTEGOD exists to preserve an objective record of
+        what has changed, when it changed, and where it occurred on-chain.
       </p>
     </section>
 
+    <!-- SECTION: DESIGN PRINCIPLES -->
     <section>
       <h2>Design Principles</h2>
 
       <ul>
-        <li><strong>Neutrality:</strong> Observation without opinion or scoring.</li>
-        <li><strong>Non-custodial:</strong> No assets, keys, or execution authority.</li>
-        <li><strong>Verifiability:</strong> Every record maps to on-chain data.</li>
-        <li><strong>Minimalism:</strong> Reduce interpretation layers.</li>
-        <li><strong>Separation:</strong> Observation is distinct from action.</li>
+        <li>Neutrality by default</li>
+        <li>Primary-source verification</li>
+        <li>No interpretation or scoring</li>
+        <li>Passive observation only</li>
+        <li>Minimal surface for trust assumptions</li>
       </ul>
     </section>
 
+    <!-- SECTION: SCOPE -->
     <section>
-      <h2>Methodology</h2>
+      <h2>Scope</h2>
 
       <p>
-        WHYTEGOD records protocol state changes by monitoring
-        governance executions, contract upgrades, parameter modifications,
-        and permission updates.
+        WHYTEGOD focuses exclusively on observable,
+        on-chain state transitions that alter the effective
+        behavior or authority of a protocol.
       </p>
 
       <p>
-        Each record is anchored to:
-      </p>
-
-      <ul>
-        <li>Transaction hashes</li>
-        <li>Block timestamps</li>
-        <li>Contract addresses</li>
-        <li>Governance references where applicable</li>
-      </ul>
-
-      <p>
-        No aggregation, scoring, or predictive modeling is applied.
+        Market activity, off-chain coordination,
+        and subjective analysis are explicitly excluded.
       </p>
     </section>
 
+    <!-- SECTION: VERIFICATION MODEL -->
     <section>
-      <h2>System Scope</h2>
+      <h2>Verification Model</h2>
 
       <p>
-        WHYTEGOD is intentionally narrow in scope.
+        Each record references a canonical on-chain transaction
+        and is timestamped at execution.
       </p>
 
       <p>
-        It does not replace analytics platforms, explorers,
-        governance forums, or risk dashboards.
-      </p>
-
-      <p>
-        Its role is to preserve state continuity across time.
+        No secondary sources are used.
+        All records are reproducible using public blockchain data.
       </p>
     </section>
 
+    <!-- SECTION: LIMITATIONS -->
     <section>
-      <h2>Non-Goals</h2>
-
-      <ul>
-        <li>Price prediction</li>
-        <li>Risk assessment</li>
-        <li>Protocol promotion</li>
-        <li>Investment guidance</li>
-        <li>Capital allocation</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Future Direction</h2>
+      <h2>Limitations</h2>
 
       <p>
-        Future development may include expanded protocol coverage,
-        improved indexing, and tooling for historical comparison.
+        WHYTEGOD does not guarantee completeness across
+        all protocols or networks.
       </p>
 
       <p>
-        All expansion remains subject to the core principles
-        of neutrality and non-interference.
+        Inclusion is constrained by verifiability,
+        data availability, and clearly defined authority boundaries.
       </p>
     </section>
 
+    <!-- SECTION: CONCLUSION -->
     <section>
       <h2>Conclusion</h2>
 
       <p>
-        Decentralized systems require more than transparency.
-        They require memory.
+        WHYTEGOD is not a decision-making tool.
+        It is an archival layer for decentralized systems.
       </p>
 
       <p>
-        WHYTEGOD exists to preserve that memory —
-        without incentives, narratives, or control.
+        By preserving state history without interpretation,
+        WHYTEGOD enables accountability without influence.
+      </p>
+    </section>
+
+    <!-- FINAL LINE -->
+    <section>
+      <p class="footer-line">
+        State precedes narrative.
       </p>
     </section>
 
   </main>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <p>© WHYTEGOD — Neutral Protocol Research</p>
-  </footer>
 
 </body>
 </html>
