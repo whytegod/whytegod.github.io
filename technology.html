@@ -3,129 +3,125 @@
 <head>
   <meta charset="UTF-8" />
   <title>Technology | WHYTEGOD</title>
-
+  <meta name="description" content="Protocol research and technical foundations studied by WHYTEGOD." />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Technical research and explanations of open financial protocols. WHYTEGOD documents how decentralized systems like Uniswap actually work." />
-  <meta name="author" content="WHYTEGOD" />
-
-  <!-- SEO -->
-  <meta name="robots" content="index, follow" />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="WHYTEGOD Technology Research" />
-  <meta property="og:description" content="Independent research into decentralized finance protocols and open financial infrastructure." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="logo.png" />
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png" />
-
-  <!-- Styles -->
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
-  <header class="site-header">
-    <nav class="nav">
-      <a href="index.html">Home</a>
-      <a href="manifest.html">Manifesto</a>
-      <a href="technology.html" class="active">Technology</a>
-      <a href="governance.html">Governance</a>
-      <a href="tokenomics.html">Tokenomics</a>
-      <a href="whitepaper.html">Whitepaper</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
+<header>
+  <h1>Technology & Protocol Research</h1>
+  <p>
+    This page documents decentralized protocols studied by WHYTEGOD.
+    The goal is understanding — not promotion.
+  </p>
+</header>
 
-  <main class="content">
+<main>
 
-    <section class="page-intro">
-      <h1>Technology Research</h1>
-      <p>
-        This page documents how open financial protocols work in practice.
-        No predictions. No incentives. Just systems.
-      </p>
-    </section>
+  <!-- ===================== -->
+  <!-- UNISWAP SECTION -->
+  <!-- ===================== -->
+  <section class="protocol">
+    <h2>Protocol Research: Uniswap</h2>
 
-    <section class="protocol">
-      <h2>Protocol Research: Uniswap</h2>
+    <p>
+      Uniswap is a decentralized exchange (DEX) protocol that enables
+      peer-to-peer trading of digital assets without order books or intermediaries.
+    </p>
 
-      <p>
-        Uniswap is a decentralized exchange protocol that allows users to trade
-        tokens directly from their wallets without relying on order books or centralized intermediaries.
-      </p>
+    <h3>Automated Market Maker (AMM)</h3>
+    <p>
+      Instead of matching buyers and sellers, Uniswap uses liquidity pools.
+      Prices are determined by a mathematical formula based on asset ratios.
+    </p>
 
-      <h3>Core Mechanism</h3>
-      <p>
-        Uniswap uses an Automated Market Maker (AMM) model. Instead of matching buyers and sellers,
-        it relies on liquidity pools funded by users. Prices are determined algorithmically
-        using a constant product formula:
-      </p>
+    <h3>Liquidity Provision</h3>
+    <p>
+      Users supply token pairs into pools and earn fees generated from trades.
+      Liquidity providers assume risk in exchange for yield.
+    </p>
 
-      <pre class="code-block">
-x * y = k
-      </pre>
+    <h3>Constant Product Formula</h3>
+    <p>
+      Uniswap maintains the invariant x * y = k, ensuring liquidity is
+      always available at algorithmically adjusted prices.
+    </p>
 
-      <p>
-        Where <strong>x</strong> and <strong>y</strong> represent the quantities of two tokens in a pool,
-        and <strong>k</strong> remains constant after each trade.
-      </p>
+    <h3>Risks</h3>
+    <ul>
+      <li>Impermanent loss</li>
+      <li>Smart contract risk</li>
+      <li>Oracle-free price exposure</li>
+    </ul>
 
-      <h3>Liquidity Providers</h3>
-      <p>
-        Anyone can become a liquidity provider by depositing token pairs into a pool.
-        In return, liquidity providers earn a portion of the trading fees proportional
-        to their share of the pool.
-      </p>
+    <p>
+      WHYTEGOD studies Uniswap as a foundational example of permissionless
+      market infrastructure.
+    </p>
+  </section>
 
-      <p>
-        This model removes the need for traditional market makers but introduces new risks,
-        including impermanent loss.
-      </p>
+  <!-- ===================== -->
+  <!-- AAVE SECTION -->
+  <!-- ===================== -->
+  <section class="protocol">
+    <h2>Protocol Research: Aave</h2>
 
-      <h3>Permissionless Access</h3>
-      <p>
-        Uniswap does not require accounts, approvals, or custody.
-        Any compatible wallet can interact with the protocol directly.
-      </p>
+    <p>
+      Aave is a decentralized liquidity protocol that enables users to lend
+      and borrow digital assets without intermediaries.
+    </p>
 
-      <p>
-        This design improves accessibility but shifts responsibility entirely to the user.
-      </p>
+    <h3>Core Function</h3>
+    <p>
+      Users deposit assets into liquidity pools. These assets become available
+      for borrowing by other users who provide collateral.
+    </p>
 
-      <h3>Limitations and Risks</h3>
-      <ul>
-        <li>Price slippage during large trades</li>
-        <li>Impermanent loss for liquidity providers</li>
-        <li>Smart contract risk</li>
-        <li>Network congestion and gas costs</li>
-      </ul>
+    <h3>Interest Rate Model</h3>
+    <p>
+      Interest rates adjust algorithmically based on utilization.
+      Higher demand increases borrowing costs and balances liquidity.
+    </p>
 
-      <p>
-        These trade-offs are structural, not bugs. Understanding them is critical
-        to using decentralized systems responsibly.
-      </p>
+    <h3>Overcollateralization</h3>
+    <p>
+      Borrowers must lock collateral worth more than the loan value,
+      reducing default risk.
+    </p>
 
-      <h3>Why Uniswap Matters</h3>
-      <p>
-        Uniswap demonstrates that open, non-custodial financial infrastructure
-        can function at global scale without centralized control.
-      </p>
+    <h3>Liquidation System</h3>
+    <p>
+      Positions are automatically liquidated if collateral value
+      falls below safety thresholds.
+    </p>
 
-      <p>
-        WHYTEGOD studies protocols like Uniswap to understand
-        where decentralization succeeds, where it fails,
-        and how humans interact with these systems in reality.
-      </p>
+    <h3>Flash Loans</h3>
+    <p>
+      Aave pioneered flash loans — loans that must be borrowed and repaid
+      within a single transaction block.
+    </p>
 
-    </section>
+    <h3>Risks</h3>
+    <ul>
+      <li>Smart contract vulnerabilities</li>
+      <li>Oracle dependency</li>
+      <li>Liquidation risk</li>
+      <li>Governance risk</li>
+    </ul>
 
-  </main>
+    <p>
+      WHYTEGOD studies Aave to understand decentralized credit,
+      risk management, and liquidity coordination.
+    </p>
+  </section>
 
-  <footer class="site-footer">
-    <p>© 2026 WHYTEGOD — Open Financial Research</p>
-  </footer>
+</main>
+
+<footer>
+  <p>© WHYTEGOD — Protocol research & open financial systems</p>
+</footer>
 
 </body>
 </html>
