@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
 
-  <title>Technology & Protocol Research | WHYTEGOD</title>
+  <title>Technology & Research | WHYTEGOD</title>
 
-  <meta name="description" content="Independent research by WHYTEGOD on decentralized financial protocols, including markets, credit, money, and coordination systems." />
+  <meta name="description" content="WHYTEGOD is an independent research initiative studying decentralized financial protocols, risk, governance, and coordination systems." />
   <meta name="keywords" content="WHYTEGOD, DeFi research, Uniswap, Aave, MakerDAO, decentralized finance, protocol analysis" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -17,8 +17,7 @@
 <header>
   <h1>Technology & Protocol Research</h1>
   <p>
-    Independent analysis of decentralized financial systems.
-    This research is observational, neutral, and non-custodial.
+    Independent, neutral research into decentralized financial systems.
   </p>
 </header>
 
@@ -28,104 +27,70 @@
   <!-- UNISWAP -->
   <!-- ===================== -->
   <section class="protocol">
-    <h2>Protocol Research: Uniswap</h2>
+    <h2>Uniswap</h2>
 
     <p>
-      Uniswap is a decentralized exchange protocol that enables
-      peer-to-peer token trading without centralized intermediaries
-      or traditional order books.
+      Uniswap is a decentralized exchange protocol that allows users
+      to trade digital assets directly from their wallets without
+      centralized intermediaries.
     </p>
 
     <h3>Automated Market Maker (AMM)</h3>
     <p>
-      Uniswap replaces order books with liquidity pools.
-      Prices are determined algorithmically based on token ratios.
+      Instead of order books, Uniswap uses liquidity pools
+      where prices are determined algorithmically.
     </p>
 
-    <h3>Liquidity Provision</h3>
+    <h3>Liquidity Providers</h3>
     <p>
-      Users supply token pairs to pools and earn fees proportional
-      to their share of liquidity.
+      Users can supply token pairs to pools and earn trading fees
+      proportional to their contribution.
     </p>
 
-    <h3>Constant Product Formula</h3>
-    <p>
-      The protocol maintains the invariant <strong>x × y = k</strong>,
-      ensuring continuous liquidity under changing market conditions.
-    </p>
-
-    <h3>Risks</h3>
+    <h3>Core Risks</h3>
     <ul>
       <li>Impermanent loss</li>
       <li>Smart contract risk</li>
       <li>Price volatility</li>
     </ul>
-
-    <p>
-      WHYTEGOD studies Uniswap as a foundational coordination mechanism
-      for decentralized markets.
-    </p>
   </section>
 
   <!-- ===================== -->
   <!-- AAVE -->
   <!-- ===================== -->
   <section class="protocol">
-    <h2>Protocol Research: Aave</h2>
+    <h2>Aave</h2>
 
     <p>
-      Aave is a decentralized liquidity protocol that enables
-      lending and borrowing of digital assets without intermediaries.
+      Aave is a decentralized lending protocol that enables users
+      to lend and borrow digital assets without traditional banks.
     </p>
 
-    <h3>Lending Pools</h3>
+    <h3>Lending & Borrowing</h3>
     <p>
-      Users deposit assets into pools, making them available for borrowing
-      by others who provide collateral.
+      Depositors earn interest, while borrowers provide collateral
+      to access liquidity.
     </p>
 
-    <h3>Interest Rate Model</h3>
+    <h3>Risk Management</h3>
     <p>
-      Interest rates adjust automatically based on utilization,
-      balancing liquidity across the system.
+      Loans are overcollateralized and liquidated automatically
+      if safety thresholds are breached.
     </p>
 
-    <h3>Overcollateralization</h3>
-    <p>
-      Borrowers must provide collateral exceeding the value
-      of the loan to reduce default risk.
-    </p>
-
-    <h3>Liquidation Mechanism</h3>
-    <p>
-      If collateral value drops below safety thresholds,
-      positions are liquidated automatically.
-    </p>
-
-    <h3>Flash Loans</h3>
-    <p>
-      Aave introduced flash loans — uncollateralized loans
-      that must be repaid within a single transaction.
-    </p>
-
-    <h3>Risks</h3>
+    <h3>Core Risks</h3>
     <ul>
-      <li>Oracle dependency</li>
       <li>Liquidation risk</li>
+      <li>Oracle dependency</li>
       <li>Smart contract vulnerabilities</li>
     </ul>
-
-    <p>
-      WHYTEGOD studies Aave to understand decentralized credit,
-      leverage, and automated risk management.
-    </p>
   </section>
 
   <!-- ===================== -->
   <!-- MAKERDAO -->
   <!-- ===================== -->
   <section class="protocol">
-    <h2>Protocol Research: MakerDAO</h2>
+    <h2>MakerDAO</h2>
 
     <p>
       MakerDAO is a decentralized protocol that issues DAI,
@@ -134,107 +99,84 @@
 
     <h3>DAI Stablecoin</h3>
     <p>
-      DAI is generated when users lock collateral into smart contracts
+      DAI is generated when users lock collateral
       and mint debt against it.
-    </p>
-
-    <h3>Vaults (CDPs)</h3>
-    <p>
-      Vaults enforce minimum collateral ratios to maintain system stability.
-    </p>
-
-    <h3>Stability Mechanisms</h3>
-    <p>
-      Stability fees, liquidation penalties, and governance controls
-      are used to maintain DAI’s peg.
     </p>
 
     <h3>Governance</h3>
     <p>
-      MKR token holders vote on risk parameters,
-      collateral types, and protocol upgrades.
+      MKR holders vote on system parameters,
+      collateral types, and risk controls.
     </p>
 
-    <h3>Risks</h3>
+    <h3>Core Risks</h3>
     <ul>
       <li>De-pegging risk</li>
       <li>Governance capture</li>
-      <li>Oracle failures</li>
-      <li>Liquidation cascades</li>
+      <li>Systemic liquidation events</li>
     </ul>
-
-    <p>
-      WHYTEGOD studies MakerDAO as an experiment
-      in decentralized money and monetary policy.
-    </p>
   </section>
 
   <!-- ===================== -->
-  <!-- WHYTEGOD CORE PHILOSOPHY -->
+  <!-- WHYTEGOD PHILOSOPHY -->
   <!-- ===================== -->
   <section class="protocol philosophy">
-
-    <h2>WHYTEGOD: Core Philosophy</h2>
+    <h2>WHYTEGOD Core Identity</h2>
 
     <p>
-      WHYTEGOD is not a protocol, token, or financial product.
-      It is a research-driven coordination framework focused on
-      understanding decentralized financial systems at their foundation.
+      WHYTEGOD is not a token, protocol, or financial product.
+      It is a research-driven initiative focused on understanding
+      decentralized financial coordination.
     </p>
 
     <p>
-      The project exists to observe how markets, credit, and money behave
-      when coordination is handled by code rather than institutions.
+      The project studies how markets, credit,
+      and money behave when governed by code
+      instead of institutions.
     </p>
-
-    <h3>Foundational Focus</h3>
 
     <ul>
-      <li><strong>Markets</strong> — decentralized exchange (Uniswap)</li>
-      <li><strong>Credit</strong> — lending and leverage (Aave)</li>
-      <li><strong>Money</strong> — issuance and stability (MakerDAO)</li>
+      <li>Markets — decentralized exchange systems</li>
+      <li>Credit — lending and leverage mechanisms</li>
+      <li>Money — issuance and stability models</li>
+    </ul>
+  </section>
+
+  <!-- ===================== -->
+  <!-- RISK & ETHICS -->
+  <!-- ===================== -->
+  <section class="protocol ethics">
+    <h2>Risk & Ethics</h2>
+
+    <p>
+      Decentralized finance involves significant risk,
+      including the possibility of total loss.
+    </p>
+
+    <p>
+      WHYTEGOD does not provide financial advice,
+      does not custody assets,
+      and does not influence transactions.
+    </p>
+
+    <h3>Ethical Position</h3>
+    <ul>
+      <li>Education over speculation</li>
+      <li>Transparency over persuasion</li>
+      <li>User sovereignty over control</li>
     </ul>
 
-    <h3>Neutrality & Non-Custodial Design</h3>
-
     <p>
-      WHYTEGOD does not custody assets, execute transactions,
-      or influence financial decisions.
+      All content is educational and observational.
+      Users are responsible for their own decisions
+      and regulatory compliance.
     </p>
-
-    <p>
-      The project prioritizes clarity, transparency,
-      and analytical neutrality.
-    </p>
-
-    <h3>Human Behavior & Risk</h3>
-
-    <p>
-      Although decentralized finance is automated,
-      outcomes are shaped by human incentives,
-      governance decisions, and behavioral stress.
-    </p>
-
-    <p>
-      WHYTEGOD focuses on where human behavior
-      intersects with automated systems.
-    </p>
-
-    <h3>Long-Term Objective</h3>
-
-    <p>
-      The long-term goal is to develop open research frameworks
-      that help individuals, DAOs, and institutions
-      reason clearly about decentralized financial systems
-      without surrendering sovereignty.
-    </p>
-
   </section>
 
 </main>
 
 <footer>
-  <p>© WHYTEGOD — Open financial protocol research</p>
+  <p>© WHYTEGOD — Independent protocol research</p>
 </footer>
 
 </body>
