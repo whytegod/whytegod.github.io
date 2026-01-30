@@ -2,38 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://whytegod.github.io/whytegod/</loc>
-    <priority>1.0</priority>
+    <loc>https://whytegod.github.io/</loc>
+    <priority>1.00</priority>
   </url>
 
   <url>
-    <loc>https://whytegod.github.io/whytegod/manifest.html</loc>
-    <priority>0.8</priority>
+    <loc>https://whytegod.github.io/manifesto.html</loc>
+    <priority>0.80</priority>
   </url>
 
   <url>
-    <loc>https://whytegod.github.io/whytegod/technology.html</loc>
-    <priority>0.8</priority>
+    <loc>https://whytegod.github.io/protocols.html</loc>
+    <priority>0.80</priority>
   </url>
 
   <url>
-    <loc>https://whytegod.github.io/whytegod/tokenomics.html</loc>
-    <priority>0.8</priority>
+    <loc>https://whytegod.github.io/use-cases.html</loc>
+    <priority>0.70</priority>
   </url>
 
   <url>
-    <loc>https://whytegod.github.io/whytegod/governance.html</loc>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://whytegod.github.io/whytegod/whitepaper.html</loc>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://whytegod.github.io/whytegod/contact.html</loc>
-    <priority>0.6</priority>
+    <loc>https://whytegod.github.io/whitepaper.html</loc>
+    <priority>0.70</priority>
   </url>
 
 </urlset>
