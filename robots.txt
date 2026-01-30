@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://whytegod.github.io/sitemap.xml
