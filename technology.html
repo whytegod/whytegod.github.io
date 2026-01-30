@@ -1,30 +1,131 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Technology — WHYTEGOD</title>
-  <meta name="viewport" content="width=device-width">
-  <link rel="icon" href="favicon.png">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>Technology | WHYTEGOD</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Technical research and explanations of open financial protocols. WHYTEGOD documents how decentralized systems like Uniswap actually work." />
+  <meta name="author" content="WHYTEGOD" />
+
+  <!-- SEO -->
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="WHYTEGOD Technology Research" />
+  <meta property="og:description" content="Independent research into decentralized finance protocols and open financial infrastructure." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="logo.png" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
-<header>
-  <div class="nav">
-    <div class="brand">
-      <img src="logo.png">
-      <span>WHYTEGOD</span>
-    </div>
-  </div>
-</header>
+  <header class="site-header">
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="manifest.html">Manifesto</a>
+      <a href="technology.html" class="active">Technology</a>
+      <a href="governance.html">Governance</a>
+      <a href="tokenomics.html">Tokenomics</a>
+      <a href="whitepaper.html">Whitepaper</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
 
-<section class="block">
-  <h2>Technology</h2>
-  <p>
-    WHYTEGOD is protocol-first. AI assists coordination,
-    not custody or control.
-  </p>
-</section>
+  <main class="content">
 
-<footer>© 2026 WHYTEGOD</footer>
+    <section class="page-intro">
+      <h1>Technology Research</h1>
+      <p>
+        This page documents how open financial protocols work in practice.
+        No predictions. No incentives. Just systems.
+      </p>
+    </section>
+
+    <section class="protocol">
+      <h2>Protocol Research: Uniswap</h2>
+
+      <p>
+        Uniswap is a decentralized exchange protocol that allows users to trade
+        tokens directly from their wallets without relying on order books or centralized intermediaries.
+      </p>
+
+      <h3>Core Mechanism</h3>
+      <p>
+        Uniswap uses an Automated Market Maker (AMM) model. Instead of matching buyers and sellers,
+        it relies on liquidity pools funded by users. Prices are determined algorithmically
+        using a constant product formula:
+      </p>
+
+      <pre class="code-block">
+x * y = k
+      </pre>
+
+      <p>
+        Where <strong>x</strong> and <strong>y</strong> represent the quantities of two tokens in a pool,
+        and <strong>k</strong> remains constant after each trade.
+      </p>
+
+      <h3>Liquidity Providers</h3>
+      <p>
+        Anyone can become a liquidity provider by depositing token pairs into a pool.
+        In return, liquidity providers earn a portion of the trading fees proportional
+        to their share of the pool.
+      </p>
+
+      <p>
+        This model removes the need for traditional market makers but introduces new risks,
+        including impermanent loss.
+      </p>
+
+      <h3>Permissionless Access</h3>
+      <p>
+        Uniswap does not require accounts, approvals, or custody.
+        Any compatible wallet can interact with the protocol directly.
+      </p>
+
+      <p>
+        This design improves accessibility but shifts responsibility entirely to the user.
+      </p>
+
+      <h3>Limitations and Risks</h3>
+      <ul>
+        <li>Price slippage during large trades</li>
+        <li>Impermanent loss for liquidity providers</li>
+        <li>Smart contract risk</li>
+        <li>Network congestion and gas costs</li>
+      </ul>
+
+      <p>
+        These trade-offs are structural, not bugs. Understanding them is critical
+        to using decentralized systems responsibly.
+      </p>
+
+      <h3>Why Uniswap Matters</h3>
+      <p>
+        Uniswap demonstrates that open, non-custodial financial infrastructure
+        can function at global scale without centralized control.
+      </p>
+
+      <p>
+        WHYTEGOD studies protocols like Uniswap to understand
+        where decentralization succeeds, where it fails,
+        and how humans interact with these systems in reality.
+      </p>
+
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 WHYTEGOD — Open Financial Research</p>
+  </footer>
+
 </body>
 </html>
