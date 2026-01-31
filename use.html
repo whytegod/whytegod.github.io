@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Using the Whytegod Protocol</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Main Styles -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="print.css" media="print">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="logo.png">
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <img src="logo.png" alt="Whytegod Logo" class="logo">
+    <h1>Whytegod Protocol</h1>
+  </div>
+
+  <nav class="nav">
+    <a href="index.html">Spec</a>
+    <a href="records.html">Records</a>
+    <a href="protocols.html">Protocols</a>
+    <a href="economics.html">Economics</a>
+    <a href="use.html" class="active">Use</a>
+  </nav>
+</header>
+
+<main class="content">
+
+  <section>
+    <h2>Using the Protocol</h2>
+    <p>
+      The Whytegod Protocol is used to create permanent, verifiable records
+      without accounts, identity, governance, or trust assumptions.
+    </p>
+  </section>
+
+  <section>
+    <h3>1. Create a Record Hash</h3>
+    <p>
+      A record begins with data. This data is never uploaded to the protocol.
+      Instead, a cryptographic hash of the data is generated locally.
+    </p>
+
+    <ul>
+      <li>Choose any data (file, document, text, dataset)</li>
+      <li>Generate a SHA-256 hash of the data</li>
+      <li>The hash becomes the <strong>Record ID</strong></li>
+    </ul>
+
+    <p class="note">
+      The original data remains private. Only the hash is anchored.
+    </p>
+  </section>
+
+  <section>
+    <h3>2. Anchor the Record</h3>
+    <p>
+      The record hash is anchored by publishing it through the Whytegod Protocol
+      anchoring mechanism.
+    </p>
+
+    <ul>
+      <li>The hash is included as an immutable reference</li>
+      <li>An on-chain or neutral anchor confirms permanence</li>
+      <li>No ownership or identity is recorded</li>
+    </ul>
+
+    <p class="note">
+      Once anchored, the record cannot be altered, revoked, or censored.
+    </p>
+  </section>
+
+  <section>
+    <h3>3. Verify a Record</h3>
+    <p>
+      Any party can independently verify a record at any time.
+    </p>
+
+    <ul>
+      <li>Recompute the hash from the original data</li>
+      <li>Compare it with the anchored Record ID</li>
+      <li>Matching hashes confirm authenticity</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Role of WGD</h3>
+    <p>
+      WGD exists to support anchoring demand and long-term sustainability.
+      It does not grant control, governance rights, or special privileges.
+    </p>
+
+    <ul>
+      <li>Used for anchoring operations</li>
+      <li>Neutral utility only</li>
+      <li>No protocol authority attached</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>What the Protocol Does Not Do</h3>
+    <ul>
+      <li>No user accounts</li>
+      <li>No file storage</li>
+      <li>No identity system</li>
+      <li>No governance or voting</li>
+      <li>No record deletion</li>
+    </ul>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>
+    Whytegod Protocol — Permanent Record Layer
+  </p>
+</footer>
+
+</body>
+</html>
