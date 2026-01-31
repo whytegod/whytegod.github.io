@@ -1,152 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <title>Whytegod Protocol — Protocol Rules</title>
 
-  <title>Whytegod Protocols</title>
+  <!-- Mobile -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Meta -->
+  <meta name="description" content="Whytegod Protocol — Anchoring and Lifecycle Rules">
+  <meta name="theme-color" content="#0b0f14">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="icon" type="image/png" href="logo.png">
 
-  <!-- SEO Meta -->
-  <meta name="description" content="Core protocols governing the Whytegod network, including supply discipline, record anchoring, privacy rules, and lifecycle mechanics." />
-  <meta name="keywords" content="Whytegod, protocol, blockchain rules, anchoring, privacy, fixed supply" />
-  <meta name="author" content="Whytegod Protocol" />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Whytegod Protocols" />
-  <meta property="og:description" content="The rules and mechanisms that define the Whytegod protocol." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="logo.png" />
-
-  <style>
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      background: #0b0b0e;
-      color: #eaeaea;
-      line-height: 1.6;
-    }
-
-    header {
-      padding: 1.5rem 2rem;
-      border-bottom: 1px solid #222;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-
-    .brand img {
-      height: 40px;
-      width: auto;
-    }
-
-    .brand span {
-      font-size: 1.4rem;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-    }
-
-    nav a {
-      margin-left: 1rem;
-      text-decoration: none;
-      color: #caa85c;
-      font-size: 0.95rem;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    main {
-      max-width: 900px;
-      padding: 2.5rem 2rem;
-      margin: auto;
-    }
-
-    h2 {
-      margin-top: 2rem;
-      color: #caa85c;
-    }
-
-    footer {
-      border-top: 1px solid #222;
-      padding: 1rem;
-      text-align: center;
-      font-size: 0.8rem;
-      color: #888;
-    }
-  </style>
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="print.css" media="print">
 </head>
 
 <body>
 
-<header>
-  <div class="brand">
-    <img src="logo.png" alt="Whytegod Logo">
-    <span>Whytegod</span>
+<!-- ================= HEADER ================= -->
+<header class="site-header">
+  <div class="header-left">
+    <img src="logo.png" alt="Whytegod Logo" class="logo">
+    <span class="site-title">Whytegod Protocol</span>
   </div>
 
-  <nav>
+  <nav class="site-nav">
     <a href="index.html">Spec</a>
-    <a href="protocols.html">Protocols</a>
     <a href="records.html">Records</a>
+    <a href="protocols.html">Protocols</a>
+    <a href="economic.html">Economics</a>
   </nav>
 </header>
 
-<main>
-  <h1>Protocol Layer</h1>
+<!-- ================= MAIN ================= -->
+<main class="content">
 
-  <h2>1. Supply Discipline</h2>
-  <p>
-    Whytegod operates on a fixed and immutable supply. No minting, no inflation,
-    and no discretionary issuance. All calculations are deterministic and
-    verifiable by any node.
-  </p>
+  <section class="hero">
+    <h1>Protocol Rules</h1>
+    <p class="subtitle">Anchoring, Lifecycle, and Enforcement</p>
+  </section>
 
-  <h2>2. Record Anchoring</h2>
-  <p>
-    Records are anchored using cryptographic commitments. Only proofs are stored
-    on-chain, never raw data. This preserves privacy while ensuring permanence
-    and verifiability.
-  </p>
+  <section>
+    <h2>Protocol Scope</h2>
+    <p>
+      The Whytegod Protocol defines deterministic rules for anchoring records,
+      validating commitments, and enforcing immutability. The protocol does not
+      manage identity, governance, or arbitration.
+    </p>
+  </section>
 
-  <h2>3. Privacy by Absence</h2>
-  <p>
-    The protocol avoids identity entirely. There are no accounts, profiles,
-    usernames, or metadata trails. Validation relies on mathematics, not trust.
-  </p>
+  <section>
+    <h2>Anchoring Rules</h2>
+    <ul>
+      <li>All records are anchored through cryptographic commitments</li>
+      <li>Anchors reference an external immutable layer</li>
+      <li>Anchor references must be verifiable by any third party</li>
+      <li>No anchor replacement or re-anchoring is permitted</li>
+      <li>Anchors are final once accepted</li>
+    </ul>
+  </section>
 
-  <h2>4. Lifecycle Rules</h2>
-  <p>
-    Protocol behavior responds organically to usage demand. Fees and anchoring
-    costs reflect network activity, reinforcing long-term value without
-    speculative manipulation.
-  </p>
+  <section>
+    <h2>Lifecycle Rules</h2>
+    <ul>
+      <li>Record creation is permissionless</li>
+      <li>Validation occurs at anchor time</li>
+      <li>No update, revoke, or delete operations exist</li>
+      <li>Records persist indefinitely</li>
+      <li>Protocol state grows monotonically</li>
+    </ul>
+  </section>
 
-  <h2>5. Internal & External Utility</h2>
-  <p>
-    Native units are used for internal anchoring operations and external
-    integrations, enabling ecosystem growth without compromising protocol
-    neutrality.
-  </p>
+  <section>
+    <h2>Conflict Resolution</h2>
+    <p>
+      Conflicts are resolved deterministically using record hash ordering and
+      anchor timestamp precedence. No human or governance intervention is allowed.
+    </p>
+  </section>
 
-  <h2>6. Threat Model</h2>
-  <p>
-    The system is designed to resist censorship, replay attacks, data forgery,
-    and identity correlation. There are no privileged actors or upgrade keys.
-  </p>
+  <section>
+    <h2>Economic Interaction (WGD)</h2>
+    <p>
+      The native asset <strong>WGD</strong> is used exclusively for protocol-level
+      interactions such as anchoring and verification. Pricing pressure emerges
+      from demand for permanent records rather than speculative incentives.
+    </p>
+  </section>
+
+  <section>
+    <h2>Protocol Guarantees</h2>
+    <ul>
+      <li>Immutability by design</li>
+      <li>Public verifiability</li>
+      <li>Neutral, non-discretionary execution</li>
+      <li>No dependency on off-chain trust</li>
+    </ul>
+  </section>
+
 </main>
 
-<footer>
-  Whytegod Protocol — Rules Before Hype • Mathematics Before Trust
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer">
+  <p>
+    Whytegod Protocol — Protocol Rules · Asset: <strong>WGD</strong>
+  </p>
 </footer>
 
 </body>
