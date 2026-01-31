@@ -1,103 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+  <meta charset="UTF-8">
   <title>Whytegod Protocol — Records Specification</title>
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="print.css" media="print" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Whytegod Protocol Records Specification — Permanent, verifiable, immutable records.">
+
+  <!-- Main styles -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Print styles -->
+  <link rel="stylesheet" href="print.css" media="print">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="icon" type="image/png" href="favicon.png">
 </head>
 
 <body>
 
-  <!-- ================= HEADER ================= -->
-  <header class="site-header">
-    <div class="header-left">
-      <img src="logo.png" alt="Whytegod Logo" class="logo" />
-      <div class="title-block">
-        <h1>Whytegod Protocol</h1>
-        <span class="version">Records Specification v1.0</span>
-      </div>
+<header class="site-header">
+  <div class="header-left">
+    <img src="logo.png" alt="Whytegod Logo" class="logo">
+    <div class="header-text">
+      <h1>Whytegod Protocol</h1>
+      <p class="subtitle">Records Specification v1.0</p>
     </div>
+  </div>
 
-    <div class="header-right">
-      <span class="tagline">Permanent Record Layer</span>
-    </div>
-  </header>
+  <div class="header-right">
+    <span>Permanent Record Layer</span>
+  </div>
+</header>
 
-  <main>
+<main>
 
-    <!-- ================= OVERVIEW ================= -->
-    <section>
-      <h2>Records</h2>
-      <p>
-        Records are immutable data commitments anchored through the
-        Whytegod Protocol. Once published, a record cannot be altered,
-        revoked, censored, or deleted.
-      </p>
-    </section>
+<section>
+  <h2>Records</h2>
+  <p>
+    Records are immutable data commitments anchored through the Whytegod Protocol.
+    Once published, a record cannot be altered, revoked, censored, or deleted.
+  </p>
+</section>
 
-    <!-- ================= STRUCTURE ================= -->
-    <section>
-      <h2>Record Structure</h2>
-      <ul>
-        <li><strong>Record ID:</strong> Deterministic hash of record content</li>
-        <li><strong>Timestamp:</strong> Block-confirmed publication time</li>
-        <li><strong>Payload Hash:</strong> Cryptographic digest of data</li>
-        <li><strong>Anchor:</strong> On-chain reference</li>
-        <li><strong>Checksum:</strong> Verification integrity value</li>
-      </ul>
-    </section>
+<section>
+  <h2>Record Structure</h2>
+  <ul>
+    <li><strong>Record ID:</strong> Deterministic hash of record content</li>
+    <li><strong>Timestamp:</strong> Block-confirmed publication time</li>
+    <li><strong>Payload Hash:</strong> Cryptographic digest of data</li>
+    <li><strong>Anchor:</strong> On-chain reference</li>
+    <li><strong>Checksum:</strong> Verification integrity value</li>
+  </ul>
+</section>
 
-    <!-- ================= LIFECYCLE ================= -->
-    <section>
-      <h2>Lifecycle Rules</h2>
-      <ol>
-        <li>Record creation (off-chain)</li>
-        <li>Hash computation</li>
-        <li>Anchor submission</li>
-        <li>Network confirmation</li>
-        <li>Permanent archival</li>
-      </ol>
-    </section>
+<section>
+  <h2>Lifecycle Rules</h2>
+  <ul>
+    <li>Record creation (off-chain)</li>
+    <li>Hash computation</li>
+    <li>Anchor submission</li>
+    <li>Network confirmation</li>
+    <li>Permanent archival</li>
+  </ul>
+</section>
 
-    <!-- ================= VERIFICATION ================= -->
-    <section>
-      <h2>Verification</h2>
-      <p>
-        Any observer can independently verify a record by recomputing
-        the payload hash and comparing it to the on-chain anchor.
-        No identity, permission, or trust assumption is required.
-      </p>
-    </section>
+<section>
+  <h2>Verification</h2>
+  <p>
+    Any observer can independently verify a record by recomputing the hash and
+    comparing it to the on-chain anchor. No identity, permission, or trust
+    assumption is required.
+  </p>
+</section>
 
-    <!-- ================= SECURITY ================= -->
-    <section>
-      <h2>Security Properties</h2>
-      <ul>
-        <li>Immutability</li>
-        <li>Deterministic verification</li>
-        <li>No governance dependency</li>
-        <li>No identity layer</li>
-        <li>Long-term auditability</li>
-      </ul>
-    </section>
+<section>
+  <h2>Security Properties</h2>
+  <ul>
+    <li>Immutability</li>
+    <li>Deterministic verification</li>
+    <li>No governance dependency</li>
+    <li>No identity layer</li>
+    <li>Long-term auditability</li>
+  </ul>
+</section>
 
-  </main>
+</main>
 
-  <!-- ================= FOOTER ================= -->
-  <footer class="site-footer">
-    <p>
-      Whytegod Protocol — Records Specification v1.0<br />
-      Native Asset: <strong>WGD</strong> · Smallest Unit: <strong>Wert</strong>
-    </p>
-  </footer>
+<footer class="site-footer">
+  <p>
+    Whytegod Protocol — Records Specification<br>
+    Native Asset: <strong>WGD</strong> · Smallest Unit: <strong>Wert</strong>
+  </p>
+</footer>
 
 </body>
 </html>
