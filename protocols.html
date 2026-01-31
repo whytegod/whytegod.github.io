@@ -1,115 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Whytegod Protocol — Protocol Rules</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Protocols | Whytegod Protocol</title>
 
-  <!-- Mobile -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Meta -->
-  <meta name="description" content="Whytegod Protocol — Anchoring and Lifecycle Rules">
-  <meta name="theme-color" content="#0b0f14">
+  <!-- Core styles -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="print.css" media="print" />
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="logo.png">
-
-  <!-- Styles -->
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="print.css" media="print">
+  <link rel="icon" type="image/png" href="logo.png" />
 </head>
 
 <body>
 
-<!-- ================= HEADER ================= -->
-<header class="site-header">
-  <div class="header-left">
-    <img src="logo.png" alt="Whytegod Logo" class="logo">
-    <span class="site-title">Whytegod Protocol</span>
-  </div>
+  <!-- Header / Navigation -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand">
+        <img src="logo.png" alt="Whytegod Logo" class="logo" />
+        <span class="brand-name">Whytegod Protocol</span>
+      </div>
 
-  <nav class="site-nav">
-    <a href="index.html">Spec</a>
-    <a href="records.html">Records</a>
-    <a href="protocols.html">Protocols</a>
-    <a href="economic.html">Economics</a>
-  </nav>
-</header>
+      <nav class="nav">
+        <a href="index.html">Spec</a>
+        <a href="records.html">Records</a>
+        <a href="protocols.html" class="active">Protocols</a>
+        <a href="economic.html">Economics</a>
+      </nav>
+    </div>
+  </header>
 
-<!-- ================= MAIN ================= -->
-<main class="content">
+  <!-- Main Content -->
+  <main class="content">
 
-  <section class="hero">
-    <h1>Protocol Rules</h1>
-    <p class="subtitle">Anchoring, Lifecycle, and Enforcement</p>
-  </section>
+    <h1>Protocols</h1>
+    <p class="subtitle">Anchoring & Verification Rules</p>
 
-  <section>
-    <h2>Protocol Scope</h2>
+    <section>
+      <h2>Protocol Scope</h2>
+      <p>
+        The Whytegod Protocol defines deterministic rules for anchoring,
+        verifying, and preserving cryptographic records without reliance on
+        governance, identity, or trusted intermediaries.
+      </p>
+    </section>
+
+    <section>
+      <h2>Anchoring Rules</h2>
+      <ul>
+        <li>Anchors reference deterministic record hashes</li>
+        <li>Anchors are submitted to a neutral base layer</li>
+        <li>No mutable metadata is permitted post-confirmation</li>
+        <li>Anchors are permanent once confirmed</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Submission Protocol</h2>
+      <ol>
+        <li>Record hash generation</li>
+        <li>Anchor construction</li>
+        <li>Network submission</li>
+        <li>Confirmation and timestamping</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>Verification Protocol</h2>
+      <p>
+        Verification is performed by recomputing the record hash and matching it
+        against the anchored reference. Verification requires no permissions,
+        identities, or external trust assumptions.
+      </p>
+    </section>
+
+    <section>
+      <h2>Failure Conditions</h2>
+      <ul>
+        <li>Hash mismatch invalidates the record</li>
+        <li>Missing anchor renders verification incomplete</li>
+        <li>Reorganization does not alter confirmed anchors</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Protocol Guarantees</h2>
+      <ul>
+        <li>Deterministic execution</li>
+        <li>Immutable anchoring</li>
+        <li>Neutral verification</li>
+        <li>Long-term auditability</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
     <p>
-      The Whytegod Protocol defines deterministic rules for anchoring records,
-      validating commitments, and enforcing immutability. The protocol does not
-      manage identity, governance, or arbitration.
+      Whytegod Protocol — Protocols Specification<br />
+      Native Asset: <strong>WGD</strong> · Smallest Unit: <strong>Wert</strong>
     </p>
-  </section>
-
-  <section>
-    <h2>Anchoring Rules</h2>
-    <ul>
-      <li>All records are anchored through cryptographic commitments</li>
-      <li>Anchors reference an external immutable layer</li>
-      <li>Anchor references must be verifiable by any third party</li>
-      <li>No anchor replacement or re-anchoring is permitted</li>
-      <li>Anchors are final once accepted</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Lifecycle Rules</h2>
-    <ul>
-      <li>Record creation is permissionless</li>
-      <li>Validation occurs at anchor time</li>
-      <li>No update, revoke, or delete operations exist</li>
-      <li>Records persist indefinitely</li>
-      <li>Protocol state grows monotonically</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Conflict Resolution</h2>
-    <p>
-      Conflicts are resolved deterministically using record hash ordering and
-      anchor timestamp precedence. No human or governance intervention is allowed.
-    </p>
-  </section>
-
-  <section>
-    <h2>Economic Interaction (WGD)</h2>
-    <p>
-      The native asset <strong>WGD</strong> is used exclusively for protocol-level
-      interactions such as anchoring and verification. Pricing pressure emerges
-      from demand for permanent records rather than speculative incentives.
-    </p>
-  </section>
-
-  <section>
-    <h2>Protocol Guarantees</h2>
-    <ul>
-      <li>Immutability by design</li>
-      <li>Public verifiability</li>
-      <li>Neutral, non-discretionary execution</li>
-      <li>No dependency on off-chain trust</li>
-    </ul>
-  </section>
-
-</main>
-
-<!-- ================= FOOTER ================= -->
-<footer class="site-footer">
-  <p>
-    Whytegod Protocol — Protocol Rules · Asset: <strong>WGD</strong>
-  </p>
-</footer>
+  </footer>
 
 </body>
 </html>
