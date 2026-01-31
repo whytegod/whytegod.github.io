@@ -1,254 +1,138 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Whytegod Records</title>
-    <meta name="description" content="Official records and transparency page for the Whytegod Protocol. Supply, airdrops, value units, and on-chain references.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Whytegod Records — Public protocol state changes without compromising user privacy.">
+  <title>Records — Whytegod</title>  <link rel="icon" type="image/png" href="favicon.png">  <style>
+    :root {
+      --bg: #0b0e11;
+      --fg: #eaecef;
+      --muted: #9aa4b2;
+      --accent: #c9a24d;
+      --border: #1f2937;
+    }
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: #0b0b0b;
-            color: #eaeaea;
-            line-height: 1.6;
-        }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
-        header {
-            background: #000;
-            padding: 20px;
-            text-align: center;
-            border-bottom: 1px solid #222;
-        }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.7;
+    }
 
-        header h1 {
-            margin: 0;
-            color: #ffffff;
-            letter-spacing: 2px;
-        }
+    header, section, footer {
+      max-width: 1100px;
+      margin: auto;
+      padding: 64px 24px;
+    }
 
-        nav {
-            margin-top: 10px;
-        }
+    header { text-align: center; padding-top: 96px; }
 
-        nav a {
-            color: #aaa;
-            text-decoration: none;
-            margin: 0 12px;
-            font-size: 14px;
-        }
+    h1, h2, h3, h4 { margin-bottom: 16px; font-weight: 600; }
+    h1 { font-size: 2.4rem; }
+    h2 { font-size: 1.7rem; }
+    h3 { font-size: 1.2rem; }
+    h4 { font-size: 1rem; color: var(--accent); }
 
-        nav a:hover {
-            color: #fff;
-        }
+    p { color: var(--muted); margin-bottom: 16px; }
 
-        section {
-            max-width: 900px;
-            margin: auto;
-            padding: 40px 20px;
-            border-bottom: 1px solid #1a1a1a;
-        }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      padding: 16px;
+      border-bottom: 1px solid var(--border);
+    }
 
-        h2 {
-            color: #ffffff;
-            margin-bottom: 10px;
-            letter-spacing: 1px;
-        }
+    nav a { color: var(--muted); text-decoration: none; font-size: 0.9rem; }
+    nav a:hover { color: var(--accent); }
 
-        p {
-            color: #cfcfcf;
-            font-size: 15px;
-        }
+    .record {
+      border: 1px solid var(--border);
+      background: #0f1318;
+      padding: 24px;
+      border-radius: 8px;
+      margin-bottom: 32px;
+    }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-            font-size: 14px;
-        }
+    .record hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 16px 0;
+    }
 
-        table th, table td {
-            border: 1px solid #222;
-            padding: 12px;
-            text-align: left;
-        }
-
-        table th {
-            background: #111;
-            color: #fff;
-        }
-
-        table td {
-            color: #ccc;
-        }
-
-        footer {
-            background: #000;
-            padding: 20px;
-            text-align: center;
-            font-size: 13px;
-            color: #777;
-        }
-
-        .highlight {
-            color: #ffffff;
-            font-weight: bold;
-        }
-    </style>
-</head>
-
-<body>
-
-<header>
-    <h1>WHYTEGOD RECORDS</h1>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="protocols.html">Protocols</a>
-        <a href="records.html">Records</a>
-    </nav>
-</header>
-
-<section>
-    <h2>Overview</h2>
-    <p>
-        This page documents all official records of the <span class="highlight">Whytegod Protocol</span>.
-        Transparency is a core principle. Every unit, distribution, and upgrade is recorded clearly
-        for public reference.
+    footer {
+      border-top: 1px solid var(--border);
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+  </style></head>
+<body><nav>
+  <a href="index.html">Home</a>
+  <a href="protocols.html">Protocols</a>
+  <a href="records.html">Records</a>
+  <a href="spec.html">Spec</a>
+</nav><header>
+  <h1>Protocol Records</h1>
+  <p>Transparent system-level history without exposing individual users.</p>
+</header><section>
+  <h2>Purpose of Records</h2>
+  <p>
+    Whytegod Records exist to preserve long-term trust while respecting privacy.
+    Individual transactions remain confidential, while protocol-level changes
+    are publicly documented.
+  </p>
+  <p>
+    This separation prevents governance abuse, silent upgrades, and historical
+    ambiguity.
+  </p>
+</section><section>
+  <h2>Record Classification</h2>
+  <p>
+    Only events that alter protocol behavior are eligible for permanent records.
+  </p>  <div class="record">
+    <h3>Tier 1 — Structural Records</h3>
+    <p>Consensus rules, emission schedule, cryptographic primitives.</p>
+  </div>  <div class="record">
+    <h3>Tier 2 — Operational Records</h3>
+    <p>Network parameters, validator thresholds, protocol performance tuning.</p>
+  </div>  <div class="record">
+    <h3>Tier 3 — Informational Records</h3>
+    <p>Documentation changes and non-consensus metadata.</p>
+  </div>
+</section><section>
+  <h2>Recorded Events</h2>  <article class="record">
+    <h3>Genesis Declaration</h3>
+    <p><strong>Record ID:</strong> WTG-SC-0001</p>
+    <p><strong>Category:</strong> Structural (Tier 1)</p>
+    <p><strong>Description:</strong><br>
+      Establishment of Whytegod protocol genesis, fixed total supply, Wert base
+      unit definition, and default privacy enforcement.
     </p>
-</section>
-
-<section>
-    <h2>Base Value Unit</h2>
-    <p>
-        The smallest measurable unit in the Whytegod economic system is called
-        <span class="highlight">WERT</span>.
+    <p><strong>Timestamp (UTC):</strong> Pending</p>
+    <p><strong>Executor:</strong> Protocol Genesis</p>
+  </article>  <article class="record">
+    <h3>Initial Distribution Framework</h3>
+    <p><strong>Record ID:</strong> WTG-SC-0002</p>
+    <p><strong>Category:</strong> Structural (Tier 1)</p>
+    <p><strong>Description:</strong><br>
+      Definition of internal and external allocation, airdrop eligibility
+      mechanics, and long-term circulation constraints.
     </p>
-    <p>
-        <strong>WERT</strong> replaces traditional low-value units like Wei and represents
-        <em>economic worth</em>, not just computational gas.
-    </p>
-
-    <table>
-        <tr>
-            <th>Unit</th>
-            <th>Description</th>
-        </tr>
-        <tr>
-            <td>1 WERT</td>
-            <td>Smallest indivisible unit of value</td>
-        </tr>
-        <tr>
-            <td>1 WHYTE</td>
-            <td>Primary transactional unit</td>
-        </tr>
-        <tr>
-            <td>1 WHYTEGOD</td>
-            <td>Store of long-term value</td>
-        </tr>
-    </table>
-</section>
-
-<section>
-    <h2>Token Supply Records</h2>
-
-    <table>
-        <tr>
-            <th>Category</th>
-            <th>Allocation</th>
-            <th>Status</th>
-        </tr>
-        <tr>
-            <td>Total Supply</td>
-            <td>1,000,000,000 WHYTE</td>
-            <td>Fixed</td>
-        </tr>
-        <tr>
-            <td>Circulating Supply</td>
-            <td>Recorded On-Chain</td>
-            <td>Live</td>
-        </tr>
-        <tr>
-            <td>Reserved Supply</td>
-            <td>Protocol Growth</td>
-            <td>Locked</td>
-        </tr>
-    </table>
-</section>
-
-<section>
-    <h2>Airdrop Records</h2>
-    <p>
-        Airdrops are used to reward early believers, builders, and contributors to the
-        Whytegod ecosystem.
-    </p>
-
-    <table>
-        <tr>
-            <th>Round</th>
-            <th>Purpose</th>
-            <th>Status</th>
-        </tr>
-        <tr>
-            <td>Airdrop #1</td>
-            <td>Early Community Adoption</td>
-            <td>Completed</td>
-        </tr>
-        <tr>
-            <td>Airdrop #2</td>
-            <td>Protocol Awareness</td>
-            <td>Scheduled</td>
-        </tr>
-        <tr>
-            <td>Airdrop #3</td>
-            <td>Builder Incentives</td>
-            <td>Planned</td>
-        </tr>
-    </table>
-</section>
-
-<section>
-    <h2>Upgrade & Governance Records</h2>
-    <p>
-        All upgrades follow protocol rules and governance logic.
-        No silent changes. No hidden supply.
-    </p>
-
-    <table>
-        <tr>
-            <th>Version</th>
-            <th>Change</th>
-            <th>Date</th>
-        </tr>
-        <tr>
-            <td>v1.0</td>
-            <td>Protocol Genesis</td>
-            <td>Recorded</td>
-        </tr>
-        <tr>
-            <td>v1.1</td>
-            <td>WERT Value Unit Introduction</td>
-            <td>Recorded</td>
-        </tr>
-        <tr>
-            <td>v1.2</td>
-            <td>Airdrop Mechanism Upgrade</td>
-            <td>Pending</td>
-        </tr>
-    </table>
-</section>
-
-<section>
-    <h2>Final Note</h2>
-    <p>
-        Whytegod is designed as a long-term economic protocol, not a short-term experiment.
-        Every record here exists to protect users, builders, and future participants.
-    </p>
-</section>
-
-<footer>
-    © 2026 Whytegod Protocol. All records are public by design.
-</footer>
-
-</body>
+    <p><strong>Timestamp (UTC):</strong> Pending</p>
+    <p><strong>Executor:</strong> Protocol Specification</p>
+  </article></section><section>
+  <h2>Record Integrity</h2>
+  <p>
+    Records are immutable once published. No deletions, no silent edits.
+    Corrections require a new record referencing the original.
+  </p>
+  <p>
+    This guarantees historical clarity while maintaining protocol neutrality.
+  </p>
+</section><footer>
+  <p>© Whytegod Protocol — Records & Transparency Layer</p>
+</footer></body>
 </html>
