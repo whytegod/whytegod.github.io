@@ -1,103 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Records Specification | Whytegod Protocol</title>
+  <meta charset="UTF-8">
+  <title>Whytegod – Records</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Core styles -->
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="print.css" media="print" />
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="print.css" media="print">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="logo.png" />
+  <link rel="icon" type="image/png" href="logo.png">
 </head>
 
 <body>
 
-  <!-- Header / Navigation -->
-  <header class="site-header">
-    <div class="header-inner">
-      <div class="brand">
-        <img src="logo.png" alt="Whytegod Logo" class="logo" />
-        <span class="brand-name">Whytegod Protocol</span>
-      </div>
+<header class="site-header">
+  <div class="header-inner">
+    <img src="logo.png" alt="Whytegod Logo" class="logo">
+    <h1>Whytegod Protocol</h1>
+  </div>
 
-      <nav class="nav">
-        <a href="index.html">Spec</a>
-        <a href="records.html" class="active">Records</a>
-        <a href="protocols.html">Protocols</a>
-        <a href="economic.html">Economics</a>
-      </nav>
-    </div>
-  </header>
+  <nav class="nav">
+    <a href="index.html">Spec</a>
+    <a href="records.html" class="active">Records</a>
+    <a href="protocols.html">Protocols</a>
+    <a href="economics.html">Economics</a>
+    <a href="hash.html">Hash</a>
+    <a href="anchor.html">Anchor</a>
+  </nav>
+</header>
 
-  <!-- Main Content -->
-  <main class="content">
+<main class="content">
 
-    <h1>Records Specification</h1>
-    <p class="subtitle">Permanent Record Layer</p>
-
-    <section>
-      <h2>Records</h2>
-      <p>
-        Records are immutable data commitments anchored through the Whytegod
-        Protocol. Once published, a record cannot be altered, revoked, censored,
-        or deleted.
-      </p>
-    </section>
-
-    <section>
-      <h2>Record Structure</h2>
-      <ul>
-        <li><strong>Record ID:</strong> Deterministic hash of record content</li>
-        <li><strong>Timestamp:</strong> Block-confirmed publication time</li>
-        <li><strong>Payload Hash:</strong> Cryptographic digest of data</li>
-        <li><strong>Anchor:</strong> On-chain reference</li>
-        <li><strong>Checksum:</strong> Verification integrity value</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Lifecycle Rules</h2>
-      <ol>
-        <li>Record creation (off-chain)</li>
-        <li>Hash computation</li>
-        <li>Anchor submission</li>
-        <li>Network confirmation</li>
-        <li>Permanent archival</li>
-      </ol>
-    </section>
-
-    <section>
-      <h2>Verification</h2>
-      <p>
-        Any observer can independently verify a record by recomputing the hash
-        and comparing it to the on-chain anchor. No identity, permission, or
-        trust assumption is required.
-      </p>
-    </section>
-
-    <section>
-      <h2>Security Properties</h2>
-      <ul>
-        <li>Immutability</li>
-        <li>Deterministic verification</li>
-        <li>No governance dependency</li>
-        <li>No identity layer</li>
-        <li>Long-term auditability</li>
-      </ul>
-    </section>
-
-  </main>
-
-  <!-- Footer -->
-  <footer class="site-footer">
+  <!-- OLD CORE MEANING (PRESERVED) -->
+  <section>
+    <h2>Records</h2>
     <p>
-      Whytegod Protocol — Records Specification<br />
-      Native Asset: <strong>WGD</strong> · Smallest Unit: <strong>Wert</strong>
+      A <strong>Record</strong> represents a claim, event, or state that can be
+      proven to have existed at a specific time.
+      Whytegod records do not store data — they define how proof is created.
     </p>
-  </footer>
+  </section>
+
+  <!-- NEW CLARITY -->
+  <section>
+    <h3>What a Record Is</h3>
+    <ul>
+      <li>A cryptographic fingerprint of information</li>
+      <li>Generated deterministically</li>
+      <li>Independent of storage or platforms</li>
+      <li>Verifiable by anyone, anytime</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>What a Record Is NOT</h3>
+    <ul>
+      <li>Not a database entry</li>
+      <li>Not stored by Whytegod</li>
+      <li>Not reversible</li>
+      <li>Not editable</li>
+    </ul>
+  </section>
+
+  <!-- RECORD ID -->
+  <section>
+    <h3>Record ID</h3>
+    <p>
+      Every record is represented by a <strong>Record ID</strong>,
+      which is a cryptographic hash of the original data.
+    </p>
+    <ul>
+      <li>Same input → same Record ID</li>
+      <li>Different input → different Record ID</li>
+      <li>Data never leaves the owner</li>
+    </ul>
+  </section>
+
+  <!-- LIFECYCLE -->
+  <section>
+    <h3>Record Lifecycle</h3>
+    <ol>
+      <li>Create original data (document, event, file, statement)</li>
+      <li>Generate a Record ID using hashing</li>
+      <li>Anchor the Record ID publicly</li>
+      <li>Verify later by recomputing the hash</li>
+    </ol>
+  </section>
+
+  <!-- VERIFICATION -->
+  <section>
+    <h3>Verification</h3>
+    <p>
+      A record is verified when:
+    </p>
+    <ul>
+      <li>The recomputed hash matches the Record ID</li>
+      <li>The Record ID exists in a public immutable anchor</li>
+      <li>The timestamp aligns with the claim</li>
+    </ul>
+  </section>
+
+  <!-- TRUST MODEL -->
+  <section>
+    <h3>Trust Model</h3>
+    <p>
+      Whytegod does not act as a trusted third party.
+      Verification depends only on cryptography and public systems.
+    </p>
+  </section>
+
+  <section class="note">
+    <p>
+      Records remain valid even if the Whytegod website disappears.
+      The protocol defines rules, not control.
+    </p>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>Whytegod Protocol — Permanent Record Layer</p>
+</footer>
 
 </body>
 </html>
