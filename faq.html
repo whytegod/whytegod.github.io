@@ -2,15 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Whytegod – FAQ</title>
+  <title>Whytegod Protocol — FAQ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Styles -->
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="print.css" media="print">
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="icon" type="image/png" href="favicon.png">
 </head>
 
 <body>
@@ -21,13 +18,15 @@
     <h1>Whytegod Protocol</h1>
   </div>
 
+  <!-- GLOBAL NAV (LOCKED) -->
   <nav class="nav">
     <a href="index.html">Spec</a>
     <a href="records.html">Records</a>
     <a href="protocols.html">Protocols</a>
-    <a href="economics.html">Economics</a>
-    <a href="use-cases.html">Use Cases</a>
-    <a href="quickstart.html">Quickstart</a>
+    <a href="use.html">Use</a>
+    <a href="verify.html">Verify</a>
+    <a href="tokenomics.html">Tokenomics</a>
+    <a href="governance.html">Governance</a>
     <a href="faq.html" class="active">FAQ</a>
     <a href="version.html">Version</a>
   </nav>
@@ -39,7 +38,7 @@
     <h2>Frequently Asked Questions</h2>
     <p>
       This page answers common questions about the Whytegod Protocol
-      and WGD token usage in simple, technical terms.
+      in clear, non-technical language.
     </p>
   </section>
 
@@ -52,10 +51,10 @@
   </section>
 
   <section>
-    <h3>Is Whytegod a blockchain?</h3>
+    <h3>What problem does it solve?</h3>
     <p>
-      No. Whytegod does not operate a blockchain.
-      It uses existing immutable public systems as anchors.
+      It provides a way to prove that specific data existed
+      at a specific time without revealing the data itself.
     </p>
   </section>
 
@@ -63,104 +62,112 @@
     <h3>Does Whytegod store my data?</h3>
     <p>
       No. The protocol never stores user data.
-      Only cryptographic hashes are used for verification.
+      Only cryptographic hashes are used.
     </p>
   </section>
 
   <section>
-    <h3>What data can be anchored?</h3>
+    <h3>What is a record?</h3>
     <p>
-      Any digital content including documents, contracts,
-      images, videos, source code, logs, or datasets.
+      A record is a cryptographic hash derived from data.
+      The original data always stays with the user.
     </p>
   </section>
 
   <section>
-    <h3>Can anchored records be changed or deleted?</h3>
+    <h3>What is anchoring?</h3>
     <p>
-      No. Once a hash is anchored, any modification
-      results in a mismatch and is immediately detectable.
+      Anchoring is the act of publishing a record hash
+      to an immutable public system such as a blockchain
+      or append-only log.
     </p>
   </section>
 
   <section>
-    <h3>What is WGD?</h3>
+    <h3>Can records be changed or deleted?</h3>
     <p>
-      WGD is a utility token used to introduce cost and prevent abuse
-      when anchoring records in the protocol.
+      No. Once a record is anchored, it is immutable.
+      This permanence is a core property of the protocol.
     </p>
   </section>
 
   <section>
-    <h3>What is a WGD Token Member?</h3>
+    <h3>What is verification?</h3>
     <p>
-      A WGD Token Member is any person or entity that holds WGD
-      for the purpose of using the Whytegod Protocol.
+      Verification is the process of recomputing a hash
+      and comparing it with an anchored record.
+      Verification is always free and permissionless.
     </p>
   </section>
 
   <section>
-    <h3>Does holding WGD give me control or voting rights?</h3>
+    <h3>What is the token used for?</h3>
     <p>
-      No. Holding WGD does not grant governance, voting,
-      ownership, or decision-making authority.
+      The token is a utility mechanism used to prevent spam,
+      rate-limit anchoring, and support protocol sustainability.
     </p>
   </section>
 
   <section>
-    <h3>Is WGD an investment?</h3>
+    <h3>Is the token an investment?</h3>
     <p>
-      No. WGD is not an investment contract, security,
-      or profit-sharing instrument.
-      It exists only for protocol utility.
+      No. The token does not represent equity, ownership,
+      profit rights, or dividends.
     </p>
   </section>
 
   <section>
-    <h3>Do I need WGD to verify records?</h3>
+    <h3>Do I need the token to verify records?</h3>
     <p>
-      No. Verification is free and permissionless.
-      WGD is only required for anchoring new records.
+      No. Verification does not require a token.
+      Tokens are only relevant for anchoring actions.
     </p>
   </section>
 
   <section>
     <h3>Who controls Whytegod?</h3>
     <p>
-      No one. The protocol defines technical rules only.
-      There is no governance or discretionary control layer.
+      No one. The protocol has no administrators,
+      no override keys, and no centralized authority.
     </p>
   </section>
 
   <section>
     <h3>Can the protocol rules change?</h3>
     <p>
-      Whytegod v1.0 is frozen.
-      Any future changes require a new protocol version.
+      Existing rules and records cannot change.
+      New versions may be proposed, but adoption is voluntary.
     </p>
   </section>
 
   <section>
-    <h3>What happens if the website goes offline?</h3>
+    <h3>Is Whytegod tied to any blockchain?</h3>
     <p>
-      Verification remains possible as long as the
-      original data and public anchor exist.
+      No. The protocol is blockchain-agnostic
+      and can anchor records on any immutable system.
     </p>
   </section>
 
   <section>
-    <h3>Is Whytegod legally binding?</h3>
+    <h3>Is this legal?</h3>
     <p>
-      Whytegod provides cryptographic proof,
-      not legal enforcement.
-      Legal recognition depends on jurisdiction.
+      Whytegod defines technical rules only.
+      Legal interpretation depends on jurisdiction and use case.
+    </p>
+  </section>
+
+  <section>
+    <h3>What happens if the website disappears?</h3>
+    <p>
+      Nothing breaks. Verification depends only on hashes
+      and public anchors, not on this website.
     </p>
   </section>
 
   <section class="note">
     <p>
-      Whytegod defines technical rules only.
-      Interpretation and usage are the responsibility of users.
+      Whytegod provides tools for verification —
+      responsibility for usage rests with the user.
     </p>
   </section>
 
