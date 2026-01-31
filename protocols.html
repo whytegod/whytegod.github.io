@@ -1,174 +1,253 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Whytegod Protocols — Core mechanisms governing value, privacy, records, and network integrity.">
-  <title>Protocols — Whytegod</title>  <link rel="icon" type="image/png" href="favicon.png">  <style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Whytegod Protocols</title>
+
+  <link rel="icon" type="image/png" href="favicon.png" />
+
+  <style>
     :root {
-      --bg: #0b0e11;
-      --fg: #eaecef;
-      --muted: #9aa4b2;
+      --bg: #0b0f14;
+      --panel: #121826;
+      --text: #e6e8eb;
+      --muted: #9aa3b2;
       --accent: #c9a24d;
-      --border: #1f2937;
+      --border: #1f2636;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, sans-serif;
       background: var(--bg);
-      color: var(--fg);
-      line-height: 1.7;
+      color: var(--text);
+      line-height: 1.65;
     }
 
-    header, section, footer {
-      max-width: 1100px;
-      margin: auto;
-      padding: 64px 24px;
-    }
-
-    header { text-align: center; padding-top: 96px; }
-
-    h1, h2, h3, h4 { margin-bottom: 16px; font-weight: 600; }
-    h1 { font-size: 2.4rem; }
-    h2 { font-size: 1.7rem; }
-    h3 { font-size: 1.2rem; }
-    h4 { font-size: 1rem; color: var(--accent); }
-
-    p { color: var(--muted); margin-bottom: 16px; }
-
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 24px;
-      padding: 16px;
+    header {
+      padding: 2.5rem 1.5rem;
       border-bottom: 1px solid var(--border);
     }
 
-    nav a { color: var(--muted); text-decoration: none; font-size: 0.9rem; }
-    nav a:hover { color: var(--accent); }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 24px;
+    header h1 {
+      font-size: 2rem;
     }
 
-    .card {
+    header p {
+      margin-top: 0.5rem;
+      color: var(--muted);
+      max-width: 760px;
+    }
+
+    nav {
+      margin-top: 1.25rem;
+    }
+
+    nav a {
+      margin-right: 1.25rem;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    main {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+    }
+
+    section {
+      margin-bottom: 3.5rem;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      margin-bottom: 0.75rem;
+    }
+
+    p {
+      color: var(--muted);
+      max-width: 820px;
+    }
+
+    .panel {
+      background: var(--panel);
       border: 1px solid var(--border);
-      padding: 24px;
       border-radius: 8px;
-      background: #0f1318;
+      padding: 1.5rem;
+      margin-top: 1.25rem;
+    }
+
+    .record {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .record h3 {
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .record h4 {
+      margin-top: 1.25rem;
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+    }
+
+    .record p {
+      margin-bottom: 0.35rem;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 1rem 0;
     }
 
     footer {
       border-top: 1px solid var(--border);
+      padding: 2rem 1.5rem;
       text-align: center;
-      font-size: 0.85rem;
       color: var(--muted);
+      font-size: 0.9rem;
     }
-  </style></head>
-<body><nav>
-  <a href="index.html">Home</a>
-  <a href="protocols.html">Protocols</a>
-  <a href="records.html">Records</a>
-  <a href="spec.html">Spec</a>
-</nav><header>
+  </style>
+</head>
+
+<body>
+
+<header>
   <h1>Whytegod Protocols</h1>
-  <p>The mechanisms that enforce value, privacy, and long-term reliability.</p>
-</header><section>
-  <h2>Protocol Architecture</h2>
   <p>
-    Whytegod operates as a layered protocol system. Each layer is independent,
-    minimal, and auditable — reducing attack surface while preserving privacy.
+    This document describes how the Whytegod network interfaces with external
+    systems, internal modules, and protocol-level integrations without compromising
+    core monetary or privacy guarantees.
   </p>
-</section><section>
-  <h2>Primary Protocol Layers</h2>
-  <div class="grid"><div class="card">
-  <h3>Monetary Protocol</h3>
-  <p>
-    Enforces fixed supply issuance, emission schedule, and unit denomination.
-    All calculations are deterministic and finalized at protocol genesis.
-  </p>
-  <p>
-    Base unit: <strong>Wert</strong><br>
-    No inflation switches. No governance minting.
-  </p>
-</div>
 
-<div class="card">
-  <h3>Privacy Protocol</h3>
-  <p>
-    Transaction flows and ownership relationships are shielded by default.
-    No optional privacy. No public balance tracing.
-  </p>
-  <p>
-    Identity exists only as cryptographic proof, never as metadata.
-  </p>
-</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="spec.html">Specification</a>
+    <a href="records.html">Records</a>
+  </nav>
+</header>
 
-<div class="card">
-  <h3>Wallet Protocol</h3>
-  <p>
-    Wallets act as sovereign identity containers, not accounts.
-    Ownership is enforced cryptographically without centralized dependencies.
-  </p>
-  <p>
-    Loss of keys equals loss of access — no recovery by authority.
-  </p>
-</div>
+<main>
 
-<div class="card">
-  <h3>Records Protocol</h3>
-  <p>
-    Critical protocol-level state changes are recorded and classified.
-    Records are public, users remain private.
-  </p>
-  <p>
-    Enables long-term trust without surveillance.
-  </p>
-</div>
-
-  </div>
-</section><section>
-  <h2>State Change Classification</h2>
-  <p>
-    Whytegod separates normal transaction activity from protocol-altering events.
-    Only classified events enter the permanent protocol record.
-  </p>  <div class="grid">
-    <div class="card">
-      <h4>Tier 1 — Structural</h4>
-      <p>Consensus rules, monetary logic, cryptographic primitives.</p>
+  <!-- Protocol Philosophy -->
+  <section>
+    <h2>Protocol Philosophy</h2>
+    <div class="panel">
+      <p>
+        Whytegod protocols are intentionally minimal, composable, and non-invasive.
+        Integration does not imply dependency, and no external system gains control
+        over core network behavior.
+      </p>
     </div>
-    <div class="card">
-      <h4>Tier 2 — Operational</h4>
-      <p>Network parameters, validator thresholds, performance tuning.</p>
+  </section>
+
+  <!-- Integration Model -->
+  <section>
+    <h2>Integration Model</h2>
+    <div class="panel">
+      <p>
+        External systems may interact with Whytegod through defined interfaces
+        for settlement, verification, and anchoring. These interactions are
+        one-directional by default and cannot modify protocol state.
+      </p>
     </div>
-    <div class="card">
-      <h4>Tier 3 — Informational</h4>
-      <p>Documentation updates, non-consensus metadata.</p>
+  </section>
+
+  <!-- Upgrade Discipline -->
+  <section>
+    <h2>Upgrade Discipline</h2>
+    <div class="panel">
+      <p>
+        Whytegod does not perform silent upgrades. Any protocol-level change must
+        be explicitly defined, categorized, and recorded. Core monetary and privacy
+        rules are excluded from upgrade scope.
+      </p>
     </div>
-  </div>
-</section><section>
-  <h2>External Integration Protocol</h2>
+  </section>
+
+  <!-- Protocol Records -->
+  <section>
+    <h2>Observed External Protocol Records</h2>
+
+    <!-- Uniswap Record -->
+    <article class="record">
+      <h3>Protocol: Uniswap</h3>
+
+      <p><strong>Chain:</strong> Ethereum</p>
+      <p><strong>Category:</strong> Decentralized Exchange (DEX)</p>
+      <p><strong>Observation Status:</strong> Active</p>
+
+      <hr>
+
+      <h4>State Change Record</h4>
+
+      <p><strong>Record ID:</strong> UNI-SC-0001</p>
+      <p><strong>State Change Category:</strong> Contract Upgrade (Tier 1)</p>
+
+      <p>
+        <strong>Description:</strong><br>
+        Deployment of Uniswap v3 core contracts introducing concentrated liquidity
+        mechanics and multiple fee-tier parameters, resulting in a permanent change
+        to protocol execution logic.
+      </p>
+
+      <p><strong>Timestamp (UTC):</strong> 2021-05-05</p>
+      <p><strong>Transaction Hash:</strong> 0x1f98431c8ad98523631ae4a59f267346ea31f984</p>
+      <p><strong>Source Contract Address:</strong> 0x1f98431c8ad98523631ae4a59f267346ea31f984</p>
+      <p><strong>Executor:</strong> Contract Deployment</p>
+    </article>
+
+    <!-- Aave Record -->
+    <article class="record">
+      <h3>Protocol: Aave</h3>
+
+      <p><strong>Chain:</strong> Ethereum</p>
+      <p><strong>Category:</strong> Lending Protocol</p>
+      <p><strong>Observation Status:</strong> Active</p>
+
+      <hr>
+
+      <h4>State Change Record</h4>
+
+      <p><strong>Record ID:</strong> AAVE-SC-0001</p>
+      <p><strong>State Change Category:</strong> Governance Execution (Tier 1)</p>
+
+      <p>
+        <strong>Description:</strong><br>
+        Execution of Aave Improvement Proposal enabling the deployment of Aave v3,
+        introducing isolated asset pools, efficiency mode parameters, and updated
+        risk configurations affecting protocol-level lending behavior.
+      </p>
+
+      <p><strong>Timestamp (UTC):</strong> 2022-03-16</p>
+      <p><strong>Transaction Hash:</strong> 0x7d2768dE32b0b80b7a3454c06BdAcE49d41d8F9b</p>
+      <p><strong>Source Contract Address:</strong> 0x7d2768dE32b0b80b7a3454c06BdAcE49d41d8F9b</p>
+      <p><strong>Executor:</strong> Governance Proposal Execution</p>
+    </article>
+
+  </section>
+
+</main>
+
+<footer>
   <p>
-    Whytegod is designed to integrate with other crypto systems without
-    surrendering its privacy or monetary guarantees.
+    Whytegod Protocols — Integration without capture.
   </p>
-  <p>
-    Bridges, wrapped assets, and interoperability layers are treated as external
-    adapters — never as core dependencies.
-  </p>
-</section><section>
-  <h2>Airdrop & Adoption Mechanism</h2>
-  <p>
-    Airdrops are used as controlled distribution tools, not marketing stunts.
-    Eligibility is based on verifiable interaction criteria, not social reach.
-  </p>
-  <p>
-    This ensures organic adoption aligned with real usage.
-  </p>
-</section><footer>
-  <p>© Whytegod Protocol — Protocol Layer Documentation</p>
-</footer></body>
+</footer>
+
+</body>
 </html>
