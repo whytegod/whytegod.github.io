@@ -1,116 +1,69 @@
-/* ============================================================
-   Whytegod Protocol — Print Stylesheet
-   Purpose: Archival • Audit • Legal • Offline Verification
-   ============================================================ */
+/* ===============================
+   Whytegod Protocol — Print Styles
+   =============================== */
 
 @media print {
-
-  /* -------- RESET VISUAL NOISE -------- */
-  * {
-    background: transparent !important;
-    color: #000 !important;
-    box-shadow: none !important;
-    text-shadow: none !important;
-  }
-
-  html, body {
-    font-family: "Times New Roman", Georgia, serif;
-    font-size: 12pt;
-    line-height: 1.6;
-  }
-
+  /* Remove dark backgrounds */
   body {
-    margin: 2.5cm;
+    background: #ffffff;
+    color: #000000;
+    font-family: serif;
   }
 
-  /* -------- HIDE NON-ESSENTIAL UI -------- */
+  /* Hide navigation / non-essential UI */
+  header,
   nav,
-  footer,
-  button,
-  .nav,
-  .menu,
-  .no-print {
+  .site-header,
+  .header-right {
     display: none !important;
   }
 
-  /* -------- HEADER -------- */
-  header {
-    border-bottom: 1px solid #000;
-    padding-bottom: 0.5cm;
-    margin-bottom: 1cm;
+  /* Expand content for paper */
+  main {
+    max-width: 100%;
+    padding: 0;
   }
 
-  header img.logo {
-    width: 3cm;
-    height: auto;
-  }
-
-  header h1 {
-    font-size: 18pt;
-    margin-top: 0.3cm;
-  }
-
-  /* -------- CONTENT -------- */
   section {
     page-break-inside: avoid;
-    margin-bottom: 1.2cm;
+    margin-bottom: 2rem;
   }
 
-  h2 {
-    font-size: 14pt;
-    border-bottom: 1px solid #000;
-    padding-bottom: 0.2cm;
-    margin-bottom: 0.4cm;
+  h1,
+  h2,
+  h3 {
+    color: #000000;
+    page-break-after: avoid;
   }
 
-  p {
-    margin-bottom: 0.4cm;
-  }
-
-  ul {
-    margin-left: 1cm;
-  }
-
+  p,
   li {
-    margin-bottom: 0.2cm;
+    color: #000000;
+    font-size: 11pt;
+    line-height: 1.5;
   }
 
-  /* -------- CODE / TECH -------- */
-  code, pre {
-    font-family: "Courier New", monospace;
-    font-size: 10pt;
-    border: 1px solid #000;
-    padding: 0.3cm;
-    page-break-inside: avoid;
+  ul,
+  ol {
+    margin-left: 1.2cm;
   }
 
-  /* -------- LINKS -------- */
-  a {
-    text-decoration: none;
-  }
-
+  /* Links show destination */
   a::after {
     content: " (" attr(href) ")";
     font-size: 9pt;
   }
 
-  /* -------- PAGE NUMBERS -------- */
-  @page {
-    margin: 2.5cm;
-  }
-
-  @page :footer {
-    content: "Whytegod Protocol · WGD · 2026 · Page " counter(page);
+  /* Footer print mark */
+  .site-footer {
+    margin-top: 2cm;
     font-size: 9pt;
-    color: #000;
+    color: #333333;
   }
 
-  /* -------- PAGE BREAK CONTROL -------- */
-  h1, h2 {
-    page-break-after: avoid;
-  }
-
-  section + section {
-    page-break-before: auto;
+  /* Prevent broken records */
+  .record,
+  .spec-block {
+    page-break-inside: avoid;
   }
 }
