@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Whytegod Record Hash Generator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="print.css" media="print">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="logo.png">
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <img src="logo.png" alt="Whytegod Logo" class="logo">
+    <h1>Whytegod Protocol</h1>
+  </div>
+
+  <nav class="nav">
+    <a href="index.html">Spec</a>
+    <a href="records.html">Records</a>
+    <a href="protocols.html">Protocols</a>
+    <a href="economics.html">Economics</a>
+    <a href="use.html">Use</a>
+    <a href="hash.html" class="active">Hash</a>
+  </nav>
+</header>
+
+<main class="content">
+
+  <section>
+    <h2>Record Hash Generator</h2>
+    <p>
+      Generate a deterministic SHA-256 hash for any data.
+      This hash becomes your <strong>Record ID</strong>.
+    </p>
+    <p class="note">
+      All processing happens locally in your browser.
+      No data is uploaded or stored.
+    </p>
+  </section>
+
+  <section>
+    <h3>Input Data</h3>
+    <textarea id="inputData" placeholder="Paste text or data here..."></textarea>
+
+    <button onclick="generateHash()">Generate Record Hash</button>
+  </section>
+
+  <section>
+    <h3>Record ID (SHA-256)</h3>
+    <pre id="outputHash">—</pre>
+  </section>
+
+  <section>
+    <h3>How to Use This Hash</h3>
+    <ul>
+      <li>This hash uniquely represents your data</li>
+      <li>Anchor it using the Whytegod Protocol</li>
+      <li>Keep the original data private</li>
+      <li>Verification = recompute and compare</li>
+    </ul>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>Whytegod Protocol — Permanent Record Layer</p>
+</footer>
+
+<script>
+async function generateHash() {
+  const input = document.getElementById("inputData").value;
+  if (!input) {
+    alert("Please enter data to hash.");
+    return;
+  }
+
+  const encoder = new TextEncoder();
+  const data = encoder.encode(input);
+  const hashBuffer = await crypto.subtle.digest("SHA-256", data);
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  const hashHex = hashArray.map(b => b.toString(16).padStart(2, "0")).join("");
+
+  document.getElementById("outputHash").textContent = hashHex;
+}
+</script>
+
+</body>
+</html>
