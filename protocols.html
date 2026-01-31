@@ -1,109 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Protocols | Whytegod Protocol</title>
+  <meta charset="UTF-8">
+  <title>Whytegod – Protocols</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Core styles -->
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="print.css" media="print" />
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="print.css" media="print">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="logo.png" />
+  <link rel="icon" type="image/png" href="logo.png">
 </head>
 
 <body>
 
-  <!-- Header / Navigation -->
-  <header class="site-header">
-    <div class="header-inner">
-      <div class="brand">
-        <img src="logo.png" alt="Whytegod Logo" class="logo" />
-        <span class="brand-name">Whytegod Protocol</span>
-      </div>
+<header class="site-header">
+  <div class="header-inner">
+    <img src="logo.png" alt="Whytegod Logo" class="logo">
+    <h1>Whytegod Protocol</h1>
+  </div>
 
-      <nav class="nav">
-        <a href="index.html">Spec</a>
-        <a href="records.html">Records</a>
-        <a href="protocols.html" class="active">Protocols</a>
-        <a href="economic.html">Economics</a>
-      </nav>
-    </div>
-  </header>
+  <nav class="nav">
+    <a href="index.html">Spec</a>
+    <a href="records.html">Records</a>
+    <a href="protocols.html" class="active">Protocols</a>
+    <a href="economics.html">Economics</a>
+    <a href="hash.html">Hash</a>
+    <a href="anchor.html">Anchor</a>
+  </nav>
+</header>
 
-  <!-- Main Content -->
-  <main class="content">
+<main class="content">
 
-    <h1>Protocols</h1>
-    <p class="subtitle">Anchoring & Verification Rules</p>
-
-    <section>
-      <h2>Protocol Scope</h2>
-      <p>
-        The Whytegod Protocol defines deterministic rules for anchoring,
-        verifying, and preserving cryptographic records without reliance on
-        governance, identity, or trusted intermediaries.
-      </p>
-    </section>
-
-    <section>
-      <h2>Anchoring Rules</h2>
-      <ul>
-        <li>Anchors reference deterministic record hashes</li>
-        <li>Anchors are submitted to a neutral base layer</li>
-        <li>No mutable metadata is permitted post-confirmation</li>
-        <li>Anchors are permanent once confirmed</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Submission Protocol</h2>
-      <ol>
-        <li>Record hash generation</li>
-        <li>Anchor construction</li>
-        <li>Network submission</li>
-        <li>Confirmation and timestamping</li>
-      </ol>
-    </section>
-
-    <section>
-      <h2>Verification Protocol</h2>
-      <p>
-        Verification is performed by recomputing the record hash and matching it
-        against the anchored reference. Verification requires no permissions,
-        identities, or external trust assumptions.
-      </p>
-    </section>
-
-    <section>
-      <h2>Failure Conditions</h2>
-      <ul>
-        <li>Hash mismatch invalidates the record</li>
-        <li>Missing anchor renders verification incomplete</li>
-        <li>Reorganization does not alter confirmed anchors</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Protocol Guarantees</h2>
-      <ul>
-        <li>Deterministic execution</li>
-        <li>Immutable anchoring</li>
-        <li>Neutral verification</li>
-        <li>Long-term auditability</li>
-      </ul>
-    </section>
-
-  </main>
-
-  <!-- Footer -->
-  <footer class="site-footer">
+  <!-- CORE -->
+  <section>
+    <h2>Protocols</h2>
     <p>
-      Whytegod Protocol — Protocols Specification<br />
-      Native Asset: <strong>WGD</strong> · Smallest Unit: <strong>Wert</strong>
+      Protocols define <strong>how records are created, anchored, and verified</strong>.
+      They are rules, not services.
     </p>
-  </footer>
+  </section>
+
+  <!-- WHY PROTOCOL -->
+  <section>
+    <h3>Why a Protocol?</h3>
+    <ul>
+      <li>To avoid centralized trust</li>
+      <li>To ensure long-term verifiability</li>
+      <li>To separate proof from platforms</li>
+      <li>To survive software, website, and ownership changes</li>
+    </ul>
+  </section>
+
+  <!-- CORE PROTOCOLS -->
+  <section>
+    <h3>Core Protocols</h3>
+
+    <h4>1. Hashing Protocol</h4>
+    <p>
+      Defines how original data is transformed into a Record ID
+      using deterministic cryptographic hashing.
+    </p>
+    <ul>
+      <li>Input: Any digital data</li>
+      <li>Output: Fixed-length hash</li>
+      <li>No data storage</li>
+    </ul>
+
+    <h4>2. Anchoring Protocol</h4>
+    <p>
+      Defines how Record IDs are committed to immutable public systems.
+    </p>
+    <ul>
+      <li>Blockchain transactions</li>
+      <li>Public append-only logs</li>
+      <li>Timestamping services</li>
+    </ul>
+
+    <h4>3. Verification Protocol</h4>
+    <p>
+      Defines how anyone can independently verify a record.
+    </p>
+    <ul>
+      <li>Recompute hash</li>
+      <li>Match Record ID</li>
+      <li>Confirm anchor existence</li>
+    </ul>
+  </section>
+
+  <!-- USER FLOW -->
+  <section>
+    <h3>User Interaction Flow</h3>
+    <ol>
+      <li>User generates a Record ID locally</li>
+      <li>User anchors the Record ID publicly</li>
+      <li>User stores anchor reference</li>
+      <li>Anyone can verify without permission</li>
+    </ol>
+  </section>
+
+  <!-- NO CONTROL -->
+  <section>
+    <h3>What Whytegod Does NOT Do</h3>
+    <ul>
+      <li>Does not hold user data</li>
+      <li>Does not validate records</li>
+      <li>Does not reverse or edit records</li>
+      <li>Does not require accounts or identity</li>
+    </ul>
+  </section>
+
+  <!-- EXTENSIBILITY -->
+  <section>
+    <h3>Extensibility</h3>
+    <p>
+      Any system may implement Whytegod protocols without permission.
+      The protocol is compatible with:
+    </p>
+    <ul>
+      <li>Legal evidence systems</li>
+      <li>Academic publishing</li>
+      <li>Supply chain logs</li>
+      <li>Personal proof-of-existence</li>
+    </ul>
+  </section>
+
+  <section class="note">
+    <p>
+      Protocols are stable by design.
+      Upgrades add clarity — not dependency.
+    </p>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>Whytegod Protocol — Permanent Record Layer</p>
+</footer>
 
 </body>
 </html>
