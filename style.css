@@ -1,21 +1,6 @@
 /* =========================
-   WHYTEGOD — Global Styles
+   GLOBAL RESET & BASE
    ========================= */
-
-:root {
-  --bg-main: #0b0b0b;
-  --bg-panel: #111111;
-  --bg-border: #1e1e1e;
-
-  --text-primary: #f2f2f2;
-  --text-secondary: #b5b5b5;
-  --text-muted: #8a8a8a;
-
-  --accent: #ffffff;
-  --accent-soft: #2a2a2a;
-
-  --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, sans-serif;
-}
 
 * {
   margin: 0;
@@ -24,169 +9,232 @@
 }
 
 html {
-  background-color: var(--bg-main);
-  color: var(--text-primary);
-  font-family: var(--font-main);
-  line-height: 1.6;
+  font-size: 16px;
 }
 
 body {
-  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+               Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif;
+  background-color: #0e0f13;
+  color: #e6e6e6;
+  line-height: 1.7;
 }
 
 /* =========================
-   Navigation
+   LINKS & TEXT
+   ========================= */
+
+a {
+  color: #cfcfcf;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #ffffff;
+}
+
+strong {
+  color: #ffffff;
+}
+
+/* =========================
+   NAVIGATION
    ========================= */
 
 .nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 24px;
-  border-bottom: 1px solid var(--bg-border);
+  padding: 1.25rem 2rem;
+  border-bottom: 1px solid #1f222a;
 }
 
 .logo {
-  font-size: 1.2rem;
-  font-weight: 700;
+  font-size: 1.1rem;
+  font-weight: 600;
   letter-spacing: 0.08em;
-  text-decoration: none;
-  color: var(--text-primary);
 }
 
 .nav-links a {
-  margin-left: 20px;
-  font-size: 0.9rem;
-  color: var(--text-secondary);
-  text-decoration: none;
+  margin-left: 1.5rem;
+  font-size: 0.95rem;
+  opacity: 0.85;
 }
 
 .nav-links a:hover {
-  color: var(--text-primary);
+  opacity: 1;
 }
 
 /* =========================
-   Layout
+   SECTIONS (GLOBAL)
    ========================= */
 
-.container {
-  max-width: 880px;
+section {
+  max-width: 900px;
   margin: 0 auto;
-  padding: 48px 20px;
+  padding: 4rem 2rem;
 }
 
-.page-header h1 {
+h1, h2, h3 {
+  font-weight: 600;
+  color: #ffffff;
+}
+
+h1 {
   font-size: 2.4rem;
-  margin-bottom: 16px;
+  letter-spacing: 0.04em;
 }
 
-.page-header p {
-  color: var(--text-secondary);
-  margin-bottom: 14px;
+h2 {
+  font-size: 1.6rem;
+  margin-bottom: 1.25rem;
 }
 
-/* =========================
-   Mechanism Sections
-   ========================= */
-
-.mechanism {
-  margin-top: 48px;
-  padding: 28px;
-  background-color: var(--bg-panel);
-  border: 1px solid var(--bg-border);
-}
-
-.mechanism h2 {
-  font-size: 1.4rem;
-  margin-bottom: 16px;
-}
-
-.mechanism p {
-  color: var(--text-secondary);
-  margin-bottom: 12px;
-}
-
-.mechanism ul {
-  margin: 12px 0 16px 18px;
-}
-
-.mechanism li {
-  color: var(--text-secondary);
-  margin-bottom: 8px;
+p {
+  margin-top: 1rem;
+  color: #c9c9c9;
 }
 
 /* =========================
-   Protocol Records
+   HERO
    ========================= */
+
+.hero {
+  text-align: center;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.tagline {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  color: #b5b5b5;
+}
+
+.intro {
+  margin-top: 1.5rem;
+  font-size: 1rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* =========================
+   MECHANISM & ECONOMICS
+   ========================= */
+
+.mechanism ul,
+.economics ul,
+.participation ul {
+  margin-top: 1.5rem;
+  padding-left: 1.5rem;
+}
+
+.mechanism li,
+.economics li,
+.participation li {
+  margin-bottom: 0.75rem;
+  color: #d6d6d6;
+}
+
+.mechanism-note {
+  margin-top: 1.5rem;
+  font-style: italic;
+  color: #a8a8a8;
+}
+
+/* =========================
+   PARTICIPATION
+   ========================= */
+
+.participation p:last-child {
+  margin-top: 1.5rem;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+/* =========================
+   CLOSING
+   ========================= */
+
+.closing {
+  text-align: center;
+  border-top: 1px solid #1f222a;
+  padding-top: 3rem;
+}
+
+/* =========================
+   PROTOCOL RECORDS
+   ========================= */
+
+.protocols-header {
+  text-align: center;
+  padding-bottom: 2rem;
+}
 
 .protocol-records {
-  margin-top: 64px;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
 }
 
 .record {
-  background-color: var(--bg-panel);
-  border: 1px solid var(--bg-border);
-  padding: 28px;
-  margin-bottom: 32px;
+  border: 1px solid #1f222a;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  background-color: #12141a;
 }
 
 .record h3 {
-  font-size: 1.3rem;
-  margin-bottom: 12px;
-}
-
-.record h4 {
-  font-size: 1.1rem;
-  margin: 20px 0 12px;
-}
-
-.record p {
-  color: var(--text-secondary);
-  margin-bottom: 8px;
-}
-
-.record strong {
-  color: var(--text-primary);
+  margin-bottom: 0.75rem;
 }
 
 .record hr {
   border: none;
-  border-top: 1px solid var(--bg-border);
-  margin: 20px 0;
+  border-top: 1px solid #1f222a;
+  margin: 1.25rem 0;
+}
+
+.record p {
+  font-size: 0.95rem;
 }
 
 /* =========================
-   Footer
+   FOOTER
    ========================= */
 
 .footer {
-  margin-top: 80px;
-  padding: 32px 20px;
-  border-top: 1px solid var(--bg-border);
   text-align: center;
-}
-
-.footer p {
+  padding: 3rem 2rem;
+  border-top: 1px solid #1f222a;
   font-size: 0.85rem;
-  color: var(--text-muted);
+  color: #9a9a9a;
 }
 
 /* =========================
-   Responsive
+   RESPONSIVE
    ========================= */
 
-@media (max-width: 600px) {
-
-  .page-header h1 {
+@media (max-width: 768px) {
+  h1 {
     font-size: 2rem;
   }
 
-  .nav-links a {
-    margin-left: 14px;
-    font-size: 0.85rem;
+  section {
+    padding: 3rem 1.5rem;
   }
 
-  .container {
-    padding: 36px 16px;
+  .nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    margin-top: 0.75rem;
+  }
+
+  .nav-links a {
+    margin-left: 0;
+    margin-right: 1rem;
   }
 }
