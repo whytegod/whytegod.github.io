@@ -1,142 +1,140 @@
-/* ============================================================
-   Whytegod Protocol — Core Stylesheet
-   Minimalist • Immutable • Audit-first
-   ============================================================ */
+/* ===============================
+   Whytegod Protocol — Core Styles
+   Version: 1.0
+   =============================== */
 
-/* -------- CSS RESET -------- */
+:root {
+  --bg-main: #0b0f14;
+  --bg-panel: #111823;
+  --text-main: #e6e9ef;
+  --text-muted: #9aa4b2;
+  --accent: #3b82f6;
+  --border: #1f2937;
+}
+
+/* Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* -------- ROOT VARIABLES -------- */
-:root {
-  --bg-main: #0b0d10;
-  --bg-panel: #12151a;
-  --text-primary: #e6e6e6;
-  --text-secondary: #b3b3b3;
-  --text-muted: #8a8a8a;
-  --accent: #ffffff;
-  --border-subtle: rgba(255, 255, 255, 0.08);
-}
-
-/* -------- BASE -------- */
-html {
-  scroll-behavior: smooth;
-}
-
+/* Base */
 body {
+  background: var(--bg-main);
+  color: var(--text-main);
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif;
-  background-color: var(--bg-main);
-  color: var(--text-primary);
+    Roboto, Ubuntu, sans-serif;
   line-height: 1.7;
 }
 
-/* -------- LAYOUT -------- */
-.container {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 2.5rem 1.5rem 4rem;
+/* ================= HEADER ================= */
+
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(180deg, #0d1320, #0b0f14);
 }
 
-/* -------- HEADER -------- */
-header {
+.header-left {
   display: flex;
   align-items: center;
   gap: 1rem;
-  padding-bottom: 2rem;
-  border-bottom: 1px solid var(--border-subtle);
-  margin-bottom: 3rem;
 }
 
 .logo {
-  width: 42px;
-  height: 42px;
-  object-fit: contain;
+  height: 44px;
+  width: auto;
 }
 
-header h1 {
-  font-size: 1.6rem;
+.title-block h1 {
+  font-size: 1.4rem;
   font-weight: 600;
-  letter-spacing: 0.3px;
 }
 
-/* -------- SECTIONS -------- */
+.version {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.header-right .tagline {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+/* ================= MAIN ================= */
+
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+
 section {
-  margin-bottom: 3.5rem;
+  margin-bottom: 3rem;
 }
 
-section h2 {
-  font-size: 1.3rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid var(--border-subtle);
+h2 {
+  font-size: 1.6rem;
+  margin-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.4rem;
 }
 
-section p {
-  color: var(--text-secondary);
-  margin-bottom: 1rem;
+p {
+  color: var(--text-main);
+  max-width: 75ch;
 }
 
-/* -------- LISTS -------- */
-ul {
-  list-style: disc;
-  padding-left: 1.4rem;
+/* Lists */
+ul,
+ol {
+  margin-top: 0.75rem;
+  margin-left: 1.2rem;
 }
 
 li {
-  margin-bottom: 0.6rem;
-  color: var(--text-secondary);
+  margin-bottom: 0.4rem;
 }
 
-/* -------- EMPHASIS -------- */
-strong {
-  color: var(--text-primary);
-  font-weight: 600;
-}
+/* ================= FOOTER ================= */
 
-code {
-  background: var(--bg-panel);
-  padding: 0.2rem 0.4rem;
-  border-radius: 4px;
-  font-size: 0.9rem;
-}
-
-/* -------- LINKS -------- */
-a {
-  color: var(--accent);
-  text-decoration: none;
-  border-bottom: 1px dotted var(--border-subtle);
-}
-
-a:hover {
-  border-bottom-style: solid;
-}
-
-/* -------- FOOTER -------- */
-footer {
-  margin-top: 4rem;
-  padding-top: 2rem;
-  border-top: 1px solid var(--border-subtle);
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 1.5rem;
   text-align: center;
   color: var(--text-muted);
   font-size: 0.85rem;
 }
 
-/* -------- MOBILE -------- */
-@media (max-width: 600px) {
-  header {
+/* ================= LINKS ================= */
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 640px) {
+  .site-header {
+    flex-direction: column;
+    align-items: flex-start;
     gap: 0.75rem;
   }
 
-  header h1 {
-    font-size: 1.4rem;
+  .header-right {
+    align-self: flex-end;
   }
 
-  .container {
-    padding: 2rem 1.2rem 3rem;
+  main {
+    padding: 1.5rem 1rem 3rem;
   }
 }
