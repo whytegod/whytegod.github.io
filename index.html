@@ -2,93 +2,83 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Whytegod Protocol — Permanent Record Specification</title>
+  <title>Whytegod Protocol</title>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Whytegod Protocol — Neutral, permanent, and verifiable record anchoring system.">
+  <!-- Mobile -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Main styles -->
-  <link rel="stylesheet" href="style.css">
-
-  <!-- Print styles -->
-  <link rel="stylesheet" href="print.css" media="print">
+  <!-- SEO -->
+  <meta name="description" content="Whytegod Protocol – Permanent Record Layer and Immutable Specification">
+  <meta name="theme-color" content="#0b0f14">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="icon" type="image/png" href="logo.png">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="print.css" media="print">
 </head>
 
 <body>
 
-<header class="site-header">
-  <div class="header-left">
-    <img src="logo.png" alt="Whytegod Logo" class="logo">
-    <div class="header-text">
-      <h1>Whytegod Protocol</h1>
-      <p class="subtitle">Permanent Record Specification</p>
+  <!-- ================= HEADER ================= -->
+  <header class="site-header">
+    <div class="header-left">
+      <img src="logo.png" alt="Whytegod Logo" class="logo">
+      <span class="site-title">Whytegod Protocol</span>
     </div>
-  </div>
 
-  <div class="header-right">
-    <span>Permanent Record Layer</span>
-  </div>
-</header>
+    <div class="header-right">
+      <span class="site-tagline">Permanent Record Layer</span>
+    </div>
+  </header>
 
-<main>
+  <!-- ================= MAIN ================= -->
+  <main class="content">
 
-<section>
-  <h2>Purpose</h2>
-  <p>
-    The Whytegod Protocol exists to provide a neutral, permanent, and verifiable
-    system for anchoring cryptographic records without reliance on trust,
-    governance, or identity.
-  </p>
+    <section class="hero">
+      <h1>Whytegod Protocol</h1>
+      <p class="subtitle">Records Specification v1.0</p>
+    </section>
 
-  <p>The protocol prioritizes:</p>
-  <ul>
-    <li>Correctness over flexibility</li>
-    <li>Permanence over speed</li>
-    <li>Verification over authority</li>
-  </ul>
-</section>
+    <section>
+      <h2>Overview</h2>
+      <p>
+        Whytegod Protocol is a permanent record layer for immutable data commitments.
+        Once published, records cannot be altered, revoked, censored, or deleted.
+      </p>
+    </section>
 
-<section>
-  <h2>Protocol Scope</h2>
-  <p>
-    This specification defines how records are anchored, verified, and preserved.
-    It does not define identity systems, governance mechanisms, or discretionary control.
-  </p>
-</section>
+    <section>
+      <h2>Core Properties</h2>
+      <ul>
+        <li>Immutability</li>
+        <li>Deterministic verification</li>
+        <li>No governance dependency</li>
+        <li>No identity layer</li>
+        <li>Long-term auditability</li>
+      </ul>
+    </section>
 
-<section>
-  <h2>Core Properties</h2>
-  <ul>
-    <li>Immutable anchoring</li>
-    <li>Deterministic verification</li>
-    <li>No identity layer</li>
-    <li>No governance dependency</li>
-    <li>Long-term auditability</li>
-  </ul>
-</section>
+    <section>
+      <h2>Specifications</h2>
+      <ul>
+        <li><a href="records.html">Records Specification</a></li>
+        <li><a href="protocols.html">Protocol Rules</a></li>
+        <li><a href="audit.html">Audit Model</a></li>
+        <li><a href="threat.html">Threat Model</a></li>
+        <li><a href="economic.html">Economic Design</a></li>
+      </ul>
+    </section>
 
-<section>
-  <h2>Specifications</h2>
-  <ul>
-    <li><a href="records.html">Records Specification</a></li>
-    <li><a href="protocols.html">Protocol Rules</a></li>
-    <li><a href="audit.html">Audit Model</a></li>
-    <li><a href="threat.html">Threat Model</a></li>
-    <li><a href="economic.html">Economic Rules</a></li>
-  </ul>
-</section>
+  </main>
 
-</main>
-
-<footer class="site-footer">
-  <p>
-    Whytegod Protocol<br>
-    Native Asset: <strong>WGD</strong> · Smallest Unit: <strong>Wert</strong>
-  </p>
-</footer>
+  <!-- ================= FOOTER ================= -->
+  <footer class="site-footer">
+    <p>
+      Whytegod Protocol — Native Asset: <strong>WGD</strong> · Smallest Unit: <strong>Wert</strong>
+    </p>
+  </footer>
 
 </body>
 </html>
