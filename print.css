@@ -1,11 +1,11 @@
 /* ============================================================
-   Whytegod Protocol — Print Styles
-   Purpose: Archival, audit, legal, offline verification
+   Whytegod Protocol — Print Stylesheet
+   Purpose: Archival • Audit • Legal • Offline Verification
    ============================================================ */
 
 @media print {
 
-  /* -------- RESET SCREEN EFFECTS -------- */
+  /* -------- RESET VISUAL NOISE -------- */
   * {
     background: transparent !important;
     color: #000 !important;
@@ -20,18 +20,20 @@
   }
 
   body {
-    margin: 2cm;
+    margin: 2.5cm;
   }
 
   /* -------- HIDE NON-ESSENTIAL UI -------- */
   nav,
   footer,
+  button,
   .nav,
-  .menu {
+  .menu,
+  .no-print {
     display: none !important;
   }
 
-  /* -------- HEADERS -------- */
+  /* -------- HEADER -------- */
   header {
     border-bottom: 1px solid #000;
     padding-bottom: 0.5cm;
@@ -48,7 +50,7 @@
     margin-top: 0.3cm;
   }
 
-  /* -------- SECTIONS -------- */
+  /* -------- CONTENT -------- */
   section {
     page-break-inside: avoid;
     margin-bottom: 1.2cm;
@@ -65,7 +67,6 @@
     margin-bottom: 0.4cm;
   }
 
-  /* -------- LISTS -------- */
   ul {
     margin-left: 1cm;
   }
@@ -75,34 +76,36 @@
   }
 
   /* -------- CODE / TECH -------- */
-  code {
+  code, pre {
     font-family: "Courier New", monospace;
     font-size: 10pt;
     border: 1px solid #000;
-    padding: 0.1cm 0.2cm;
-    display: inline-block;
-  }
-
-  pre {
-    font-family: "Courier New", monospace;
-    font-size: 10pt;
-    border: 1px solid #000;
-    padding: 0.4cm;
-    margin-bottom: 0.6cm;
+    padding: 0.3cm;
     page-break-inside: avoid;
   }
 
   /* -------- LINKS -------- */
+  a {
+    text-decoration: none;
+  }
+
   a::after {
     content: " (" attr(href) ")";
     font-size: 9pt;
   }
 
-  a {
-    text-decoration: none;
+  /* -------- PAGE NUMBERS -------- */
+  @page {
+    margin: 2.5cm;
   }
 
-  /* -------- PAGE CONTROL -------- */
+  @page :footer {
+    content: "Whytegod Protocol · WGD · 2026 · Page " counter(page);
+    font-size: 9pt;
+    color: #000;
+  }
+
+  /* -------- PAGE BREAK CONTROL -------- */
   h1, h2 {
     page-break-after: avoid;
   }
@@ -110,5 +113,4 @@
   section + section {
     page-break-before: auto;
   }
-
 }
