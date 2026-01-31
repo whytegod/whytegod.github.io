@@ -1,109 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Economics | Whytegod Protocol</title>
+  <meta charset="UTF-8">
+  <title>Whytegod – Economic Model</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Core styles -->
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="print.css" media="print" />
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="logo.png" />
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="print.css" media="print">
+  <link rel="icon" type="image/png" href="logo.png">
 </head>
 
 <body>
 
-  <!-- Header / Navigation -->
-  <header class="site-header">
-    <div class="header-inner">
-      <div class="brand">
-        <img src="logo.png" alt="Whytegod Logo" class="logo" />
-        <span class="brand-name">Whytegod Protocol</span>
-      </div>
+<header class="site-header">
+  <div class="header-inner">
+    <img src="logo.png" alt="Whytegod Logo" class="logo">
+    <h1>Whytegod Protocol</h1>
+  </div>
 
-      <nav class="nav">
-        <a href="index.html">Spec</a>
-        <a href="records.html">Records</a>
-        <a href="protocols.html">Protocols</a>
-        <a href="economic.html" class="active">Economics</a>
-      </nav>
-    </div>
-  </header>
+  <nav class="nav">
+    <a href="index.html">Spec</a>
+    <a href="records.html">Records</a>
+    <a href="protocols.html">Protocols</a>
+    <a href="economics.html" class="active">Economics</a>
+    <a href="hash.html">Hash</a>
+    <a href="anchor.html">Anchor</a>
+    <a href="verify.html">Verify</a>
+    <a href="use-cases.html">Use Cases</a>
+  </nav>
+</header>
 
-  <!-- Main Content -->
-  <main class="content">
+<main class="content">
 
-    <h1>Economic Model</h1>
-    <p class="subtitle">Native Asset: WGD</p>
-
-    <section>
-      <h2>Purpose of WGD</h2>
-      <p>
-        <strong>WGD</strong> is the native protocol asset used to pay for record
-        anchoring and verification within the Whytegod Protocol. It exists solely
-        to allocate scarce anchoring resources and does not grant governance,
-        ownership, or administrative privileges.
-      </p>
-    </section>
-
-    <section>
-      <h2>Unit Structure</h2>
-      <ul>
-        <li><strong>WGD</strong> — primary unit</li>
-        <li><strong>Wert</strong> — smallest divisible unit</li>
-        <li>All protocol fees are denominated in Wert</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Supply Discipline</h2>
-      <p>
-        The supply of WGD is constrained by protocol-defined issuance rules.
-        No discretionary minting, rebasing, or administrative supply changes
-        are permitted once the protocol is deployed.
-      </p>
-    </section>
-
-    <section>
-      <h2>Demand-Based Dynamics</h2>
-      <p>
-        Demand for WGD is driven exclusively by usage of the protocol.
-        As more records are anchored, demand for WGD may increase.
-        The protocol itself does not target, stabilize, or guarantee
-        any market price.
-      </p>
-    </section>
-
-    <section>
-      <h2>Fee Mechanics</h2>
-      <ul>
-        <li>Fees are paid at the time of record anchoring</li>
-        <li>Fees are deterministic and non-negotiable</li>
-        <li>No discounts, subsidies, or incentive programs exist</li>
-        <li>Fee schedules are publicly verifiable</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Economic Neutrality</h2>
-      <p>
-        The protocol does not provide yield, rewards, or speculative incentives.
-        Economic activity emerges solely from demand for permanent,
-        verifiable records.
-      </p>
-    </section>
-
-  </main>
-
-  <!-- Footer -->
-  <footer class="site-footer">
+  <section>
+    <h2>Economic Model</h2>
     <p>
-      Whytegod Protocol — Economic Specification<br />
-      Native Asset: <strong>WGD</strong> · Smallest Unit: <strong>Wert</strong>
+      The Whytegod Protocol uses WGD as a minimal economic utility
+      to prevent abuse and support long-term sustainability.
     </p>
-  </footer>
+  </section>
+
+  <section>
+    <h3>Purpose of WGD</h3>
+    <ul>
+      <li>Anti-spam mechanism</li>
+      <li>Anchoring cost unit</li>
+      <li>Neutral demand signal</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>What WGD Is Not</h3>
+    <ul>
+      <li>Not a governance token</li>
+      <li>Not an ownership claim</li>
+      <li>Not a dividend or profit right</li>
+      <li>Not a promise of appreciation</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Anchoring Cost</h3>
+    <p>
+      Anchoring a record requires a fixed amount of WGD.
+      The token is consumed as part of the anchoring process.
+    </p>
+
+    <ul>
+      <li>Cost introduces friction</li>
+      <li>Prevents protocol abuse</li>
+      <li>Encourages meaningful records</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Supply Philosophy</h3>
+    <p>
+      The protocol does not dynamically manage price or supply.
+      Market dynamics are external to the protocol.
+    </p>
+  </section>
+
+  <section class="note">
+    <p>
+      Whytegod defines usage rules only.
+      Economic interpretation is external and voluntary.
+    </p>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>Whytegod Protocol — Permanent Record Layer</p>
+</footer>
 
 </body>
 </html>
