@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Whytegod – Verify a Record</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="print.css" media="print">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="logo.png">
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <img src="logo.png" alt="Whytegod Logo" class="logo">
+    <h1>Whytegod Protocol</h1>
+  </div>
+
+  <nav class="nav">
+    <a href="index.html">Spec</a>
+    <a href="records.html">Records</a>
+    <a href="protocols.html">Protocols</a>
+    <a href="economics.html">Economics</a>
+    <a href="hash.html">Hash</a>
+    <a href="anchor.html">Anchor</a>
+    <a href="verify.html" class="active">Verify</a>
+  </nav>
+</header>
+
+<main class="content">
+
+  <section>
+    <h2>Verify a Record</h2>
+    <p>
+      Verification proves that data existed at a specific time
+      and has not been altered since anchoring.
+    </p>
+  </section>
+
+  <section>
+    <h3>How Verification Works</h3>
+    <ol>
+      <li>Original data is hashed deterministically</li>
+      <li>The resulting hash is compared to the anchored Record ID</li>
+      <li>A match confirms authenticity</li>
+    </ol>
+  </section>
+
+  <section>
+    <h3>Verification Tool</h3>
+
+    <label for="data">Original Data</label>
+    <textarea id="data" rows="6" placeholder="Paste the original text or data here"></textarea>
+
+    <label for="expectedHash">Anchored Record ID</label>
+    <input type="text" id="expectedHash" placeholder="Paste the anchored hash">
+
+    <button onclick="verifyRecord()">Verify</button>
+
+    <p id="result" class="result"></p>
+  </section>
+
+  <section class="note">
+    <p>
+      Verification is performed entirely in your browser.
+      No data is sent, stored, or logged.
+    </p>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>Whytegod Protocol — Permanent Record Layer</p>
+</footer>
+
+<script>
+async function verifyRecord() {
+  const data = document.getElementById("data").value;
+  const expected = document.getElementById("expectedHash").value.trim().toLowerCase();
+  const result = document.getElementById("result");
+
+  if (!data || !expected) {
+    result.textContent = "Please provide both data and a Record ID.";
+    result.className = "result error";
+    return;
+  }
+
+  const encoder = new TextEncoder();
+  const encoded = encoder.encode(data);
+  const hashBuffer = await crypto.subtle.digest("SHA-256", encoded);
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  const hashHex = hashArray.map(b => b.toString(16).padStart(2, "0")).join("");
+
+  if (hashHex === expected) {
+    result.textContent = "✔ Record verified successfully. Hashes match.";
+    result.className = "result success";
+  } else {
+    result.textContent = "✖ Verification failed. Hashes do not match.";
+    result.className = "result error";
+  }
+}
+</script>
+
+</body>
+</html>
