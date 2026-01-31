@@ -1,24 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Whytegod Protocol</title>
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="assets/favicon.png" />
-
-  <!-- Meta -->
-  <meta name="description" content="Whytegod Protocol — a minimalist blockchain protocol for permanent, verifiable record anchoring." />
-
-  <style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />  <title>Whytegod Protocol</title>  <!-- Favicon -->  <link rel="icon" type="image/png" href="favicon.png" />  <!-- Meta -->  <meta name="description" content="Whytegod is a minimalist blockchain protocol designed for permanent, verifiable record anchoring without governance, identity, or discretionary control." />  <!-- Styles -->  <style>
     :root {
-      --bg: #0b0b0b;
-      --fg: #eaeaea;
-      --muted: #bdbdbd;
-      --border: #1f1f1f;
-      --accent: #9ddcff;
+      --bg: #0b0f14;
+      --fg: #e6e6e6;
+      --muted: #9aa4af;
+      --accent: #ffffff;
+      --border: #1f2933;
     }
 
     * {
@@ -27,139 +16,155 @@
 
     body {
       margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-        Roboto, Ubuntu, sans-serif;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       background: var(--bg);
       color: var(--fg);
-      line-height: 1.65;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 24px;
     }
 
     header {
       display: flex;
       align-items: center;
-      gap: 16px;
-      padding: 28px 24px;
+      gap: 14px;
       border-bottom: 1px solid var(--border);
-      max-width: 960px;
-      margin: 0 auto;
+      padding-bottom: 20px;
+      margin-bottom: 32px;
     }
 
-    header img {
-      height: 44px;
+    .logo {
+      height: 48px;
       width: auto;
+      display: block;
     }
 
-    header h1 {
-      font-size: 1.35rem;
+    h1 {
+      font-size: 1.6rem;
       margin: 0;
       font-weight: 600;
-      letter-spacing: 0.2px;
     }
 
-    main {
-      max-width: 720px;
-      padding: 48px 24px 64px;
-      margin: 0 auto;
-    }
-
-    main > p:first-child {
-      font-size: 1.05rem;
-      color: var(--muted);
+    section {
+      margin-bottom: 40px;
     }
 
     h2 {
-      font-size: 1.15rem;
-      margin-top: 56px;
+      font-size: 1.2rem;
       margin-bottom: 12px;
-      padding-bottom: 8px;
       border-bottom: 1px solid var(--border);
-      font-weight: 600;
+      padding-bottom: 6px;
     }
 
     p {
       color: var(--muted);
-      margin: 12px 0;
+      margin: 0 0 16px 0;
     }
 
     ul {
-      padding-left: 20px;
-      margin: 12px 0;
+      padding-left: 18px;
       color: var(--muted);
-    }
-
-    li {
-      margin: 6px 0;
-    }
-
-    a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
     }
 
     footer {
       border-top: 1px solid var(--border);
-      padding: 28px 24px;
-      text-align: center;
+      padding-top: 20px;
       font-size: 0.85rem;
-      color: #8a8a8a;
+      color: var(--muted);
+      text-align: center;
     }
+  </style></head>
+<body>  <div class="container"><!-- Header -->
+<header>
+  <!-- IMPORTANT: logo.png must be in the same directory as this file -->
+  <img src="logo.png" alt="Whytegod Protocol Logo" class="logo" />
+  <h1>Whytegod Protocol</h1>
+</header>
 
-    footer span {
-      opacity: 0.9;
-    }
-  </style>
-</head>
+<!-- Intro -->
+<section>
+  <p>
+    Whytegod is a minimalist blockchain protocol designed for permanent,
+    verifiable record anchoring without governance, identity, or discretionary
+    control.
+  </p>
+</section>
 
-<body>
+<!-- Core Principles -->
+<section>
+  <h2>Core Principles</h2>
+  <ul>
+    <li>Fixed supply</li>
+    <li>No governance</li>
+    <li>No identity layer</li>
+    <li>Deterministic verification</li>
+    <li>Long-term auditability</li>
+  </ul>
+</section>
 
-  <header>
-    <img src="assets/logo.png" alt="Whytegod Protocol Logo" />
-    <h1>Whytegod Protocol</h1>
-  </header>
+<!-- Native Asset -->
+<section>
+  <h2>Native Asset</h2>
+  <ul>
+    <li>Primary unit: <strong>WGD</strong></li>
+    <li>Smallest unit: <strong>Wert</strong></li>
+  </ul>
+</section>
 
-  <main>
-    <p>
-      Whytegod is a minimalist blockchain protocol designed for permanent,
-      verifiable record anchoring without governance, identity, or discretionary control.
-    </p>
+<!-- Records -->
+<section>
+  <h2>Records</h2>
+  <p>
+    Whytegod records are immutable anchors designed to persist independently
+    of applications, users, or institutions.
+  </p>
+</section>
 
-    <h2>Core Principles</h2>
-    <ul>
-      <li>Fixed supply</li>
-      <li>No governance</li>
-      <li>No identity layer</li>
-      <li>Deterministic verification</li>
-      <li>Long-term auditability</li>
-    </ul>
+<!-- Protocol -->
+<section>
+  <h2>Protocol</h2>
+  <p>
+    The protocol enforces minimalism by limiting surface area, avoiding
+    governance logic, and prioritizing deterministic state validation.
+  </p>
+</section>
 
-    <h2>Native Asset</h2>
-    <p>
-      Primary unit: <strong>WGD</strong><br />
-      Smallest unit: <strong>Wert</strong><br />
-      Conversion: 1 WGD = 100,000,000 Wert
-    </p>
+<!-- Audit -->
+<section>
+  <h2>Audit</h2>
+  <p>
+    All protocol rules are transparent, deterministic, and verifiable without
+    reliance on trusted intermediaries.
+  </p>
+</section>
 
-    <h2>Documentation</h2>
-    <p>
-      The complete protocol definition is available in the repository:
-    </p>
-    <ul>
-      <li><a href="spec/spec.md">Specification</a></li>
-      <li><a href="protocol/headers.md">Block Headers</a></li>
-      <li><a href="protocol/records.md">Records</a></li>
-      <li><a href="protocol/protocols.md">Protocol Operation</a></li>
-      <li><a href="protocol/threat.md">Threat Model</a></li>
-      <li><a href="protocol/economics.md">Economics</a></li>
-    </ul>
-  </main>
+<!-- Threat Model -->
+<section>
+  <h2>Threat Model</h2>
+  <p>
+    Whytegod assumes adversarial environments, censorship pressure, and
+    institutional decay, optimizing for survivability and verification over
+    convenience.
+  </p>
+</section>
 
-  <footer>
-    <span>Whytegod Protocol — rules over rhetoric.</span>
-  </footer>
+<!-- Economics -->
+<section>
+  <h2>Economics</h2>
+  <p>
+    The economic design emphasizes scarcity, predictability, and resistance
+    to manipulation rather than growth incentives or inflationary rewards.
+  </p>
+</section>
 
-</body>
+<!-- Footer -->
+<footer>
+  © Whytegod Protocol — Permanent by design
+</footer>
+
+  </div></body>
 </html>
