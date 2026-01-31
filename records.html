@@ -1,87 +1,254 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Records — WHYTEGOD</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Chronological index of verifiable on-chain state change records observed by WHYTEGOD.">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whytegod Records</title>
+    <meta name="description" content="Official records and transparency page for the Whytegod Protocol. Supply, airdrops, value units, and on-chain references.">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #0b0b0b;
+            color: #eaeaea;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #000;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid #222;
+        }
+
+        header h1 {
+            margin: 0;
+            color: #ffffff;
+            letter-spacing: 2px;
+        }
+
+        nav {
+            margin-top: 10px;
+        }
+
+        nav a {
+            color: #aaa;
+            text-decoration: none;
+            margin: 0 12px;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #fff;
+        }
+
+        section {
+            max-width: 900px;
+            margin: auto;
+            padding: 40px 20px;
+            border-bottom: 1px solid #1a1a1a;
+        }
+
+        h2 {
+            color: #ffffff;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        p {
+            color: #cfcfcf;
+            font-size: 15px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        table th, table td {
+            border: 1px solid #222;
+            padding: 12px;
+            text-align: left;
+        }
+
+        table th {
+            background: #111;
+            color: #fff;
+        }
+
+        table td {
+            color: #ccc;
+        }
+
+        footer {
+            background: #000;
+            padding: 20px;
+            text-align: center;
+            font-size: 13px;
+            color: #777;
+        }
+
+        .highlight {
+            color: #ffffff;
+            font-weight: bold;
+        }
+    </style>
 </head>
 
 <body>
 
-  <!-- NAVIGATION -->
-  <nav class="nav">
-    <a href="index.html" class="logo">
-      <img src="logo.png" alt="WHYTEGOD logo">
-    </a>
-    <div class="nav-links">
-      <a href="manifesto.html">Manifesto</a>
-      <a href="protocols.html">Protocols</a>
-      <a href="records.html">Records</a>
-      <a href="use-cases.html">Use Cases</a>
-    </div>
-  </nav>
+<header>
+    <h1>WHYTEGOD RECORDS</h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="protocols.html">Protocols</a>
+        <a href="records.html">Records</a>
+    </nav>
+</header>
 
-  <!-- MAIN CONTENT -->
-  <main class="container">
+<section>
+    <h2>Overview</h2>
+    <p>
+        This page documents all official records of the <span class="highlight">Whytegod Protocol</span>.
+        Transparency is a core principle. Every unit, distribution, and upgrade is recorded clearly
+        for public reference.
+    </p>
+</section>
 
-    <section class="hero">
-      <h1>Records</h1>
-      <p class="lead">
-        A chronological index of verifiable on-chain state changes.
-        Records are factual, timestamped, and source-linked.
-      </p>
-    </section>
+<section>
+    <h2>Base Value Unit</h2>
+    <p>
+        The smallest measurable unit in the Whytegod economic system is called
+        <span class="highlight">WERT</span>.
+    </p>
+    <p>
+        <strong>WERT</strong> replaces traditional low-value units like Wei and represents
+        <em>economic worth</em>, not just computational gas.
+    </p>
 
-    <hr>
+    <table>
+        <tr>
+            <th>Unit</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>1 WERT</td>
+            <td>Smallest indivisible unit of value</td>
+        </tr>
+        <tr>
+            <td>1 WHYTE</td>
+            <td>Primary transactional unit</td>
+        </tr>
+        <tr>
+            <td>1 WHYTEGOD</td>
+            <td>Store of long-term value</td>
+        </tr>
+    </table>
+</section>
 
-    <!-- RECORD LIST -->
-    <section>
+<section>
+    <h2>Token Supply Records</h2>
 
-      <h2>Latest Records</h2>
+    <table>
+        <tr>
+            <th>Category</th>
+            <th>Allocation</th>
+            <th>Status</th>
+        </tr>
+        <tr>
+            <td>Total Supply</td>
+            <td>1,000,000,000 WHYTE</td>
+            <td>Fixed</td>
+        </tr>
+        <tr>
+            <td>Circulating Supply</td>
+            <td>Recorded On-Chain</td>
+            <td>Live</td>
+        </tr>
+        <tr>
+            <td>Reserved Supply</td>
+            <td>Protocol Growth</td>
+            <td>Locked</td>
+        </tr>
+    </table>
+</section>
 
-      <ul>
+<section>
+    <h2>Airdrop Records</h2>
+    <p>
+        Airdrops are used to reward early believers, builders, and contributors to the
+        Whytegod ecosystem.
+    </p>
 
-        <li>
-          <strong>2026-01-18</strong> — Ethereum Governance  
-          <br>
-          Parameter update: <strong>MAX_DEBT_RATIO</strong> changed from 65% to 70%  
-          <br>
-          <a href="sample-record.html">View record</a>
-        </li>
+    <table>
+        <tr>
+            <th>Round</th>
+            <th>Purpose</th>
+            <th>Status</th>
+        </tr>
+        <tr>
+            <td>Airdrop #1</td>
+            <td>Early Community Adoption</td>
+            <td>Completed</td>
+        </tr>
+        <tr>
+            <td>Airdrop #2</td>
+            <td>Protocol Awareness</td>
+            <td>Scheduled</td>
+        </tr>
+        <tr>
+            <td>Airdrop #3</td>
+            <td>Builder Incentives</td>
+            <td>Planned</td>
+        </tr>
+    </table>
+</section>
 
-        <li>
-          <strong>2026-01-12</strong> — Treasury Contract  
-          <br>
-          Capital reallocation executed via governance proposal  
-          <br>
-          <a href="#">View record</a>
-        </li>
+<section>
+    <h2>Upgrade & Governance Records</h2>
+    <p>
+        All upgrades follow protocol rules and governance logic.
+        No silent changes. No hidden supply.
+    </p>
 
-        <li>
-          <strong>2026-01-05</strong> — Protocol Upgrade  
-          <br>
-          Implementation contract updated to new version  
-          <br>
-          <a href="#">View record</a>
-        </li>
+    <table>
+        <tr>
+            <th>Version</th>
+            <th>Change</th>
+            <th>Date</th>
+        </tr>
+        <tr>
+            <td>v1.0</td>
+            <td>Protocol Genesis</td>
+            <td>Recorded</td>
+        </tr>
+        <tr>
+            <td>v1.1</td>
+            <td>WERT Value Unit Introduction</td>
+            <td>Recorded</td>
+        </tr>
+        <tr>
+            <td>v1.2</td>
+            <td>Airdrop Mechanism Upgrade</td>
+            <td>Pending</td>
+        </tr>
+    </table>
+</section>
 
-      </ul>
+<section>
+    <h2>Final Note</h2>
+    <p>
+        Whytegod is designed as a long-term economic protocol, not a short-term experiment.
+        Every record here exists to protect users, builders, and future participants.
+    </p>
+</section>
 
-    </section>
-
-    <hr>
-
-    <!-- NOTE -->
-    <section>
-      <p class="footer-line">
-        Records reflect observed on-chain state changes only.
-        WHYTEGOD does not interpret intent, impact, or outcomes.
-      </p>
-    </section>
-
-  </main>
+<footer>
+    © 2026 Whytegod Protocol. All records are public by design.
+</footer>
 
 </body>
 </html>
