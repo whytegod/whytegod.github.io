@@ -1,69 +1,77 @@
-/* ===============================
-   Whytegod Protocol — Print Styles
-   =============================== */
-
+/* ================= PRINT RESET ================= */
 @media print {
-  /* Remove dark backgrounds */
-  body {
-    background: #ffffff;
-    color: #000000;
-    font-family: serif;
+  * {
+    background: none !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
   }
 
-  /* Hide navigation / non-essential UI */
-  header,
-  nav,
+  body {
+    font-family: Georgia, "Times New Roman", serif;
+    line-height: 1.6;
+  }
+
+  /* ================= HIDE NON-ESSENTIAL ================= */
   .site-header,
-  .header-right {
+  .site-footer,
+  nav,
+  button,
+  .no-print {
     display: none !important;
   }
 
-  /* Expand content for paper */
-  main {
+  /* ================= PAGE LAYOUT ================= */
+  .content {
     max-width: 100%;
     padding: 0;
+    margin: 0;
   }
 
   section {
     page-break-inside: avoid;
-    margin-bottom: 2rem;
+    margin-bottom: 24px;
   }
 
   h1,
   h2,
   h3 {
-    color: #000000;
     page-break-after: avoid;
+    color: #000;
+  }
+
+  h1 {
+    font-size: 24pt;
+  }
+
+  h2 {
+    font-size: 18pt;
+    border-bottom: 1px solid #000;
+    padding-bottom: 4px;
   }
 
   p,
   li {
-    color: #000000;
-    font-size: 11pt;
-    line-height: 1.5;
+    font-size: 11.5pt;
   }
 
-  ul,
-  ol {
-    margin-left: 1.2cm;
+  ul {
+    padding-left: 18px;
   }
 
-  /* Links show destination */
+  /* ================= LINKS ================= */
+  a {
+    color: #000;
+    text-decoration: none;
+  }
+
   a::after {
     content: " (" attr(href) ")";
     font-size: 9pt;
   }
 
-  /* Footer print mark */
-  .site-footer {
-    margin-top: 2cm;
-    font-size: 9pt;
-    color: #333333;
-  }
-
-  /* Prevent broken records */
-  .record,
-  .spec-block {
-    page-break-inside: avoid;
+  /* ================= PAGE NUMBERS ================= */
+  @page {
+    margin: 20mm;
   }
 }
