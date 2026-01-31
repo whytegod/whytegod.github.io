@@ -1,0 +1,223 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Whytegod Protocol — Technical Specification</title>  <!-- Favicon -->  <link rel="icon" type="image/png" href="favicon.png" />  <!-- Brand Color -->  <meta name="theme-color" content="#0f172a" />  <style>
+    :root {
+      --bg: #020617;
+      --card: #020617;
+      --border: #1e293b;
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #020617, #000);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      padding: 3rem 1.5rem;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+
+    header img {
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+    }
+
+    h1 { font-size: 2.5rem; margin: 0; }
+    h2 { font-size: 1.75rem; margin-top: 3rem; }
+    h3 { font-size: 1.2rem; margin-top: 2rem; }
+
+    p { color: var(--muted); }
+
+    main {
+      max-width: 960px;
+      margin: auto;
+      padding: 2.5rem 1.5rem 5rem;
+    }
+
+    section {
+      margin-bottom: 3rem;
+    }
+
+    .card {
+      background: linear-gradient(180deg, #020617, #020617);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+      color: var(--muted);
+    }
+
+    code {
+      background: #020617;
+      border: 1px solid var(--border);
+      padding: 0.15rem 0.35rem;
+      border-radius: 6px;
+      color: var(--accent);
+      font-size: 0.9rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+  </style></head><body><header>
+  <img src="whytegod-logo.png" alt="Whytegod Logo" />
+  <h1>Whytegod Protocol</h1>
+  <p>Technical Specification — Base Layer Design</p>
+</header><main>  <section>
+    <h2>1. Protocol Overview</h2>
+    <div class="card">
+      <p>
+        The <strong>Whytegod Protocol</strong> is a sovereign, fixed-supply, privacy-preserving digital monetary system.
+        It combines Bitcoin’s deterministic scarcity with Monero’s identity protection, while introducing a
+        mathematically native unit system and protocol-level economic incentives.
+      </p>
+      <p>
+        The protocol is designed as <em>infrastructure</em>, not a meme or trend-based asset.
+        Every component exists to reinforce long-term value, neutrality, and resistance to capture.
+      </p>
+    </div>
+  </section>  <section>
+    <h2>2. Native Asset</h2>
+    <div class="card">
+      <h3>Asset Name</h3>
+      <p><strong>Whytegod</strong> (ticker: <code>WGD</code>)</p><h3>Base Unit</h3>
+  <p>
+    The smallest indivisible unit is called <strong>Wert</strong>.
+  </p>
+  <ul>
+    <li>1 Whytegod = 100,000,000 Wert</li>
+    <li>Wert is protocol-native and not shared with any other blockchain</li>
+    <li>Used internally for fees, rewards, accounting, and micro-settlement</li>
+  </ul>
+</div>
+
+  </section>  <section>
+    <h2>3. Supply & Issuance</h2>
+    <div class="card">
+      <ul>
+        <li><strong>Maximum Supply:</strong> Fixed, hard-capped</li>
+        <li><strong>Inflation:</strong> None beyond programmed issuance</li>
+        <li><strong>Issuance Model:</strong> Deterministic, declining curve</li>
+        <li><strong>No minting authority</strong> after genesis</li>
+      </ul>
+      <p>
+        Supply reduction is mathematically enforced and verifiable by any node.
+        There is no governance vote or emergency override for supply changes.
+      </p>
+    </div>
+  </section>  <section>
+    <h2>4. Privacy Model</h2>
+    <div class="card">
+      <ul>
+        <li>Sender anonymity by default</li>
+        <li>Receiver unlinkability</li>
+        <li>Transaction amount obfuscation</li>
+        <li>No public balance exposure</li>
+      </ul>
+      <p>
+        Privacy is not optional or opt-in. It is enforced at the protocol layer to avoid
+        metadata leakage and surveillance-based discrimination.
+      </p>
+    </div>
+  </section>  <section>
+    <h2>5. Consensus & Security</h2>
+    <div class="card">
+      <ul>
+        <li>Proof-based consensus (ASIC-resistant by design)</li>
+        <li>Stateless verification emphasis</li>
+        <li>Energy usage tied directly to security, not speculation</li>
+        <li>No delegated trust or validator elites</li>
+      </ul>
+    </div>
+  </section>  <section>
+    <h2>6. Economic Design</h2>
+    <div class="card">
+      <h3>Internal Allocation</h3>
+      <ul>
+        <li>Network security rewards</li>
+        <li>Protocol maintenance incentives</li>
+        <li>Privacy infrastructure reinforcement</li>
+      </ul><h3>External Allocation</h3>
+  <ul>
+    <li>Adoption incentives</li>
+    <li>Airdrop-driven distribution</li>
+    <li>Cross-project integrations</li>
+  </ul>
+</div>
+
+  </section>  <section>
+    <h2>7. Wallet Requirement</h2>
+    <div class="card">
+      <p>
+        The existence of a coin mandates a sovereign wallet.
+        The Whytegod Wallet is a first-class protocol component, not a third-party add-on.
+      </p>
+      <ul>
+        <li>Full Wert-level precision</li>
+        <li>Privacy-preserving UX</li>
+        <li>Offline key generation</li>
+        <li>No analytics, no telemetry</li>
+      </ul>
+    </div>
+  </section>  <section>
+    <h2>8. Airdrop Mechanism</h2>
+    <div class="card">
+      <p>
+        Airdrops are designed to decentralize ownership without undermining scarcity.
+      </p>
+      <ul>
+        <li>Time-bound, non-repeatable distributions</li>
+        <li>Eligibility tied to on-chain actions</li>
+        <li>No KYC or identity leakage</li>
+        <li>Sybil-resistant constraints</li>
+      </ul>
+    </div>
+  </section>  <section>
+    <h2>9. Interoperability</h2>
+    <div class="card">
+      <ul>
+        <li>Bridge-friendly architecture (without custodial risk)</li>
+        <li>Read-only integration with external protocols</li>
+        <li>Value-transfer focus, not smart-contract bloat</li>
+      </ul>
+    </div>
+  </section>  <section>
+    <h2>10. Philosophy</h2>
+    <div class="card">
+      <p>
+        Whytegod is designed to survive attention cycles.
+        It does not depend on hype, narratives, or personalities.
+      </p>
+      <p>
+        If everything around it fails, it still works.
+      </p>
+    </div>
+  </section></main><footer>
+  © 2026 Whytegod Protocol — Specification Document
+</footer></body>
+</html>
