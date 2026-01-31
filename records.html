@@ -2,124 +2,93 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Whytegod Records</title>
 
+  <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png" />
 
+  <!-- SEO Meta -->
+  <meta name="description" content="Whytegod records define how data proofs are formatted, anchored, verified, and preserved without exposing private information." />
+  <meta name="keywords" content="Whytegod, records, anchoring, cryptographic proofs, blockchain records" />
+  <meta name="author" content="Whytegod Protocol" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Whytegod Records" />
+  <meta property="og:description" content="Permanent, privacy-preserving record anchoring on the Whytegod protocol." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="logo.png" />
+
   <style>
-    :root {
-      --bg: #0b0f14;
-      --panel: #121826;
-      --text: #e6e8eb;
-      --muted: #9aa3b2;
-      --accent: #c9a24d;
-      --border: #1f2636;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.65;
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #0b0b0e;
+      color: #eaeaea;
+      line-height: 1.6;
     }
 
     header {
-      padding: 2.5rem 1.5rem;
-      border-bottom: 1px solid var(--border);
+      padding: 1.5rem 2rem;
+      border-bottom: 1px solid #222;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
 
-    header h1 {
-      font-size: 2rem;
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
     }
 
-    header p {
-      margin-top: 0.5rem;
-      color: var(--muted);
-      max-width: 760px;
+    .brand img {
+      height: 40px;
+      width: auto;
     }
 
-    nav {
-      margin-top: 1.25rem;
+    .brand span {
+      font-size: 1.4rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
     }
 
     nav a {
-      margin-right: 1.25rem;
-      color: var(--accent);
+      margin-left: 1rem;
       text-decoration: none;
-      font-weight: 500;
+      color: #caa85c;
+      font-size: 0.95rem;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
     }
 
     main {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 3rem 1.5rem;
-    }
-
-    section {
-      margin-bottom: 3.5rem;
+      max-width: 900px;
+      padding: 2.5rem 2rem;
+      margin: auto;
     }
 
     h2 {
-      font-size: 1.4rem;
-      margin-bottom: 0.75rem;
+      margin-top: 2rem;
+      color: #caa85c;
     }
 
-    p {
-      color: var(--muted);
-      max-width: 820px;
-    }
-
-    .panel {
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 1.5rem;
-      margin-top: 1.25rem;
-    }
-
-    .record {
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 1.5rem;
-      margin-top: 1.5rem;
-    }
-
-    .record h3 {
-      color: var(--accent);
-      margin-bottom: 0.4rem;
-    }
-
-    .record h4 {
-      margin-top: 1.1rem;
-      margin-bottom: 0.5rem;
-      font-size: 1rem;
-    }
-
-    .record p {
-      margin-bottom: 0.35rem;
-    }
-
-    hr {
-      border: none;
-      border-top: 1px solid var(--border);
-      margin: 1rem 0;
+    code {
+      background: #141418;
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+      font-size: 0.9rem;
     }
 
     footer {
-      border-top: 1px solid var(--border);
-      padding: 2rem 1.5rem;
+      border-top: 1px solid #222;
+      padding: 1rem;
       text-align: center;
-      color: var(--muted);
-      font-size: 0.9rem;
+      font-size: 0.8rem;
+      color: #888;
     }
   </style>
 </head>
@@ -127,121 +96,70 @@
 <body>
 
 <header>
-  <h1>Whytegod Records</h1>
-  <p>
-    Records define the historical truth of the Whytegod network.
-    Once written, records cannot be modified, hidden, or erased.
-  </p>
+  <div class="brand">
+    <img src="logo.png" alt="Whytegod Logo">
+    <span>Whytegod</span>
+  </div>
 
   <nav>
-    <a href="index.html">Home</a>
-    <a href="spec.html">Specification</a>
+    <a href="index.html">Spec</a>
     <a href="protocols.html">Protocols</a>
+    <a href="records.html">Records</a>
   </nav>
 </header>
 
 <main>
+  <h1>Record Layer</h1>
 
-  <!-- Purpose -->
-  <section>
-    <h2>Purpose of Records</h2>
-    <div class="panel">
-      <p>
-        The Records layer exists to preserve trust over time.
-        It provides a transparent, chronological account of
-        protocol events, state changes, and external observations.
-      </p>
-    </div>
-  </section>
+  <h2>1. Record Definition</h2>
+  <p>
+    A record is a cryptographic commitment representing the existence of data at
+    a specific point in time. The protocol never stores raw data — only proofs.
+  </p>
 
-  <!-- Record Categories -->
-  <section>
-    <h2>Record Categories</h2>
-    <div class="panel">
-      <p>All records fall into clearly defined categories:</p>
-      <ul style="margin-top:0.75rem; padding-left:1.25rem; color:var(--muted);">
-        <li>Genesis Records</li>
-        <li>Protocol State Changes</li>
-        <li>Validation Events</li>
-        <li>External Protocol Observations</li>
-        <li>Security Incidents (if any)</li>
-      </ul>
-    </div>
-  </section>
+  <h2>2. Record Format</h2>
+  <p>
+    Each record consists of:
+  </p>
+  <ul>
+    <li>Hash commitment (content fingerprint)</li>
+    <li>Timestamp anchor</li>
+    <li>Protocol version marker</li>
+  </ul>
 
-  <!-- Genesis Record -->
-  <section>
-    <h2>Genesis Record</h2>
+  <p>
+    Example structure:
+    <code>{ hash || time || ruleset }</code>
+  </p>
 
-    <article class="record">
-      <h3>Record Type: Genesis</h3>
+  <h2>3. Anchoring Rules</h2>
+  <p>
+    Records are anchored immutably. Once confirmed, a record cannot be altered,
+    replaced, or removed. Re-anchoring requires a new commitment.
+  </p>
 
-      <p><strong>Record ID:</strong> WG-GEN-0001</p>
-      <p><strong>Timestamp (UTC):</strong> To Be Finalized</p>
-      <p><strong>Network State:</strong> Initialized</p>
+  <h2>4. Verification</h2>
+  <p>
+    Anyone can independently verify a record by recomputing the hash and
+    comparing it against the anchored proof. No permission or identity is
+    required.
+  </p>
 
-      <hr>
+  <h2>5. Privacy Model</h2>
+  <p>
+    Records reveal nothing about the underlying data. Ownership, intent, and
+    identity are intentionally absent from the system.
+  </p>
 
-      <p>
-        <strong>Description:</strong><br>
-        Establishment of the Whytegod network, fixed supply,
-        Wert denomination, and enforcement of immutable protocol rules.
-      </p>
-
-      <p><strong>Executor:</strong> Protocol Genesis</p>
-    </article>
-  </section>
-
-  <!-- Integrity Event -->
-  <section>
-    <h2>Integrity Events</h2>
-
-    <article class="record">
-      <h3>Record Type: Validation Integrity</h3>
-
-      <p><strong>Record ID:</strong> WG-VAL-0001</p>
-      <p><strong>Status:</strong> Continuous</p>
-
-      <hr>
-
-      <p>
-        <strong>Description:</strong><br>
-        Ongoing validation of state correctness under the
-        Proof of Integrity consensus model.
-      </p>
-
-      <p><strong>Condition:</strong> Active</p>
-    </article>
-  </section>
-
-  <!-- External Observation -->
-  <section>
-    <h2>External Protocol Observations</h2>
-
-    <article class="record">
-      <h3>Observed Protocol: Ethereum</h3>
-
-      <p><strong>Observation Type:</strong> Network Reference</p>
-      <p><strong>Purpose:</strong> Settlement Benchmark</p>
-
-      <hr>
-
-      <p>
-        <strong>Description:</strong><br>
-        Ethereum is observed as a reference environment
-        for interoperability and protocol comparison.
-      </p>
-
-      <p><strong>Status:</strong> Passive Observation</p>
-    </article>
-  </section>
-
+  <h2>6. Lifecycle</h2>
+  <p>
+    Records persist indefinitely. Their value increases with network longevity,
+    reinforcing permanence as a measurable property rather than a promise.
+  </p>
 </main>
 
 <footer>
-  <p>
-    Whytegod Records — History without revision.
-  </p>
+  Whytegod Protocol — Records Are Proof, Not Data
 </footer>
 
 </body>
