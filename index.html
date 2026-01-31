@@ -1,222 +1,157 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8">
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="WHYTEGOD is a sovereign blockchain designed to record and enforce protocol-level truth with economic finality.">
-
-  <title>WHYTEGOD — Protocol Truth Infrastructure</title>
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png">
-
-  <style>
-    /* ===== RESET ===== */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+  <meta name="description" content="Whytegod is a fixed-supply, privacy-first crypto protocol combining Bitcoin-grade monetary discipline with Monero-level identity protection.">
+  <title>Whytegod — A Sovereign Crypto Protocol</title>  <!-- Favicon -->  <link rel="icon" type="image/png" href="favicon.png">  <!-- Basic Styling (self-contained, no external deps) -->  <style>
+    :root {
+      --bg: #0b0e11;
+      --fg: #eaecef;
+      --muted: #9aa4b2;
+      --accent: #c9a24d; /* Remembered brand gold */
+      --border: #1f2937;
     }
 
-    /* ===== BASE ===== */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
-      font-family: Arial, Helvetica, sans-serif;
-      background-color: #0b0b0b;
-      color: #eaeaea;
-      line-height: 1.6;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.7;
     }
 
-    a {
-      color: #eaeaea;
-      text-decoration: none;
-    }
-
-    /* ===== LAYOUT ===== */
     header, section, footer {
       max-width: 1100px;
       margin: auto;
-      padding: 40px 20px;
+      padding: 64px 24px;
     }
 
     header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #222;
+      text-align: center;
+      padding-top: 96px;
     }
 
-    .logo {
-      font-size: 20px;
-      font-weight: bold;
-      letter-spacing: 1px;
+    h1, h2, h3 {
+      color: var(--fg);
+      margin-bottom: 16px;
+      font-weight: 600;
     }
 
-    nav a {
-      margin-left: 20px;
-      font-size: 14px;
-      opacity: 0.9;
-    }
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 1.8rem; }
+    h3 { font-size: 1.2rem; }
 
-    nav a:hover {
-      opacity: 1;
-    }
+    p { color: var(--muted); margin-bottom: 16px; }
 
-    /* ===== HERO ===== */
-    .hero {
-      padding-top: 80px;
-      padding-bottom: 80px;
-    }
+    .accent { color: var(--accent); }
 
-    .hero h1 {
-      font-size: 38px;
-      margin-bottom: 20px;
-      max-width: 800px;
-    }
-
-    .hero p {
-      font-size: 18px;
-      max-width: 700px;
-      opacity: 0.85;
-    }
-
-    /* ===== SECTIONS ===== */
-    h2 {
-      font-size: 26px;
-      margin-bottom: 20px;
-    }
-
-    h3 {
-      font-size: 18px;
-      margin-bottom: 10px;
-    }
-
-    p {
-      margin-bottom: 15px;
-      opacity: 0.9;
-    }
-
-    ul {
-      list-style: none;
-    }
-
-    ul li {
-      margin-bottom: 10px;
-    }
-
-    /* ===== GRID ===== */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 30px;
+      gap: 24px;
     }
 
     .card {
-      border: 1px solid #222;
-      padding: 25px;
-      background-color: #111;
+      border: 1px solid var(--border);
+      padding: 24px;
+      border-radius: 8px;
+      background: #0f1318;
     }
 
-    /* ===== FOOTER ===== */
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      padding: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    nav a:hover { color: var(--accent); }
+
     footer {
-      border-top: 1px solid #222;
+      border-top: 1px solid var(--border);
       text-align: center;
-      font-size: 14px;
-      opacity: 0.7;
+      font-size: 0.85rem;
+      color: var(--muted);
     }
-  </style>
-</head>
-
-<body>
-
-  <!-- ===== HEADER ===== -->
-  <header>
-    <div class="logo">WHYTEGOD</div>
-    <nav>
-      <a href="protocol.html">Protocol</a>
-      <a href="records.html">Records</a>
-      <a href="specs.html">Specs</a>
-      <a href="wallet.html">Wallet</a>
-    </nav>
-  </header>
-
-  <!-- ===== HERO ===== -->
-  <section class="hero">
-    <h1>Protocol Truth, Permanently Recorded</h1>
-    <p>
-      WHYTEGOD is a sovereign blockchain designed to record, verify,
-      and economically enforce protocol-level state changes across
-      decentralized systems.
-    </p>
-  </section>
-
-  <!-- ===== CORE VALUES ===== -->
-  <section>
-    <div class="grid">
-      <div class="card">
-        <h3>Immutable Records</h3>
-        <p>
-          Protocol upgrades, governance executions, and critical changes
-          are preserved permanently without reliance on social narratives.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Economic Enforcement</h3>
-        <p>
-          Validators stake value and are slashed for dishonesty.
-          Truth is enforced, not assumed.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Sovereign Design</h3>
-        <p>
-          WHYTEGOD does not depend on external chains, mutable governance,
-          or discretionary control.
-        </p>
-      </div>
+  </style></head>
+<body><nav>
+  <a href="index.html">Home</a>
+  <a href="protocols.html">Protocols</a>
+  <a href="records.html">Records</a>
+  <a href="spec.html">Spec</a>
+</nav><header>
+  <h1>Whytegod</h1>
+  <p class="accent">A sovereign crypto protocol for value, privacy, and long-term trust.</p>
+</header><section>
+  <h2>What Whytegod Is</h2>
+  <p>
+    Whytegod is not a meme, not a hype token, and not a copy.
+    It is a fixed-supply digital protocol designed to operate as neutral economic infrastructure.
+  </p>
+  <p>
+    It combines Bitcoin’s predictable monetary policy with Monero’s privacy-by-default identity model,
+    while introducing protocol-level records, specifications, and verifiable state changes.
+  </p>
+</section><section>
+  <h2>Core Principles</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Fixed Supply</h3>
+      <p>Whytegod has a mathematically capped supply. No arbitrary minting. No inflation by governance.</p>
     </div>
-  </section>
-
-  <!-- ===== WHAT IT IS / IS NOT ===== -->
-  <section>
-    <div class="grid">
-      <div class="card">
-        <h3>What WHYTEGOD Is</h3>
-        <ul>
-          <li>• Protocol truth ledger</li>
-          <li>• Neutral reference layer</li>
-          <li>• Fixed-supply blockchain</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>What WHYTEGOD Is Not</h3>
-        <ul>
-          <li>• Meme coin</li>
-          <li>• DeFi platform</li>
-          <li>• Yield product</li>
-        </ul>
-      </div>
+    <div class="card">
+      <h3>Privacy by Default</h3>
+      <p>Transactions and identity layers are protected at protocol level, not as optional add-ons.</p>
     </div>
-  </section>
-
-  <!-- ===== USE CASES ===== -->
-  <section>
-    <h2>Real Use Cases</h2>
-    <ul>
-      <li>• Permanent record of protocol upgrades</li>
-      <li>• Independent audit and research reference</li>
-      <li>• Cross-chain neutral observability layer</li>
-    </ul>
-  </section>
-
-  <!-- ===== FOOTER ===== -->
-  <footer>
-    <p>WHYTEGOD is infrastructure, not a product.</p>
-    <p>Protocol-level truth has no owner.</p>
-  </footer>
-
-</body>
+    <div class="card">
+      <h3>Protocol Records</h3>
+      <p>All critical state changes are recorded, classified, and auditable without revealing users.</p>
+    </div>
+    <div class="card">
+      <h3>Independent Utility</h3>
+      <p>The protocol is designed to function and gain adoption without relying on trends or influencers.</p>
+    </div>
+  </div>
+</section><section>
+  <h2>Economic Structure</h2>
+  <p>
+    The smallest unit of Whytegod is called <strong>Wert</strong> — a native base denomination inspired by
+    economic measurement systems, replacing the need for Wei-like terminology.
+  </p>
+  <div class="grid">
+    <div class="card">
+      <h3>Internal Allocation</h3>
+      <p>Security, protocol incentives, long-term sustainability, and network maintenance.</p>
+    </div>
+    <div class="card">
+      <h3>External Allocation</h3>
+      <p>Airdrops, integrations, ecosystem partnerships, and organic adoption incentives.</p>
+    </div>
+  </div>
+</section><section>
+  <h2>Wallet & Identity</h2>
+  <p>
+    Every Whytegod holder interacts through a wallet designed for privacy-preserving ownership.
+    No exposed balances. No forced identity linkage.
+  </p>
+  <p>
+    Ownership is cryptographic, not social.
+  </p>
+</section><section>
+  <h2>Why It Matters</h2>
+  <p>
+    Whytegod is built for people who want money and systems that outlive trends.
+    It is designed to be boring, predictable, and reliable — the traits that actually survive.
+  </p>
+</section><footer>
+  <p>© Whytegod Protocol — Public Infrastructure</p>
+</footer></body>
 </html>
