@@ -2,15 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Whytegod – Version & Immutability</title>
+  <title>Whytegod Protocol — Version</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Styles -->
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="print.css" media="print">
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="icon" type="image/png" href="favicon.png">
 </head>
 
 <body>
@@ -21,24 +18,27 @@
     <h1>Whytegod Protocol</h1>
   </div>
 
+  <!-- GLOBAL NAV (LOCKED) -->
   <nav class="nav">
     <a href="index.html">Spec</a>
     <a href="records.html">Records</a>
     <a href="protocols.html">Protocols</a>
-    <a href="economics.html">Economics</a>
-    <a href="use-cases.html">Use Cases</a>
-    <a href="version.html" class="active">Version</a>
+    <a href="use.html">Use</a>
+    <a href="verify.html">Verify</a>
+    <a href="tokenomics.html">Tokenomics</a>
+    <a href="governance.html">Governance</a>
     <a href="faq.html">FAQ</a>
+    <a href="version.html" class="active">Version</a>
   </nav>
 </header>
 
 <main class="content">
 
   <section>
-    <h2>Protocol Versioning</h2>
+    <h2>Protocol Version</h2>
     <p>
-      Whytegod is defined as a set of fixed technical rules.
-      Once a version is published, it cannot be altered.
+      This page defines the official versioning
+      of the Whytegod Protocol.
     </p>
   </section>
 
@@ -48,70 +48,93 @@
       <strong>Whytegod Protocol v1.0</strong>
     </p>
     <ul>
-      <li>Status: Final</li>
-      <li>Governance: None</li>
-      <li>Mutability: Frozen</li>
-      <li>Upgrade Path: New versions only</li>
+      <li>Status: Active</li>
+      <li>Release Type: Initial stable specification</li>
+      <li>Governance Model: Frozen</li>
     </ul>
   </section>
 
   <section>
-    <h3>Immutability Guarantee</h3>
+    <h3>Version Philosophy</h3>
     <p>
-      No individual, group, or organization
-      can modify the rules of v1.0.
+      Whytegod follows strict version isolation.
+      A version defines immutable rules.
     </p>
     <ul>
-      <li>No parameter changes</li>
-      <li>No emergency powers</li>
-      <li>No backdoors</li>
-      <li>No retroactive edits</li>
+      <li>Versions do not change after release</li>
+      <li>Records remain bound to their version</li>
+      <li>Verification depends on version context</li>
     </ul>
   </section>
 
   <section>
-    <h3>Why Immutability Matters</h3>
-    <ul>
-      <li>Anchored records remain valid forever</li>
-      <li>Verification logic never changes</li>
-      <li>Trust assumptions do not shift</li>
-      <li>Users are protected from capture</li>
-    </ul>
+    <h3>Backward Compatibility</h3>
+    <p>
+      New versions do not modify or invalidate
+      previous records.
+    </p>
+    <p>
+      Older versions remain verifiable forever.
+    </p>
   </section>
 
   <section>
     <h3>Future Versions</h3>
     <p>
-      Any future protocol changes must be introduced
-      as a separate version (e.g., v2.0).
+      Future versions may introduce:
     </p>
+    <ul>
+      <li>Alternative anchoring methods</li>
+      <li>Extended record formats</li>
+      <li>Optional tooling improvements</li>
+    </ul>
     <p>
-      Older versions will remain valid,
-      verifiable, and supported indefinitely.
+      Adoption of future versions is voluntary.
     </p>
   </section>
 
   <section>
-    <h3>What Versioning Does NOT Mean</h3>
-    <ul>
-      <li>No forced migrations</li>
-      <li>No automatic upgrades</li>
-      <li>No deprecations</li>
-      <li>No breaking changes</li>
-    </ul>
+    <h3>Forking</h3>
+    <p>
+      Anyone may implement or fork the protocol.
+      No permission is required.
+    </p>
+    <p>
+      Market adoption determines relevance.
+    </p>
+  </section>
+
+  <section>
+    <h3>Canonical Reference</h3>
+    <p>
+      This website serves as a public reference
+      for the Whytegod Protocol specification.
+    </p>
+    <p>
+      The protocol does not depend on the website
+      for operation or verification.
+    </p>
+  </section>
+
+  <section>
+    <h3>Legal Scope</h3>
+    <p>
+      Version definitions describe technical behavior only.
+      They do not create legal obligations or guarantees.
+    </p>
   </section>
 
   <section class="note">
     <p>
-      Whytegod defines rules once.
-      Time and cryptography enforce them.
+      Versioning preserves certainty.
+      Stability is a feature, not a limitation.
     </p>
   </section>
 
 </main>
 
 <footer class="footer">
-  <p>Whytegod Protocol — Version & Immutability</p>
+  <p>Whytegod Protocol — Version</p>
 </footer>
 
 </body>
