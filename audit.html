@@ -1,107 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Whytegod Protocol — Audit & Verification</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Audit | Whytegod Protocol</title>
 
-  <!-- Mobile -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Meta -->
-  <meta name="description" content="Whytegod Protocol — Audit Scope and Verification Model">
-  <meta name="theme-color" content="#0b0f14">
+  <!-- Core styles -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="print.css" media="print" />
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="logo.png">
-
-  <!-- Styles -->
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="print.css" media="print">
+  <link rel="icon" type="image/png" href="logo.png" />
 </head>
 
 <body>
 
-<!-- ================= HEADER ================= -->
-<header class="site-header">
-  <div class="header-left">
-    <img src="logo.png" alt="Whytegod Logo" class="logo">
-    <span class="site-title">Whytegod Protocol</span>
-  </div>
+  <!-- Header / Navigation -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand">
+        <img src="logo.png" alt="Whytegod Logo" class="logo" />
+        <span class="brand-name">Whytegod Protocol</span>
+      </div>
 
-  <nav class="site-nav">
-    <a href="index.html">Spec</a>
-    <a href="records.html">Records</a>
-    <a href="protocols.html">Protocols</a>
-    <a href="economic.html">Economics</a>
-    <a href="threat.html">Threat</a>
-    <a href="audit.html">Audit</a>
-  </nav>
-</header>
+      <nav class="nav">
+        <a href="index.html">Spec</a>
+        <a href="records.html">Records</a>
+        <a href="protocols.html">Protocols</a>
+        <a href="economic.html">Economics</a>
+        <a href="threat.html">Threat</a>
+        <a href="audit.html" class="active">Audit</a>
+      </nav>
+    </div>
+  </header>
 
-<!-- ================= MAIN ================= -->
-<main class="content">
+  <!-- Main Content -->
+  <main class="content">
 
-  <section class="hero">
-    <h1>Audit & Verification</h1>
-    <p class="subtitle">What Can Be Verified and How</p>
-  </section>
+    <h1>Audit Framework</h1>
+    <p class="subtitle">Verification, Review, and Reproducibility</p>
 
-  <section>
-    <h2>Audit Philosophy</h2>
+    <section>
+      <h2>Audit Objective</h2>
+      <p>
+        The purpose of this document is to define how the Whytegod Protocol
+        can be independently reviewed and verified without trust in
+        operators, maintainers, or privileged access.
+      </p>
+    </section>
+
+    <section>
+      <h2>Audit Scope</h2>
+      <ul>
+        <li>Record structure and immutability</li>
+        <li>Anchoring and timestamp rules</li>
+        <li>Verification procedures</li>
+        <li>Economic constraints related to WGD</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Out of Scope</h2>
+      <ul>
+        <li>User intent or data correctness</li>
+        <li>Market behavior or asset pricing</li>
+        <li>External infrastructure availability</li>
+        <li>Legal or regulatory compliance</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Verification Methodology</h2>
+      <ol>
+        <li>Obtain public record data</li>
+        <li>Recompute record hashes</li>
+        <li>Validate anchored references</li>
+        <li>Confirm timestamp ordering</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>Determinism</h2>
+      <p>
+        All protocol rules are deterministic. Independent auditors following
+        the same procedures and using the same public data will reach identical
+        verification results.
+      </p>
+    </section>
+
+    <section>
+      <h2>Reproducibility</h2>
+      <p>
+        No proprietary tools, credentials, or private APIs are required to
+        audit the protocol. Verification can be reproduced using open
+        specifications and publicly accessible data.
+      </p>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
     <p>
-      The Whytegod Protocol is designed for independent verification.
-      No trust in maintainers or operators is required to validate records,
-      anchoring, or economic rules.
+      Whytegod Protocol — Audit Framework<br />
+      Native Asset: <strong>WGD</strong> · Smallest Unit: <strong>Wert</strong>
     </p>
-  </section>
-
-  <section>
-    <h2>Audit Scope</h2>
-    <ul>
-      <li>Record structure and immutability</li>
-      <li>Anchoring rules and timestamps</li>
-      <li>Lifecycle state transitions</li>
-      <li>Economic constraints related to WGD</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Out of Scope</h2>
-    <ul>
-      <li>User-generated data correctness</li>
-      <li>External service availability</li>
-      <li>Regulatory or legal compliance</li>
-      <li>Market price fluctuations</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Verification Process</h2>
-    <ol>
-      <li>Retrieve public record data</li>
-      <li>Verify cryptographic hashes</li>
-      <li>Confirm anchor timestamps</li>
-      <li>Validate lifecycle transitions</li>
-    </ol>
-  </section>
-
-  <section>
-    <h2>Reproducibility</h2>
-    <p>
-      All protocol rules are deterministic.
-      Independent auditors can reproduce verification results using public data
-      and open specifications without privileged access.
-    </p>
-  </section>
-
-</main>
-
-<!-- ================= FOOTER ================= -->
-<footer class="site-footer">
-  <p>
-    Whytegod Protocol — Audit & Verification · Asset: <strong>WGD</strong>
-  </p>
-</footer>
+  </footer>
 
 </body>
 </html>
