@@ -7,75 +7,74 @@
   <title>Whytegod Protocol</title>
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
 
-  <!-- SEO Meta -->
-  <meta name="description" content="Whytegod is a fixed-supply, privacy-preserving record anchoring protocol built for permanence, neutrality, and verifiable history." />
-  <meta name="keywords" content="Whytegod, blockchain, protocol, records, privacy, fixed supply" />
-  <meta name="author" content="Whytegod Protocol" />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Whytegod Protocol" />
-  <meta property="og:description" content="A fixed-supply, privacy-first protocol for permanent records." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="logo.png" />
+  <!-- Meta -->
+  <meta name="description" content="Whytegod Protocol — a minimalist blockchain protocol for permanent, verifiable record anchoring." />
 
   <style>
     body {
       margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      background: #0b0b0e;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, sans-serif;
+      background: #0b0b0b;
       color: #eaeaea;
       line-height: 1.6;
     }
 
     header {
-      padding: 1.5rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 24px;
       border-bottom: 1px solid #222;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
     }
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-
-    .brand img {
-      height: 40px;
+    header img {
+      height: 48px;
       width: auto;
     }
 
-    .brand span {
+    header h1 {
       font-size: 1.4rem;
+      margin: 0;
       font-weight: 600;
-      letter-spacing: 0.5px;
-    }
-
-    nav a {
-      margin-left: 1rem;
-      text-decoration: none;
-      color: #caa85c;
-      font-size: 0.95rem;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
     }
 
     main {
-      max-width: 900px;
-      padding: 2.5rem 2rem;
-      margin: auto;
+      max-width: 800px;
+      padding: 40px 24px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      font-size: 1.2rem;
+      margin-top: 48px;
+      border-bottom: 1px solid #222;
+      padding-bottom: 8px;
+    }
+
+    p {
+      color: #cfcfcf;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    a {
+      color: #9ddcff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
     }
 
     footer {
+      padding: 24px;
       border-top: 1px solid #222;
-      padding: 1rem;
       text-align: center;
-      font-size: 0.8rem;
+      font-size: 0.9rem;
       color: #888;
     }
   </style>
@@ -83,37 +82,50 @@
 
 <body>
 
-<header>
-  <div class="brand">
-    <img src="logo.png" alt="Whytegod Logo">
-    <span>Whytegod</span>
-  </div>
+  <header>
+    <img src="assets/logo.png" alt="Whytegod Logo" />
+    <h1>Whytegod Protocol</h1>
+  </header>
 
-  <nav>
-    <a href="index.html">Spec</a>
-    <a href="protocols.html">Protocols</a>
-    <a href="records.html">Records</a>
-  </nav>
-</header>
+  <main>
+    <p>
+      Whytegod is a minimalist blockchain protocol designed for permanent,
+      verifiable record anchoring without governance, identity, or discretionary control.
+    </p>
 
-<main>
-  <h2>Whytegod Protocol</h2>
-  <p>
-    Whytegod is a fixed-supply protocol designed for permanence, neutrality,
-    and privacy by absence. It enables verifiable records without exposing
-    identities, mutable history, or centralized control.
-  </p>
+    <h2>Core Principles</h2>
+    <ul>
+      <li>Fixed supply</li>
+      <li>No governance</li>
+      <li>No identity layer</li>
+      <li>Deterministic verification</li>
+      <li>Long-term auditability</li>
+    </ul>
 
-  <p>
-    The protocol borrows Bitcoin’s supply discipline and Monero’s privacy
-    philosophy, while extending utility into record anchoring, verification,
-    and long-term data integrity.
-  </p>
-</main>
+    <h2>Native Asset</h2>
+    <p>
+      Primary unit: <strong>WGD</strong><br />
+      Smallest unit: <strong>Wert</strong><br />
+      Conversion: 1 WGD = 100,000,000 Wert
+    </p>
 
-<footer>
-  Whytegod Protocol — Fixed Supply • Privacy • Permanent Records
-</footer>
+    <h2>Documentation</h2>
+    <p>
+      The full protocol specification is available in the repository:
+    </p>
+    <ul>
+      <li><a href="spec/spec.md">Specification</a></li>
+      <li><a href="protocol/headers.md">Block Headers</a></li>
+      <li><a href="protocol/records.md">Records</a></li>
+      <li><a href="protocol/protocols.md">Protocol Operation</a></li>
+      <li><a href="protocol/threat.md">Threat Model</a></li>
+      <li><a href="protocol/economics.md">Economics</a></li>
+    </ul>
+  </main>
+
+  <footer>
+    Whytegod Protocol — rules over rhetoric.
+  </footer>
 
 </body>
 </html>
