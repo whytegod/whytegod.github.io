@@ -1,138 +1,158 @@
 # Whytegod Protocol — Record Specification
 
-This document defines how records are structured, validated, anchored, and preserved within the Whytegod Protocol.
+## 1. Purpose
 
-Records are the core payload of the protocol.  
-They represent **facts**, not opinions, and are designed for permanence, neutrality, and verifiability.
+This document defines the structure, rules, and lifecycle of records
+within the Whytegod Protocol.
+
+Records are the fundamental data objects anchored to the blockchain.
+
+This file defines:
+- What a record is
+- How records are formed
+- How records are validated
+- How records become permanent
+
+This file does NOT define:
+- Block headers (see headers.md)
+- Economics or supply
+- Governance or identity systems
 
 ---
 
-## 1. What Is a Record
+## 2. Definition of a Record
 
-A record is a cryptographically committed statement anchored into the protocol.
+A record is a cryptographic commitment to data.
 
 A record:
-- Is immutable once accepted
-- Has a single author
-- Is verifiable by anyone
-- Does not require trust in intermediaries
+- Represents a single, immutable statement
+- Is identified by its hash
+- Is anchored into a block via the record root
+- Has no executable behavior
 
-Records do NOT represent:
-- Accounts or balances
-- Messages or chat
-- Governance votes
+Records do NOT:
+- Execute code
+- Contain logic
+- Change after acceptance
 
 ---
 
-## 2. Record Structure
+## 3. Record Structure
 
 Each record consists of the following fields:
 
-### record_id
-A unique cryptographic identifier derived from the record contents.
-
-### author
-The public key or address that created and signed the record.
-
-### payload_hash
-A cryptographic hash of the record’s content.
-
-The protocol does **not** interpret payload meaning — it only commits to its existence.
-
-### payload_type
-A short identifier describing the payload category  
-(example: `document`, `proof`, `claim`, `reference`).
-
-### timestamp
-The time the record was created, expressed as Unix epoch time.
-
-### signature
-A cryptographic signature proving authorship and integrity.
+| Field Name     | Description |
+|---------------|-------------|
+| version       | Record format version |
+| timestamp     | Time the record was created |
+| payload_hash  | Hash of the external data |
+| author_hash   | Optional hash of the creator |
+| metadata_hash | Optional metadata commitment |
+| record_hash   | Hash of all record fields |
 
 ---
 
-## 3. Record Validation Rules
+## 4. Payload Rules
+
+- The protocol NEVER stores raw data
+- Only cryptographic hashes are stored
+- Payloads may represent documents, files, proofs, or statements
+
+The interpretation of payloads is OUTSIDE protocol scope.
+
+---
+
+## 5. Record Hashing
+
+The `record_hash` is computed as:
+
+
+
+version || timestamp || payload_hash || author_hash || metadata_hash
+
+
+
+
+The hash function MUST match the protocol standard.
+
+---
+
+## 6. Record Inclusion
+
+Records become permanent through inclusion in a block.
+
+- Multiple records MAY be included in a block
+- Records are ordered deterministically
+- A Merkle tree is constructed from record_hash values
+- The Merkle root becomes the `record_root` in the block header
+
+---
+
+## 7. Anchoring Rules
+
+A record is considered **anchored** when:
+
+- It is included in a valid block
+- The block header is accepted by the network
+- The block is linked to the canonical chain
+
+Anchored records are immutable.
+
+---
+
+## 8. Cost & Units (Reference Only)
+
+Record submission MAY require a fee.
+
+- Fees are denominated in **WGD**
+- Fees are measured in **Wert**
+- Fee logic is defined outside this document
+
+This file only defines record structure, not pricing.
+
+---
+
+## 9. Lifecycle of a Record
+
+1. Record is created
+2. Record hash is computed
+3. Record is submitted to the network
+4. Record is included in a block
+5. Block header commits to the record root
+6. Record becomes permanent
+
+There is NO deletion, update, or overwrite.
+
+---
+
+## 10. Validation Rules
 
 A record is valid if:
 
 - All required fields are present
-- The signature matches the author
-- The payload hash matches the submitted content
-- The timestamp is valid
-- The record has not been previously anchored
+- Hashes are correctly formed
+- Timestamp is valid
+- Record hash matches computed value
 
 Invalid records MUST be rejected.
 
 ---
 
-## 4. Record Anchoring
+## 11. Forward Compatibility
 
-Valid records are grouped into blocks and committed via the block’s `record_root`.
+- New record versions MAY be introduced
+- Old records remain valid forever
+- Versioning MUST be explicit
 
-Once anchored:
-- Records cannot be altered
-- Records cannot be deleted
-- Records cannot be reordered
-
-Any change invalidates the block header.
+Backward reinterpretation is forbidden.
 
 ---
 
-## 5. Privacy Model
+## 12. Final Principle
 
-The protocol is **content-agnostic**.
+Records are facts.
 
-- Payloads MAY be public or encrypted
-- The protocol does NOT inspect payload content
-- Only hashes are required for anchoring
-
-This allows privacy-preserving use without sacrificing verifiability.
-
----
-
-## 6. Record Lifecycle
-
-1. Record is created and signed by the author
-2. Record is broadcast to the network
-3. Record is validated
-4. Record is anchored into a block
-5. Record becomes permanent
-
-There is no “update” or “edit” operation.
-
-New facts require new records.
-
----
-
-## 7. Neutrality Guarantee
-
-The protocol does not judge:
-- Truthfulness
-- Legality
-- Intent
-- Meaning
-
-It only guarantees:
-- Existence
-- Order
-- Integrity
-- Permanence
-
-Interpretation is external to the protocol.
-
----
-
-## 8. Scope Clarification
-
-This specification defines:
-- Record format
-- Validation rules
-- Anchoring behavior
-
-It does NOT define:
-- Token economics
-- Block production rules
-- Governance
-- User interfaces
-
-Those are defined in separate documents.
+Once anchored, they exist independently of:
+- Identity
+- Authority
+- Trust
