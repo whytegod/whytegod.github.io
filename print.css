@@ -1,0 +1,114 @@
+/* ============================================================
+   Whytegod Protocol — Print Styles
+   Purpose: Archival, audit, legal, offline verification
+   ============================================================ */
+
+@media print {
+
+  /* -------- RESET SCREEN EFFECTS -------- */
+  * {
+    background: transparent !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  html, body {
+    font-family: "Times New Roman", Georgia, serif;
+    font-size: 12pt;
+    line-height: 1.6;
+  }
+
+  body {
+    margin: 2cm;
+  }
+
+  /* -------- HIDE NON-ESSENTIAL UI -------- */
+  nav,
+  footer,
+  .nav,
+  .menu {
+    display: none !important;
+  }
+
+  /* -------- HEADERS -------- */
+  header {
+    border-bottom: 1px solid #000;
+    padding-bottom: 0.5cm;
+    margin-bottom: 1cm;
+  }
+
+  header img.logo {
+    width: 3cm;
+    height: auto;
+  }
+
+  header h1 {
+    font-size: 18pt;
+    margin-top: 0.3cm;
+  }
+
+  /* -------- SECTIONS -------- */
+  section {
+    page-break-inside: avoid;
+    margin-bottom: 1.2cm;
+  }
+
+  h2 {
+    font-size: 14pt;
+    border-bottom: 1px solid #000;
+    padding-bottom: 0.2cm;
+    margin-bottom: 0.4cm;
+  }
+
+  p {
+    margin-bottom: 0.4cm;
+  }
+
+  /* -------- LISTS -------- */
+  ul {
+    margin-left: 1cm;
+  }
+
+  li {
+    margin-bottom: 0.2cm;
+  }
+
+  /* -------- CODE / TECH -------- */
+  code {
+    font-family: "Courier New", monospace;
+    font-size: 10pt;
+    border: 1px solid #000;
+    padding: 0.1cm 0.2cm;
+    display: inline-block;
+  }
+
+  pre {
+    font-family: "Courier New", monospace;
+    font-size: 10pt;
+    border: 1px solid #000;
+    padding: 0.4cm;
+    margin-bottom: 0.6cm;
+    page-break-inside: avoid;
+  }
+
+  /* -------- LINKS -------- */
+  a::after {
+    content: " (" attr(href) ")";
+    font-size: 9pt;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  /* -------- PAGE CONTROL -------- */
+  h1, h2 {
+    page-break-after: avoid;
+  }
+
+  section + section {
+    page-break-before: auto;
+  }
+
+}
