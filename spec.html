@@ -2,105 +2,93 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Whytegod Protocol Specification</title>
+  <title>Whytegod Specification</title>
 
+  <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png" />
 
+  <!-- SEO Meta -->
+  <meta name="description" content="Formal technical specification of the Whytegod protocol, including supply, units, consensus assumptions, and system invariants." />
+  <meta name="keywords" content="Whytegod, specification, blockchain protocol, fixed supply, crypto spec" />
+  <meta name="author" content="Whytegod Protocol" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Whytegod Specification" />
+  <meta property="og:description" content="The formal definition of the Whytegod protocol." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="logo.png" />
+
   <style>
-    :root {
-      --bg: #0b0f14;
-      --panel: #121826;
-      --text: #e6e8eb;
-      --muted: #9aa3b2;
-      --accent: #c9a24d;
-      --border: #1f2636;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.65;
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #0b0b0e;
+      color: #eaeaea;
+      line-height: 1.6;
     }
 
     header {
-      padding: 2.5rem 1.5rem;
-      border-bottom: 1px solid var(--border);
+      padding: 1.5rem 2rem;
+      border-bottom: 1px solid #222;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
 
-    header h1 {
-      font-size: 2rem;
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
     }
 
-    header p {
-      margin-top: 0.5rem;
-      color: var(--muted);
-      max-width: 760px;
+    .brand img {
+      height: 40px;
+      width: auto;
     }
 
-    nav {
-      margin-top: 1.25rem;
+    .brand span {
+      font-size: 1.4rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
     }
 
     nav a {
-      margin-right: 1.25rem;
-      color: var(--accent);
+      margin-left: 1rem;
       text-decoration: none;
-      font-weight: 500;
+      color: #caa85c;
+      font-size: 0.95rem;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
     }
 
     main {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 3rem 1.5rem;
-    }
-
-    section {
-      margin-bottom: 3.5rem;
+      max-width: 900px;
+      padding: 2.5rem 2rem;
+      margin: auto;
     }
 
     h2 {
-      font-size: 1.4rem;
-      margin-bottom: 0.75rem;
+      margin-top: 2rem;
+      color: #caa85c;
     }
 
-    p {
-      color: var(--muted);
-      max-width: 820px;
-    }
-
-    .panel {
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 1.5rem;
-      margin-top: 1.25rem;
-    }
-
-    ul {
-      margin-top: 0.75rem;
-      padding-left: 1.25rem;
-      color: var(--muted);
-    }
-
-    li {
-      margin-bottom: 0.4rem;
+    code {
+      background: #141418;
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+      font-size: 0.9rem;
     }
 
     footer {
-      border-top: 1px solid var(--border);
-      padding: 2rem 1.5rem;
+      border-top: 1px solid #222;
+      padding: 1rem;
       text-align: center;
-      color: var(--muted);
-      font-size: 0.9rem;
+      font-size: 0.8rem;
+      color: #888;
     }
   </style>
 </head>
@@ -108,136 +96,66 @@
 <body>
 
 <header>
-  <h1>Whytegod Protocol Specification</h1>
-  <p>
-    This document defines the immutable monetary, cryptographic, and validation
-    rules governing the Whytegod network.
-  </p>
+  <div class="brand">
+    <img src="logo.png" alt="Whytegod Logo">
+    <span>Whytegod</span>
+  </div>
 
   <nav>
-    <a href="index.html">Home</a>
+    <a href="index.html">Spec</a>
     <a href="protocols.html">Protocols</a>
     <a href="records.html">Records</a>
   </nav>
 </header>
 
 <main>
+  <h1>Protocol Specification</h1>
 
-  <!-- Monetary Supply -->
-  <section>
-    <h2>Monetary Supply</h2>
-    <div class="panel">
-      <p>
-        Whytegod operates under a permanently fixed maximum supply.
-        No mechanism exists to increase supply after genesis.
-      </p>
-      <ul>
-        <li>Total Supply: <strong>21,000,000 WHYTEGOD</strong></li>
-        <li>Supply Cap: Enforced at protocol level</li>
-        <li>Emergency Minting: <strong>None</strong></li>
-        <li>Governance Override: <strong>Not permitted</strong></li>
-      </ul>
-    </div>
-  </section>
+  <h2>1. Native Unit</h2>
+  <p>
+    The native unit of the Whytegod protocol is <strong>WHY</strong>.
+    The smallest indivisible unit is called <strong>Wert</strong>.
+  </p>
+  <p>
+    <code>1 WHY = 10⁸ Wert</code>
+  </p>
 
-  <!-- Denomination -->
-  <section>
-    <h2>Base Denomination (Wert)</h2>
-    <div class="panel">
-      <p>
-        The smallest indivisible unit of Whytegod is called <strong>Wert</strong>.
-        Wert is a neutral economic measurement unit derived from value theory,
-        not branding or folklore.
-      </p>
-      <ul>
-        <li>1 WHYTEGOD = 100,000,000 Wert</li>
-        <li>Wert cannot be subdivided</li>
-        <li>All protocol calculations occur in Wert</li>
-      </ul>
-    </div>
-  </section>
+  <h2>2. Supply</h2>
+  <p>
+    The total supply of WHY is fixed and immutable. No additional units can be
+    created after genesis. Supply changes are mathematically impossible.
+  </p>
 
-  <!-- Issuance -->
-  <section>
-    <h2>Issuance Model</h2>
-    <div class="panel">
-      <p>
-        Whytegod issuance follows a deterministic decay schedule.
-        Emission decreases over time until reaching zero.
-      </p>
-      <ul>
-        <li>No perpetual inflation</li>
-        <li>No reward randomness</li>
-        <li>Issuance ends permanently</li>
-      </ul>
-    </div>
-  </section>
+  <h2>3. Issuance Model</h2>
+  <p>
+    Issuance follows a deterministic, height-based schedule enforced at the
+    header level. Nodes independently verify issuance without relying on trust
+    or governance.
+  </p>
 
-  <!-- Validation -->
-  <section>
-    <h2>Validation Mechanism</h2>
-    <div class="panel">
-      <p>
-        The network uses <strong>Proof of Integrity</strong>,
-        a validation model that rewards correctness rather than wealth or energy consumption.
-      </p>
-      <ul>
-        <li>Validators must maintain continuous uptime</li>
-        <li>Incorrect state transitions are penalized</li>
-        <li>Repeated faults lead to slashing and removal</li>
-      </ul>
-    </div>
-  </section>
+  <h2>4. Consensus Assumptions</h2>
+  <p>
+    The protocol assumes partial synchrony and adversarial network conditions.
+    No identity, reputation, or permission model exists at the protocol layer.
+  </p>
 
-  <!-- Privacy -->
-  <section>
-    <h2>Privacy Model</h2>
-    <div class="panel">
-      <p>
-        Privacy is enforced at the protocol level.
-        Transactions obscure sender, receiver, and amount by default.
-      </p>
-      <ul>
-        <li>No opt-in privacy</li>
-        <li>No metadata leakage</li>
-        <li>No address reuse visibility</li>
-      </ul>
-    </div>
-  </section>
+  <h2>5. Invariants</h2>
+  <ul>
+    <li>Supply cannot inflate</li>
+    <li>Records cannot be altered once anchored</li>
+    <li>History cannot be rewritten past finality</li>
+    <li>Privacy is preserved by design, not policy</li>
+  </ul>
 
-  <!-- Governance -->
-  <section>
-    <h2>Governance Constraints</h2>
-    <div class="panel">
-      <p>
-        Whytegod does not use traditional on-chain governance.
-        Core monetary rules cannot be altered by voting or authority.
-      </p>
-      <ul>
-        <li>No voting on supply</li>
-        <li>No leadership keys</li>
-        <li>No privileged actors</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- Finality -->
-  <section>
-    <h2>Finality & Immutability</h2>
-    <div class="panel">
-      <p>
-        Once confirmed, transactions are final.
-        Historical records cannot be rewritten, censored, or reordered.
-      </p>
-    </div>
-  </section>
-
+  <h2>6. Non-Goals</h2>
+  <p>
+    Whytegod explicitly avoids smart contracts, governance voting, identity
+    systems, and speculative complexity. Utility and permanence are prioritized.
+  </p>
 </main>
 
 <footer>
-  <p>
-    Whytegod Protocol Specification — Math before trust.
-  </p>
+  Whytegod Protocol — Specification Is Law
 </footer>
 
 </body>
