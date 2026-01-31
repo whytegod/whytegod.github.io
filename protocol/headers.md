@@ -1,10 +1,9 @@
 # Whytegod Protocol — Block Header Specification
 
-This document defines the block header format and validation rules
-for the Whytegod protocol.
+This document defines the block header format and validation rules for the Whytegod Protocol.
 
-This file describes HOW blocks are identified and linked.
-It does not define economics, records, or governance.
+The block header uniquely identifies a block and cryptographically commits to its history, records, and governing rules.  
+This file defines **structure and linkage only** — it does not define economics, records, or governance processes.
 
 ---
 
@@ -14,105 +13,85 @@ A block header uniquely identifies a block and commits to:
 
 - The previous block
 - The current record root
-- The protocol rules at that height
+- The protocol rules active at that block
+- The ordering and time of the block
 
-Block headers are immutable once accepted.
+Once accepted, block headers are immutable.
 
 ---
 
 ## 2. Block Header Structure
 
-Each block header consists of the following fields,
-encoded in the exact order listed below:
+Each block header consists of the following fields:
 
-| Field Name        | Size        | Description |
-|------------------|-------------|-------------|
-| version          | 4 bytes     | Protocol version |
-| previous_hash    | 32 bytes    | Hash of previous block header |
-| record_root      | 32 bytes    | Merkle root of anchored records |
-| timestamp        | 8 bytes     | Unix time (seconds) |
-| height           | 8 bytes     | Block height |
-| nonce            | 8 bytes     | Proof variable |
+### version
+A fixed protocol version identifier used to validate header format compatibility.
 
----
+### height
+The sequential position of the block in the chain, starting from the genesis block.
 
-## 3. Header Hash
+### prev_block_hash
+The cryptographic hash of the previous block header.  
+This field links blocks together and enforces chain integrity.
 
-The block header hash is computed as:
+### record_root
+A cryptographic root hash committing to all records included in the block.
 
-- SHA-256(SHA-256(serialized_header))
+This ensures that records cannot be altered without invalidating the block.
 
-The resulting 32-byte value is the block identifier.
+### rules_root (Protocol Rules Hash)
 
----
+A cryptographic hash representing the exact protocol rules active when the block was created.
 
-## 4. Serialization Rules
+This allows any observer to verify which rules governed the block **without relying on block height assumptions or external references**.
 
-- All integer fields are encoded as unsigned little-endian
-- Hash fields are raw 32-byte values
-- No optional or variable-length fields are permitted
-- Headers MUST be serialized identically by all implementations
+### timestamp
+The time the block was created, expressed as Unix epoch time.
 
-Any deviation results in an invalid block.
+Timestamps must be monotonic and within accepted network bounds.
 
----
+### header_hash
+The final cryptographic hash of the entire block header.
 
-## 5. Validation Rules
-
-A block header is valid if and only if:
-
-1. `previous_hash` matches the hash of the previous accepted block
-2. `height` equals previous height + 1
-3. `timestamp` is greater than the median of recent blocks
-4. `record_root` matches the computed record tree
-5. The header hash satisfies the active difficulty rule
-
-Failure of any rule invalidates the block.
+This hash uniquely identifies the block and is used for verification, anchoring, and external references.
 
 ---
 
-## 6. Versioning Rules
+## 3. Validation Rules
 
-- Version numbers increase monotonically
-- Older versions remain valid unless explicitly deprecated
-- Version changes MUST NOT alter historical header interpretation
+A block header is valid if:
+
+- All required fields are present
+- `prev_block_hash` correctly references the prior block
+- `record_root` matches the committed records
+- `rules_root` matches a known and valid protocol ruleset
+- The timestamp is valid and monotonic
+- The header hash correctly commits to all header fields
+
+Invalid headers MUST be rejected.
 
 ---
 
-## 7. Immutability Guarantee
+## 4. Immutability Guarantees
 
 Once a block header is accepted:
 
-- Its fields MUST NOT change
-- Its hash MUST remain stable
-- Its position in the chain is permanent unless superseded by
-  a strictly longer valid chain
+- Its contents MUST NOT change
+- Its position in the chain is fixed
+- Its committed rules and records are final
+
+This guarantees long-term verifiability and protocol neutrality.
 
 ---
 
-## 8. Non-Goals
+## 5. Scope Clarification
 
-Block headers do NOT contain:
+This specification defines **block identification and linkage only**.
 
-- Identities
-- Transactions
-- Smart contracts
-- Governance data
-- Arbitrary metadata
+It does NOT define:
+- Token economics
+- Record formats
+- Governance or voting mechanisms
+- Network transport or node behavior
 
-Minimalism is intentional.
-
----
-
-## 9. Forward Compatibility
-
-Future protocol upgrades MAY:
-
-- Introduce new header versions
-- Modify validation rules for future heights only
-
-Past headers remain unchanged forever.
-
----
-
-End of block header specification.
+Those are defined in separate protocol documents.
