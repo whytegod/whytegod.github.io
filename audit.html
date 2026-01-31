@@ -1,111 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Audit | Whytegod Protocol</title>
+  <meta charset="UTF-8">
+  <title>Whytegod – Audit & Security</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Core styles -->
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="print.css" media="print" />
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="print.css" media="print">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="logo.png" />
+  <link rel="icon" type="image/png" href="logo.png">
 </head>
 
 <body>
 
-  <!-- Header / Navigation -->
-  <header class="site-header">
-    <div class="header-inner">
-      <div class="brand">
-        <img src="logo.png" alt="Whytegod Logo" class="logo" />
-        <span class="brand-name">Whytegod Protocol</span>
-      </div>
+<header class="site-header">
+  <div class="header-inner">
+    <img src="logo.png" alt="Whytegod Logo" class="logo">
+    <h1>Whytegod Protocol</h1>
+  </div>
 
-      <nav class="nav">
-        <a href="index.html">Spec</a>
-        <a href="records.html">Records</a>
-        <a href="protocols.html">Protocols</a>
-        <a href="economic.html">Economics</a>
-        <a href="threat.html">Threat</a>
-        <a href="audit.html" class="active">Audit</a>
-      </nav>
-    </div>
-  </header>
+  <nav class="nav">
+    <a href="index.html">Spec</a>
+    <a href="records.html">Records</a>
+    <a href="protocols.html">Protocols</a>
+    <a href="economics.html">Economics</a>
+    <a href="audit.html" class="active">Audit</a>
+    <a href="faq.html">FAQ</a>
+    <a href="version.html">Version</a>
+  </nav>
+</header>
 
-  <!-- Main Content -->
-  <main class="content">
+<main class="content">
 
-    <h1>Audit Framework</h1>
-    <p class="subtitle">Verification, Review, and Reproducibility</p>
-
-    <section>
-      <h2>Audit Objective</h2>
-      <p>
-        The purpose of this document is to define how the Whytegod Protocol
-        can be independently reviewed and verified without trust in
-        operators, maintainers, or privileged access.
-      </p>
-    </section>
-
-    <section>
-      <h2>Audit Scope</h2>
-      <ul>
-        <li>Record structure and immutability</li>
-        <li>Anchoring and timestamp rules</li>
-        <li>Verification procedures</li>
-        <li>Economic constraints related to WGD</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Out of Scope</h2>
-      <ul>
-        <li>User intent or data correctness</li>
-        <li>Market behavior or asset pricing</li>
-        <li>External infrastructure availability</li>
-        <li>Legal or regulatory compliance</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Verification Methodology</h2>
-      <ol>
-        <li>Obtain public record data</li>
-        <li>Recompute record hashes</li>
-        <li>Validate anchored references</li>
-        <li>Confirm timestamp ordering</li>
-      </ol>
-    </section>
-
-    <section>
-      <h2>Determinism</h2>
-      <p>
-        All protocol rules are deterministic. Independent auditors following
-        the same procedures and using the same public data will reach identical
-        verification results.
-      </p>
-    </section>
-
-    <section>
-      <h2>Reproducibility</h2>
-      <p>
-        No proprietary tools, credentials, or private APIs are required to
-        audit the protocol. Verification can be reproduced using open
-        specifications and publicly accessible data.
-      </p>
-    </section>
-
-  </main>
-
-  <!-- Footer -->
-  <footer class="site-footer">
+  <section>
+    <h2>Audit & Security Model</h2>
     <p>
-      Whytegod Protocol — Audit Framework<br />
-      Native Asset: <strong>WGD</strong> · Smallest Unit: <strong>Wert</strong>
+      Whytegod is designed to be auditable by inspection.
+      The protocol minimizes trust by avoiding custody,
+      storage, execution, and governance layers.
     </p>
-  </footer>
+  </section>
+
+  <section>
+    <h3>What Is Audited</h3>
+    <ul>
+      <li>Hash generation rules</li>
+      <li>Record structure format</li>
+      <li>Verification determinism</li>
+      <li>Anchor requirements</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>What Is Not Audited</h3>
+    <ul>
+      <li>User data (never stored)</li>
+      <li>External blockchains</li>
+      <li>Public anchor systems</li>
+      <li>Third-party tools</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>No Smart Contracts</h3>
+    <p>
+      Whytegod v1.0 does not deploy or require
+      smart contracts. There is no executable
+      logic that can be exploited or upgraded.
+    </p>
+  </section>
+
+  <section>
+    <h3>No Custody, No Funds</h3>
+    <p>
+      The protocol does not hold assets,
+      user keys, balances, or payments.
+      Token handling occurs externally.
+    </p>
+  </section>
+
+  <section>
+    <h3>Attack Surface</h3>
+    <ul>
+      <li>Hash collision resistance (cryptographic)</li>
+      <li>User data integrity (user responsibility)</li>
+      <li>Anchor immutability (external systems)</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Verification Safety</h3>
+    <p>
+      Any verifier can independently recompute
+      hashes and compare them to anchored values.
+      No network access to Whytegod is required.
+    </p>
+  </section>
+
+  <section>
+    <h3>Malware & Backdoors</h3>
+    <p>
+      The protocol defines no executable binaries,
+      background services, or update channels.
+      Static files can be audited line-by-line.
+    </p>
+  </section>
+
+  <section>
+    <h3>Formal Security Guarantees</h3>
+    <ul>
+      <li>Deterministic hashing</li>
+      <li>Public timestamp verification</li>
+      <li>Immutable anchor dependency</li>
+      <li>No trusted third party</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Independent Audits</h3>
+    <p>
+      Third-party audits are permitted but not required.
+      Anyone may review, replicate, or validate the protocol
+      using publicly available tools.
+    </p>
+  </section>
+
+  <section class="note">
+    <p>
+      Whytegod provides cryptographic proof,
+      not guarantees against misuse, error,
+      or external system failure.
+    </p>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>Whytegod Protocol — Audit & Security</p>
+</footer>
 
 </body>
 </html>
