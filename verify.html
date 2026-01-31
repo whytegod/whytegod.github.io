@@ -2,84 +2,125 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Verify Commitment</title>
+  <title>Whytegod – Verify a Record</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Styles -->
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="print.css" media="print">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="logo.png">
 </head>
 
 <body>
 
-<header>
-  <h1>Verification</h1>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="use.html">Use</a>
-    <a href="use-cases.html">Use Cases</a>
-    <a href="technology.html">Technology</a>
-    <a href="verify.html">Verify</a>
-    <a href="spec.html">Spec</a>
+<header class="site-header">
+  <div class="header-inner">
+    <img src="logo.png" alt="Whytegod Logo" class="logo">
+    <h1>Whytegod Protocol</h1>
+  </div>
+
+  <nav class="nav">
+    <a href="index.html">Spec</a>
+    <a href="records.html">Records</a>
+    <a href="protocols.html">Protocols</a>
+    <a href="economics.html">Economics</a>
+    <a href="verify.html" class="active">Verify</a>
+    <a href="audit.html">Audit</a>
+    <a href="faq.html">FAQ</a>
   </nav>
 </header>
 
-<main>
+<main class="content">
+
   <section>
-    <h2>Verify Commitment</h2>
+    <h2>Verify a Record</h2>
     <p>
-      Recompute a SHA-256 hash and verify whether it matches an existing commitment.
-    </p>
-
-    <textarea
-      id="verifyInput"
-      placeholder="Paste the original data here"
-      rows="6"></textarea>
-
-    <input
-      id="verifyHash"
-      type="text"
-      placeholder="Paste the commitment hash (hex)" />
-
-    <button onclick="verify()">Verify Match</button>
-
-    <div id="verifyResult"></div>
-
-    <p class="note">
-      Verification is deterministic: the same data always produces the same hash.
+      Verification confirms that a piece of data existed
+      in a specific form at or before a given time.
+      No permission, account, or token is required.
     </p>
   </section>
+
+  <section>
+    <h3>What You Need</h3>
+    <ul>
+      <li>The original data</li>
+      <li>The Record ID (hash)</li>
+      <li>The public anchor reference</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Step-by-Step Verification</h3>
+    <ol>
+      <li>Recreate the exact original data</li>
+      <li>Generate its hash using the same algorithm</li>
+      <li>Compare the result to the Record ID</li>
+      <li>Locate the Record ID in the public anchor</li>
+      <li>Confirm timestamp and immutability</li>
+    </ol>
+  </section>
+
+  <section>
+    <h3>What a Match Means</h3>
+    <ul>
+      <li>The data has not been altered</li>
+      <li>The data existed before the anchor time</li>
+      <li>No trust in Whytegod is required</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>What a Mismatch Means</h3>
+    <ul>
+      <li>The data was modified</li>
+      <li>The wrong hashing method was used</li>
+      <li>The wrong record was referenced</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Who Can Verify</h3>
+    <p>
+      Anyone. Verification does not depend on
+      Whytegod servers, accounts, APIs, or permission.
+    </p>
+  </section>
+
+  <section>
+    <h3>Tools</h3>
+    <ul>
+      <li>Offline hash generators</li>
+      <li>Open-source cryptographic libraries</li>
+      <li>Public blockchain explorers</li>
+      <li>Public timestamp logs</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>What Whytegod Does Not Do</h3>
+    <ul>
+      <li>Confirm identity</li>
+      <li>Judge meaning or intent</li>
+      <li>Resolve disputes</li>
+      <li>Store verification results</li>
+    </ul>
+  </section>
+
+  <section class="note">
+    <p>
+      Verification proves integrity and time —
+      not authorship, ownership, or legality.
+    </p>
+  </section>
+
 </main>
 
-<footer>
-  <p>Protocol verification tool — client-side, trustless, and deterministic.</p>
+<footer class="footer">
+  <p>Whytegod Protocol — Verification</p>
 </footer>
-
-<script>
-async function verify() {
-  const data = document.getElementById("verifyInput").value;
-  const claimed = document.getElementById("verifyHash").value.trim().toLowerCase();
-  const result = document.getElementById("verifyResult");
-
-  if (!data || !claimed) {
-    result.textContent = "⚠️ Both fields are required.";
-    return;
-  }
-
-  const encoder = new TextEncoder();
-  const buffer = await crypto.subtle.digest(
-    "SHA-256",
-    encoder.encode(data)
-  );
-
-  const hash = Array.from(new Uint8Array(buffer))
-    .map(b => b.toString(16).padStart(2, "0"))
-    .join("");
-
-  if (hash === claimed) {
-    result.textContent = "✅ Match — commitment is valid.";
-  } else {
-    result.textContent = "❌ No match — data was altered or hash is incorrect.";
-  }
-}
-</script>
 
 </body>
 </html>
