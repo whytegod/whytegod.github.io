@@ -2,15 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Whytegod – Verify a Record</title>
+  <title>Whytegod Protocol — Verify</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Styles -->
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="print.css" media="print">
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="icon" type="image/png" href="favicon.png">
 </head>
 
 <body>
@@ -21,98 +18,150 @@
     <h1>Whytegod Protocol</h1>
   </div>
 
+  <!-- GLOBAL NAV (LOCKED — SAME EVERYWHERE) -->
   <nav class="nav">
     <a href="index.html">Spec</a>
     <a href="records.html">Records</a>
     <a href="protocols.html">Protocols</a>
-    <a href="economics.html">Economics</a>
+    <a href="use.html">Use</a>
     <a href="verify.html" class="active">Verify</a>
-    <a href="audit.html">Audit</a>
+    <a href="tokenomics.html">Tokenomics</a>
+    <a href="governance.html">Governance</a>
     <a href="faq.html">FAQ</a>
+    <a href="version.html">Version</a>
   </nav>
 </header>
 
 <main class="content">
 
   <section>
-    <h2>Verify a Record</h2>
+    <h2>Verification</h2>
     <p>
-      Verification confirms that a piece of data existed
-      in a specific form at or before a given time.
-      No permission, account, or token is required.
+      Verification proves that a specific piece of data existed
+      at or before a specific point in time.
+      This process is deterministic, permissionless, and public.
     </p>
   </section>
 
   <section>
-    <h3>What You Need</h3>
+    <h3>What Verification Confirms</h3>
     <ul>
-      <li>The original data</li>
-      <li>The Record ID (hash)</li>
-      <li>The public anchor reference</li>
+      <li>The data existed</li>
+      <li>The data has not changed</li>
+      <li>The data was anchored at a known time</li>
+      <li>The record belongs to the public ledger</li>
     </ul>
   </section>
 
   <section>
-    <h3>Step-by-Step Verification</h3>
+    <h3>What Verification Does Not Confirm</h3>
+    <ul>
+      <li>Who created the data</li>
+      <li>Why the data exists</li>
+      <li>Ownership or authorship</li>
+      <li>Legality or truthfulness</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Verification Requirements</h3>
+    <ul>
+      <li>The original data (file, text, or dataset)</li>
+      <li>The hashing algorithm used (SHA-256)</li>
+      <li>Access to the public record list</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Verification Process</h3>
     <ol>
-      <li>Recreate the exact original data</li>
-      <li>Generate its hash using the same algorithm</li>
-      <li>Compare the result to the Record ID</li>
-      <li>Locate the Record ID in the public anchor</li>
-      <li>Confirm timestamp and immutability</li>
+      <li>
+        Reproduce the original data exactly
+      </li>
+      <li>
+        Generate a SHA-256 hash from the data
+      </li>
+      <li>
+        Locate the matching hash in the records list
+      </li>
+      <li>
+        Confirm the timestamp and anchor order
+      </li>
     </ol>
   </section>
 
   <section>
-    <h3>What a Match Means</h3>
-    <ul>
-      <li>The data has not been altered</li>
-      <li>The data existed before the anchor time</li>
-      <li>No trust in Whytegod is required</li>
-    </ul>
-  </section>
-
-  <section>
-    <h3>What a Mismatch Means</h3>
-    <ul>
-      <li>The data was modified</li>
-      <li>The wrong hashing method was used</li>
-      <li>The wrong record was referenced</li>
-    </ul>
-  </section>
-
-  <section>
-    <h3>Who Can Verify</h3>
+    <h3>Local Hashing</h3>
     <p>
-      Anyone. Verification does not depend on
-      Whytegod servers, accounts, APIs, or permission.
+      Hashing must always occur locally.
+      The protocol never requires file uploads for verification.
+    </p>
+    <ul>
+      <li>Use offline tools</li>
+      <li>Use open-source hash utilities</li>
+      <li>Never trust third-party conversions</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Matching Rules</h3>
+    <p>
+      A verification match is valid only if:
+    </p>
+    <ul>
+      <li>The hash matches exactly (character-for-character)</li>
+      <li>The hashing algorithm matches</li>
+      <li>The record appears in the ordered ledger</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Time Meaning</h3>
+    <p>
+      The timestamp indicates the moment the hash
+      was anchored — not when the data was created.
+    </p>
+    <p>
+      Creation may have occurred earlier.
+      Anchoring defines the latest possible existence.
     </p>
   </section>
 
   <section>
-    <h3>Tools</h3>
-    <ul>
-      <li>Offline hash generators</li>
-      <li>Open-source cryptographic libraries</li>
-      <li>Public blockchain explorers</li>
-      <li>Public timestamp logs</li>
-    </ul>
+    <h3>Public Verifiability</h3>
+    <p>
+      Verification does not require accounts, tokens,
+      permissions, or trust in Whytegod itself.
+    </p>
+    <p>
+      Anyone can verify using independent tools.
+    </p>
   </section>
 
   <section>
-    <h3>What Whytegod Does Not Do</h3>
+    <h3>Dispute Handling</h3>
+    <p>
+      The protocol does not resolve disputes.
+      Verification results are factual outputs.
+    </p>
+    <p>
+      Interpretation is external to the system.
+    </p>
+  </section>
+
+  <section>
+    <h3>Failure Scenarios</h3>
     <ul>
-      <li>Confirm identity</li>
-      <li>Judge meaning or intent</li>
-      <li>Resolve disputes</li>
-      <li>Store verification results</li>
+      <li>If the data changes → verification fails</li>
+      <li>If the hash differs → verification fails</li>
+      <li>If the record is absent → verification fails</li>
     </ul>
   </section>
 
   <section class="note">
     <p>
-      Verification proves integrity and time —
-      not authorship, ownership, or legality.
+      Verification answers only one question:
+      <strong>Did this exact data exist by this time?</strong>
     </p>
   </section>
 
