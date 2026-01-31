@@ -2,15 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Using the Whytegod Protocol</title>
+  <title>Whytegod Protocol — Use</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Main Styles -->
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="print.css" media="print">
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="icon" type="image/png" href="favicon.png">
 </head>
 
 <body>
@@ -21,105 +18,152 @@
     <h1>Whytegod Protocol</h1>
   </div>
 
+  <!-- GLOBAL NAV (LOCKED) -->
   <nav class="nav">
     <a href="index.html">Spec</a>
     <a href="records.html">Records</a>
     <a href="protocols.html">Protocols</a>
-    <a href="economics.html">Economics</a>
     <a href="use.html" class="active">Use</a>
+    <a href="verify.html">Verify</a>
+    <a href="tokenomics.html">Tokenomics</a>
+    <a href="governance.html">Governance</a>
+    <a href="faq.html">FAQ</a>
+    <a href="version.html">Version</a>
   </nav>
 </header>
 
 <main class="content">
 
   <section>
-    <h2>Using the Protocol</h2>
+    <h2>How the Protocol Is Used</h2>
     <p>
-      The Whytegod Protocol is used to create permanent, verifiable records
-      without accounts, identity, governance, or trust assumptions.
+      Whytegod is used to prove that something existed
+      at a specific time without revealing the thing itself.
     </p>
   </section>
 
   <section>
-    <h3>1. Create a Record Hash</h3>
-    <p>
-      A record begins with data. This data is never uploaded to the protocol.
-      Instead, a cryptographic hash of the data is generated locally.
-    </p>
+    <h3>Core Usage Flow</h3>
+    <ol>
+      <li>Create or collect your data</li>
+      <li>Generate a cryptographic hash</li>
+      <li>Anchor the hash to a public immutable system</li>
+      <li>Verify later when proof is needed</li>
+    </ol>
+  </section>
 
+  <section>
+    <h3>Who Uses Whytegod?</h3>
     <ul>
-      <li>Choose any data (file, document, text, dataset)</li>
-      <li>Generate a SHA-256 hash of the data</li>
-      <li>The hash becomes the <strong>Record ID</strong></li>
+      <li>Individuals proving authorship or creation time</li>
+      <li>Developers anchoring software states</li>
+      <li>Businesses timestamping records</li>
+      <li>Auditors validating historical claims</li>
+      <li>Researchers preserving integrity</li>
     </ul>
-
-    <p class="note">
-      The original data remains private. Only the hash is anchored.
-    </p>
   </section>
 
   <section>
-    <h3>2. Anchor the Record</h3>
-    <p>
-      The record hash is anchored by publishing it through the Whytegod Protocol
-      anchoring mechanism.
-    </p>
-
+    <h3>Common Use Cases</h3>
     <ul>
-      <li>The hash is included as an immutable reference</li>
-      <li>An on-chain or neutral anchor confirms permanence</li>
-      <li>No ownership or identity is recorded</li>
+      <li>Document timestamping</li>
+      <li>Proof of authorship</li>
+      <li>Audit trail preservation</li>
+      <li>Evidence integrity</li>
+      <li>Supply chain checkpoints</li>
+      <li>Research data validation</li>
     </ul>
+  </section>
 
-    <p class="note">
-      Once anchored, the record cannot be altered, revoked, or censored.
+  <section>
+    <h3>What You Do NOT Upload</h3>
+    <ul>
+      <li>No documents</li>
+      <li>No personal data</li>
+      <li>No files</li>
+      <li>No identities</li>
+    </ul>
+    <p>
+      Only a cryptographic hash is ever anchored.
     </p>
   </section>
 
   <section>
-    <h3>3. Verify a Record</h3>
+    <h3>Anchoring</h3>
     <p>
-      Any party can independently verify a record at any time.
+      Anchoring is the act of publishing a hash
+      to an immutable public system.
     </p>
+    <p>
+      This can be done using blockchains,
+      public timestamping services,
+      or append-only public logs.
+    </p>
+  </section>
 
-    <ul>
+  <section>
+    <h3>Verification</h3>
+    <p>
+      To verify a record:
+    </p>
+    <ol>
       <li>Recompute the hash from the original data</li>
-      <li>Compare it with the anchored Record ID</li>
-      <li>Matching hashes confirm authenticity</li>
-    </ul>
+      <li>Compare it to the anchored hash</li>
+      <li>A match proves integrity and time</li>
+    </ol>
   </section>
 
   <section>
-    <h3>Role of WGD</h3>
+    <h3>Does Whytegod Run the System?</h3>
     <p>
-      WGD exists to support anchoring demand and long-term sustainability.
-      It does not grant control, governance rights, or special privileges.
+      No. Whytegod does not run servers,
+      store records, or control anchors.
     </p>
-
-    <ul>
-      <li>Used for anchoring operations</li>
-      <li>Neutral utility only</li>
-      <li>No protocol authority attached</li>
-    </ul>
+    <p>
+      The protocol defines rules —
+      users execute them independently.
+    </p>
   </section>
 
   <section>
-    <h3>What the Protocol Does Not Do</h3>
+    <h3>What Happens If Whytegod Disappears?</h3>
+    <p>
+      Nothing breaks.
+      Verification depends only on hashes
+      and public anchors, not this website.
+    </p>
+  </section>
+
+  <section>
+    <h3>Costs</h3>
+    <p>
+      Verification is always free.
+      Anchoring may involve external network fees
+      or protocol-defined costs.
+    </p>
+  </section>
+
+  <section>
+    <h3>Trust Model</h3>
     <ul>
-      <li>No user accounts</li>
-      <li>No file storage</li>
-      <li>No identity system</li>
-      <li>No governance or voting</li>
-      <li>No record deletion</li>
+      <li>No trust in operators</li>
+      <li>No trust in identities</li>
+      <li>No trust in governance</li>
+      <li>Only math and immutability</li>
     </ul>
+  </section>
+
+  <section class="note">
+    <p>
+      Whytegod is a protocol for proof —
+      not permission.
+    </p>
   </section>
 
 </main>
 
 <footer class="footer">
-  <p>
-    Whytegod Protocol — Permanent Record Layer
-  </p>
+  <p>Whytegod Protocol — Use</p>
 </footer>
 
 </body>
