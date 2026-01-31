@@ -1,94 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Whytegod Record Hash Generator</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <title>Whytegod Hash Tool</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: radial-gradient(circle at top, #0b1e33, #000);
+      color: #e6e6e6;
+    }
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="print.css" media="print">
+    header {
+      padding: 24px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="logo.png">
+    h1 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+
+    main {
+      max-width: 720px;
+      padding: 24px;
+      margin: auto;
+    }
+
+    p {
+      line-height: 1.6;
+      color: #b8c3cc;
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 160px;
+      background: #050b12;
+      color: #e6e6e6;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 8px;
+      padding: 12px;
+      font-family: monospace;
+      resize: vertical;
+    }
+
+    button {
+      margin-top: 16px;
+      padding: 12px 18px;
+      font-size: 1rem;
+      background: #0d5bd8;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #0b4fc0;
+    }
+
+    .output {
+      margin-top: 24px;
+      padding: 16px;
+      background: #050b12;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 8px;
+      word-break: break-all;
+      font-family: monospace;
+    }
+
+    footer {
+      margin-top: 40px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      font-size: 0.85rem;
+      color: #8fa3b8;
+    }
+  </style>
 </head>
-
 <body>
 
-<header class="site-header">
-  <div class="header-inner">
-    <img src="logo.png" alt="Whytegod Logo" class="logo">
-    <h1>Whytegod Protocol</h1>
-  </div>
-
-  <nav class="nav">
-    <a href="index.html">Spec</a>
-    <a href="records.html">Records</a>
-    <a href="protocols.html">Protocols</a>
-    <a href="economics.html">Economics</a>
-    <a href="use.html">Use</a>
-    <a href="hash.html" class="active">Hash</a>
-  </nav>
+<header>
+  <h1>Whytegod Hash Tool</h1>
 </header>
 
-<main class="content">
+<main>
+  <p>
+    This tool generates a deterministic cryptographic commitment (SHA-256)
+    for any text or data. The resulting hash can be anchored as a permanent
+    record under the Whytegod Protocol.
+  </p>
 
-  <section>
-    <h2>Record Hash Generator</h2>
+  <textarea id="input" placeholder="Paste text or data here..."></textarea>
+
+  <button onclick="generateHash()">Generate Commitment</button>
+
+  <div id="result" class="output" style="display:none;"></div>
+
+  <footer>
     <p>
-      Generate a deterministic SHA-256 hash for any data.
-      This hash becomes your <strong>Record ID</strong>.
+      No data is transmitted or stored.  
+      All computation occurs locally in your browser.
     </p>
-    <p class="note">
-      All processing happens locally in your browser.
-      No data is uploaded or stored.
+    <p>
+      Hashes represent commitments — not ownership, identity, or permission.
     </p>
-  </section>
-
-  <section>
-    <h3>Input Data</h3>
-    <textarea id="inputData" placeholder="Paste text or data here..."></textarea>
-
-    <button onclick="generateHash()">Generate Record Hash</button>
-  </section>
-
-  <section>
-    <h3>Record ID (SHA-256)</h3>
-    <pre id="outputHash">—</pre>
-  </section>
-
-  <section>
-    <h3>How to Use This Hash</h3>
-    <ul>
-      <li>This hash uniquely represents your data</li>
-      <li>Anchor it using the Whytegod Protocol</li>
-      <li>Keep the original data private</li>
-      <li>Verification = recompute and compare</li>
-    </ul>
-  </section>
-
+  </footer>
 </main>
 
-<footer class="footer">
-  <p>Whytegod Protocol — Permanent Record Layer</p>
-</footer>
-
 <script>
-async function generateHash() {
-  const input = document.getElementById("inputData").value;
-  if (!input) {
-    alert("Please enter data to hash.");
-    return;
+  async function generateHash() {
+    const input = document.getElementById("input").value;
+    if (!input) return;
+
+    const encoder = new TextEncoder();
+    const data = encoder.encode(input);
+
+    const hashBuffer = await crypto.subtle.digest("SHA-256", data);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    const hashHex = hashArray
+      .map(b => b.toString(16).padStart(2, "0"))
+      .join("");
+
+    const output = document.getElementById("result");
+    output.style.display = "block";
+    output.textContent = hashHex;
   }
-
-  const encoder = new TextEncoder();
-  const data = encoder.encode(input);
-  const hashBuffer = await crypto.subtle.digest("SHA-256", data);
-  const hashArray = Array.from(new Uint8Array(hashBuffer));
-  const hashHex = hashArray.map(b => b.toString(16).padStart(2, "0")).join("");
-
-  document.getElementById("outputHash").textContent = hashHex;
-}
 </script>
 
 </body>
