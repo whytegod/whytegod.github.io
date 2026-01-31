@@ -3,170 +3,258 @@
 <head>
   <meta charset="UTF-8">
 
-  <title>Protocols — WHYTEGOD</title>
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="WHYTEGOD Protocol defines how truth is recorded, verified, and economically enforced at the blockchain level.">
 
-  <meta name="description" content="WHYTEGOD Protocol Registry documenting verifiable, irreversible on-chain state changes across decentralized systems.">
+  <title>WHYTEGOD — Protocol Definition</title>
 
-  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="favicon.png">
+
+  <style>
+    /* ===== RESET ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* ===== BASE ===== */
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #0b0b0b;
+      color: #eaeaea;
+      line-height: 1.6;
+    }
+
+    a {
+      color: #eaeaea;
+      text-decoration: none;
+    }
+
+    /* ===== LAYOUT ===== */
+    header, section, footer {
+      max-width: 1100px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #222;
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    nav a {
+      margin-left: 20px;
+      font-size: 14px;
+      opacity: 0.9;
+    }
+
+    nav a:hover {
+      opacity: 1;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      padding-top: 80px;
+      padding-bottom: 80px;
+    }
+
+    .hero h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+      max-width: 900px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      max-width: 750px;
+      opacity: 0.85;
+    }
+
+    /* ===== CONTENT ===== */
+    h2 {
+      font-size: 26px;
+      margin-bottom: 20px;
+    }
+
+    h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      margin-bottom: 15px;
+      opacity: 0.9;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    ul li {
+      margin-bottom: 10px;
+    }
+
+    /* ===== GRID ===== */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      border: 1px solid #222;
+      padding: 25px;
+      background-color: #111;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      border-top: 1px solid #222;
+      text-align: center;
+      font-size: 14px;
+      opacity: 0.7;
+    }
+  </style>
 </head>
 
 <body>
 
-  <!-- Navigation -->
-  <nav class="nav">
-    <a href="index.html" class="logo">WHYTEGOD</a>
-    <div class="nav-links">
-      <a href="manifesto.html">Manifesto</a>
-      <a href="protocols.html">Protocols</a>
-      <a href="use-cases.html">Use Cases</a>
-      <a href="whitepaper.html">Whitepaper</a>
+  <!-- ===== HEADER ===== -->
+  <header>
+    <div class="logo">WHYTEGOD</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="records.html">Records</a>
+      <a href="specs.html">Specs</a>
+      <a href="wallet.html">Wallet</a>
+    </nav>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <h1>Protocol Definition</h1>
+    <p>
+      The WHYTEGOD Protocol defines how objective truth is recorded,
+      validated, and finalized without reliance on social consensus,
+      governance discretion, or mutable authority.
+    </p>
+  </section>
+
+  <!-- ===== OVERVIEW ===== -->
+  <section>
+    <h2>Overview</h2>
+    <p>
+      WHYTEGOD is not a general-purpose execution environment.
+      It is a narrowly scoped protocol designed to capture
+      high-value, high-impact events that require permanent,
+      economically enforced finality.
+    </p>
+    <p>
+      Every rule exists to minimize ambiguity, reduce attack surface,
+      and ensure that recorded statements remain verifiable decades
+      into the future.
+    </p>
+  </section>
+
+  <!-- ===== CORE PRINCIPLES ===== -->
+  <section>
+    <h2>Core Principles</h2>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Protocol-Level Truth</h3>
+        <p>
+          Only events that materially affect protocol state,
+          governance execution, or canonical history are eligible
+          for inclusion.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Economic Finality</h3>
+        <p>
+          Validators are financially accountable.
+          Dishonest attestations result in irreversible slashing.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Minimal Surface Area</h3>
+        <p>
+          Complexity is treated as a liability.
+          Features are added only when they strengthen
+          long-term verifiability.
+        </p>
+      </div>
     </div>
-  </nav>
+  </section>
 
-  <main class="container">
+  <!-- ===== CONSENSUS ===== -->
+  <section>
+    <h2>Consensus Model</h2>
+    <p>
+      WHYTEGOD uses a fixed validator set with bonded stake
+      to attest to protocol events.
+    </p>
+    <ul>
+      <li>• Validators must stake native WHYTEGOD units</li>
+      <li>• False attestations are slashable</li>
+      <li>• Finality is deterministic once thresholds are met</li>
+    </ul>
+  </section>
 
-    <!-- Registry Header -->
-    <section class="page-header">
-      <h1>Protocol Registry</h1>
+  <!-- ===== GOVERNANCE ===== -->
+  <section>
+    <h2>Governance Constraints</h2>
+    <p>
+      Governance is intentionally limited.
+      The protocol does not support open-ended proposals
+      or discretionary intervention.
+    </p>
+    <ul>
+      <li>• Governance actions must follow predefined formats</li>
+      <li>• No emergency powers</li>
+      <li>• No subjective overrides</li>
+    </ul>
+  </section>
 
-      <p>
-        This registry documents <strong>verifiable on-chain state changes</strong>
-        across major blockchain protocols.
-      </p>
+  <!-- ===== SCOPE ===== -->
+  <section>
+    <h2>Scope Boundaries</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Included</h3>
+        <ul>
+          <li>• Protocol upgrades</li>
+          <li>• Canonical contract deployments</li>
+          <li>• Governance execution records</li>
+        </ul>
+      </div>
 
-      <p>
-        Each record reflects a confirmed, irreversible modification
-        to protocol state, permissions, or execution logic.
-      </p>
+      <div class="card">
+        <h3>Excluded</h3>
+        <ul>
+          <li>• Price feeds</li>
+          <li>• Application-level data</li>
+          <li>• Arbitrary user transactions</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-      <p>
-        WHYTEGOD does not interpret, rank, predict, or speculate.
-        Records exist solely to preserve state history.
-      </p>
-    </section>
-
-    <!-- Registry Mechanism -->
-    <section class="mechanism">
-      <h2>Registry Mechanism</h2>
-
-      <p>
-        Protocols are included in this registry only after a
-        <strong>verifiable on-chain event</strong> produces
-        a permanent change to system behavior.
-      </p>
-
-      <ul>
-        <li>No off-chain announcements</li>
-        <li>No roadmap promises</li>
-        <li>No narrative-driven updates</li>
-      </ul>
-
-      <p>
-        If a state change cannot be cryptographically verified,
-        it does not exist here.
-      </p>
-    </section>
-
-    <!-- State Change Classification -->
-    <section class="mechanism">
-      <h2>State Change Classification</h2>
-
-      <ul>
-        <li><strong>Tier 1:</strong> Core execution logic or governance authority change</li>
-        <li><strong>Tier 2:</strong> Parameter, configuration, or risk model change</li>
-        <li><strong>Tier 3:</strong> Peripheral or auxiliary system deployment</li>
-      </ul>
-
-      <p>
-        Only Tier 1 and Tier 2 events are currently recorded.
-      </p>
-    </section>
-
-    <!-- Records -->
-    <section class="protocol-records">
-
-      <!-- Uniswap -->
-      <article class="record">
-
-        <h3>Protocol: Uniswap</h3>
-
-        <p><strong>Chain:</strong> Ethereum</p>
-        <p><strong>Category:</strong> Decentralized Exchange (DEX)</p>
-        <p><strong>Observation Status:</strong> Active</p>
-
-        <hr>
-
-        <h4>State Change Record</h4>
-
-        <p><strong>Record ID:</strong> UNI-SC-0001</p>
-        <p><strong>State Change Category:</strong> Contract Upgrade (Tier 1)</p>
-
-        <p>
-          <strong>Description:</strong><br>
-          Deployment of Uniswap v3 core contracts introducing concentrated liquidity
-          mechanics and multiple fee-tier parameters, resulting in a permanent change
-          to protocol execution logic.
-        </p>
-
-        <p><strong>Timestamp (UTC):</strong> 2021-05-05</p>
-        <p><strong>Transaction Hash:</strong> 0x1f98431c8ad98523631ae4a59f267346ea31f984</p>
-        <p><strong>Source Contract Address:</strong> 0x1f98431c8ad98523631ae4a59f267346ea31f984</p>
-        <p><strong>Executor:</strong> Contract Deployment</p>
-
-      </article>
-
-      <!-- Aave -->
-      <article class="record">
-
-        <h3>Protocol: Aave</h3>
-
-        <p><strong>Chain:</strong> Ethereum</p>
-        <p><strong>Category:</strong> Lending Protocol</p>
-        <p><strong>Observation Status:</strong> Active</p>
-
-        <hr>
-
-        <h4>State Change Record</h4>
-
-        <p><strong>Record ID:</strong> AAVE-SC-0001</p>
-        <p><strong>State Change Category:</strong> Governance Execution (Tier 1)</p>
-
-        <p>
-          <strong>Description:</strong><br>
-          Execution of an Aave Improvement Proposal enabling the deployment of Aave v3,
-          introducing isolated asset pools, efficiency mode parameters, and updated
-          risk configurations affecting protocol-level lending behavior.
-        </p>
-
-        <p><strong>Timestamp (UTC):</strong> 2022-03-16</p>
-        <p><strong>Transaction Hash:</strong> 0x7d2768dE32b0b80b7a3454c06BdAcE49d41d8F9b</p>
-        <p><strong>Source Contract Address:</strong> 0x7d2768dE32b0b80b7a3454c06BdAcE49d41d8F9b</p>
-        <p><strong>Executor:</strong> Governance Proposal Execution</p>
-
-      </article>
-
-    </section>
-
-    <!-- Immutability -->
-    <section class="mechanism">
-      <h2>Record Immutability</h2>
-
-      <p>
-        Once published, records are never modified or removed.
-        Corrections require the creation of a new record referencing the prior entry.
-      </p>
-
-      <p>
-        History is preserved as-is.
-      </p>
-    </section>
-
-  </main>
-
-  <footer class="footer">
-    <p>© WHYTEGOD — Protocol State Observatory</p>
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <p>The protocol is intentionally narrow.</p>
+    <p>Truth does not require flexibility.</p>
   </footer>
 
 </body>
