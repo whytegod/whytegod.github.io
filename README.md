@@ -1,30 +1,90 @@
 # Whytegod Protocol
 
-Whytegod is a fixed-supply, privacy-preserving protocol for permanent record anchoring.
+Whytegod is a minimalist blockchain protocol designed for permanent,
+verifiable record anchoring without governance, identity, or discretionary control.
 
-The protocol prioritizes mathematical certainty, neutrality, and long-term
-verifiability over expressiveness, governance, or speculative flexibility.
+The protocol prioritizes correctness, immutability, and long-term verification
+over flexibility or rapid change.
 
-Whytegod is not a platform.
-Whytegod is not a smart-contract system.
-Whytegod is not governed by votes.
+This repository contains the complete protocol definition.
 
-## Core Properties
+---
 
-- Fixed and immutable supply
-- Privacy by absence (no identities)
-- Deterministic issuance
-- Permanent cryptographic records
-- No governance capture
-- Minimal, auditable design
+## Protocol Principles
+
+- Fixed supply
+- No governance
+- No identity
+- No discretionary upgrades
+- Deterministic verification
+- Long-term auditability
+
+The protocol enforces rules, not intent.
+
+---
+
+## Native Asset
+
+- Primary unit: **WGD**
+- Smallest unit: **Wert**
+- Conversion: `1 WGD = 100,000,000 Wert`
+
+The protocol does not target price or market behavior.
+
+---
+
+## Repository Structure
+
+### `/spec`
+Authoritative protocol law.
+If any document conflicts with the specification, the specification prevails.
+
+- `spec.md`
+
+### `/protocol`
+Operational and structural definitions.
+
+- `headers.md` — block header structure
+- `records.md` — record format and anchoring
+- `protocols.md` — protocol operation
+- `threat.md` — threat model
+- `economics.md` — demand-driven economic model
+
+---
+
+## Design Scope
+
+The protocol defines:
+- Units and supply
+- Record anchoring
+- Verification rules
+- Security assumptions
+
+The protocol does NOT define:
+- Governance
+- Smart contracts
+- Identity systems
+- Applications
+- Price controls
+
+These concerns are intentionally excluded.
+
+---
 
 ## Status
 
-Specification frozen.
-Implementation pending.
+This protocol is intentionally conservative.
 
-## Philosophy
+Changes, if ever made, must preserve:
+- Historical validity
+- Fixed supply
+- Verifiability
 
-Rules before incentives.
-Mathematics before trust.
-Silence before hype.
+Backward reinterpretation is forbidden.
+
+---
+
+## License
+
+Open specification.
+Implementation is unrestricted.
