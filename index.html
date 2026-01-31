@@ -2,110 +2,81 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Whytegod Protocol — Private Value Infrastructure</title>
+  <title>Whytegod Protocol</title>
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png" />
 
-  <!-- Basic Styling (self-contained) -->
+  <!-- SEO Meta -->
+  <meta name="description" content="Whytegod is a fixed-supply, privacy-preserving record anchoring protocol built for permanence, neutrality, and verifiable history." />
+  <meta name="keywords" content="Whytegod, blockchain, protocol, records, privacy, fixed supply" />
+  <meta name="author" content="Whytegod Protocol" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Whytegod Protocol" />
+  <meta property="og:description" content="A fixed-supply, privacy-first protocol for permanent records." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="logo.png" />
+
   <style>
-    :root {
-      --bg: #0b0f14;
-      --panel: #121826;
-      --text: #e6e8eb;
-      --muted: #9aa3b2;
-      --accent: #c9a24d; /* gold-like, serious */
-      --border: #1f2636;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, sans-serif;
-      background: var(--bg);
-      color: var(--text);
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #0b0b0e;
+      color: #eaeaea;
       line-height: 1.6;
     }
 
     header {
-      padding: 2.5rem 1.5rem;
-      border-bottom: 1px solid var(--border);
+      padding: 1.5rem 2rem;
+      border-bottom: 1px solid #222;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
 
-    header h1 {
-      font-size: 2rem;
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .brand img {
+      height: 40px;
+      width: auto;
+    }
+
+    .brand span {
+      font-size: 1.4rem;
+      font-weight: 600;
       letter-spacing: 0.5px;
     }
 
-    header p {
-      margin-top: 0.5rem;
-      color: var(--muted);
-      max-width: 720px;
-    }
-
-    nav {
-      margin-top: 1.5rem;
-    }
-
     nav a {
-      margin-right: 1.25rem;
-      color: var(--accent);
+      margin-left: 1rem;
       text-decoration: none;
-      font-weight: 500;
+      color: #caa85c;
+      font-size: 0.95rem;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
     }
 
     main {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 3rem 1.5rem;
-    }
-
-    section {
-      margin-bottom: 3.5rem;
-    }
-
-    section h2 {
-      font-size: 1.4rem;
-      margin-bottom: 0.75rem;
-    }
-
-    section p {
-      color: var(--muted);
-      max-width: 800px;
-    }
-
-    .panel {
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 1.5rem;
-      margin-top: 1.25rem;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.25rem;
-    }
-
-    .item h3 {
-      font-size: 1rem;
-      margin-bottom: 0.35rem;
-      color: var(--accent);
+      max-width: 900px;
+      padding: 2.5rem 2rem;
+      margin: auto;
     }
 
     footer {
-      border-top: 1px solid var(--border);
-      padding: 2rem 1.5rem;
+      border-top: 1px solid #222;
+      padding: 1rem;
       text-align: center;
-      color: var(--muted);
-      font-size: 0.9rem;
+      font-size: 0.8rem;
+      color: #888;
     }
   </style>
 </head>
@@ -113,130 +84,35 @@
 <body>
 
 <header>
-  <h1>Whytegod Protocol</h1>
-  <p>
-    A fixed-supply, privacy-preserving value protocol designed for long-term integrity,
-    neutral settlement, and verifiable history — not speculation.
-  </p>
+  <div class="brand">
+    <img src="logo.png" alt="Whytegod Logo">
+    <span>Whytegod</span>
+  </div>
 
   <nav>
-    <a href="spec.html">Specification</a>
+    <a href="index.html">Spec</a>
     <a href="protocols.html">Protocols</a>
     <a href="records.html">Records</a>
   </nav>
 </header>
 
 <main>
+  <h2>Whytegod Protocol</h2>
+  <p>
+    Whytegod is a fixed-supply protocol designed for permanence, neutrality,
+    and privacy by absence. It enables verifiable records without exposing
+    identities, mutable history, or centralized control.
+  </p>
 
-  <!-- Purpose -->
-  <section>
-    <h2>Purpose</h2>
-    <p>
-      Whytegod exists to provide a form of digital value that cannot be inflated,
-      captured, censored, or silently altered. It prioritizes mathematical certainty,
-      privacy by default, and long-term usability over short-term incentives.
-    </p>
-  </section>
-
-  <!-- Core Principles -->
-  <section>
-    <h2>Core Principles</h2>
-
-    <div class="panel grid">
-      <div class="item">
-        <h3>Fixed Supply</h3>
-        <p>No inflation, no emergency minting, no governance overrides.</p>
-      </div>
-
-      <div class="item">
-        <h3>Privacy by Design</h3>
-        <p>Transactions hide sender, receiver, and value by default.</p>
-      </div>
-
-      <div class="item">
-        <h3>Protocol Integrity</h3>
-        <p>All changes are recorded, auditable, and irreversible.</p>
-      </div>
-
-      <div class="item">
-        <h3>Neutral Infrastructure</h3>
-        <p>Whytegod integrates with other systems without controlling them.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Monetary Structure -->
-  <section>
-    <h2>Monetary Structure</h2>
-
-    <div class="panel">
-      <p>
-        The Whytegod supply is permanently capped. Units are divisible into a
-        base denomination called <strong>Wert</strong>, a neutral economic measurement
-        unit designed for precision without cultural or political bias.
-      </p>
-    </div>
-  </section>
-
-  <!-- Network Security -->
-  <section>
-    <h2>Network Security</h2>
-
-    <div class="panel">
-      <p>
-        The network operates on Proof of Integrity — a validation model based on
-        continuous correctness, uptime, and rule adherence rather than energy waste
-        or wealth dominance.
-      </p>
-    </div>
-  </section>
-
-  <!-- Use Cases -->
-  <section>
-    <h2>Use Cases</h2>
-
-    <div class="panel grid">
-      <div class="item">
-        <h3>Private Settlement</h3>
-        <p>Neutral value transfer without surveillance.</p>
-      </div>
-
-      <div class="item">
-        <h3>Protocol Collateral</h3>
-        <p>Predictable, non-inflationary asset for systems.</p>
-      </div>
-
-      <div class="item">
-        <h3>Record Anchoring</h3>
-        <p>Immutable references for protocol state changes.</p>
-      </div>
-
-      <div class="item">
-        <h3>Long-Term Storage</h3>
-        <p>Value preservation without dependency on governance.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Philosophy -->
-  <section>
-    <h2>Design Philosophy</h2>
-
-    <div class="panel">
-      <p>
-        Whytegod is intentionally minimal. It avoids unnecessary complexity,
-        incentives that distort behavior, and features that require trust in people
-        rather than math.
-      </p>
-    </div>
-  </section>
-
+  <p>
+    The protocol borrows Bitcoin’s supply discipline and Monero’s privacy
+    philosophy, while extending utility into record anchoring, verification,
+    and long-term data integrity.
+  </p>
 </main>
 
 <footer>
-  <p>
-    Whytegod Protocol — Built for durability, not attention.
-  </p>
+  Whytegod Protocol — Fixed Supply • Privacy • Permanent Records
 </footer>
 
 </body>
