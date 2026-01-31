@@ -4,129 +4,218 @@
   <meta charset="UTF-8">
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="WHYTEGOD is a fixed-supply protocol observatory that records verifiable on-chain state changes using a deterministic economic system.">
-  
-  <title>WHYTEGOD — Protocol Observatory</title>
+  <meta name="description" content="WHYTEGOD is a sovereign blockchain designed to record and enforce protocol-level truth with economic finality.">
 
+  <title>WHYTEGOD — Protocol Truth Infrastructure</title>
+
+  <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png">
-  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* ===== RESET ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* ===== BASE ===== */
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #0b0b0b;
+      color: #eaeaea;
+      line-height: 1.6;
+    }
+
+    a {
+      color: #eaeaea;
+      text-decoration: none;
+    }
+
+    /* ===== LAYOUT ===== */
+    header, section, footer {
+      max-width: 1100px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #222;
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    nav a {
+      margin-left: 20px;
+      font-size: 14px;
+      opacity: 0.9;
+    }
+
+    nav a:hover {
+      opacity: 1;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      padding-top: 80px;
+      padding-bottom: 80px;
+    }
+
+    .hero h1 {
+      font-size: 38px;
+      margin-bottom: 20px;
+      max-width: 800px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      max-width: 700px;
+      opacity: 0.85;
+    }
+
+    /* ===== SECTIONS ===== */
+    h2 {
+      font-size: 26px;
+      margin-bottom: 20px;
+    }
+
+    h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      margin-bottom: 15px;
+      opacity: 0.9;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    ul li {
+      margin-bottom: 10px;
+    }
+
+    /* ===== GRID ===== */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      border: 1px solid #222;
+      padding: 25px;
+      background-color: #111;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      border-top: 1px solid #222;
+      text-align: center;
+      font-size: 14px;
+      opacity: 0.7;
+    }
+  </style>
 </head>
 
 <body>
 
-  <!-- Navigation -->
-  <nav class="nav">
-    <a href="index.html" class="logo">WHYTEGOD</a>
-    <div class="nav-links">
-      <a href="protocols.html">Protocols</a>
-      <a href="manifesto.html">Manifesto</a>
-    </div>
-  </nav>
+  <!-- ===== HEADER ===== -->
+  <header>
+    <div class="logo">WHYTEGOD</div>
+    <nav>
+      <a href="protocol.html">Protocol</a>
+      <a href="records.html">Records</a>
+      <a href="specs.html">Specs</a>
+      <a href="wallet.html">Wallet</a>
+    </nav>
+  </header>
 
-  <!-- Hero Section -->
+  <!-- ===== HERO ===== -->
   <section class="hero">
-    <h1>WHYTEGOD</h1>
-
-    <p class="tagline">
-      A verifiable protocol observatory and scarce economic network.
-    </p>
-
-    <p class="intro">
-      WHYTEGOD records objective on-chain state changes and secures them
-      with a fixed-supply economic system.  
-      No narratives. No opinions.  
-      Only verifiable protocol reality.
+    <h1>Protocol Truth, Permanently Recorded</h1>
+    <p>
+      WHYTEGOD is a sovereign blockchain designed to record, verify,
+      and economically enforce protocol-level state changes across
+      decentralized systems.
     </p>
   </section>
 
-  <!-- Mechanism -->
-  <section class="mechanism">
-    <h2>How It Works</h2>
+  <!-- ===== CORE VALUES ===== -->
+  <section>
+    <div class="grid">
+      <div class="card">
+        <h3>Immutable Records</h3>
+        <p>
+          Protocol upgrades, governance executions, and critical changes
+          are preserved permanently without reliance on social narratives.
+        </p>
+      </div>
 
+      <div class="card">
+        <h3>Economic Enforcement</h3>
+        <p>
+          Validators stake value and are slashed for dishonesty.
+          Truth is enforced, not assumed.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Sovereign Design</h3>
+        <p>
+          WHYTEGOD does not depend on external chains, mutable governance,
+          or discretionary control.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHAT IT IS / IS NOT ===== -->
+  <section>
+    <div class="grid">
+      <div class="card">
+        <h3>What WHYTEGOD Is</h3>
+        <ul>
+          <li>• Protocol truth ledger</li>
+          <li>• Neutral reference layer</li>
+          <li>• Fixed-supply blockchain</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>What WHYTEGOD Is Not</h3>
+        <ul>
+          <li>• Meme coin</li>
+          <li>• DeFi platform</li>
+          <li>• Yield product</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== USE CASES ===== -->
+  <section>
+    <h2>Real Use Cases</h2>
     <ul>
-      <li>
-        <strong>Observe:</strong> Protocol state changes are submitted on-chain.
-      </li>
-      <li>
-        <strong>Bond:</strong> Submissions require WGD bonds to prevent manipulation.
-      </li>
-      <li>
-        <strong>Verify:</strong> Validators stake WGD to attest accuracy.
-      </li>
-      <li>
-        <strong>Record:</strong> Verified changes become immutable protocol records.
-      </li>
+      <li>• Permanent record of protocol upgrades</li>
+      <li>• Independent audit and research reference</li>
+      <li>• Cross-chain neutral observability layer</li>
     </ul>
-
-    <p class="mechanism-note">
-      Truth is enforced economically. Falsehood is costly.
-    </p>
   </section>
 
-  <!-- Economics -->
-  <section class="economics">
-    <h2>Economic Design</h2>
-
-    <p>
-      WHYTEGOD operates with a fixed maximum supply of
-      <strong>21,000,000 WGD</strong>.
-    </p>
-
-    <p>
-      The smallest accounting unit is <strong>wert</strong>.
-      <br>
-      1 WGD = 100,000,000 wert
-    </p>
-
-    <ul>
-      <li>No inflation</li>
-      <li>No discretionary minting</li>
-      <li>No governance-controlled supply</li>
-    </ul>
-
-    <p>
-      WGD is required for staking, record submission, verification,
-      and priority protocol access.
-    </p>
-  </section>
-
-  <!-- Participation -->
-  <section class="participation">
-    <h2>Participate</h2>
-
-    <p>
-      WHYTEGOD distributes a finite portion of its supply to users
-      who actively contribute to the protocol.
-    </p>
-
-    <ul>
-      <li>Validator staking</li>
-      <li>Record submission and verification</li>
-      <li>Usage-based airdrop participation</li>
-    </ul>
-
-    <p>
-      No free money.  
-      No inflation.  
-      Contribution is required.
-    </p>
-  </section>
-
-  <!-- Closing Statement -->
-  <section class="closing">
-    <p>
-      WHYTEGOD combines fixed-supply discipline, economic enforcement,
-      and protocol observability into a single, verifiable system.
-    </p>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <p>
-      WHYTEGOD is a fixed-supply protocol observatory.
-      <br>
-      Scarcity is enforced by code.
-    </p>
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <p>WHYTEGOD is infrastructure, not a product.</p>
+    <p>Protocol-level truth has no owner.</p>
   </footer>
 
 </body>
