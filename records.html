@@ -2,15 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Whytegod – Records</title>
+  <title>Whytegod Protocol — Records</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Styles -->
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="print.css" media="print">
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="icon" type="image/png" href="favicon.png">
 </head>
 
 <body>
@@ -21,107 +18,140 @@
     <h1>Whytegod Protocol</h1>
   </div>
 
+  <!-- GLOBAL NAV (FINAL) -->
   <nav class="nav">
     <a href="index.html">Spec</a>
     <a href="records.html" class="active">Records</a>
     <a href="protocols.html">Protocols</a>
-    <a href="economics.html">Economics</a>
-    <a href="hash.html">Hash</a>
-    <a href="anchor.html">Anchor</a>
+    <a href="use.html">Use</a>
+    <a href="verify.html">Verify</a>
+    <a href="tokenomics.html">Tokenomics</a>
+    <a href="governance.html">Governance</a>
+    <a href="faq.html">FAQ</a>
+    <a href="version.html">Version</a>
   </nav>
 </header>
 
 <main class="content">
 
-  <!-- OLD CORE MEANING (PRESERVED) -->
   <section>
-    <h2>Records</h2>
+    <h2>Protocol Records</h2>
     <p>
-      A <strong>Record</strong> represents a claim, event, or state that can be
-      proven to have existed at a specific time.
-      Whytegod records do not store data — they define how proof is created.
+      A <strong>record</strong> is the fundamental object of the Whytegod Protocol.
+      Records allow any data to be proven as existing at a specific point in time
+      without revealing the data itself.
     </p>
   </section>
 
-  <!-- NEW CLARITY -->
   <section>
     <h3>What a Record Is</h3>
     <ul>
-      <li>A cryptographic fingerprint of information</li>
-      <li>Generated deterministically</li>
-      <li>Independent of storage or platforms</li>
-      <li>Verifiable by anyone, anytime</li>
+      <li>A cryptographic hash (SHA-256)</li>
+      <li>A timestamp</li>
+      <li>An immutable anchor reference</li>
+      <li>Optional human-readable metadata</li>
     </ul>
-  </section>
-
-  <section>
-    <h3>What a Record Is NOT</h3>
-    <ul>
-      <li>Not a database entry</li>
-      <li>Not stored by Whytegod</li>
-      <li>Not reversible</li>
-      <li>Not editable</li>
-    </ul>
-  </section>
-
-  <!-- RECORD ID -->
-  <section>
-    <h3>Record ID</h3>
     <p>
-      Every record is represented by a <strong>Record ID</strong>,
-      which is a cryptographic hash of the original data.
+      The protocol never stores raw files, messages, or documents.
+      Only hashes are used.
     </p>
+  </section>
+
+  <section>
+    <h3>What a Record Is Not</h3>
     <ul>
-      <li>Same input → same Record ID</li>
-      <li>Different input → different Record ID</li>
-      <li>Data never leaves the owner</li>
+      <li>Not stored user data</li>
+      <li>Not encrypted content</li>
+      <li>Not reversible</li>
+      <li>Not editable once anchored</li>
     </ul>
   </section>
 
-  <!-- LIFECYCLE -->
   <section>
     <h3>Record Lifecycle</h3>
     <ol>
-      <li>Create original data (document, event, file, statement)</li>
-      <li>Generate a Record ID using hashing</li>
-      <li>Anchor the Record ID publicly</li>
-      <li>Verify later by recomputing the hash</li>
+      <li>User generates a hash from their data</li>
+      <li>The hash is submitted for anchoring</li>
+      <li>An anchor event finalizes the record</li>
+      <li>The record becomes permanently verifiable</li>
     </ol>
   </section>
 
-  <!-- VERIFICATION -->
+  <section>
+    <h3>Anchoring</h3>
+    <p>
+      Anchoring is the act of committing a hash into a public,
+      time-ordered reference.
+    </p>
+    <p>
+      Anchoring requires WGD to prevent spam and abuse.
+      Verification does not require WGD.
+    </p>
+  </section>
+
   <section>
     <h3>Verification</h3>
     <p>
-      A record is verified when:
+      Any person can verify a record by:
+    </p>
+    <ol>
+      <li>Hashing the original data again</li>
+      <li>Comparing it with the anchored hash</li>
+      <li>Confirming the timestamp and anchor reference</li>
+    </ol>
+    <p>
+      Verification is free, permissionless, and permanent.
+    </p>
+  </section>
+
+  <section>
+    <h3>Immutability Guarantee</h3>
+    <p>
+      Once a record is anchored:
     </p>
     <ul>
-      <li>The recomputed hash matches the Record ID</li>
-      <li>The Record ID exists in a public immutable anchor</li>
-      <li>The timestamp aligns with the claim</li>
+      <li>It cannot be changed</li>
+      <li>It cannot be deleted</li>
+      <li>It cannot be revoked</li>
+    </ul>
+    <p>
+      Any correction requires a new record.
+    </p>
+  </section>
+
+  <section>
+    <h3>Privacy Model</h3>
+    <p>
+      Whytegod is privacy-preserving by design.
+    </p>
+    <ul>
+      <li>No personal data stored</li>
+      <li>No identity requirements</li>
+      <li>No content inspection</li>
     </ul>
   </section>
 
-  <!-- TRUST MODEL -->
   <section>
-    <h3>Trust Model</h3>
+    <h3>Legal and Interpretive Responsibility</h3>
     <p>
-      Whytegod does not act as a trusted third party.
-      Verification depends only on cryptography and public systems.
+      The protocol provides cryptographic proof only.
+      Legal meaning, enforcement, and interpretation
+      are entirely the responsibility of users.
     </p>
   </section>
 
   <section class="note">
     <p>
-      Records remain valid even if the Whytegod website disappears.
-      The protocol defines rules, not control.
+      Records are facts, not opinions.
+      The protocol does not judge truth —
+      it only proves existence.
     </p>
   </section>
 
 </main>
 
 <footer class="footer">
-  <p>Whytegod Protocol — Permanent Record Layer</p>
+  <p>Whytegod Protocol — Records Specification</p>
 </footer>
 
 </body>
