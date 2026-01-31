@@ -1,104 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Whytegod Protocol — Threat Model</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Threat Model | Whytegod Protocol</title>
 
-  <!-- Mobile -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Meta -->
-  <meta name="description" content="Whytegod Protocol — Threat Model and Assumptions">
-  <meta name="theme-color" content="#0b0f14">
+  <!-- Core styles -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="print.css" media="print" />
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="logo.png">
-
-  <!-- Styles -->
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="print.css" media="print">
+  <link rel="icon" type="image/png" href="logo.png" />
 </head>
 
 <body>
 
-<!-- ================= HEADER ================= -->
-<header class="site-header">
-  <div class="header-left">
-    <img src="logo.png" alt="Whytegod Logo" class="logo">
-    <span class="site-title">Whytegod Protocol</span>
-  </div>
+  <!-- Header / Navigation -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand">
+        <img src="logo.png" alt="Whytegod Logo" class="logo" />
+        <span class="brand-name">Whytegod Protocol</span>
+      </div>
 
-  <nav class="site-nav">
-    <a href="index.html">Spec</a>
-    <a href="records.html">Records</a>
-    <a href="protocols.html">Protocols</a>
-    <a href="economic.html">Economics</a>
-    <a href="threat.html">Threat</a>
-  </nav>
-</header>
+      <nav class="nav">
+        <a href="index.html">Spec</a>
+        <a href="records.html">Records</a>
+        <a href="protocols.html">Protocols</a>
+        <a href="economic.html">Economics</a>
+        <a href="threat.html" class="active">Threat</a>
+      </nav>
+    </div>
+  </header>
 
-<!-- ================= MAIN ================= -->
-<main class="content">
+  <!-- Main Content -->
+  <main class="content">
 
-  <section class="hero">
     <h1>Threat Model</h1>
     <p class="subtitle">Security Assumptions and Limitations</p>
-  </section>
 
-  <section>
-    <h2>Design Assumptions</h2>
-    <ul>
-      <li>Underlying cryptographic primitives remain secure</li>
-      <li>Anchoring layer provides immutability</li>
-      <li>Public verification is available to all participants</li>
-    </ul>
-  </section>
+    <section>
+      <h2>Purpose</h2>
+      <p>
+        This document defines the threat model for the Whytegod Protocol.
+        It identifies which risks are addressed by protocol design and
+        which risks are explicitly out of scope.
+      </p>
+    </section>
 
-  <section>
-    <h2>Threats Addressed</h2>
-    <ul>
-      <li>Record tampering after anchoring</li>
-      <li>Timestamp manipulation</li>
-      <li>Anchor replacement attacks</li>
-      <li>Unauthorized record mutation</li>
-    </ul>
-  </section>
+    <section>
+      <h2>Assumptions</h2>
+      <ul>
+        <li>Cryptographic hash functions remain secure</li>
+        <li>The underlying anchoring layer provides immutability</li>
+        <li>Public verification data remains accessible</li>
+      </ul>
+    </section>
 
-  <section>
-    <h2>Threats Not Addressed</h2>
-    <ul>
-      <li>Identity theft or impersonation</li>
-      <li>Malicious data submitted by users</li>
-      <li>Legal or jurisdictional disputes</li>
-      <li>Loss of private keys by users</li>
-    </ul>
-  </section>
+    <section>
+      <h2>Threats Addressed</h2>
+      <ul>
+        <li>Post-publication record modification</li>
+        <li>Timestamp manipulation after confirmation</li>
+        <li>Anchor substitution attacks</li>
+        <li>Unauthorized record mutation</li>
+      </ul>
+    </section>
 
-  <section>
-    <h2>Denial of Service</h2>
+    <section>
+      <h2>Threats Not Addressed</h2>
+      <ul>
+        <li>False or malicious data submitted by users</li>
+        <li>Loss or compromise of private keys</li>
+        <li>Identity spoofing or impersonation</li>
+        <li>Legal, regulatory, or jurisdictional disputes</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Denial of Service</h2>
+      <p>
+        The protocol does not prevent denial-of-service attacks at the network
+        or infrastructure level. Economic costs associated with anchoring act
+        as a partial deterrent but do not eliminate this risk.
+      </p>
+    </section>
+
+    <section>
+      <h2>Trust Boundaries</h2>
+      <p>
+        The protocol minimizes trust assumptions. No trust is placed in
+        operators, maintainers, or external authorities beyond cryptographic
+        verification and public anchoring.
+      </p>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
     <p>
-      The protocol does not prevent denial-of-service attacks at the network or
-      infrastructure layer. Economic costs associated with anchoring provide a
-      natural deterrent against abuse.
+      Whytegod Protocol — Threat Model<br />
+      Native Asset: <strong>WGD</strong> · Smallest Unit: <strong>Wert</strong>
     </p>
-  </section>
-
-  <section>
-    <h2>Trust Boundaries</h2>
-    <p>
-      Trust is minimized to cryptographic verification and public anchoring.
-      No trust is placed in operators, maintainers, or external authorities.
-    </p>
-  </section>
-
-</main>
-
-<!-- ================= FOOTER ================= -->
-<footer class="site-footer">
-  <p>
-    Whytegod Protocol — Threat Model · Asset: <strong>WGD</strong>
-  </p>
-</footer>
+  </footer>
 
 </body>
 </html>
