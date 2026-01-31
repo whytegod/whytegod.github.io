@@ -108,3 +108,33 @@ li {
   color: #9aa4b2;
   font-size: 0.9rem;
 }
+
+
+
+/* =========================
+   Navigation polish
+   ========================= */
+
+.nav a {
+  padding: 0.35rem 0.6rem;
+  border-radius: 4px;
+}
+
+.nav a.active {
+  color: #ffffff;
+  background: #1e2a38;
+}
+
+.nav a:hover {
+  background: #16202c;
+  text-decoration: none;
+}
+
+/* Improve header spacing on larger screens */
+@media (min-width: 768px) {
+  .header-inner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
