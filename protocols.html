@@ -1,261 +1,174 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8">
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="WHYTEGOD Protocol defines how truth is recorded, verified, and economically enforced at the blockchain level.">
-
-  <title>WHYTEGOD — Protocol Definition</title>
-
-  <link rel="icon" type="image/png" href="favicon.png">
-
-  <style>
-    /* ===== RESET ===== */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+  <meta name="description" content="Whytegod Protocols — Core mechanisms governing value, privacy, records, and network integrity.">
+  <title>Protocols — Whytegod</title>  <link rel="icon" type="image/png" href="favicon.png">  <style>
+    :root {
+      --bg: #0b0e11;
+      --fg: #eaecef;
+      --muted: #9aa4b2;
+      --accent: #c9a24d;
+      --border: #1f2937;
     }
 
-    /* ===== BASE ===== */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
-      font-family: Arial, Helvetica, sans-serif;
-      background-color: #0b0b0b;
-      color: #eaeaea;
-      line-height: 1.6;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.7;
     }
 
-    a {
-      color: #eaeaea;
-      text-decoration: none;
-    }
-
-    /* ===== LAYOUT ===== */
     header, section, footer {
       max-width: 1100px;
       margin: auto;
-      padding: 40px 20px;
+      padding: 64px 24px;
     }
 
-    header {
+    header { text-align: center; padding-top: 96px; }
+
+    h1, h2, h3, h4 { margin-bottom: 16px; font-weight: 600; }
+    h1 { font-size: 2.4rem; }
+    h2 { font-size: 1.7rem; }
+    h3 { font-size: 1.2rem; }
+    h4 { font-size: 1rem; color: var(--accent); }
+
+    p { color: var(--muted); margin-bottom: 16px; }
+
+    nav {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #222;
+      justify-content: center;
+      gap: 24px;
+      padding: 16px;
+      border-bottom: 1px solid var(--border);
     }
 
-    .logo {
-      font-size: 20px;
-      font-weight: bold;
-      letter-spacing: 1px;
-    }
+    nav a { color: var(--muted); text-decoration: none; font-size: 0.9rem; }
+    nav a:hover { color: var(--accent); }
 
-    nav a {
-      margin-left: 20px;
-      font-size: 14px;
-      opacity: 0.9;
-    }
-
-    nav a:hover {
-      opacity: 1;
-    }
-
-    /* ===== HERO ===== */
-    .hero {
-      padding-top: 80px;
-      padding-bottom: 80px;
-    }
-
-    .hero h1 {
-      font-size: 36px;
-      margin-bottom: 20px;
-      max-width: 900px;
-    }
-
-    .hero p {
-      font-size: 18px;
-      max-width: 750px;
-      opacity: 0.85;
-    }
-
-    /* ===== CONTENT ===== */
-    h2 {
-      font-size: 26px;
-      margin-bottom: 20px;
-    }
-
-    h3 {
-      font-size: 18px;
-      margin-bottom: 10px;
-    }
-
-    p {
-      margin-bottom: 15px;
-      opacity: 0.9;
-    }
-
-    ul {
-      list-style: none;
-    }
-
-    ul li {
-      margin-bottom: 10px;
-    }
-
-    /* ===== GRID ===== */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 30px;
+      gap: 24px;
     }
 
     .card {
-      border: 1px solid #222;
-      padding: 25px;
-      background-color: #111;
+      border: 1px solid var(--border);
+      padding: 24px;
+      border-radius: 8px;
+      background: #0f1318;
     }
 
-    /* ===== FOOTER ===== */
     footer {
-      border-top: 1px solid #222;
+      border-top: 1px solid var(--border);
       text-align: center;
-      font-size: 14px;
-      opacity: 0.7;
+      font-size: 0.85rem;
+      color: var(--muted);
     }
-  </style>
-</head>
+  </style></head>
+<body><nav>
+  <a href="index.html">Home</a>
+  <a href="protocols.html">Protocols</a>
+  <a href="records.html">Records</a>
+  <a href="spec.html">Spec</a>
+</nav><header>
+  <h1>Whytegod Protocols</h1>
+  <p>The mechanisms that enforce value, privacy, and long-term reliability.</p>
+</header><section>
+  <h2>Protocol Architecture</h2>
+  <p>
+    Whytegod operates as a layered protocol system. Each layer is independent,
+    minimal, and auditable — reducing attack surface while preserving privacy.
+  </p>
+</section><section>
+  <h2>Primary Protocol Layers</h2>
+  <div class="grid"><div class="card">
+  <h3>Monetary Protocol</h3>
+  <p>
+    Enforces fixed supply issuance, emission schedule, and unit denomination.
+    All calculations are deterministic and finalized at protocol genesis.
+  </p>
+  <p>
+    Base unit: <strong>Wert</strong><br>
+    No inflation switches. No governance minting.
+  </p>
+</div>
 
-<body>
+<div class="card">
+  <h3>Privacy Protocol</h3>
+  <p>
+    Transaction flows and ownership relationships are shielded by default.
+    No optional privacy. No public balance tracing.
+  </p>
+  <p>
+    Identity exists only as cryptographic proof, never as metadata.
+  </p>
+</div>
 
-  <!-- ===== HEADER ===== -->
-  <header>
-    <div class="logo">WHYTEGOD</div>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="records.html">Records</a>
-      <a href="specs.html">Specs</a>
-      <a href="wallet.html">Wallet</a>
-    </nav>
-  </header>
+<div class="card">
+  <h3>Wallet Protocol</h3>
+  <p>
+    Wallets act as sovereign identity containers, not accounts.
+    Ownership is enforced cryptographically without centralized dependencies.
+  </p>
+  <p>
+    Loss of keys equals loss of access — no recovery by authority.
+  </p>
+</div>
 
-  <!-- ===== HERO ===== -->
-  <section class="hero">
-    <h1>Protocol Definition</h1>
-    <p>
-      The WHYTEGOD Protocol defines how objective truth is recorded,
-      validated, and finalized without reliance on social consensus,
-      governance discretion, or mutable authority.
-    </p>
-  </section>
+<div class="card">
+  <h3>Records Protocol</h3>
+  <p>
+    Critical protocol-level state changes are recorded and classified.
+    Records are public, users remain private.
+  </p>
+  <p>
+    Enables long-term trust without surveillance.
+  </p>
+</div>
 
-  <!-- ===== OVERVIEW ===== -->
-  <section>
-    <h2>Overview</h2>
-    <p>
-      WHYTEGOD is not a general-purpose execution environment.
-      It is a narrowly scoped protocol designed to capture
-      high-value, high-impact events that require permanent,
-      economically enforced finality.
-    </p>
-    <p>
-      Every rule exists to minimize ambiguity, reduce attack surface,
-      and ensure that recorded statements remain verifiable decades
-      into the future.
-    </p>
-  </section>
-
-  <!-- ===== CORE PRINCIPLES ===== -->
-  <section>
-    <h2>Core Principles</h2>
-
-    <div class="grid">
-      <div class="card">
-        <h3>Protocol-Level Truth</h3>
-        <p>
-          Only events that materially affect protocol state,
-          governance execution, or canonical history are eligible
-          for inclusion.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Economic Finality</h3>
-        <p>
-          Validators are financially accountable.
-          Dishonest attestations result in irreversible slashing.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Minimal Surface Area</h3>
-        <p>
-          Complexity is treated as a liability.
-          Features are added only when they strengthen
-          long-term verifiability.
-        </p>
-      </div>
+  </div>
+</section><section>
+  <h2>State Change Classification</h2>
+  <p>
+    Whytegod separates normal transaction activity from protocol-altering events.
+    Only classified events enter the permanent protocol record.
+  </p>  <div class="grid">
+    <div class="card">
+      <h4>Tier 1 — Structural</h4>
+      <p>Consensus rules, monetary logic, cryptographic primitives.</p>
     </div>
-  </section>
-
-  <!-- ===== CONSENSUS ===== -->
-  <section>
-    <h2>Consensus Model</h2>
-    <p>
-      WHYTEGOD uses a fixed validator set with bonded stake
-      to attest to protocol events.
-    </p>
-    <ul>
-      <li>• Validators must stake native WHYTEGOD units</li>
-      <li>• False attestations are slashable</li>
-      <li>• Finality is deterministic once thresholds are met</li>
-    </ul>
-  </section>
-
-  <!-- ===== GOVERNANCE ===== -->
-  <section>
-    <h2>Governance Constraints</h2>
-    <p>
-      Governance is intentionally limited.
-      The protocol does not support open-ended proposals
-      or discretionary intervention.
-    </p>
-    <ul>
-      <li>• Governance actions must follow predefined formats</li>
-      <li>• No emergency powers</li>
-      <li>• No subjective overrides</li>
-    </ul>
-  </section>
-
-  <!-- ===== SCOPE ===== -->
-  <section>
-    <h2>Scope Boundaries</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>Included</h3>
-        <ul>
-          <li>• Protocol upgrades</li>
-          <li>• Canonical contract deployments</li>
-          <li>• Governance execution records</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>Excluded</h3>
-        <ul>
-          <li>• Price feeds</li>
-          <li>• Application-level data</li>
-          <li>• Arbitrary user transactions</li>
-        </ul>
-      </div>
+    <div class="card">
+      <h4>Tier 2 — Operational</h4>
+      <p>Network parameters, validator thresholds, performance tuning.</p>
     </div>
-  </section>
-
-  <!-- ===== FOOTER ===== -->
-  <footer>
-    <p>The protocol is intentionally narrow.</p>
-    <p>Truth does not require flexibility.</p>
-  </footer>
-
-</body>
+    <div class="card">
+      <h4>Tier 3 — Informational</h4>
+      <p>Documentation updates, non-consensus metadata.</p>
+    </div>
+  </div>
+</section><section>
+  <h2>External Integration Protocol</h2>
+  <p>
+    Whytegod is designed to integrate with other crypto systems without
+    surrendering its privacy or monetary guarantees.
+  </p>
+  <p>
+    Bridges, wrapped assets, and interoperability layers are treated as external
+    adapters — never as core dependencies.
+  </p>
+</section><section>
+  <h2>Airdrop & Adoption Mechanism</h2>
+  <p>
+    Airdrops are used as controlled distribution tools, not marketing stunts.
+    Eligibility is based on verifiable interaction criteria, not social reach.
+  </p>
+  <p>
+    This ensures organic adoption aligned with real usage.
+  </p>
+</section><footer>
+  <p>© Whytegod Protocol — Protocol Layer Documentation</p>
+</footer></body>
 </html>
