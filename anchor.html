@@ -33,6 +33,8 @@
 
 <main class="content">
 
+  <!-- OLD CONTENT (UNCHANGED) -->
+
   <section>
     <h2>Anchoring a Record</h2>
     <p>
@@ -88,9 +90,7 @@
 
   <section>
     <h3>Verification Later</h3>
-    <p>
-      To verify a record:
-    </p>
+    <p>To verify a record:</p>
     <ol>
       <li>Recompute the hash from the original data</li>
       <li>Compare it to the anchored Record ID</li>
@@ -102,6 +102,64 @@
     <p>
       Whytegod does not run nodes, store data, or control anchors.
       The protocol defines structure and verification — nothing more.
+    </p>
+  </section>
+
+  <!-- NEW UPGRADE CONTENT (ADDED SAFELY) -->
+
+  <section>
+    <h3>Recommended Anchor Formats</h3>
+    <ul>
+      <li>UTF-8 encoded hash string</li>
+      <li>Hexadecimal representation</li>
+      <li>Base64 (optional, must be documented)</li>
+    </ul>
+    <p>
+      The format used must remain consistent for future verification.
+    </p>
+  </section>
+
+  <section>
+    <h3>Anchor Metadata (Optional)</h3>
+    <p>
+      You may publish metadata alongside the Record ID:
+    </p>
+    <ul>
+      <li>Anchor date</li>
+      <li>Anchor network</li>
+      <li>Transaction or reference ID</li>
+      <li>Human-readable description</li>
+    </ul>
+    <p>
+      Metadata is not part of verification — the hash alone is sufficient.
+    </p>
+  </section>
+
+  <section>
+    <h3>Security Considerations</h3>
+    <ul>
+      <li>Never reuse hashes across different datasets</li>
+      <li>Do not publish unhashed sensitive data</li>
+      <li>Preserve original files exactly as hashed</li>
+      <li>Document anchor locations clearly</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Common Use Cases</h3>
+    <ul>
+      <li>Legal documents & agreements</li>
+      <li>Research papers & datasets</li>
+      <li>Intellectual property proofs</li>
+      <li>Audit trails & compliance records</li>
+      <li>Personal archives</li>
+    </ul>
+  </section>
+
+  <section class="note">
+    <p>
+      Anchoring is optional but recommended for records requiring
+      strong timestamp guarantees and public verifiability.
     </p>
   </section>
 
