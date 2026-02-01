@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Whytegod Protocol — Verify</title>
+  <title>Whytegod – Verify Record</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="print.css" media="print">
-  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="icon" type="image/png" href="logo.png">
 </head>
 
 <body>
@@ -18,14 +18,12 @@
     <h1>Whytegod Protocol</h1>
   </div>
 
-  <!-- GLOBAL NAV (LOCKED — SAME EVERYWHERE) -->
   <nav class="nav">
     <a href="index.html">Spec</a>
-    <a href="records.html">Records</a>
-    <a href="protocols.html">Protocols</a>
-    <a href="use.html">Use</a>
+    <a href="hash.html">Hash</a>
+    <a href="anchor.html">Anchor</a>
     <a href="verify.html" class="active">Verify</a>
-    <a href="tokenomics.html">Tokenomics</a>
+    <a href="economics.html">Tokenomics</a>
     <a href="governance.html">Governance</a>
     <a href="faq.html">FAQ</a>
     <a href="version.html">Version</a>
@@ -35,140 +33,80 @@
 <main class="content">
 
   <section>
-    <h2>Verification</h2>
+    <h2>Verify a Record</h2>
     <p>
-      Verification proves that a specific piece of data existed
-      at or before a specific point in time.
-      This process is deterministic, permissionless, and public.
+      Verification proves that a record existed
+      <strong>unchanged</strong> at a specific point in time.
+      No trust in Whytegod is required.
     </p>
   </section>
 
   <section>
-    <h3>What Verification Confirms</h3>
+    <h3>What You Need</h3>
     <ul>
-      <li>The data existed</li>
-      <li>The data has not changed</li>
-      <li>The data was anchored at a known time</li>
-      <li>The record belongs to the public ledger</li>
-    </ul>
-  </section>
-
-  <section>
-    <h3>What Verification Does Not Confirm</h3>
-    <ul>
-      <li>Who created the data</li>
-      <li>Why the data exists</li>
-      <li>Ownership or authorship</li>
-      <li>Legality or truthfulness</li>
-    </ul>
-  </section>
-
-  <section>
-    <h3>Verification Requirements</h3>
-    <ul>
-      <li>The original data (file, text, or dataset)</li>
-      <li>The hashing algorithm used (SHA-256)</li>
-      <li>Access to the public record list</li>
+      <li>The original data</li>
+      <li>The recorded WRID hash</li>
+      <li>The public anchor reference</li>
     </ul>
   </section>
 
   <section>
     <h3>Verification Process</h3>
     <ol>
-      <li>
-        Reproduce the original data exactly
-      </li>
-      <li>
-        Generate a SHA-256 hash from the data
-      </li>
-      <li>
-        Locate the matching hash in the records list
-      </li>
-      <li>
-        Confirm the timestamp and anchor order
-      </li>
+      <li>Recompute the SHA-256 hash from the original data</li>
+      <li>Compare it to the claimed WRID</li>
+      <li>Confirm the WRID appears in the public anchor</li>
+      <li>Confirm the anchor timestamp</li>
     </ol>
   </section>
 
-  <section>
-    <h3>Local Hashing</h3>
-    <p>
-      Hashing must always occur locally.
-      The protocol never requires file uploads for verification.
+  <section class="output-box">
+<pre>
+Whytegod Verification Result
+
+Recomputed Hash: MATCH
+WRID: CONFIRMED
+Anchor: FOUND
+Timestamp: VERIFIED
+
+Status: VALID RECORD
+</pre>
+
+    <p class="rule">
+      If the hash does not match, the record is invalid.
     </p>
+  </section>
+
+  <section>
+    <h3>What Verification Proves</h3>
     <ul>
-      <li>Use offline tools</li>
-      <li>Use open-source hash utilities</li>
-      <li>Never trust third-party conversions</li>
+      <li>The data has not changed</li>
+      <li>The record existed before the anchor time</li>
+      <li>No authority approval was required</li>
     </ul>
   </section>
 
   <section>
-    <h3>Matching Rules</h3>
-    <p>
-      A verification match is valid only if:
-    </p>
+    <h3>What It Does NOT Prove</h3>
     <ul>
-      <li>The hash matches exactly (character-for-character)</li>
-      <li>The hashing algorithm matches</li>
-      <li>The record appears in the ordered ledger</li>
-    </ul>
-  </section>
-
-  <section>
-    <h3>Time Meaning</h3>
-    <p>
-      The timestamp indicates the moment the hash
-      was anchored — not when the data was created.
-    </p>
-    <p>
-      Creation may have occurred earlier.
-      Anchoring defines the latest possible existence.
-    </p>
-  </section>
-
-  <section>
-    <h3>Public Verifiability</h3>
-    <p>
-      Verification does not require accounts, tokens,
-      permissions, or trust in Whytegod itself.
-    </p>
-    <p>
-      Anyone can verify using independent tools.
-    </p>
-  </section>
-
-  <section>
-    <h3>Dispute Handling</h3>
-    <p>
-      The protocol does not resolve disputes.
-      Verification results are factual outputs.
-    </p>
-    <p>
-      Interpretation is external to the system.
-    </p>
-  </section>
-
-  <section>
-    <h3>Failure Scenarios</h3>
-    <ul>
-      <li>If the data changes → verification fails</li>
-      <li>If the hash differs → verification fails</li>
-      <li>If the record is absent → verification fails</li>
+      <li>Ownership</li>
+      <li>Identity</li>
+      <li>Truth or intent</li>
     </ul>
   </section>
 
   <section class="note">
     <p>
-      Verification answers only one question:
-      <strong>Did this exact data exist by this time?</strong>
+      Verification is permanent, free,
+      and permissionless.
+      Anyone can verify — forever.
     </p>
   </section>
 
 </main>
 
 <footer class="footer">
-  <p>Whytegod Protocol — Verification</p>
+  <p>Whytegod Protocol — Verify</p>
 </footer>
 
 </body>
