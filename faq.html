@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Whytegod Protocol — FAQ</title>
+  <title>Whytegod – FAQ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="print.css" media="print">
-  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="icon" type="image/png" href="logo.png">
 </head>
 
 <body>
@@ -18,12 +18,10 @@
     <h1>Whytegod Protocol</h1>
   </div>
 
-  <!-- GLOBAL NAV (LOCKED) -->
   <nav class="nav">
     <a href="index.html">Spec</a>
-    <a href="records.html">Records</a>
-    <a href="protocols.html">Protocols</a>
-    <a href="use.html">Use</a>
+    <a href="hash.html">Hash</a>
+    <a href="anchor.html">Anchor</a>
     <a href="verify.html">Verify</a>
     <a href="tokenomics.html">Tokenomics</a>
     <a href="governance.html">Governance</a>
@@ -38,7 +36,7 @@
     <h2>Frequently Asked Questions</h2>
     <p>
       This page answers common questions about the Whytegod Protocol
-      in clear, non-technical language.
+      in direct, non-marketing language.
     </p>
   </section>
 
@@ -53,121 +51,117 @@
   <section>
     <h3>What problem does it solve?</h3>
     <p>
-      It provides a way to prove that specific data existed
-      at a specific time without revealing the data itself.
+      It proves that specific data existed, unchanged,
+      at or before a known point in time —
+      without storing the data itself.
+    </p>
+  </section>
+
+  <section>
+    <h3>Is Whytegod a blockchain?</h3>
+    <p>
+      No. Whytegod does not run a chain or consensus.
+      It relies on existing immutable public systems for anchoring.
+    </p>
+  </section>
+
+  <section>
+    <h3>What is a WRID?</h3>
+    <p>
+      A WRID (Whytegod Record ID) is a SHA-256 hash
+      derived from original data.
+      It uniquely represents that data.
     </p>
   </section>
 
   <section>
     <h3>Does Whytegod store my data?</h3>
     <p>
-      No. The protocol never stores user data.
-      Only cryptographic hashes are used.
+      No. The protocol never stores user data,
+      files, identities, or metadata.
+      Only hashes are used.
     </p>
   </section>
 
   <section>
-    <h3>What is a record?</h3>
+    <h3>What does “anchoring” mean?</h3>
     <p>
-      A record is a cryptographic hash derived from data.
-      The original data always stays with the user.
+      Anchoring means publishing a WRID
+      to an immutable public system
+      such as Bitcoin, Ethereum, or a public log.
     </p>
   </section>
 
   <section>
-    <h3>What is anchoring?</h3>
-    <p>
-      Anchoring is the act of publishing a record hash
-      to an immutable public system such as a blockchain
-      or append-only log.
-    </p>
+    <h3>What makes a record valid?</h3>
+    <ul>
+      <li>The hash is deterministic</li>
+      <li>The anchor is immutable</li>
+      <li>The timestamp is verifiable</li>
+    </ul>
   </section>
 
   <section>
     <h3>Can records be changed or deleted?</h3>
     <p>
-      No. Once a record is anchored, it is immutable.
-      This permanence is a core property of the protocol.
+      No. Once anchored, a record
+      cannot be altered or revoked.
     </p>
   </section>
 
   <section>
-    <h3>What is verification?</h3>
+    <h3>What is WGD?</h3>
     <p>
-      Verification is the process of recomputing a hash
-      and comparing it with an anchored record.
-      Verification is always free and permissionless.
+      WGD is a utility token used to introduce
+      cost and friction when anchoring records.
     </p>
   </section>
 
   <section>
-    <h3>What is the token used for?</h3>
+    <h3>Is WGD an investment or security?</h3>
     <p>
-      The token is a utility mechanism used to prevent spam,
-      rate-limit anchoring, and support protocol sustainability.
+      No. WGD provides no ownership,
+      profit rights, or governance power.
     </p>
   </section>
 
   <section>
-    <h3>Is the token an investment?</h3>
+    <h3>Do I need WGD to verify records?</h3>
     <p>
-      No. The token does not represent equity, ownership,
-      profit rights, or dividends.
+      No. Verification is free and permissionless.
+      WGD is only used when anchoring new records.
     </p>
   </section>
 
   <section>
-    <h3>Do I need the token to verify records?</h3>
+    <h3>Who controls the protocol?</h3>
     <p>
-      No. Verification does not require a token.
-      Tokens are only relevant for anchoring actions.
-    </p>
-  </section>
-
-  <section>
-    <h3>Who controls Whytegod?</h3>
-    <p>
-      No one. The protocol has no administrators,
-      no override keys, and no centralized authority.
+      No one.
+      Whytegod has no governance,
+      administrators, or privileged actors.
     </p>
   </section>
 
   <section>
     <h3>Can the protocol rules change?</h3>
     <p>
-      Existing rules and records cannot change.
-      New versions may be proposed, but adoption is voluntary.
+      No. The protocol is frozen per version.
+      Any changes require a new version.
     </p>
   </section>
 
   <section>
-    <h3>Is Whytegod tied to any blockchain?</h3>
+    <h3>What does verification actually prove?</h3>
     <p>
-      No. The protocol is blockchain-agnostic
-      and can anchor records on any immutable system.
-    </p>
-  </section>
-
-  <section>
-    <h3>Is this legal?</h3>
-    <p>
-      Whytegod defines technical rules only.
-      Legal interpretation depends on jurisdiction and use case.
-    </p>
-  </section>
-
-  <section>
-    <h3>What happens if the website disappears?</h3>
-    <p>
-      Nothing breaks. Verification depends only on hashes
-      and public anchors, not on this website.
+      It proves data integrity and existence in time.
+      It does not prove ownership, truth, or intent.
     </p>
   </section>
 
   <section class="note">
     <p>
-      Whytegod provides tools for verification —
-      responsibility for usage rests with the user.
+      Whytegod defines cryptographic facts only.
+      Interpretation is external to the protocol.
     </p>
   </section>
 
