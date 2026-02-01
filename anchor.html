@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="print.css" media="print">
   <link rel="icon" type="image/png" href="logo.png">
 </head>
 
@@ -23,7 +22,7 @@
     <a href="hash.html">Hash</a>
     <a href="anchor.html" class="active">Anchor</a>
     <a href="verify.html">Verify</a>
-    <a href="economics.html">Tokenomics</a>
+    <a href="tokenomics.html">Tokenomics</a>
     <a href="governance.html">Governance</a>
     <a href="faq.html">FAQ</a>
     <a href="version.html">Version</a>
@@ -32,85 +31,80 @@
 
 <main class="content">
 
-  <section>
-    <h2>Anchor a Record</h2>
-    <p>
-      Anchoring is the act that gives a
-      <strong>Whytegod Record ID (WRID)</strong>
-      real force.
-      Until anchored, a record is only a claim.
-    </p>
-  </section>
+<section>
+  <h2>Anchor a Whytegod Record</h2>
+  <p>
+    Anchoring gives a <strong>Whytegod Record ID (WRID)</strong> public force.
+    Until anchored, a record is only a private claim.
+  </p>
+</section>
 
-  <section>
-    <h3>What Gets Anchored</h3>
-    <ul>
-      <li>Only the WRID hash</li>
-      <li>No original data</li>
-      <li>No identities</li>
-      <li>No permissions</li>
-    </ul>
-  </section>
+<section class="note">
+  <p>
+    <strong>Rule:</strong> A record has no force until it is anchored
+    to an immutable public system outside Whytegod.
+  </p>
+</section>
 
-  <section>
-    <h3>How Anchoring Works</h3>
-    <ol>
-      <li>Generate a WRID using the Hash tool</li>
-      <li>Publish the WRID to an immutable public system</li>
-      <li>Save the external reference permanently</li>
-    </ol>
-  </section>
+<section>
+  <h3>1. Record ID (WRID)</h3>
+  <textarea id="wrid" placeholder="Paste the SHA-256 WRID here"></textarea>
+</section>
 
-  <section>
-    <h3>Valid Anchor Targets</h3>
-    <ul>
-      <li>Bitcoin OP_RETURN</li>
-      <li>Ethereum calldata</li>
-      <li>Public timestamping services</li>
-      <li>Public append-only logs</li>
-      <li>Signed public statements</li>
-    </ul>
-  </section>
+<section>
+  <h3>2. Anchor Method</h3>
+  <select id="method">
+    <option>Bitcoin OP_RETURN</option>
+    <option>Ethereum calldata</option>
+    <option>Public timestamp service</option>
+    <option>Public append-only log</option>
+    <option>Other immutable public record</option>
+  </select>
+</section>
 
-  <section class="output-box">
-    <pre>
-Whytegod Record Status
+<section>
+  <h3>3. Anchor Reference</h3>
+  <input id="reference" type="text"
+    placeholder="Transaction ID, block hash, URL, or log reference">
+</section>
 
-WRID: <hash>
-State: Anchored
-Anchor Type: External Public System
-Anchor Reference: <txid | url | log id>
-Timestamp: Verifiable
-    </pre>
+<section>
+  <button onclick="anchor()">Confirm Anchor</button>
+</section>
 
-    <p class="rule">
-      Once anchored, a record cannot be altered or revoked.
-    </p>
-  </section>
-
-  <section>
-    <h3>Why This Matters</h3>
-    <p>
-      This is the same transition Bitcoin makes:
-      from unsigned data to irreversible history.
-      Meaning comes from public finality —
-      not from the hash itself.
-    </p>
-  </section>
-
-  <section class="note">
-    <p>
-      Whytegod does not run nodes, store anchors,
-      or verify transactions.
-      The protocol defines structure only.
-    </p>
-  </section>
+<section id="result" class="note" style="display:none;"></section>
 
 </main>
 
 <footer class="footer">
-  <p>Whytegod Protocol — Anchor</p>
+  <p>Whytegod Protocol — Anchor Layer</p>
 </footer>
+
+<script>
+function anchor() {
+  const wrid = document.getElementById('wrid').value.trim();
+  const ref  = document.getElementById('reference').value.trim();
+
+  if (!wrid || !ref) {
+    alert("WRID and anchor reference are required.");
+    return;
+  }
+
+  const output = `
+Whytegod Record ID (WRID)
+Protocol: v1.0
+Status: Anchored
+Anchor Reference:
+${ref}
+
+This record is now publicly verifiable.
+  `.trim();
+
+  const box = document.getElementById('result');
+  box.style.display = "block";
+  box.textContent = output;
+}
+</script>
 
 </body>
 </html>
