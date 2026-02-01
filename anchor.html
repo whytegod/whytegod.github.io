@@ -2,14 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Whytegod – Anchor a Record</title>
+  <title>Whytegod – Anchor Record</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Styles -->
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="print.css" media="print">
-
-  <!-- Favicon -->
   <link rel="icon" type="image/png" href="logo.png">
 </head>
 
@@ -23,150 +20,96 @@
 
   <nav class="nav">
     <a href="index.html">Spec</a>
-    <a href="records.html">Records</a>
-    <a href="protocols.html">Protocols</a>
-    <a href="economics.html">Economics</a>
     <a href="hash.html">Hash</a>
     <a href="anchor.html" class="active">Anchor</a>
+    <a href="verify.html">Verify</a>
+    <a href="economics.html">Tokenomics</a>
+    <a href="governance.html">Governance</a>
+    <a href="faq.html">FAQ</a>
+    <a href="version.html">Version</a>
   </nav>
 </header>
 
 <main class="content">
 
-  <!-- OLD CONTENT (UNCHANGED) -->
-
   <section>
-    <h2>Anchoring a Record</h2>
+    <h2>Anchor a Record</h2>
     <p>
-      Anchoring is the act of committing a <strong>Record ID</strong>
-      to an immutable public system.
-      Once anchored, the record gains permanent verifiability.
+      Anchoring is the act that gives a
+      <strong>Whytegod Record ID (WRID)</strong>
+      real force.
+      Until anchored, a record is only a claim.
     </p>
   </section>
 
   <section>
-    <h3>What You Anchor</h3>
+    <h3>What Gets Anchored</h3>
     <ul>
-      <li><strong>Only the hash</strong> (Record ID)</li>
-      <li>Never the original data</li>
-      <li>Privacy is preserved</li>
+      <li>Only the WRID hash</li>
+      <li>No original data</li>
+      <li>No identities</li>
+      <li>No permissions</li>
     </ul>
   </section>
 
   <section>
-    <h3>Step-by-Step</h3>
+    <h3>How Anchoring Works</h3>
     <ol>
-      <li>
-        Generate a Record ID using the
-        <a href="hash.html">Hash Generator</a>
-      </li>
-      <li>
-        Choose an immutable public anchor:
-        <ul>
-          <li>Bitcoin OP_RETURN</li>
-          <li>Ethereum calldata</li>
-          <li>Public timestamping services</li>
-          <li>Public append-only logs</li>
-        </ul>
-      </li>
-      <li>
-        Publish the Record ID as plain text or hex
-      </li>
-      <li>
-        Save the transaction reference or anchor ID
-      </li>
+      <li>Generate a WRID using the Hash tool</li>
+      <li>Publish the WRID to an immutable public system</li>
+      <li>Save the external reference permanently</li>
     </ol>
   </section>
 
   <section>
-    <h3>What Makes It Valid</h3>
+    <h3>Valid Anchor Targets</h3>
     <ul>
-      <li>The hash is deterministic</li>
-      <li>The anchor is immutable</li>
-      <li>The timestamp is externally verifiable</li>
-      <li>No trust in Whytegod is required</li>
+      <li>Bitcoin OP_RETURN</li>
+      <li>Ethereum calldata</li>
+      <li>Public timestamping services</li>
+      <li>Public append-only logs</li>
+      <li>Signed public statements</li>
     </ul>
   </section>
 
+  <section class="output-box">
+    <pre>
+Whytegod Record Status
+
+WRID: <hash>
+State: Anchored
+Anchor Type: External Public System
+Anchor Reference: <txid | url | log id>
+Timestamp: Verifiable
+    </pre>
+
+    <p class="rule">
+      Once anchored, a record cannot be altered or revoked.
+    </p>
+  </section>
+
   <section>
-    <h3>Verification Later</h3>
-    <p>To verify a record:</p>
-    <ol>
-      <li>Recompute the hash from the original data</li>
-      <li>Compare it to the anchored Record ID</li>
-      <li>Match confirms authenticity</li>
-    </ol>
+    <h3>Why This Matters</h3>
+    <p>
+      This is the same transition Bitcoin makes:
+      from unsigned data to irreversible history.
+      Meaning comes from public finality —
+      not from the hash itself.
+    </p>
   </section>
 
   <section class="note">
     <p>
-      Whytegod does not run nodes, store data, or control anchors.
-      The protocol defines structure and verification — nothing more.
-    </p>
-  </section>
-
-  <!-- NEW UPGRADE CONTENT (ADDED SAFELY) -->
-
-  <section>
-    <h3>Recommended Anchor Formats</h3>
-    <ul>
-      <li>UTF-8 encoded hash string</li>
-      <li>Hexadecimal representation</li>
-      <li>Base64 (optional, must be documented)</li>
-    </ul>
-    <p>
-      The format used must remain consistent for future verification.
-    </p>
-  </section>
-
-  <section>
-    <h3>Anchor Metadata (Optional)</h3>
-    <p>
-      You may publish metadata alongside the Record ID:
-    </p>
-    <ul>
-      <li>Anchor date</li>
-      <li>Anchor network</li>
-      <li>Transaction or reference ID</li>
-      <li>Human-readable description</li>
-    </ul>
-    <p>
-      Metadata is not part of verification — the hash alone is sufficient.
-    </p>
-  </section>
-
-  <section>
-    <h3>Security Considerations</h3>
-    <ul>
-      <li>Never reuse hashes across different datasets</li>
-      <li>Do not publish unhashed sensitive data</li>
-      <li>Preserve original files exactly as hashed</li>
-      <li>Document anchor locations clearly</li>
-    </ul>
-  </section>
-
-  <section>
-    <h3>Common Use Cases</h3>
-    <ul>
-      <li>Legal documents & agreements</li>
-      <li>Research papers & datasets</li>
-      <li>Intellectual property proofs</li>
-      <li>Audit trails & compliance records</li>
-      <li>Personal archives</li>
-    </ul>
-  </section>
-
-  <section class="note">
-    <p>
-      Anchoring is optional but recommended for records requiring
-      strong timestamp guarantees and public verifiability.
+      Whytegod does not run nodes, store anchors,
+      or verify transactions.
+      The protocol defines structure only.
     </p>
   </section>
 
 </main>
 
 <footer class="footer">
-  <p>Whytegod Protocol — Permanent Record Layer</p>
+  <p>Whytegod Protocol — Anchor</p>
 </footer>
 
 </body>
