@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="print.css" media="print">
   <link rel="icon" type="image/png" href="logo.png">
 </head>
 
@@ -23,7 +22,7 @@
     <a href="hash.html">Hash</a>
     <a href="anchor.html">Anchor</a>
     <a href="verify.html" class="active">Verify</a>
-    <a href="economics.html">Tokenomics</a>
+    <a href="tokenomics.html">Tokenomics</a>
     <a href="governance.html">Governance</a>
     <a href="faq.html">FAQ</a>
     <a href="version.html">Version</a>
@@ -32,82 +31,88 @@
 
 <main class="content">
 
-  <section>
-    <h2>Verify a Record</h2>
-    <p>
-      Verification proves that a record existed
-      <strong>unchanged</strong> at a specific point in time.
-      No trust in Whytegod is required.
-    </p>
-  </section>
+<section>
+  <h2>Verify a Whytegod Record</h2>
+  <p>
+    Verification proves that a record existed <strong>unchanged</strong>
+    at or before a public anchor point.
+  </p>
+</section>
 
-  <section>
-    <h3>What You Need</h3>
-    <ul>
-      <li>The original data</li>
-      <li>The recorded WRID hash</li>
-      <li>The public anchor reference</li>
-    </ul>
-  </section>
+<section class="note">
+  <p>
+    <strong>Rule:</strong> A record is valid only if the recomputed hash
+    exactly matches an anchored WRID.
+  </p>
+</section>
 
-  <section>
-    <h3>Verification Process</h3>
-    <ol>
-      <li>Recompute the SHA-256 hash from the original data</li>
-      <li>Compare it to the claimed WRID</li>
-      <li>Confirm the WRID appears in the public anchor</li>
-      <li>Confirm the anchor timestamp</li>
-    </ol>
-  </section>
+<section>
+  <h3>1. Original Data</h3>
+  <textarea id="data" placeholder="Paste the original text or data"></textarea>
+</section>
 
-  <section class="output-box">
-<pre>
-Whytegod Verification Result
+<section>
+  <h3>2. Anchored Record ID (WRID)</h3>
+  <textarea id="wrid" placeholder="Paste the anchored SHA-256 hash"></textarea>
+</section>
 
-Recomputed Hash: MATCH
-WRID: CONFIRMED
-Anchor: FOUND
-Timestamp: VERIFIED
+<section>
+  <button onclick="verify()">Verify Record</button>
+</section>
 
-Status: VALID RECORD
-</pre>
-
-    <p class="rule">
-      If the hash does not match, the record is invalid.
-    </p>
-  </section>
-
-  <section>
-    <h3>What Verification Proves</h3>
-    <ul>
-      <li>The data has not changed</li>
-      <li>The record existed before the anchor time</li>
-      <li>No authority approval was required</li>
-    </ul>
-  </section>
-
-  <section>
-    <h3>What It Does NOT Prove</h3>
-    <ul>
-      <li>Ownership</li>
-      <li>Identity</li>
-      <li>Truth or intent</li>
-    </ul>
-  </section>
-
-  <section class="note">
-    <p>
-      Verification is permanent, free,
-      and permissionless.
-      Anyone can verify — forever.
-    </p>
-  </section>
+<section id="result" class="note" style="display:none;"></section>
 
 </main>
 
 <footer class="footer">
-  <p>Whytegod Protocol — Verify</p>
+  <p>Whytegod Protocol — Verification Layer</p>
 </footer>
+
+<script>
+async function sha256(message) {
+  const msgBuffer = new TextEncoder().encode(message);
+  const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+}
+
+async function verify() {
+  const data = document.getElementById('data').value;
+  const wrid = document.getElementById('wrid').value.trim().toLowerCase();
+  const resultBox = document.getElementById('result');
+
+  if (!data || !wrid) {
+    alert("Both original data and WRID are required.");
+    return;
+  }
+
+  const computed = await sha256(data);
+
+  let output;
+  if (computed === wrid) {
+    output = `
+Verification: SUCCESS
+Protocol: v1.0
+Status: Valid
+
+The record matches the anchored WRID.
+Integrity confirmed.
+    `.trim();
+  } else {
+    output = `
+Verification: FAILED
+Protocol: v1.0
+Status: Invalid
+
+The data does NOT match the anchored WRID.
+Record has been altered or is false.
+    `.trim();
+  }
+
+  resultBox.style.display = "block";
+  resultBox.textContent = output;
+}
+</script>
 
 </body>
 </html>
