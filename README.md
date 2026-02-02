@@ -1,90 +1,121 @@
-# Whytegod Protocol
+# WHYTEGOD (WGD)
 
-Whytegod is a minimalist blockchain protocol designed for permanent,
-verifiable record anchoring without governance, identity, or discretionary control.
+**Whytegod** is a minimalist, AI-first peer-to-peer financial protocol  
+designed for permanence, correctness, and long-term verification.
 
-The protocol prioritizes correctness, immutability, and long-term verification
-over flexibility or rapid change.
-
-This repository contains the complete protocol definition.
-
----
-
-## Protocol Principles
-
-- Fixed supply
-- No governance
-- No identity
-- No discretionary upgrades
-- Deterministic verification
-- Long-term auditability
-
-The protocol enforces rules, not intent.
+It is not a product.  
+It is not a platform.  
+It is infrastructure.
 
 ---
 
-## Native Asset
+## Vision
 
-- Primary unit: **WGD**
-- Smallest unit: **Wert**
-- Conversion: `1 WGD = 100,000,000 Wert`
+Modern finance is fragile because it is mutable.
 
-The protocol does not target price or market behavior.
-
----
-
-## Repository Structure
-
-### `/spec`
-Authoritative protocol law.
-If any document conflicts with the specification, the specification prevails.
-
-- `spec.md`
-
-### `/protocol`
-Operational and structural definitions.
-
-- `headers.md` — block header structure
-- `records.md` — record format and anchoring
-- `protocols.md` — protocol operation
-- `threat.md` — threat model
-- `economics.md` — demand-driven economic model
-
----
-
-## Design Scope
-
-The protocol defines:
-- Units and supply
-- Record anchoring
-- Verification rules
-- Security assumptions
-
-The protocol does NOT define:
+Whytegod exists to anchor economic truth in systems that do not rely on:
+- Identity
 - Governance
-- Smart contracts
-- Identity systems
-- Applications
-- Price controls
+- Permission
+- Discretionary control
 
-These concerns are intentionally excluded.
+The goal is not speed.  
+The goal is **correctness that survives time**.
+
+---
+
+## What is Whytegod
+
+Whytegod is a blockchain protocol focused on **permanent record anchoring**
+and **verifiable financial execution**.
+
+It prioritizes:
+- Immutability over flexibility  
+- Determinism over discretion  
+- Verification over trust  
+
+Once data is committed, it is final.
+
+---
+
+## Core Principles
+
+**1. Minimalism**  
+Every component must justify its existence.
+
+**2. Immutability**  
+State transitions are irreversible by design.
+
+**3. Verifiability**  
+Any third party can independently validate outcomes.
+
+**4. Neutrality**  
+The protocol does not know users, identities, or intent.
+
+**5. Longevity**  
+Systems are designed to function decades forward, not quarters.
+
+---
+
+## Protocol Scope
+
+Whytegod is intentionally narrow.
+
+It does **not**:
+- Manage identity
+- Enforce governance
+- Adapt to social pressure
+- Optimize for trends
+
+This restraint is a feature, not a limitation.
+
+---
+
+## WGD Token
+
+The **WGD token** functions as a protocol-native economic primitive.
+
+Its role is tied to:
+- Execution finality
+- Economic alignment
+- Long-term sustainability of the network
+
+Full token mechanics are defined separately.
+
+---
+
+## Future Direction
+
+Whytegod will evolve cautiously.
+
+Changes are:
+- Rare
+- Explicit
+- Backward-verifiable
+
+Stability is treated as a public good.
+
+---
+
+## Repositories
+
+- **whytegod.github.io** — Public interface and documentation  
+- **whytegod** — Financial execution layer  
+- **open-financial-network** — Base infrastructure  
 
 ---
 
 ## Status
 
-This protocol is intentionally conservative.
+Whytegod is under active development.
 
-Changes, if ever made, must preserve:
-- Historical validity
-- Fixed supply
-- Verifiability
-
-Backward reinterpretation is forbidden.
+Nothing here is speculative marketing.  
+Everything here is structural intent.
 
 ---
 
 ## License
 
-Open specification.
-Implementation is unrestricted.
+Open infrastructure.  
+No ownership.  
+No promises.
