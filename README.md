@@ -1,59 +1,53 @@
 # WHYTEGOD (WGD)
 
-**Whytegod** is a minimalist, AI-first peer-to-peer financial protocol  
-designed for permanence, correctness, and long-term verification.
+Whytegod (WGD) is a minimalist, AI-first peer-to-peer financial protocol
+designed for permanence, correctness, and long-term verifiability.
 
-It is not a product.  
-It is not a platform.  
+It is not a product.
+It is not a platform.
 It is infrastructure.
 
 ---
 
-## Vision
+## Overview
 
-Modern finance is fragile because it is mutable.
+Modern financial systems are fragile because they are mutable.
 
 Whytegod exists to anchor economic truth in systems that do not rely on:
+
 - Identity
-- Governance
+- Governance discretion
 - Permission
-- Discretionary control
+- Social consensus manipulation
 
-The goal is not speed.  
-The goal is **correctness that survives time**.
+The objective is not speed.
+The objective is correctness that survives time.
 
----
-
-## What is Whytegod
-
-Whytegod is a blockchain protocol focused on **permanent record anchoring**
-and **verifiable financial execution**.
-
-It prioritizes:
-- Immutability over flexibility  
-- Determinism over discretion  
-- Verification over trust  
-
-Once data is committed, it is final.
+Once committed, state transitions are final.
 
 ---
 
 ## Core Principles
 
-**1. Minimalism**  
+### 1. Minimalism
 Every component must justify its existence.
+Complexity is treated as systemic risk.
 
-**2. Immutability**  
+### 2. Immutability
 State transitions are irreversible by design.
+Finality is foundational.
 
-**3. Verifiability**  
+### 3. Verifiability
 Any third party can independently validate outcomes.
+Trust is replaced with proof.
 
-**4. Neutrality**  
-The protocol does not know users, identities, or intent.
+### 4. Neutrality
+The protocol does not recognize users, identities, intent,
+or jurisdiction. It executes deterministically.
 
-**5. Longevity**  
-Systems are designed to function decades forward, not quarters.
+### 5. Longevity
+Systems are designed to function decades forward,
+not quarters. Stability is treated as a public good.
 
 ---
 
@@ -61,61 +55,115 @@ Systems are designed to function decades forward, not quarters.
 
 Whytegod is intentionally narrow.
 
-It does **not**:
+It does not:
+
 - Manage identity
 - Enforce governance
 - Adapt to social pressure
 - Optimize for trends
+- Modify history
 
-This restraint is a feature, not a limitation.
+Restraint is a feature, not a limitation.
+
+The protocol focuses strictly on:
+
+- Permanent record anchoring
+- Deterministic execution
+- Verifiable economic state transitions
 
 ---
 
 ## WGD Token
 
-The **WGD token** functions as a protocol-native economic primitive.
+The WGD token functions as a protocol-native economic primitive.
 
 Its role is tied to:
+
 - Execution finality
 - Economic alignment
 - Long-term sustainability of the network
 
-Full token mechanics are defined separately.
+The token does not represent equity, ownership, or governance rights.
+
+Full token mechanics are defined separately and evolve cautiously
+under protocol stability constraints.
 
 ---
 
-## Future Direction
+## Architecture Philosophy
 
-Whytegod will evolve cautiously.
+Whytegod follows a layered infrastructure model:
+
+1. Base Layer — Open Financial Infrastructure  
+2. Execution Layer — Deterministic State Processing  
+3. Interface Layer — Public Access & Documentation  
+
+Each layer is independently verifiable.
 
 Changes are:
+
 - Rare
 - Explicit
 - Backward-verifiable
 
-Stability is treated as a public good.
+Upgradeability is constrained by the permanence mandate.
 
 ---
 
 ## Repositories
 
-- **whytegod.github.io** — Public interface and documentation  
-- **whytegod** — Financial execution layer  
-- **open-financial-network** — Base infrastructure  
+- `whytegod.github.io` — Public interface and documentation  
+- `whytegod` — Financial execution layer  
+- `open-financial-network` — Base infrastructure  
+
+Each repository serves a defined structural role.
 
 ---
 
-## Status
+## Development Status
 
 Whytegod is under active development.
 
-Nothing here is speculative marketing.  
-Everything here is structural intent.
+This repository represents structural intent, not marketing material.
+No forward-looking guarantees are made.
+
+Stability and correctness take precedence over feature velocity.
+
+---
+
+## Governance Position
+
+Whytegod minimizes governance surface area.
+
+Where possible:
+
+- Rules are encoded, not debated.
+- Determinism replaces discretion.
+- Mechanism replaces authority.
+
+Human intervention is treated as exceptional, not routine.
+
+---
+
+## Security
+
+Security is foundational.
+
+If you discover a vulnerability, do not disclose it publicly.
+A formal security policy will define coordinated disclosure procedures.
 
 ---
 
 ## License
 
-Open infrastructure.  
-No ownership.  
-No promises.
+This project is licensed under the Apache License, Version 2.0.
+
+The source code is open infrastructure.
+You may use, modify, and distribute it in accordance
+with the terms of the license.
+
+WGD™ and the WGD logo are trademarks of WGD Foundation.
+The license does not grant rights to use the WGD name,
+branding, or associated marks without explicit permission.
+
+See the `LICENSE` and `NOTICE` files for full details.
