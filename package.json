@@ -1,0 +1,12 @@
+{
+  "name": "wgd",
+  "version": "0.1.0",
+  "description": "WGD Core Library",
+  "main": "src/index.js",
+  "type": "commonjs",
+  "license": "Apache-2.0",
+  "author": "WGD Foundation",
+  "engines": {
+    "node": ">=18"
+  }
+}
