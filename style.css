@@ -1,128 +1,164 @@
-/* ================= GLOBAL ================= */
-body {
+* {
     margin: 0;
-    padding-top: 80px;
-    font-family: Arial, Helvetica, sans-serif;
-    background: #f5f5f5;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-h1, h2 {
-    margin-bottom: 15px;
+body {
+    font-family: Arial, sans-serif;
+    background: #0b0f19;
+    color: #fff;
+    line-height: 1.6;
 }
 
-.section {
-    padding: 80px 10%;
-    text-align: center;
-}
-
-.dark {
-    background: #000;
-    color: white;
-}
-
-/* ================= NAVBAR ================= */
-.navbar {
-    background: #000;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    padding: 15px 0;
-}
-
-.nav-container {
-    width: 90%;
-    margin: auto;
+header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-/* ================= LOGO ================= */
-.logo-container {
-    display: flex;
-    align-items: center;
-    gap: 12px;
+    padding: 20px 40px;
+    background: #111827;
+    border-bottom: 1px solid #1f2937;
 }
 
 .logo {
-    height: 45px;
-    width: auto;
-    display: block;
+    height: 55px;
 }
 
-.brand-name {
-    color: white;
-    font-size: 20px;
-    font-weight: bold;
-}
-
-/* ================= NAV LINKS ================= */
 nav a {
-    color: white;
-    text-decoration: none;
     margin-left: 20px;
-    font-weight: 500;
+    text-decoration: none;
+    color: #ccc;
+    transition: 0.3s;
 }
 
 nav a:hover {
-    color: #00ffff;
+    color: #38bdf8;
 }
 
-/* ================= HERO ================= */
 .hero {
-    height: 100vh;
-    background: linear-gradient(to right, #000000, #111111);
+    text-align: center;
+    padding: 120px 20px;
+    background: linear-gradient(to bottom, #111827, #0b0f19);
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 15px;
+    color: #38bdf8;
+}
+
+.hero p {
+    font-size: 18px;
+    color: #ccc;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 12px 28px;
+    background: #38bdf8;
+    color: #000;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #0ea5e9;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 80px 20px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 40px;
+    color: #38bdf8;
+}
+
+.stats {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
+    justify-content: space-between;
+    flex-wrap: wrap;
     text-align: center;
 }
 
-.hero-content h1 {
-    font-size: 42px;
+.stat-box {
+    flex: 1;
+    min-width: 250px;
+    padding: 20px;
 }
 
-.hero-content p {
-    margin: 20px 0;
-    font-size: 18px;
+.stat-box h2 {
+    font-size: 40px;
+    color: #38bdf8;
 }
 
-.btn-primary {
-    background: #00ffff;
-    padding: 12px 25px;
-    color: black;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
-}
-
-/* ================= TOKEN BOX ================= */
-.token-box {
-    background: white;
-    color: black;
+.dashboard-card {
+    background: #111827;
     padding: 30px;
     border-radius: 8px;
-    max-width: 500px;
+    margin-top: 20px;
+}
+
+footer {
+    background: #111827;
+    padding: 40px 20px;
+    margin-top: 60px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1100px;
     margin: auto;
 }
 
-/* ================= ROADMAP ================= */
-.roadmap-list {
-    list-style: none;
-    padding: 0;
+.footer-logo {
+    width: 60px;
+    margin-bottom: 10px;
 }
 
-.roadmap-list li {
-    padding: 10px 0;
-    font-size: 18px;
+footer h4 {
+    margin-bottom: 10px;
+    color: #38bdf8;
 }
 
-/* ================= FOOTER ================= */
-footer {
-    background: #111;
-    color: white;
+footer a {
+    display: block;
+    margin-bottom: 6px;
+    color: #ccc;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #38bdf8;
+}
+
+.footer-bottom {
     text-align: center;
-    padding: 20px;
+    margin-top: 25px;
+    color: #555;
+    font-size: 14px;
+}
+
+@media(max-width:768px){
+    header {
+        flex-direction: column;
+    }
+
+    nav {
+        margin-top: 15px;
+    }
+
+    .stats {
+        flex-direction: column;
+    }
 }
