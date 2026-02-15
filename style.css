@@ -1,77 +1,69 @@
-/* WHYTEGOD — Institutional Minimal Theme */
-
-:root {
-  --bg: #0f1115;
-  --panel: #151922;
-  --border: #1e222a;
-  --text: #e6e8eb;
-  --muted: #9aa4b2;
-  --accent: #ffffff;
-}
-
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: var(--bg);
-  color: var(--text);
+  background: #0b0f19;
+  color: #ffffff;
   line-height: 1.6;
 }
 
-/* NAVIGATION */
-
 header {
-  border-bottom: 1px solid var(--border);
-  background: #111318;
+  background: #111827;
+  padding: 20px 40px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 .nav-container {
-  max-width: 1200px;
-  margin: auto;
-  padding: 18px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 .logo {
-  font-weight: 600;
-  letter-spacing: 1px;
+  font-size: 22px;
+  font-weight: bold;
   text-decoration: none;
-  color: white;
+  color: #ffffff;
 }
 
 nav a {
-  color: var(--muted);
+  margin-left: 20px;
   text-decoration: none;
-  margin-left: 24px;
+  color: #d1d5db;
   font-size: 14px;
 }
 
 nav a:hover {
-  color: white;
+  color: #ffffff;
 }
 
-/* HERO */
-
-.hero {
-  text-align: center;
-  padding: 120px 20px 80px;
-  max-width: 850px;
+section {
+  padding: 80px 40px;
+  max-width: 1000px;
   margin: auto;
 }
 
+.hero {
+  text-align: center;
+  padding: 120px 20px;
+}
+
 .hero h1 {
-  font-size: 44px;
+  font-size: 42px;
   margin-bottom: 20px;
 }
 
 .hero p {
-  color: var(--muted);
   font-size: 18px;
+  color: #9ca3af;
+  max-width: 700px;
+  margin: auto;
 }
 
 .buttons {
@@ -80,63 +72,29 @@ nav a:hover {
 
 .btn-primary,
 .btn-secondary {
-  padding: 12px 22px;
+  padding: 12px 24px;
+  margin: 10px;
+  border-radius: 6px;
   text-decoration: none;
-  font-size: 14px;
+  display: inline-block;
 }
 
 .btn-primary {
-  background: white;
-  color: black;
-  margin-right: 12px;
-}
-
-.btn-secondary {
-  border: 1px solid white;
+  background: #2563eb;
   color: white;
 }
 
-/* SECTIONS */
-
-section {
-  max-width: 1100px;
-  margin: auto;
-  padding: 80px 20px;
-}
-
-h2 {
-  font-size: 28px;
-  margin-bottom: 40px;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 24px;
-}
-
-.card {
-  background: var(--panel);
-  padding: 24px;
-  border: 1px solid var(--border);
-}
-
-.card h3 {
-  margin-top: 0;
-}
-
-.muted {
-  color: var(--muted);
-}
-
-ul {
-  padding-left: 20px;
+.btn-secondary {
+  background: #1f2937;
+  color: white;
+  border: 1px solid #374151;
 }
 
 footer {
-  border-top: 1px solid var(--border);
-  padding: 40px 20px;
+  background: #111827;
   text-align: center;
-  color: var(--muted);
-  font-size: 13px;
+  padding: 30px;
+  margin-top: 60px;
+  color: #9ca3af;
+  font-size: 14px;
 }
