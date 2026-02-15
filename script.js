@@ -1,0 +1,1 @@
+console.log("Whytegod Protocol Loaded Successfully");
